@@ -48,8 +48,8 @@ keymap("n", "<C-l>", "<C-w>l", default_opts)
 keymap("n", "Y", "y$", default_opts)
 
 -- Close buffer
-keymap("n", "<leader>q", ":NvimTreeClose<CR>:bdelete<CR>", default_opts)
-keymap("n", "<leader>Q", ":bw<CR>", default_opts)
+keymap("n", "<leader>Q", ":NvimTreeClose<CR>:bdelete<CR>", default_opts)
+keymap("n", "<leader>q", ":bw<CR>:NvimTreeToggle<CR>", default_opts)
 -- Nvim Tree
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", default_opts)
 keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", default_opts)
