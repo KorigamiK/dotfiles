@@ -1,6 +1,6 @@
 local keymap = vim.api.nvim_set_keymap
 local default_opts = { noremap = true, silent = true }
-local expr_opts = { noremap = true, expr = true, silent = true }
+-- local expr_opts = { noremap = true, expr = true, silent = true }
 
 -- Better escape using jk in insert and terminal mode
 keymap("i", "jk", "<ESC>", default_opts)
@@ -11,8 +11,8 @@ keymap("n", "n", "nzz", default_opts)
 keymap("n", "N", "Nzz", default_opts)
 
 -- Visual line wraps
-keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_opts)
-keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_opts)
+keymap("n", "k", "gk", default_opts)
+keymap("n", "j", "gj", default_opts)
 
 -- Better indent
 keymap("v", "<", "<gv", default_opts)
@@ -48,8 +48,8 @@ keymap("n", "<C-l>", "<C-w>l", default_opts)
 keymap("n", "Y", "y$", default_opts)
 
 -- Close buffer
-keymap("n", "<leader>q", ":NvimTreeClose<CR>:bdelete<CR>", default_opts)
-keymap("n", "<leader>Q", ":bw<CR>", default_opts)
+keymap("n", "<leader>Q", ":NvimTreeClose<CR>:bdelete<CR>", default_opts)
+keymap("n", "<leader>q", ":bw<CR>:NvimTreeToggle<CR>", default_opts)
 -- Nvim Tree
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", default_opts)
 keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", default_opts)

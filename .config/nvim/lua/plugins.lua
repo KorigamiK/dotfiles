@@ -72,6 +72,13 @@ function M.setup()
 				require("config.neogit").setup()
 			end,
 		})
+		use({
+			"lewis6991/gitsigns.nvim",
+			requires = { "nvim-lua/plenary.nvim" },
+			config = function()
+				require("config.gitsigns").setup()
+			end,
+		})
 
 		-- WhichKey
 		use({
@@ -183,7 +190,7 @@ function M.setup()
 		})
 
 		-- Telescope
-		use {
+		use({
 			"nvim-telescope/telescope.nvim",
 			opt = true,
 			config = function()
@@ -206,7 +213,7 @@ function M.setup()
 				"nvim-telescope/telescope-project.nvim",
 				"cljoly/telescope-repo.nvim",
 			},
-		}
+		})
 
 		-- LSP
 		use({ "neovim/nvim-lspconfig" })
