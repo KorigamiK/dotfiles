@@ -1,0 +1,9 @@
+{
+    "Lua.workspace.library": [
+        "${3rd}/luassert/library"
+    ],
+    "Lua.diagnostics.globals": [
+        "vim",
+        "packer_plugins"
+    ]
+}
