@@ -183,41 +183,30 @@ function M.setup()
 		})
 
 		-- Telescope
-		use({ "nvim-lua/popup.nvim" })
-		use({
+		use {
 			"nvim-telescope/telescope.nvim",
-			module = "telescope",
-			as = "telescope",
-			requires = {
-				"nvim-telescope/telescope-project.nvim",
-				"nvim-telescope/telescope-symbols.nvim",
-				"nvim-telescope/telescope-media-files.nvim",
-				"nvim-telescope/telescope-file-browser.nvim",
-				"nvim-telescope/telescope-github.nvim",
-				"fhill2/telescope-ultisnips.nvim",
-				"cljoly/telescope-repo.nvim",
-				"jvgrootveld/telescope-zoxide",
-				"dhruvmanila/telescope-bookmarks.nvim",
-				-- 'nvim-telescope/telescope-hop.nvim'
-				{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-				{
-					"nvim-telescope/telescope-arecibo.nvim",
-					rocks = { "openssl", "lua-http-parser" },
-				},
-				{
-					"nvim-telescope/telescope-frecency.nvim",
-					requires = { "tami5/sql.nvim" },
-				},
-				{
-					"nvim-telescope/telescope-vimspector.nvim",
-					event = "BufWinEnter",
-				},
-				{ "nvim-telescope/telescope-dap.nvim" },
-			},
+			opt = true,
 			config = function()
 				require("config.telescope").setup()
 			end,
-		})
+			cmd = { "Telescope" },
+			module = "telescope",
+			keys = { "<leader>f", "<leader>p" },
+			wants = {
+				"plenary.nvim",
+				"popup.nvim",
+				"telescope-fzf-native.nvim",
+				"telescope-project.nvim",
+				"telescope-repo.nvim",
+			},
+			requires = {
+				"nvim-lua/popup.nvim",
+				"nvim-lua/plenary.nvim",
+				{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+				"nvim-telescope/telescope-project.nvim",
+				"cljoly/telescope-repo.nvim",
+			},
+		}
 
 		-- LSP
 		use({ "neovim/nvim-lspconfig" })
