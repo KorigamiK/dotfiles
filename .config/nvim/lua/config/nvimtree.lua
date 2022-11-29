@@ -43,15 +43,15 @@ function M.setup()
 					folder = {
 						arrow_open = "",
 						arrow_closed = "",
-						default = "📁",
-						open = "📁",
+						default = "",
+						open = "",
 						empty = "",
 						empty_open = "",
 						symlink = "",
 						symlink_open = "",
 					},
 					git = {
-						unstaged = "",
+						unstaged = "*",
 						staged = "S",
 						unmerged = "",
 						renamed = "➜",
@@ -68,7 +68,7 @@ function M.setup()
 			icons = {
 				hint = "",
 				info = "",
-				warning = "",
+				warning = "!",
 				error = "",
 			},
 		},
