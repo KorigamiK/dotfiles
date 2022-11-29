@@ -274,6 +274,20 @@ function M.setup()
 		-- Completion
 		use({ "ray-x/lsp_signature.nvim" })
 		use({
+			"folke/trouble.nvim",
+			event = "VimEnter",
+			cmd = { "TroubleToggle", "Trouble" },
+			config = function()
+				require("trouble").setup({ auto_open = false })
+			end,
+		})
+		use({
+			"onsails/lspkind-nvim",
+			config = function()
+				require("lspkind").init()
+			end,
+		})
+		use({
 			"hrsh7th/nvim-cmp",
 			event = "InsertEnter",
 			opt = true,
