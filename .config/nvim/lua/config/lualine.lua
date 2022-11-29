@@ -7,8 +7,12 @@ function M.setup()
 		options = {
 			icons_enabled = true,
 			theme = "auto",
+			-- very minimalistic separators
 			-- component_separators = { left = "", right = "" },
 			-- section_separators = { left = "", right = "" },
+			component_separators = { left = "", right = "" },
+			section_separators = { left = "", right = "" },
+
 			always_divide_middle = true,
 			disabled_filetypes = { "NvimTree", "packer" },
 		},
