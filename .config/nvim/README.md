@@ -7,6 +7,14 @@
 These my personal neovim config files.
 I based them from the config files of @alpha2phi and @mathletedev.
 
+## Flex 💪
+
+
+
+![nvim](../../screenshots/nvim.png) ![nvim](../../screenshots/nvim-writing.png)
+
+___Theme___:  [Horizon](https://github.com/korigamik/horizon.nvim/) which I modified ;)
+
 ## Installation
 
 You can test my config files by cloning this repository and sourcing
