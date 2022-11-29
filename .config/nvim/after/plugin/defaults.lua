@@ -32,27 +32,22 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- Highlight on yank
-vim.cmd [[
+vim.cmd([[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
-]]
+]])
 
 vim.api.nvim_create_autocmd("InsertEnter", { command = "set norelativenumber", pattern = "*" })
 vim.api.nvim_create_autocmd("InsertLeave", { command = "set relativenumber", pattern = "*" })
 vim.api.nvim_create_autocmd("TermOpen", { command = "startinsert", pattern = "*" })
 
 function _G.statusline()
-  local filepath = '%f'
-  local align_section = '%='
-  local percentage_through_file = '%p%%'
-  return string.format(
-    '%s%s%s',
-    filepath,
-    align_section,
-    percentage_through_file
-  )
+	local filepath = "%f"
+	local align_section = "%="
+	local percentage_through_file = "%p%%"
+	return string.format("%s%s%s", filepath, align_section, percentage_through_file)
 end
 
 -- Status line
@@ -64,3 +59,11 @@ end
 -- set statusline+=/         " Separator
 -- set statusline+=%L        " Total lines
 -- ]]
+
+-- Folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 10
+
+-- Bracket colors
+vim.cmd("hi rainbowcol1 guifg=#dfd561")

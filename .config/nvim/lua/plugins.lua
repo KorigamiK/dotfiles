@@ -49,12 +49,16 @@ function M.setup()
 		use({ "nvim-lua/plenary.nvim", module = "plenary" })
 
 		-- Colorscheme
+		-- use({ "sainnhe/everforest" })
+		-- use({ "FrenzyExists/aquarium-vim" })
+		-- use({ "vv9k/bogster" })
 		use({
-			"sainnhe/everforest",
+			"KorigamiK/horizon.nvim",
 			config = function()
-				vim.cmd("colorscheme everforest")
+				vim.cmd("colorscheme horizon")
 			end,
 		})
+		-- use({ "ntk148v/vim-horizon" })
 
 		-- Startup screen
 		use({
