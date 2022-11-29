@@ -99,17 +99,19 @@ function M.setup()
 	-- Use buffer source for `/`
 	cmp.setup.cmdline("/", {
 		sources = {
-			{ name = "buffer" },
+			{ name = "buffer", max_item_count = 5, keyword_length = 5 },
+			-- { name = "nvim_lsp_document_symbol", max_item_count = 8, keyword_length = 3 },
 		},
 	})
 
 	-- Use cmdline & path source for ':'
 	cmp.setup.cmdline(":", {
-		sources = cmp.config.sources({
-			{ name = "path" },
-		}, {
-			{ name = "cmdline" },
-		}),
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = cmp.config.sources(
+			{ { name = "path", max_item_count = 5 } },
+			{ { name = "cmdline", max_item_count = 10 } },
+			{ { name = "nvim_lua" } }
+		),
 	})
 
 	-- Auto pairs
