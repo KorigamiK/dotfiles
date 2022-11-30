@@ -220,7 +220,9 @@ function M.setup()
 		})
 
 		-- LSP
-		use({ "neovim/nvim-lspconfig" })
+		use({ "neovim/nvim-lspconfig", config = function()
+			require('lspconfig.ui.windows').default_options.border = 'rounded'
+		end })
 		use({ "williamboman/nvim-lsp-installer" })
 		use({ "jose-elias-alvarez/null-ls.nvim" })
 		use({ "b0o/SchemaStore.nvim" })
