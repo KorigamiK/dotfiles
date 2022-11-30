@@ -44,3 +44,4 @@ luac.out
 .config/nvim/plugin/packer_compiled.lua
 */lua/packer_compiled.lua
 .config/nvim/rplugin
+.config/mpv/watch_later/
