@@ -7,6 +7,7 @@ local lsp_providers = {
   gopls = true,
   sumneko_lua = true,
   jsonls = true,
+  clangd = true,
 }
 
 local function setup_servers()
