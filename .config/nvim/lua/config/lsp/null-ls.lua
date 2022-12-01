@@ -16,7 +16,9 @@ function M.setup()
 		nls.builtins.diagnostics.flake8,
 		nls.builtins.code_actions.gitsigns,
 		-- nls.builtins.formatting.prettier,
-		nls.builtins.diagnostics.markdownlint.with({ filetypes = { "markdown", "rmd", "Rmd" } }),
+		nls.builtins.diagnostics.markdownlint.with({
+			filetypes = { "markdown", "rmd", "Rmd" },
+		}),
 		nls.builtins.formatting.markdownlint.with({ filetypes = { "markdown", "rmd", "Rmd" } }),
 		nls.builtins.formatting.stylua,
 		nls.builtins.formatting.styler, -- .with({ filetypes = { "rmd" } }),
