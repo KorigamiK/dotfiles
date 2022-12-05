@@ -193,6 +193,15 @@ function M.setup()
 			end,
 		})
 
+		-- Transparent background
+		use({
+			"xiyaowong/nvim-transparent",
+			config = function()
+				require("config.transparent").setup()
+			end,
+			cmd = { "TransparentToggle" },
+		})
+
 		-- Telescope
 		use({
 			"nvim-telescope/telescope.nvim",
@@ -220,9 +229,12 @@ function M.setup()
 		})
 
 		-- LSP
-		use({ "neovim/nvim-lspconfig", config = function()
-			require('lspconfig.ui.windows').default_options.border = 'rounded'
-		end })
+		use({
+			"neovim/nvim-lspconfig",
+			config = function()
+				require("lspconfig.ui.windows").default_options.border = "rounded"
+			end,
+		})
 		use({ "williamboman/nvim-lsp-installer" })
 		use({ "jose-elias-alvarez/null-ls.nvim" })
 		use({ "b0o/SchemaStore.nvim" })
