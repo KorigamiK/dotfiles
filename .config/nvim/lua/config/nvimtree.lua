@@ -16,10 +16,11 @@ function M.setup()
 		hijack_netrw = true,
 		respect_buf_cwd = true,
 		view = {
+			width = 25,
 			side = "right",
 			number = false,
 			relativenumber = false,
-			adaptive_size = true,
+			adaptive_size = false,
 			mappings = {
 				list = {
 					{ key = "u", action = "dir_up" },
