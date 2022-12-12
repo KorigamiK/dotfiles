@@ -13,7 +13,8 @@ function M.setup()
 		nls.builtins.diagnostics.shellcheck,
 		nls.builtins.formatting.stylua,
 		nls.builtins.formatting.black,
-		nls.builtins.diagnostics.flake8,
+		-- nls.builtins.diagnostics.flake8,
+		nls.builtins.formatting.cmake_format,
 		nls.builtins.code_actions.gitsigns,
 		-- nls.builtins.formatting.prettier,
 		nls.builtins.diagnostics.markdownlint.with({
@@ -21,7 +22,7 @@ function M.setup()
 		}),
 		nls.builtins.formatting.markdownlint.with({ filetypes = { "markdown", "rmd", "Rmd" } }),
 		nls.builtins.formatting.stylua,
-		nls.builtins.formatting.styler, -- .with({ filetypes = { "rmd" } }),
+		-- nls.builtins.formatting.styler, -- .with({ filetypes = { "rmd" } }),
 		-- nls.builtins.diagnostics.vale,
 	}
 	nls.setup({
