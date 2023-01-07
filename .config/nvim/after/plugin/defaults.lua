@@ -28,7 +28,7 @@ vim.o.tabstop = 2
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	command = "lua vim.lsp.buf.format(nil, 1000)",
-	pattern = "*.cpp,*.css,*.go,*.h,*.hpp,*.html,*.js,*.json,*.jsx,*.lua,*.md,*.py,*.rs,*.ts,*.tsx,*.yaml",
+	pattern = "*.cpp,*.c,*.css,*.go,*.h,*.hpp,*.html,*.js,*.json,*.jsx,*.lua,*.md,*.rmd,*.py,*.rs,*.ts,*.tsx,*.yaml,*.tex,*.cls",
 })
 
 -- Highlight on yank

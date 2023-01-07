@@ -21,6 +21,7 @@ function M.setup()
 			filetypes = { "markdown", "rmd", "Rmd" },
 		}),
 		nls.builtins.formatting.markdownlint.with({ filetypes = { "markdown", "rmd", "Rmd" } }),
+		nls.builtins.formatting.latexindent, --.with({ filetypes = { "tex", "sty" } }),
 		nls.builtins.formatting.stylua,
 		-- nls.builtins.formatting.styler, -- .with({ filetypes = { "rmd" } }),
 		-- nls.builtins.diagnostics.vale,

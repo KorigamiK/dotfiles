@@ -58,7 +58,7 @@ keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", default_opts)
 keymap("n", "<leader>w", ":w<CR>", default_opts)
 
 -- Format code
-keymap("n", "<leader>f", ":lua vim.lsp.buf.format(nil, 1000)", default_opts)
+keymap("n", "<leader>F", ":lua vim.lsp.buf.format(nil, 1000)<CR>:w<CR>", default_opts)
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	command = "lua vim.lsp.buf.format(nil, 1000)",
