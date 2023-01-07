@@ -45,3 +45,4 @@ luac.out
 */lua/packer_compiled.lua
 .config/nvim/rplugin
 .config/mpv/watch_later/
+.config/nvim/indent.log
