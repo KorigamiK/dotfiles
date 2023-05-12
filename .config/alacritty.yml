@@ -29,11 +29,11 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 6
-    y: 6
+    x: 0
+    y: 0
 
   # Spread additional padding evenly around the terminal content.
-  dynamic_padding: false
+  dynamic_padding: true
 
   # Background opacity
   #
@@ -83,7 +83,7 @@ window:
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 5000
+  history: 2000
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
@@ -595,7 +595,7 @@ colors: *TomorrowNight
 #  color: '#ffffff'
 
 #selection:
-#semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
 # When set to `true`, selected text will be copied to the primary clipboard.
 #save_to_clipboard: false
@@ -850,3 +850,4 @@ key_bindings:
   - { key: PageDown, mods: None, action: ScrollPageDown, mode: ~Alt }
   - { key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt }
   - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }
+  - { key: I, mods: Control, chars: "\x1b[105;5u" }
