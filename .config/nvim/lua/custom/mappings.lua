@@ -8,7 +8,7 @@ M.general = {
     ["<leader>tt"] = { "<cmd> lua require('base46').toggle_transparency() <CR>", "Toggle Transparency" },
 
     -- write out
-    ["<leader>X"] = { "<cmd> x <CR>", "Write out and exit" },
+    ["<leader>x"] = { "<cmd> Bdelete <CR>", "Quit" },
 
     -- telescope
     ["<leader>m"] = { "<cmd> Telescope marks <CR>", "Search bookmarks" },
@@ -20,8 +20,8 @@ M.general = {
     ["<leader>lS"] = { "<cmd> LspStop <CR>", "Stop lsp" },
 
     -- quit
-    ["<leader>q"] = { "<cmd> q <CR>", "Quit" },
-    ["<leader>Q"] = { "<cmd> qa <CR>", "Quit all" },
+    ["<leader>Q"] = { "<cmd> x <CR>", "Write out and exit" },
+    ["<leader>q"] = { ":bufdo :Bdelete <CR>", "Quit all" },
 
     -- join lines
     ["gj"] = { "<cmd> join <CR>", "Join lines" },
@@ -48,6 +48,7 @@ M.disabled = {
     n = {
       ["<leader>q"] = "",
       ["<leader>ls"] = "",
+      ["<leader>x"] = "",
     }
   }
 }
