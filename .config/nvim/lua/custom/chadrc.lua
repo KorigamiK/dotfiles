@@ -1,13 +1,6 @@
 ---@type ChadrcConfig
 local M = {}
 
--- Highlight on yank
-vim.cmd([[
-  autocmd!
-  autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
-]])
-
 -- Path to overriding theme and highlights files
 local highlights = require "custom.highlights"
 
