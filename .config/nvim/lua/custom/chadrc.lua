@@ -3,8 +3,8 @@ local M = {}
 
 -- Highlight on yank
 vim.cmd([[
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+  autocmd!
+  autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
 ]])
 
