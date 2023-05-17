@@ -46,3 +46,8 @@ luac.out
 .config/nvim/rplugin
 .config/mpv/watch_later/
 .config/nvim/indent.log
+
+.config/nvim
+!.config/nvim/lua/custom
+.config/old
+.config/NvChad
