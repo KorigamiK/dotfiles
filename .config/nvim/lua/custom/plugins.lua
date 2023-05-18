@@ -65,9 +65,6 @@ local plugins = {
     },
   },
 
-  -- All NvChad plugins are lazy-loaded by default
-  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
-  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
   {
     "mg979/vim-visual-multi",
     lazy = false,
@@ -132,10 +129,21 @@ local plugins = {
         },
       }
     end,
-    cmd = { "CompetiTestReceive", "CompetiTestRun", "CompetiTestDelete", "CompetiTestEdit", "CompetiTestAdd" },
+    cmd = { "CompetiTestReceive", "CompetiTestRun", "CompetiTestDelete", "CompetiTestEdit", "CompetiTestAdd", "CompetiTestRunNC", "CompetiTestRunNE" },
   },
 
   { "moll/vim-bbye", lazy = false },
+
+  -- -- Haskell
+  -- {
+  --   'mrcjkb/haskell-tools.nvim',
+  --   ft = "haskell",
+  --   requires = {
+  --       'nvim-lua/plenary.nvim',
+  --       'nvim-telescope/telescope.nvim', -- optional
+  --     },
+  -- }
+
 }
 
 return plugins
