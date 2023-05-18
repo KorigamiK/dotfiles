@@ -10,3 +10,4 @@ vim.g.snipmate_snippets_path = "~/Dev/projects/snippets/snipmate"
 vim.g.vscode_snippets_path = "~/Dev/projects/snippets/vscode"
 
 vim.api.nvim_create_autocmd({ "TextYankPost" }, { callback = function() vim.highlight.on_yank() end })
+vim.opt.foldmethod = "expr"

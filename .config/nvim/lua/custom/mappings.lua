@@ -43,6 +43,10 @@ M.general = {
 
     -- neogit
     ["<leader>gs"] = { "<cmd> Neogit <CR>", "Open neogit" },
+
+    -- competetive coding
+    ["<leader>rr"] = { "<cmd> CompetiTestRun <CR>", "Compile and run test cases" },
+    ["<leader>rc"] = { "<cmd> CompetiTestRunNC <CR>", "Run test cases" },
   },
   x = {
     -- Move selected line / block of text in visual mode
