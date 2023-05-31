@@ -17,8 +17,8 @@ M.general = {
     ["<leader>v"] = { "<cmd> vsplit <CR>", "Split vertically" },
     ["<leader>h"] = { "<cmd> split <CR>", "Split horizontally" },
 
-    -- write out
-    ["<leader>x"] = { "<c-w>c ", "Close current buffer" },
+    -- -- write out
+    -- ["<leader>x"] = { "<c-w>c ", "Close current buffer" },
 
     -- telescope
     ["<leader>m"] = { "<cmd> Telescope marks <CR>", "Search bookmarks" },
@@ -29,9 +29,9 @@ M.general = {
     ["<leader>ls"] = { "<cmd> LspStart <CR>", "Start lsp" },
     ["<leader>lS"] = { "<cmd> LspStop <CR>", "Stop lsp" },
 
-    -- quit
-    ["<leader>Q"] = { "<cmd> x <CR>", "Write out and exit" },
-    ["<leader>q"] = { ":Bdelete <CR>", "Quit all" },
+    -- -- quit
+    ["<leader>Q"] = { "<cmd> qall <CR>", "Write out and exit" },
+    ["<leader>q"] = { "<cmd> q <CR>", "Quit all" },
 
     -- join lines
     ["gj"] = { "<cmd> join <CR>", "Join lines" },
@@ -64,9 +64,9 @@ M.disabled = {
     n = {
       --     ["<leader>h"] = "",
       --     ["<C-a>"] = ""
-      ["<leader>q"] = "",
-      ["<leader>ls"] = "",
-      ["<leader>x"] = "",
+      -- ["<leader>q"] = "",
+      -- ["<leader>ls"] = "",
+      -- ["<leader>x"] = "",
     },
   },
 }

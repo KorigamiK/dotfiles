@@ -85,12 +85,14 @@ M.mason = {
 
     -- c/cpp stuff
     "clangd",
-    "clang-format",
   },
 }
 
 -- git support in nvimtree
 M.nvimtree = {
+  update_focused_file = {
+    enable = true,
+  },
   git = {
     enable = false,
   },
