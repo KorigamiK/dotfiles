@@ -122,27 +122,59 @@ local plugins = {
     config = function()
       require("competitest").setup {
         compile_command = {
-          cpp = { exec = "g++", args = { "$(FNAME)", "-o", "$(FNOEXT)", "-DONLINE_JUDGE", "-std=c++17", "-O2" } },
+          cpp = { exec = "g++", args = { "$(FNAME)", "-o", "$(FNOEXT)", "-DONLINE_JUDGE", "-std=c++17", "-O2", "-H" } },
         },
         run_command = {
           cpp = { exec = "./$(FNOEXT)" },
         },
+        testcases_use_single_file = true,
       }
     end,
-    cmd = { "CompetiTestReceive", "CompetiTestRun", "CompetiTestDelete", "CompetiTestEdit", "CompetiTestAdd", "CompetiTestRunNC", "CompetiTestRunNE" },
+    cmd = {
+      "CompetiTestReceive",
+      "CompetiTestRun",
+      "CompetiTestDelete",
+      "CompetiTestEdit",
+      "CompetiTestAdd",
+      "CompetiTestRunNC",
+      "CompetiTestRunNE",
+    },
   },
-
-  { "moll/vim-bbye", lazy = false },
 
   -- -- Haskell
   -- {
-  --   'mrcjkb/haskell-tools.nvim',
+  --   "mrcjkb/haskell-tools.nvim",
   --   ft = "haskell",
   --   requires = {
-  --       'nvim-lua/plenary.nvim',
-  --       'nvim-telescope/telescope.nvim', -- optional
-  --     },
-  -- }
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-telescope/telescope.nvim", -- optional
+  --   },
+  --   config = function()
+  --     local ht = require "haskell-tools"
+  --     local def_opts = { noremap = true, silent = true }
+  --     ht.start_or_attach {
+  --       hls = {
+  --         on_attach = function(_, bufnr)
+  --           local opts = vim.tbl_extend("keep", def_opts, { buffer = bufnr })
+  --           -- haskell-language-server relies heavily on codeLenses,
+  --           -- so auto-refresh (see advanced configuration) is enabled by default
+  --           vim.keymap.set("n", "<space>ca", vim.lsp.codelens.run, opts)
+  --           vim.keymap.set("n", "<space>hs", ht.hoogle.hoogle_signature, opts)
+  --           vim.keymap.set("n", "<space>ea", ht.lsp.buf_eval_all, opts)
+  --         end,
+  --       },
+  --     }
+  --   end,
+  -- },
+
+  -- LaTeX
+  {
+    "lervag/vimtex",
+    ft = "tex",
+    config = function()
+      require('custom.configs.vimtex').setup()
+    end,
+  },
 
 }
 
