@@ -48,21 +48,7 @@ local plugins = {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-telescope/telescope-project.nvim" },
-    opts = {
-      extensions = {
-        project = {
-          base_dirs = {
-            { "~/Dev/projects", max_depth = 3 },
-            { "~/Dev/docs" },
-            { "~/Dev/CV" },
-          },
-          sync_with_nvim_tree = true,
-          order_by = "recent",
-          hidden_files = false,
-        },
-      },
-      extensions_list = { "themes", "terms", "project" },
-    },
+    opts = overrides.telescope,
   },
 
   {
@@ -107,9 +93,31 @@ local plugins = {
   },
 
   {
+    "zbirenbaum/copilot.lua",
+    enabled = false,
+    event = "InsertEnter",
+    opts = {
+      suggestion = {
+        enabled = true,
+        keys = {
+          accept = "<C-y>",
+          accept_word = true,
+          accept_line = true,
+          next = "<M-]>",
+          prev = "<M-[>",
+          dismiss = "<C-]>",
+        },
+      },
+      filetypes = {
+        env = false,
+      },
+    },
+  },
+
+  {
     url = "https://git.sr.ht/~p00f/cphelper.nvim",
     enable = false,
-    cmd = { "CphReceive", "CphTest", "CphRetest", "CphEdit", "CphDelete" },
+    -- cmd = { "CphReceive", "CphTest", "CphRetest", "CphEdit", "CphDelete" },
     config = function()
       vim.g["cph#dir"] = "/home/korigamik/Dev/projects/competetive_coding/contests"
       vim.g["cph#lang"] = "cpp"
@@ -126,6 +134,7 @@ local plugins = {
         },
         run_command = {
           cpp = { exec = "./$(FNOEXT)" },
+          py = { exec = "python3", args = { "$(FNAME)" } },
         },
         testcases_use_single_file = true,
       }
@@ -172,10 +181,9 @@ local plugins = {
     "lervag/vimtex",
     ft = "tex",
     config = function()
-      require('custom.configs.vimtex').setup()
+      require("custom.configs.vimtex").setup()
     end,
   },
-
 }
 
 return plugins

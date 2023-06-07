@@ -38,8 +38,8 @@ M.general = {
 
     ["L"] = { "<cmd> bnext <CR>", "Next buffer" },
     ["H"] = { "<cmd> bprevious <CR>", "Previous buffer" },
-    ["<tab>"] = { "<cmd> tabnext <CR>", "Next tab" },
-    ["<S-tab>"] = { "<cmd> tabprevious <CR>", "Previous tab" },
+    -- ["<tab>"] = { "<cmd> tabnext <CR>", "Next tab" },
+    -- ["<S-tab>"] = { "<cmd> tabprevious <CR>", "Previous tab" },
 
     -- neogit
     ["<leader>gs"] = { "<cmd> Neogit <CR>", "Open neogit" },
@@ -47,23 +47,32 @@ M.general = {
     -- competetive coding
     ["<leader>rr"] = { "<cmd> CompetiTestRun <CR>", "Compile and run test cases" },
     ["<leader>rc"] = { "<cmd> CompetiTestRunNC <CR>", "Run test cases" },
+
+    -- move current line
+    ["<A-j>"] = { "<cmd> m +1 <CR>", "move current line", opts = { silent = true } },
+    ["<A-k>"] = { "<cmd> m -2 <CR>", "move current line", opts = { silent = true } },
   },
   x = {
     -- Move selected line / block of text in visual mode
-    ["<A-k>"] = { ":move '<-2<CR>gv-gv", "move selected line", opts = { silent = true } },
     ["<A-j>"] = { ":move '>+1<CR>gv-gv", "move selected line", opts = { silent = true } },
+    ["<A-k>"] = { ":move '<-2<CR>gv-gv", "move selected line", opts = { silent = true } },
   },
   i = {
     -- save
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
+
+    -- move current line
+    ["<A-j>"] = { "<cmd> m +1 <CR>", "move current line", opts = { silent = true } },
+    ["<A-k>"] = { "<cmd> m -2 <CR>", "move current line", opts = { silent = true } },
   },
 }
 
 M.disabled = {
   disabled = {
     n = {
-      --     ["<leader>h"] = "",
-      --     ["<C-a>"] = ""
+      ["<leader>e"] = "",
+      -- ["<leader>h"] = "",
+      -- ["<C-a>"] = ""
       -- ["<leader>q"] = "",
       -- ["<leader>ls"] = "",
       -- ["<leader>x"] = "",
@@ -87,7 +96,5 @@ M.lspconfig = {
     },
   },
 }
-
--- more keybinds!
 
 return M
