@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+sleep 0.5s && wlogout --protocol layer-shell &
+disown

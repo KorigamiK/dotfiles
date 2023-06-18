@@ -21,4 +21,18 @@ lspconfig.clangd.setup {
   -- fixes null-ls warning: multiple different client offset
   cmd = { "clangd", "--background-index", "--offset-encoding=utf-16" },
   filetypes = { "c", "cpp", "objc", "objcpp", "h", "hpp", "hxx", "hh", "cc", "cxx" },
+  -- set standard to c++17
+
+}
+
+lspconfig.hls.setup {
+  filetypes = { "haskell", "lhaskell", "cabal" },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    haskell = {
+      cabalFormattingProvider = "cabalfmt",
+      formattingProvider = "stylish-haskell",
+    },
+  },
 }
