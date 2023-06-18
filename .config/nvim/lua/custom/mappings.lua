@@ -36,8 +36,18 @@ M.general = {
     -- join lines
     ["gj"] = { "<cmd> join <CR>", "Join lines" },
 
-    ["L"] = { "<cmd> bnext <CR>", "Next buffer" },
-    ["H"] = { "<cmd> bprevious <CR>", "Previous buffer" },
+    ["L"] = {
+      function()
+        require("nvchad_ui.tabufline").tabuflineNext()
+      end,
+      "Goto next buffer",
+    },
+    ["H"] = {
+      function()
+        require("nvchad_ui.tabufline").tabuflinePrev()
+      end,
+      "Goto prev buffer",
+    },
     -- ["<tab>"] = { "<cmd> tabnext <CR>", "Next tab" },
     -- ["<S-tab>"] = { "<cmd> tabprevious <CR>", "Previous tab" },
 
@@ -71,6 +81,8 @@ M.disabled = {
   disabled = {
     n = {
       ["<leader>e"] = "",
+      ["<tab>"] = "",
+      ["<S-tab>"] = "",
       -- ["<leader>h"] = "",
       -- ["<C-a>"] = ""
       -- ["<leader>q"] = "",
