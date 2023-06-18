@@ -85,12 +85,14 @@ M.mason = {
 
     -- c/cpp stuff
     "clangd",
-    "clang-format",
   },
 }
 
 -- git support in nvimtree
 M.nvimtree = {
+  update_focused_file = {
+    enable = true,
+  },
   git = {
     enable = false,
   },
@@ -117,20 +119,19 @@ M.nvimtree = {
 }
 
 M.telescope = {
-  opts = {
-    extensions = {
-      project = {
-        base_dirs = {
-          { "~/Dev/projects", max_depth = 3 },
-          { "~/Dev/docs" },
-          { "~/Dev/CV" },
-        },
-        sync_with_nvim_tree = true,
-        order_by = "recent",
-        hidden_files = true,
+  extensions = {
+    project = {
+      base_dirs = {
+        { "~/Dev/projects", max_depth = 3 },
+        { "~/Dev/docs" },
+        { "~/Dev/CV" },
       },
+      sync_with_nvim_tree = true,
+      order_by = "recent",
+      hidden_files = true,
     },
   },
+  extensions_list = { "themes", "terms", "project" },
 }
 
 return M

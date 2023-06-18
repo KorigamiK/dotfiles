@@ -48,26 +48,9 @@ local plugins = {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-telescope/telescope-project.nvim" },
-    opts = {
-      extensions = {
-        project = {
-          base_dirs = {
-            { "~/Dev/projects", max_depth = 3 },
-            { "~/Dev/docs" },
-            { "~/Dev/CV" },
-          },
-          sync_with_nvim_tree = true,
-          order_by = "recent",
-          hidden_files = false,
-        },
-      },
-      extensions_list = { "themes", "terms", "project" },
-    },
+    opts = overrides.telescope,
   },
 
-  -- All NvChad plugins are lazy-loaded by default
-  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
-  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
   {
     "mg979/vim-visual-multi",
     lazy = false,
@@ -110,9 +93,31 @@ local plugins = {
   },
 
   {
+    "zbirenbaum/copilot.lua",
+    enabled = false,
+    event = "InsertEnter",
+    opts = {
+      suggestion = {
+        enabled = true,
+        keys = {
+          accept = "<C-y>",
+          accept_word = true,
+          accept_line = true,
+          next = "<M-]>",
+          prev = "<M-[>",
+          dismiss = "<C-]>",
+        },
+      },
+      filetypes = {
+        env = false,
+      },
+    },
+  },
+
+  {
     url = "https://git.sr.ht/~p00f/cphelper.nvim",
     enable = false,
-    cmd = { "CphReceive", "CphTest", "CphRetest", "CphEdit", "CphDelete" },
+    -- cmd = { "CphReceive", "CphTest", "CphRetest", "CphEdit", "CphDelete" },
     config = function()
       vim.g["cph#dir"] = "/home/korigamik/Dev/projects/competetive_coding/contests"
       vim.g["cph#lang"] = "cpp"
@@ -125,17 +130,60 @@ local plugins = {
     config = function()
       require("competitest").setup {
         compile_command = {
-          cpp = { exec = "g++", args = { "$(FNAME)", "-o", "$(FNOEXT)", "-DONLINE_JUDGE", "-std=c++17", "-O2" } },
+          cpp = { exec = "g++", args = { "$(FNAME)", "-o", "$(FNOEXT)", "-DONLINE_JUDGE", "-std=c++17", "-O2", "-H" } },
         },
         run_command = {
           cpp = { exec = "./$(FNOEXT)" },
+          py = { exec = "python3", args = { "$(FNAME)" } },
         },
+        testcases_use_single_file = true,
       }
     end,
-    cmd = { "CompetiTestReceive", "CompetiTestRun", "CompetiTestDelete", "CompetiTestEdit", "CompetiTestAdd" },
+    cmd = {
+      "CompetiTestReceive",
+      "CompetiTestRun",
+      "CompetiTestDelete",
+      "CompetiTestEdit",
+      "CompetiTestAdd",
+      "CompetiTestRunNC",
+      "CompetiTestRunNE",
+    },
   },
 
-  { "moll/vim-bbye", lazy = false },
+  -- -- Haskell
+  -- {
+  --   "mrcjkb/haskell-tools.nvim",
+  --   ft = "haskell",
+  --   requires = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-telescope/telescope.nvim", -- optional
+  --   },
+  --   config = function()
+  --     local ht = require "haskell-tools"
+  --     local def_opts = { noremap = true, silent = true }
+  --     ht.start_or_attach {
+  --       hls = {
+  --         on_attach = function(_, bufnr)
+  --           local opts = vim.tbl_extend("keep", def_opts, { buffer = bufnr })
+  --           -- haskell-language-server relies heavily on codeLenses,
+  --           -- so auto-refresh (see advanced configuration) is enabled by default
+  --           vim.keymap.set("n", "<space>ca", vim.lsp.codelens.run, opts)
+  --           vim.keymap.set("n", "<space>hs", ht.hoogle.hoogle_signature, opts)
+  --           vim.keymap.set("n", "<space>ea", ht.lsp.buf_eval_all, opts)
+  --         end,
+  --       },
+  --     }
+  --   end,
+  -- },
+
+  -- LaTeX
+  {
+    "lervag/vimtex",
+    ft = "tex",
+    config = function()
+      require("custom.configs.vimtex").setup()
+    end,
+  },
 }
 
 return plugins
