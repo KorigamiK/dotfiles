@@ -78,17 +78,15 @@ M.general = {
 }
 
 M.disabled = {
-  disabled = {
-    n = {
-      ["<leader>e"] = "",
-      ["<tab>"] = "",
-      ["<S-tab>"] = "",
-      -- ["<leader>h"] = "",
-      -- ["<C-a>"] = ""
-      -- ["<leader>q"] = "",
-      -- ["<leader>ls"] = "",
-      -- ["<leader>x"] = "",
-    },
+  n = {
+    ["<leader>e"] = "",
+    ["<tab>"] = "",
+    ["<S-tab>"] = "",
+    -- ["<leader>h"] = "",
+    -- ["<C-a>"] = ""
+    -- ["<leader>q"] = "",
+    -- ["<leader>ls"] = "",
+    -- ["<leader>x"] = "",
   },
 }
 
