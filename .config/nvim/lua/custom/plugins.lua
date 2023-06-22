@@ -132,7 +132,7 @@ local plugins = {
         compile_command = {
           cpp = {
             exec = "g++",
-            args = { "$(FNAME)", "-o", "$(FNOEXT)", "-DKORIGAMIK", "-std=c++20", "-O2", "-H" },
+            args = { "$(FNAME)", "-o", "$(FNOEXT)", "-DKORIGAMIK", "-std=c++20", "-O2", "-H", "-Wall" },
           },
         },
         run_command = {
