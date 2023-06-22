@@ -130,13 +130,17 @@ local plugins = {
     config = function()
       require("competitest").setup {
         compile_command = {
-          cpp = { exec = "g++", args = { "$(FNAME)", "-o", "$(FNOEXT)", "-DONLINE_JUDGE", "-std=c++17", "-O2", "-H" } },
+          cpp = {
+            exec = "g++",
+            args = { "$(FNAME)", "-o", "$(FNOEXT)", "-DKORIGAMIK", "-std=c++20", "-O2", "-H" },
+          },
         },
         run_command = {
           cpp = { exec = "./$(FNOEXT)" },
           py = { exec = "python3", args = { "$(FNAME)" } },
         },
         testcases_use_single_file = true,
+        template_file = "~/Dev/projects/dotfiles/snippets/template.$(FEXT)",
       }
     end,
     cmd = {
@@ -150,31 +154,33 @@ local plugins = {
     },
   },
 
-  -- -- Haskell
-  -- {
-  --   "mrcjkb/haskell-tools.nvim",
-  --   ft = "haskell",
-  --   requires = {
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-telescope/telescope.nvim", -- optional
-  --   },
-  --   config = function()
-  --     local ht = require "haskell-tools"
-  --     local def_opts = { noremap = true, silent = true }
-  --     ht.start_or_attach {
-  --       hls = {
-  --         on_attach = function(_, bufnr)
-  --           local opts = vim.tbl_extend("keep", def_opts, { buffer = bufnr })
-  --           -- haskell-language-server relies heavily on codeLenses,
-  --           -- so auto-refresh (see advanced configuration) is enabled by default
-  --           vim.keymap.set("n", "<space>ca", vim.lsp.codelens.run, opts)
-  --           vim.keymap.set("n", "<space>hs", ht.hoogle.hoogle_signature, opts)
-  --           vim.keymap.set("n", "<space>ea", ht.lsp.buf_eval_all, opts)
-  --         end,
-  --       },
-  --     }
-  --   end,
-  -- },
+  -- Haskell
+  --[[
+  {
+    "mrcjkb/haskell-tools.nvim",
+    ft = "haskell",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim", -- optional
+    },
+    config = function()
+      local ht = require "haskell-tools"
+      local def_opts = { noremap = true, silent = true }
+      ht.start_or_attach {
+        hls = {
+          on_attach = function(_, bufnr)
+            local opts = vim.tbl_extend("keep", def_opts, { buffer = bufnr })
+            -- haskell-language-server relies heavily on codeLenses,
+            -- so auto-refresh (see advanced configuration) is enabled by default
+            vim.keymap.set("n", "<space>ca", vim.lsp.codelens.run, opts)
+            vim.keymap.set("n", "<space>hs", ht.hoogle.hoogle_signature, opts)
+            vim.keymap.set("n", "<space>ea", ht.lsp.buf_eval_all, opts)
+          end,
+        },
+      }
+    end,
+  },
+  --]]
 
   -- LaTeX
   {
