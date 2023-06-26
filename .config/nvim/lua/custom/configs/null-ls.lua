@@ -18,6 +18,9 @@ local sources = {
   -- cpp
   b.formatting.clang_format,
 
+  -- Tex
+  b.formatting.latexindent,
+
 }
 
 null_ls.setup {

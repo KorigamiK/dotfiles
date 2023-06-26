@@ -190,6 +190,17 @@ local plugins = {
       require("custom.configs.vimtex").setup()
     end,
   },
+
+  -- Flutter
+  {
+    "akinsho/flutter-tools.nvim",
+    ft = "dart",
+    opts = {
+      settings = {
+        showTodos = true,
+      }
+    }
+  }
 }
 
 return plugins
