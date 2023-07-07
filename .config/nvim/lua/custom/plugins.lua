@@ -59,7 +59,6 @@ local plugins = {
 
   {
     "TimUntersberger/neogit",
-    keys = "<leader>gs",
     cmd = "Neogit",
   },
 
