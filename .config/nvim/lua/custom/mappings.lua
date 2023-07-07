@@ -36,6 +36,9 @@ M.general = {
     -- join lines
     ["gj"] = { "<cmd> join <CR>", "Join lines" },
 
+    -- Neogit
+    ["<leader>gs"] = { "<cmd>Neogit<CR>", "Open neogit" },
+
     ["L"] = {
       function()
         require("nvchad_ui.tabufline").tabuflineNext()
@@ -50,9 +53,6 @@ M.general = {
     },
     -- ["<tab>"] = { "<cmd> tabnext <CR>", "Next tab" },
     -- ["<S-tab>"] = { "<cmd> tabprevious <CR>", "Previous tab" },
-
-    -- neogit
-    ["<leader>gs"] = { "<cmd> Neogit <CR>", "Open neogit" },
 
     -- competetive coding
     ["<leader>rr"] = { "<cmd> CompetiTestRun <CR>", "Compile and run test cases" },
