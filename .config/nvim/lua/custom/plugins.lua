@@ -60,6 +60,7 @@ local plugins = {
   {
     "NeogitOrg/neogit",
     cmd = "Neogit",
+    opts = { }
   },
 
   {
