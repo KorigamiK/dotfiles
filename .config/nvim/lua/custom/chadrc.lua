@@ -6,6 +6,7 @@ local highlights = require "custom.highlights"
 
 M.ui = {
   theme = "doomchad",
+  lsp_semantic_tokens = true,
 
   hl_override = highlights.override,
   hl_add = highlights.add,
@@ -19,9 +20,9 @@ M.ui = {
         mode = function()
           local m = vim.api.nvim_get_mode().mode
           return "%#" .. st_modules.modes[m][2] .. "#" .. " " .. st_modules.modes[m][1] .. " "
-        end
+        end,
       }
-    end
+    end,
   },
 }
 
