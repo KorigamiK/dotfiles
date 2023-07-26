@@ -55,8 +55,8 @@ M.general = {
     -- ["<S-tab>"] = { "<cmd> tabprevious <CR>", "Previous tab" },
 
     -- competetive coding
-    ["<leader>rr"] = { "<cmd> CompetiTestRun <CR>", "Compile and run test cases" },
-    ["<leader>rc"] = { "<cmd> CompetiTestRunNC <CR>", "Run test cases" },
+    ["<leader>rr"] = { "<cmd> CompetiTest run <CR>", "Compile and run test cases" },
+    ["<leader>rc"] = { "<cmd> CompetiTest run_no_compile <CR>", "Run test cases" },
 
     -- move current line
     ["<A-j>"] = { "<cmd> m +1 <CR>", "move current line", opts = { silent = true } },

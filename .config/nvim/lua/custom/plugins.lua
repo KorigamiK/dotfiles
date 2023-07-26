@@ -1,8 +1,7 @@
 local overrides = require "custom.configs.overrides"
 
----@type NvPluginSpec[]
+-- -@type NvPluginSpec[]
 local plugins = {
-
   -- Override plugin definition options
   {
     "neovim/nvim-lspconfig",
@@ -143,15 +142,7 @@ local plugins = {
         template_file = "~/Dev/projects/dotfiles/snippets/template.$(FEXT)",
       }
     end,
-    cmd = {
-      "CompetiTestReceive",
-      "CompetiTestRun",
-      "CompetiTestDelete",
-      "CompetiTestEdit",
-      "CompetiTestAdd",
-      "CompetiTestRunNC",
-      "CompetiTestRunNE",
-    },
+    cmd = { "CompetiTest" },
   },
 
   -- Haskell
