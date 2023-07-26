@@ -14,14 +14,16 @@ M.ui = {
   statusline = {
     theme = "default",
     separator_style = "block",
-    overriden_modules = function()
+    overriden_modules = function(modules)
+      local m = vim.api.nvim_get_mode().mode
       local st_modules = require "nvchad_ui.statusline.default"
-      return {
-        mode = function()
-          local m = vim.api.nvim_get_mode().mode
-          return "%#" .. st_modules.modes[m][2] .. "#" .. " " .. st_modules.modes[m][1] .. " "
-        end,
-      }
+      modules[1] = "%#" .. st_modules.modes[m][2] .. "#" .. " " .. st_modules.modes[m][1] .. " "
+    end,
+  },
+
+  tabufline = {
+    overriden_modules = function(modules)
+      modules[4] = ""
     end,
   },
 }

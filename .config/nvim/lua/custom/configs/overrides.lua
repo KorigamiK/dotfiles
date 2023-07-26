@@ -119,6 +119,9 @@ M.nvimtree = {
 }
 
 M.telescope = {
+  defaults = {
+    file_ignore_patterns = { "node_modules", ".git", ".cache" },
+  },
   extensions = {
     project = {
       base_dirs = {
