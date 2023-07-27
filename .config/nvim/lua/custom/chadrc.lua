@@ -1,4 +1,4 @@
----@type ChadrcConfig
+--[[ ---@type ChadrcConfig ]]
 local M = {}
 
 -- Path to overriding theme and highlights files
@@ -23,9 +23,10 @@ M.ui = {
 
   tabufline = {
     overriden_modules = function(modules)
-      modules[4] = ""
-      table.insert(modules, modules[1])
       table.remove(modules, 1)
+      table.remove(modules, 3)
+      -- modules[4] = ""
+      -- table.insert(modules, modules[1])
     end,
   },
 }

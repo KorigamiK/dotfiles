@@ -108,6 +108,11 @@ M.telescope = {
   defaults = {
     file_ignore_patterns = { "node_modules", ".git", ".cache" },
   },
+  pickers = {
+    find_files = {
+      find_command = { "rg", "--files", "--hidden", "--glob", "!.git" },
+    }
+  },
   extensions = {
     project = {
       base_dirs = {
