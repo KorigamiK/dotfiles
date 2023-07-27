@@ -90,30 +90,16 @@ M.mason = {
 
 -- git support in nvimtree
 M.nvimtree = {
-  update_focused_file = {
-    enable = true,
-  },
-  git = {
-    enable = false,
-  },
-  filters = {
-    custom = { "node_modules", ".git", ".cache" },
-  },
-  view = {
-    side = "right",
-  },
+  update_focused_file = { enable = true },
+  git = { enable = false },
+  filters = { custom = { "node_modules", ".git", ".cache" } },
+  view = { side = "right" },
   renderer = {
     highlight_git = true,
     root_folder_modifier = ":~",
     icons = {
-      show = {
-        git = true,
-      },
-      glyphs = {
-        git = {
-          unstaged = "*",
-        },
-      },
+      show = { git = true },
+      glyphs = { git = { unstaged = "*" } },
     },
   },
 }
