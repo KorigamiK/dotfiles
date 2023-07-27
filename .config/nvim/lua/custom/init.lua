@@ -14,3 +14,4 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, { callback = function() vim.high
 vim.opt.foldlevel = 20
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+

@@ -33,4 +33,6 @@ M.plugins = "custom.plugins"
 -- check core.mappings for table structure
 M.mappings = require "custom.mappings"
 
+vim.g.nvimtree_side = "right"
+
 return M
