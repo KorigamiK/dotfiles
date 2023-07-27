@@ -24,6 +24,8 @@ M.ui = {
   tabufline = {
     overriden_modules = function(modules)
       modules[4] = ""
+      table.insert(modules, modules[1])
+      table.remove(modules, 1)
     end,
   },
 }
@@ -32,7 +34,5 @@ M.plugins = "custom.plugins"
 
 -- check core.mappings for table structure
 M.mappings = require "custom.mappings"
-
-vim.g.nvimtree_side = "right"
 
 return M
