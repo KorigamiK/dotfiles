@@ -40,20 +40,24 @@ lspconfig.denols.setup {
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
   on_attach = on_attach,
   capabilities = capabilities,
+  init_options = {
+    lint = true,
+    unstable = true,
+    suggest = {
+      imports = {
+        hosts = {
+          ["https://deno.land"] = true,
+          ["https://cdn.nest.land"] = true,
+          ["https://crux.land"] = true,
+        },
+      },
+    },
+  },
 }
 
 lspconfig.tsserver.setup {
   root_dir = lspconfig.util.root_pattern "package.json",
   on_attach = on_attach,
   capabilities = capabilities,
-}
-
-lspconfig.dartls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    analysisExcludedFolders = {
-      "/home/origami/.pub-cache/",
-    }
-  }
+  single_file_support = false,
 }

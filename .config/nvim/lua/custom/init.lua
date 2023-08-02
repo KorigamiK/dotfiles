@@ -15,3 +15,6 @@ vim.opt.foldlevel = 20
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
+vim.g.markdown_fenced_languages = {
+  "ts=typescript"
+}
