@@ -59,7 +59,7 @@ local plugins = {
   {
     "NeogitOrg/neogit",
     cmd = "Neogit",
-    opts = { }
+    opts = {},
   },
 
   {
@@ -185,13 +185,52 @@ local plugins = {
   -- Flutter
   {
     "akinsho/flutter-tools.nvim",
+    enabled = true,
     ft = "dart",
     opts = {
-      settings = {
-        showTodos = true,
-      }
-    }
-  }
+      decorations = {
+        statusline = {
+          app_version = false,
+          device = true,
+        },
+      },
+      widget_guides = {
+        enabled = false,
+      },
+      closing_tags = {
+        enabled = true, -- set to false to disable
+      },
+      dev_log = {
+        enabled = true,
+      },
+      dev_tools = {
+        autostart = false,
+        auto_open_browser = false,
+      },
+      outline = {
+        open_cmd = "30vnew",
+        auto_open = false,
+      },
+      lsp = {
+        color = {
+          enabled = true,
+          background = true,
+          foreground = false,
+          virtual_text = true,
+          virtual_text_str = "■",
+        },
+        on_attach = require("plugins.configs.lspconfig").on_attach,
+        capabilities = require("plugins.configs.lspconfig").capabilities,
+        settings = {
+          showTodos = true,
+          completeFunctionCalls = true,
+          analysisExcludedFolders = {
+            "/home/origami/.pub-cache/",
+          },
+        },
+      },
+    },
+  },
 }
 
 return plugins
