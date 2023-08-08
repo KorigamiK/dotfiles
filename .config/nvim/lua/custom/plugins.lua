@@ -145,6 +145,14 @@ local plugins = {
     cmd = { "CompetiTest" },
   },
 
+  -- Cmake
+  {
+    "Civitasv/cmake-tools.nvim",
+    enabled = true,
+    cmd = { "CMakeBuild" },
+    opts = {},
+  },
+
   -- Haskell
   --[[
   {
