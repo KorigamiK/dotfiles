@@ -116,7 +116,7 @@ M.telescope = {
   extensions = {
     project = {
       base_dirs = {
-        { "~/Dev/projects", max_depth = 3 },
+        { "~/Dev/projects", max_depth = 4 },
         { "~/Dev/docs" },
         { "~/Dev/CV" },
       },
