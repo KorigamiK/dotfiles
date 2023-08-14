@@ -51,3 +51,4 @@ luac.out
 !.config/nvim/lua/custom
 .config/old
 .config/NvChad
+.config/hypr/cheatsheet.md

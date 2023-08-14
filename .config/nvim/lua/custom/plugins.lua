@@ -2,7 +2,6 @@ local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
-
   -- Override plugin definition options
   {
     "neovim/nvim-lspconfig",
@@ -48,26 +47,9 @@ local plugins = {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-telescope/telescope-project.nvim" },
-    opts = {
-      extensions = {
-        project = {
-          base_dirs = {
-            { "~/Dev/projects", max_depth = 3 },
-            { "~/Dev/docs" },
-            { "~/Dev/CV" },
-          },
-          sync_with_nvim_tree = true,
-          order_by = "recent",
-          hidden_files = false,
-        },
-      },
-      extensions_list = { "themes", "terms", "project" },
-    },
+    opts = overrides.telescope,
   },
 
-  -- All NvChad plugins are lazy-loaded by default
-  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
-  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
   {
     "mg979/vim-visual-multi",
     lazy = false,
@@ -75,9 +57,9 @@ local plugins = {
   },
 
   {
-    "TimUntersberger/neogit",
-    keys = "<leader>gs",
+    "NeogitOrg/neogit",
     cmd = "Neogit",
+    opts = {},
   },
 
   {
@@ -110,9 +92,31 @@ local plugins = {
   },
 
   {
+    "zbirenbaum/copilot.lua",
+    enabled = false,
+    event = "InsertEnter",
+    opts = {
+      suggestion = {
+        enabled = true,
+        keys = {
+          accept = "<C-y>",
+          accept_word = true,
+          accept_line = true,
+          next = "<M-]>",
+          prev = "<M-[>",
+          dismiss = "<C-]>",
+        },
+      },
+      filetypes = {
+        env = false,
+      },
+    },
+  },
+
+  {
     url = "https://git.sr.ht/~p00f/cphelper.nvim",
     enable = false,
-    cmd = { "CphReceive", "CphTest", "CphRetest", "CphEdit", "CphDelete" },
+    -- cmd = { "CphReceive", "CphTest", "CphRetest", "CphEdit", "CphDelete" },
     config = function()
       vim.g["cph#dir"] = "/home/korigamik/Dev/projects/competetive_coding/contests"
       vim.g["cph#lang"] = "cpp"
@@ -125,17 +129,116 @@ local plugins = {
     config = function()
       require("competitest").setup {
         compile_command = {
-          cpp = { exec = "g++", args = { "$(FNAME)", "-o", "$(FNOEXT)", "-DONLINE_JUDGE", "-std=c++17", "-O2" } },
+          cpp = {
+            exec = "g++",
+            args = { "$(FNAME)", "-o", "$(FNOEXT)", "-DKORIGAMIK", "-std=c++20", "-O2", "-H", "-Wall" },
+          },
         },
         run_command = {
           cpp = { exec = "./$(FNOEXT)" },
+          py = { exec = "python3", args = { "$(FNAME)" } },
+        },
+        testcases_use_single_file = true,
+        template_file = "~/Dev/projects/dotfiles/snippets/template.$(FEXT)",
+      }
+    end,
+    cmd = { "CompetiTest" },
+  },
+
+  -- Cmake
+  {
+    "Civitasv/cmake-tools.nvim",
+    enabled = true,
+    cmd = { "CMakeBuild" },
+    opts = {},
+  },
+
+  -- Haskell
+  --[[
+  {
+    "mrcjkb/haskell-tools.nvim",
+    ft = "haskell",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim", -- optional
+    },
+    config = function()
+      local ht = require "haskell-tools"
+      local def_opts = { noremap = true, silent = true }
+      ht.start_or_attach {
+        hls = {
+          on_attach = function(_, bufnr)
+            local opts = vim.tbl_extend("keep", def_opts, { buffer = bufnr })
+            -- haskell-language-server relies heavily on codeLenses,
+            -- so auto-refresh (see advanced configuration) is enabled by default
+            vim.keymap.set("n", "<space>ca", vim.lsp.codelens.run, opts)
+            vim.keymap.set("n", "<space>hs", ht.hoogle.hoogle_signature, opts)
+            vim.keymap.set("n", "<space>ea", ht.lsp.buf_eval_all, opts)
+          end,
         },
       }
     end,
-    cmd = { "CompetiTestReceive", "CompetiTestRun", "CompetiTestDelete", "CompetiTestEdit", "CompetiTestAdd" },
+  },
+  --]]
+
+  -- LaTeX
+  {
+    "lervag/vimtex",
+    ft = "tex",
+    config = function()
+      require("custom.configs.vimtex").setup()
+    end,
   },
 
-  { "moll/vim-bbye", lazy = false },
+  -- Flutter
+  {
+    "akinsho/flutter-tools.nvim",
+    enabled = true,
+    ft = "dart",
+    opts = {
+      decorations = {
+        statusline = {
+          app_version = false,
+          device = true,
+        },
+      },
+      widget_guides = {
+        enabled = false,
+      },
+      closing_tags = {
+        enabled = true, -- set to false to disable
+      },
+      dev_log = {
+        enabled = true,
+      },
+      dev_tools = {
+        autostart = false,
+        auto_open_browser = false,
+      },
+      outline = {
+        open_cmd = "30vnew",
+        auto_open = false,
+      },
+      lsp = {
+        color = {
+          enabled = true,
+          background = true,
+          foreground = false,
+          virtual_text = true,
+          virtual_text_str = "■",
+        },
+        on_attach = require("plugins.configs.lspconfig").on_attach,
+        capabilities = require("plugins.configs.lspconfig").capabilities,
+        settings = {
+          showTodos = true,
+          completeFunctionCalls = true,
+          analysisExcludedFolders = {
+            "/home/origami/.pub-cache/",
+          },
+        },
+      },
+    },
+  },
 }
 
 return plugins
