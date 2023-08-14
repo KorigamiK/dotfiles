@@ -52,9 +52,19 @@ shotwin() {
 	notify_view
 }
 
+shotwinhypr() {
+  hyprshot -m window -o "$dir" -f "$file"
+}
+
 shotarea() {
 	cd ${dir} && grim -g "$(slurp -b 1B1F28CC -c E06B74ff -s C778DD0D -w 2)" - | tee "$file" | wl-copy
 	notify_view
+}
+
+#ocr
+shotocr() {
+  hyprshot -m region -r -s | tesseract -l "eng" stdin stdout | wl-copy
+  notify-send -h string:x-canonical-private-synchronous:shot-notify -u low "OCR Copied."
 }
 
 if [[ ! -d "$dir" ]]; then
@@ -71,6 +81,10 @@ elif [[ "$1" == "--win" ]]; then
 	shotwin
 elif [[ "$1" == "--area" ]]; then
 	shotarea
+elif [[ "$1" == "--winhypr" ]]; then
+  shotwinhypr
+elif [[ "$1" == "--ocr" ]]; then
+  shotocr
 else
 	echo -e "Available Options : --now --in5 --in10 --win --area"
 fi
