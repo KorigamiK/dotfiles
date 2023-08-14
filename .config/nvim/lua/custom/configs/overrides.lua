@@ -85,52 +85,47 @@ M.mason = {
 
     -- c/cpp stuff
     "clangd",
-    "clang-format",
   },
 }
 
 -- git support in nvimtree
 M.nvimtree = {
-  git = {
-    enable = false,
-  },
-  filters = {
-    custom = { "node_modules", ".git", ".cache" },
-  },
-  view = {
-    side = "right",
-  },
+  update_focused_file = { enable = true },
+  git = { enable = false },
+  filters = { custom = { "node_modules", ".git", ".cache" } },
+  view = { side = "right" },
   renderer = {
     highlight_git = true,
     root_folder_modifier = ":~",
     icons = {
-      show = {
-        git = true,
-      },
-      glyphs = {
-        git = {
-          unstaged = "*",
-        },
-      },
+      show = { git = true },
+      glyphs = { git = { unstaged = "*" } },
     },
   },
 }
 
 M.telescope = {
-  opts = {
-    extensions = {
-      project = {
-        base_dirs = {
-          { "~/Dev/projects", max_depth = 3 },
-          { "~/Dev/docs" },
-          { "~/Dev/CV" },
-        },
-        sync_with_nvim_tree = true,
-        order_by = "recent",
-        hidden_files = true,
+  defaults = {
+    file_ignore_patterns = { "node_modules", ".git", ".cache" },
+  },
+  pickers = {
+    find_files = {
+      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+    }
+  },
+  extensions = {
+    project = {
+      base_dirs = {
+        { "~/Dev/projects", max_depth = 4 },
+        { "~/Dev/docs" },
+        { "~/Dev/CV" },
       },
+      sync_with_nvim_tree = true,
+      order_by = "recent",
+      hidden_files = true,
     },
   },
+  extensions_list = { "themes", "terms", "project" },
 }
 
 return M
