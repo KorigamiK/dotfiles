@@ -51,12 +51,6 @@ local plugins = {
   },
 
   {
-    "mg979/vim-visual-multi",
-    lazy = false,
-    enabled = false,
-  },
-
-  {
     "NeogitOrg/neogit",
     cmd = "Neogit",
     opts = {},
@@ -79,14 +73,16 @@ local plugins = {
       vim.keymap.set("i", "<C-y>", function()
         return vim.fn["codeium#Accept"]()
       end, { expr = true }) -- Accept completion is Ctrl + g
-      -- vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
-      -- vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
-      -- vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
-      --Clear current suggestion 	codeium#Clear() 	<C-]>
-      -- Next suggestion 	codeium#CycleCompletions(1) 	<M-]>
-      -- Previous suggestion 	codeium#CycleCompletions(-1) 	<M-[>
-      -- Insert suggestion 	codeium#Accept() 	<Tab>
-      -- Manually trigger suggestion 	codeium#Complete() 	<M-Bslash>
+
+      --[[ vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+      vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+      vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true }) ]]
+
+      --[[ Clear current suggestion 	codeium#Clear() 	<C-]>
+      Next suggestion 	codeium#CycleCompletions(1) 	<M-]>
+      Previous suggestion 	codeium#CycleCompletions(-1) 	<M-[>
+      Insert suggestion 	codeium#Accept() 	<Tab>
+      Manually trigger suggestion 	codeium#Complete() 	<M-Bslash> ]]
     end,
     event = "InsertEnter",
   },
@@ -111,16 +107,6 @@ local plugins = {
         env = false,
       },
     },
-  },
-
-  {
-    url = "https://git.sr.ht/~p00f/cphelper.nvim",
-    enable = false,
-    -- cmd = { "CphReceive", "CphTest", "CphRetest", "CphEdit", "CphDelete" },
-    config = function()
-      vim.g["cph#dir"] = "/home/korigamik/Dev/projects/competetive_coding/contests"
-      vim.g["cph#lang"] = "cpp"
-    end,
   },
 
   {
@@ -196,21 +182,11 @@ local plugins = {
     enabled = true,
     ft = "dart",
     opts = {
-      decorations = {
-        statusline = {
-          app_version = false,
-          device = true,
-        },
-      },
-      widget_guides = {
-        enabled = false,
-      },
+      widget_guides = { enabled = false },
       closing_tags = {
         enabled = true, -- set to false to disable
       },
-      dev_log = {
-        enabled = true,
-      },
+      dev_log = { enabled = true },
       dev_tools = {
         autostart = false,
         auto_open_browser = false,
@@ -232,9 +208,7 @@ local plugins = {
         settings = {
           showTodos = true,
           completeFunctionCalls = true,
-          analysisExcludedFolders = {
-            "/home/origami/.pub-cache/",
-          },
+          analysisExcludedFolders = { "/home/origami/.pub-cache/" },
         },
       },
     },

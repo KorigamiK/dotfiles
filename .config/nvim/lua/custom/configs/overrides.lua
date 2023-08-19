@@ -63,6 +63,8 @@ M.treesitter = {
     "typescript",
     "tsx",
     "c",
+    "cpp",
+    "glsl",
     "markdown",
     "markdown_inline",
   },
@@ -76,6 +78,7 @@ M.mason = {
   ensure_installed = {
     -- lua stuff
     "lua-language-server",
+    "stylua",
 
     -- web dev stuff
     "css-lsp",
