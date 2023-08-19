@@ -1,0 +1,1 @@
+tlmgr install nag csquotes biblatex logreq cleverref clevref cleveref totcount todonotes algorithm algorithmic algorithmicx algorithms blindtext minted fvextra upquote catchfile xstring framed tocloft listings xcolor pdftexcmds etoolbox multicol fancyvrb lineno float
