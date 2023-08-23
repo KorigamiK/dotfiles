@@ -4,6 +4,7 @@ local M = {}
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
+
     -- tansparency toggle
     ["<leader>tt"] = { "<cmd> lua require('base46').toggle_transparency() <CR>", "Toggle Transparency" },
 
@@ -17,9 +18,6 @@ M.general = {
     ["<leader>v"] = { "<cmd> vsplit <CR>", "Split vertically" },
     ["<leader>h"] = { "<cmd> split <CR>", "Split horizontally" },
 
-    -- -- write out
-    -- ["<leader>x"] = { "<c-w>c ", "Close current buffer" },
-
     -- telescope
     ["<leader>m"] = { "<cmd> Telescope marks <CR>", "Search bookmarks" },
     ["<leader>fp"] = { "<cmd> Telescope project <CR>", "Search projects" },
@@ -29,9 +27,9 @@ M.general = {
     ["<leader>ls"] = { "<cmd> LspStart <CR>", "Start lsp" },
     ["<leader>lS"] = { "<cmd> LspStop <CR>", "Stop lsp" },
 
-    -- -- quit
-    ["<leader>Q"] = { "<cmd> qall <CR>", "Write out and exit" },
-    ["<leader>q"] = { "<cmd> q <CR>", "Quit all" },
+    -- quit
+    ["<leader>Q"] = { "<cmd> qall <CR>", "Quit all" },
+    ["<leader>q"] = { "<cmd> q <CR>", "Quit" },
 
     -- join lines
     ["gj"] = { "<cmd> join <CR>", "Join lines" },
@@ -61,6 +59,9 @@ M.general = {
     -- move current line
     ["<A-j>"] = { "<cmd> m +1 <CR>", "move current line", opts = { silent = true } },
     ["<A-k>"] = { "<cmd> m -2 <CR>", "move current line", opts = { silent = true } },
+
+    -- Zen mode
+    ["<leader>n"] = { "<cmd> set nu! <CR> <cmd> lua ToggleTabline() <CR>", "Zen mode and Toggle line number" },
   },
   x = {
     -- Move selected line / block of text in visual mode

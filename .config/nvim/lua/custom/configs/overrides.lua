@@ -67,6 +67,7 @@ M.treesitter = {
     "glsl",
     "markdown",
     "markdown_inline",
+    "astro",
   },
   indent = {
     enable = true,
@@ -85,6 +86,7 @@ M.mason = {
     "html-lsp",
     "typescript-language-server",
     "deno",
+    "astro-language-server",
 
     -- c/cpp stuff
     "clangd",

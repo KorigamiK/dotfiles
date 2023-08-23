@@ -5,7 +5,7 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-  theme = "chadracula",
+  theme = "everblush",
   lsp_semantic_tokens = true,
 
   hl_override = highlights.override,
