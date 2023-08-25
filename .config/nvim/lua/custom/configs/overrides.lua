@@ -68,6 +68,8 @@ M.treesitter = {
     "markdown",
     "markdown_inline",
     "astro",
+    "python",
+    "cpp",
   },
   indent = {
     enable = true,
@@ -116,7 +118,7 @@ M.telescope = {
   pickers = {
     find_files = {
       find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-    }
+    },
   },
   extensions = {
     project = {

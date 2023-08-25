@@ -20,7 +20,6 @@ vim.g.markdown_fenced_languages = {
 }
 
 function ToggleTabline()
-  print(vim.opt.showtabline)
   if vim.opt.showtabline._value == 0 then
     vim.opt.showtabline = 2
   else
