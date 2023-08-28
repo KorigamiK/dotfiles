@@ -62,7 +62,7 @@ M.general = {
     ["<A-k>"] = { "<cmd> m -2 <CR>", "move current line", opts = { silent = true } },
 
     -- Zen mode
-    ["<leader>n"] = { "<cmd> set nu! <CR> <cmd> lua ToggleTabline() <CR>", "Zen mode and Toggle line number" },
+    ["<leader>n"] = { "<cmd> set nu! <CR> <cmd> ToggleTabline <CR>", "Zen mode and Toggle line number" },
   },
   x = {
     -- Move selected line / block of text in visual mode
