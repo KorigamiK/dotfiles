@@ -175,6 +175,13 @@ local plugins = {
     end,
   },
 
+  -- Hyprland config
+  {
+    "theRealCarneiro/hyprland-vim-syntax",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    ft = "hypr",
+  },
+
   -- Flutter
   {
     "akinsho/flutter-tools.nvim",
