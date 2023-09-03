@@ -182,6 +182,16 @@ local plugins = {
     ft = "hypr",
   },
 
+  -- Rust
+  {
+    "simrat39/rust-tools.nvim",
+    ft = "rust",
+    dependencies = "neovim/nvim-lspconfig",
+    config = function()
+      require("custom.configs.rust-tools").setup()
+    end,
+  },
+
   -- Flutter
   {
     "akinsho/flutter-tools.nvim",
