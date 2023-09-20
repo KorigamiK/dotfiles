@@ -22,7 +22,7 @@ M.general = {
     ["<leader>m"] = { "<cmd> Telescope marks <CR>", "Search bookmarks" },
     ["<leader>fp"] = { "<cmd> Telescope project <CR>", "Search projects" },
     ["<leader>fg"] = { "<cmd> Telescope git_files <CR>", "Search git files" },
-    ["<leader>ft"] = { "<cmd> Telescope resume <CR>", "Telescope Resume" },
+    ["<leader><leader>"] = { "<cmd> Telescope resume <CR>", "Telescope Resume" },
 
     -- toggle lsp
     ["<leader>ls"] = { "<cmd> LspStart <CR>", "Start lsp" },
