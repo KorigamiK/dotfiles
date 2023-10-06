@@ -9,7 +9,7 @@ term=foot
 columns=5
 
 ## Geometry
-width=60%
+width=30%
 height=40%
 location=bottom_left
 orientation=vertical
