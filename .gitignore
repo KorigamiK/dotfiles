@@ -42,14 +42,19 @@ luac.out
 .git/
 
 .config/nvim/plugin/packer_compiled.lua
-*/lua/packer_compiled.lua
-.config/nvim/rplugin
 .config/mpv/watch_later/
-.config/nvim/indent.log
 
-!.config/nvim/lua/custom
-.config/nvim
-.config/nvim/lua
 .config/old
 .config/NvChad
+.config/nvim/indent.log
+.config/nvim/rplugin
+packer_compiled.lua
+lazy-lock.json
+
+.config/nvim/*
+!.config/nvim/lua/
+!.config/nvim/.ignore
+.config/nvim/lua/*
+!.config/nvim/lua/custom/
+
 .config/hypr/cheatsheet.md
