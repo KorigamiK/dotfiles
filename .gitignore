@@ -52,8 +52,9 @@ packer_compiled.lua
 lazy-lock.json
 
 .config/nvim/*
-!.config/nvim/lua/
+.config/nvim/.gitignore
 !.config/nvim/.ignore
+!.config/nvim/lua/
 .config/nvim/lua/*
 !.config/nvim/lua/custom/
 

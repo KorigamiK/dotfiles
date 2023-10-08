@@ -229,6 +229,13 @@ local plugins = {
       },
     },
   },
+
+  -- Zen mode
+  {
+    "folke/zen-mode.nvim",
+    cmd = { "ZenMode" },
+    opts = {},
+  },
 }
 
 return plugins
