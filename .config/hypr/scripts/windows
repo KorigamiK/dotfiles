@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+CONFIG="$HOME/.config/hypr/wofifull/config"
+STYLE="$HOME/.config/hypr/wofifull/style.css"
+COLORS="$HOME/.config/hypr/wofifull/colors"
+
+# Get the list of client windows and filter out relevant information
+client_info=$(hyprctl clients | awk '/class:/{if ($2) print $2} /Window/ {if ($4 != ":") print $2}' | paste - -)
+
+# Use wofi to create a dmenu with the list of client windows and get the selected window's ID
+selected_window_id=$(echo "$client_info" | wofi --dmenu --conf "${CONFIG}" --style "${STYLE}" --color "${COLORS}" --width 20% | awk '{print $1}')
+
+# If a window is selected, focus on it using hyprctl dispatcher
+if [[ -n "$selected_window_id" ]]; then
+    hyprctl dispatcher focuswindow "address:0x$selected_window_id"
+else
+    echo "No window selected."
+fi
