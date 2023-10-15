@@ -84,9 +84,9 @@ M.disabled = {
     ["<leader>e"] = "",
     ["<tab>"] = "",
     ["<S-tab>"] = "",
+    ["<leader>q"] = "",
     -- ["<leader>h"] = "",
     -- ["<C-a>"] = ""
-    -- ["<leader>q"] = "",
     -- ["<leader>ls"] = "",
     -- ["<leader>x"] = "",
   },
@@ -101,12 +101,41 @@ M.lspconfig = {
       "lsp signature_help",
     },
     ["<leader>lt"] = {
-      function()
-        vim.diagnostic.setloclist()
-      end,
-      "diagnostic setloclist",
+      "<cmd>TroubleToggle<CR>",
+      "Trouble diagnostic setloclist",
     },
   },
 }
+
+
+--[[ M.haskell = {
+  plugin = true,
+  n = {
+    ["<leader>li"] = {
+      function()
+        require("haskell-tools").hoogle.hoogle_signature()
+      end,
+      "launch Haskell search engine",
+    },
+    ["<leader>lr"] = {
+      function()
+        require("haskell-tools").repl.toggle()
+      end,
+      "toggle GHCi repl instance",
+    },
+    ["<leader>lc"] = {
+      function()
+        vim.lsp.codelens.run()
+      end,
+      "place a microscopic-lens on your damned code",
+    },
+    ["<leader>lq"] = {
+      function()
+        require("haskell-tools").repl.quit()
+      end,
+      "quit GHCi repl instance",
+    },
+  },
+} ]]
 
 return M
