@@ -70,6 +70,7 @@ M.treesitter = {
     "astro",
     "python",
     "cpp",
+    "dart",
   },
   indent = {
     enable = true,
