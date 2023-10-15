@@ -7,6 +7,7 @@ local highlights = require "custom.highlights"
 M.ui = {
   theme = "palenight",
   lsp_semantic_tokens = true,
+  extended_integrations = { "trouble" },
 
   hl_override = highlights.override,
   hl_add = highlights.add,
