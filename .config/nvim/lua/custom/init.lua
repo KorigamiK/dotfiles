@@ -18,6 +18,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 vim.opt.foldlevel = 20
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.relativenumber = true
 
 vim.g.markdown_fenced_languages = {
   "ts=typescript",
