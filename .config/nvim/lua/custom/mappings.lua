@@ -85,16 +85,16 @@ M.disabled = {
     ["<tab>"] = "",
     ["<S-tab>"] = "",
     ["<leader>q"] = "",
+    ["<leader>ls"] = "", -- replaced with LSP start
     -- ["<leader>h"] = "",
     -- ["<C-a>"] = ""
-    -- ["<leader>ls"] = "",
     -- ["<leader>x"] = "",
   },
 }
 
 M.lspconfig = {
   n = {
-    ["<leader>lh"] = {
+    ["<C-k>"] = {
       function()
         vim.lsp.buf.signature_help()
       end,
