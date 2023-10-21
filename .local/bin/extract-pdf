@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+### Usage: extract-pdf <pdf-file> <page-range> <output-file>
+### Example: extract-pdf file.pdf output.pdf 1-3
+
+qpdf $1 --pages . $3 -- "$2"
