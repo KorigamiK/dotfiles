@@ -1,0 +1,70 @@
+#!/bin/bash
+
+## Usage: combine-pdfs [-i] <pdf1> <pdf2> ... <pdfN>
+## no [-i] mesans all files to exclude
+## [-i] files to include and ask for Overwrite bookmarks?
+
+set -xe
+
+out_file="combined.pdf"
+bookmarks_file="/tmp/bookmarks.txt"
+bookmarks_fmt="BookmarkBegin
+BookmarkTitle: %s
+BookmarkLevel: 1
+BookmarkPageNumber: %d
+"
+
+rm -f "$bookmarks_file" "$out_file"
+
+if [[ $1 != "-i" ]]; then
+  declare -a all_files=(*.pdf)
+
+  files_to_exclude=("$@")
+  declare -a files=()
+
+  for file in "${all_files[@]}"; do
+    skip=false
+    for excluded_file in "${files_to_exclude[@]}"; do
+      if [[ $file == $excluded_file ]]; then
+        skip=true
+        break
+      fi
+    done
+    if [ "$skip" = false ]; then
+      files+=("$file")
+    fi
+  done
+else
+  files=("${@:2}")
+fi
+
+if [ ${#files[@]} -eq 0 ]; then
+  echo "No files to combine"
+  exit 0
+fi
+
+page_counter=1
+
+# Generate bookmarks file.
+for f in "${files[@]}"; do
+  title="${f%.*}"
+  printf "$bookmarks_fmt" "$title" "$page_counter" >> "$bookmarks_file"
+  num_pages="$(pdftk "$f" dump_data | grep NumberOfPages | awk '{print $2}')"
+  page_counter=$((page_counter + num_pages))
+done
+
+# Combine PDFs and embed the generated bookmarks file.
+if [[ $1 == "-i" ]]; then
+  echo "Overwrite bookmarks? (y/n)"
+  read user_input
+  if [[ "$user_input" == "y" || "$user_input" == "yes" ]]; then
+    gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=- "${files[@]}" | \
+      pdftk - update_info "$bookmarks_file" output "$out_file"
+  else
+    gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile="$out_file" "${files[@]}"
+  fi
+
+  else
+    pdftk "${files[@]}" cat output - | \
+      pdftk - update_info "$bookmarks_file" output "$out_file"
+fi
