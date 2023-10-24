@@ -25,6 +25,7 @@ vim.g.markdown_fenced_languages = {
 }
 
 vim.api.nvim_create_user_command("ToggleTabline", function()
+---@diagnostic disable-next-line: undefined-field
   if vim.opt.showtabline._value == 0 then
     vim.opt.showtabline = 2
   else

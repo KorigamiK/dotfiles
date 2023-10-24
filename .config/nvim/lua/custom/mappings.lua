@@ -22,6 +22,12 @@ M.general = {
     ["<leader>m"] = { "<cmd> Telescope marks <CR>", "Search bookmarks" },
     ["<leader>fp"] = { "<cmd> Telescope project <CR>", "Search projects" },
     ["<leader>fg"] = { "<cmd> Telescope git_files <CR>", "Search git files" },
+    ["<leader>fm"] = {
+      function()
+        require("conform").format { async = true, lsp_fallback = true }
+      end,
+      "Format buffer with Conform",
+    },
     ["<leader><leader>"] = { "<cmd> Telescope resume <CR>", "Telescope Resume" },
 
     -- toggle lsp
@@ -106,7 +112,6 @@ M.lspconfig = {
     },
   },
 }
-
 
 --[[ M.haskell = {
   plugin = true,
