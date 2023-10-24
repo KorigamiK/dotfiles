@@ -18,7 +18,7 @@ lspconfig.clangd.setup {
   capabilities = capabilities,
   flags = { debounce_text_changes = 150 },
   autostart = false,
-  -- fixes null-ls warning: multiple different client offset
+  -- fixes lsp warning: multiple different client offset
   cmd = { "clangd", "--background-index", "--offset-encoding=utf-16" },
   filetypes = { "c", "cpp", "objc", "objcpp", "h", "hpp", "hxx", "hh", "cc", "cxx" },
   -- set standard to c++17

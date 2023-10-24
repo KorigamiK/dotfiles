@@ -5,7 +5,7 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-  theme = "palenight",
+  theme = "bearded-arc",
   lsp_semantic_tokens = true,
   extended_integrations = { "trouble" },
 

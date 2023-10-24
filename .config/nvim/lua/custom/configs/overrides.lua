@@ -89,6 +89,9 @@ M.mason = {
 
     -- c/cpp stuff
     "clangd",
+
+    -- shell stuff
+    "shfmt",
   },
 }
 
