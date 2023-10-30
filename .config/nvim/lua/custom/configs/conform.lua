@@ -3,7 +3,7 @@ return {
     lua = { "stylua" },
     python = { "isort", "black" },
     javascript = { { "deno_fmt" } },
-    typescript = { { "deno_fmt" } },
+    typescript = { { "prettier" } },
     markdown = { "deno_fmt" },
     json = { "deno_fmt" },
     jsonc = { "deno_fmt" },
