@@ -100,7 +100,7 @@ M.disabled = {
 
 M.lspconfig = {
   n = {
-    ["<C-k>"] = {
+    ["<C-i>"] = {
       function()
         vim.lsp.buf.signature_help()
       end,
