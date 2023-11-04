@@ -6,7 +6,7 @@ prompt=Apps
 normal_window=true
 layer=overlay
 term=foot
-columns=5
+columns=1
 
 ## Geometry
 width=30%
