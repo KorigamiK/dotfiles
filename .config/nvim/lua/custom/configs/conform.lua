@@ -4,6 +4,7 @@ return {
     python = { "isort", "black" },
     javascript = { { "deno_fmt" } },
     typescript = { { "prettier" } },
+    typescriptreact = { { "prettier" } },
     markdown = { "deno_fmt" },
     json = { "deno_fmt" },
     jsonc = { "deno_fmt" },

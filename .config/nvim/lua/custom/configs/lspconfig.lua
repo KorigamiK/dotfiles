@@ -61,3 +61,8 @@ lspconfig.tsserver.setup {
   capabilities = capabilities,
   single_file_support = false,
 }
+
+lspconfig.solidity_ls_nomicfoundation.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
