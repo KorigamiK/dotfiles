@@ -111,6 +111,14 @@ M.lspconfig = {
       "Trouble diagnostic setloclist",
     },
   },
+  i = {
+    ["<C-.>"] = {
+      function()
+        vim.lsp.buf.signature_help()
+      end,
+      "lsp signature_help",
+    },
+  },
 }
 
 --[[ M.haskell = {
