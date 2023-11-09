@@ -33,6 +33,6 @@ vim.api.nvim_create_user_command("ToggleTabline", function()
   end
 end, {})
 
-vim.o.guifont = "Iosevka Term:h14,Symbols Nerd Font:h12,Noto Color Emoji:h12"
+vim.o.guifont = "Iosevka Term:h16,Symbols Nerd Font:h12,Noto Color Emoji:h12"
 vim.g.neovide_transparency = 0.6
 vim.opt.conceallevel = 1
