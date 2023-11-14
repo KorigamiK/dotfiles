@@ -21,6 +21,7 @@ return {
     proto = { "clang_format" },
 
     rust = { "rustfmt" },
+    dart = { "dart_format" },
   },
   formatters = {
     shfmt = { prepend_args = { "-i", "2" } },

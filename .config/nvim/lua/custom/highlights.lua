@@ -15,6 +15,8 @@ M.override = {
 M.add = {
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
   CursorLineNr = { bg = "line", fg = "nord_blue" },
+  NeogitDiffDelete = { bg = "grey", fg = "orange" },
+  -- NeogitDiffDeleteHighlight = { bg = "red", fg = "sun" },
 }
 
 return M
