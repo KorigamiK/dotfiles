@@ -5,10 +5,10 @@ M.treesitter = {
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = "<c-space>",
-      node_incremental = "<c-space>",
-      scope_incremental = "<c-s>",
-      node_decremental = "<M-space>",
+      init_selection = '<CR>',
+      scope_incremental = '<TAB>',
+      node_incremental = '<CR>',
+      node_decremental = '<S-TAB>',
     },
   },
   textobjects = {

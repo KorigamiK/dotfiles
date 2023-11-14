@@ -20,8 +20,8 @@ M.general = {
 
     -- telescope
     ["<leader>m"] = { "<cmd> Telescope marks <CR>", "Search bookmarks" },
-    ["<leader>fp"] = { "<cmd> Telescope project <CR>", "Search projects" },
     ["<leader>fg"] = { "<cmd> Telescope git_files <CR>", "Search git files" },
+    ["<leader>fp"] = { "<cmd> Telescope project <CR>", "Search projects" },
     ["<leader>fm"] = {
       function()
         require("conform").format { async = true, lsp_fallback = true }

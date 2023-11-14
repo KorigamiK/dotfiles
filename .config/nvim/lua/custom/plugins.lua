@@ -41,8 +41,7 @@ local plugins = {
 
   {
     "nvim-telescope/telescope-project.nvim",
-    lazy = false,
-    keys = "<leader>fp",
+    lazy = true,
     cmd = "Telescope",
   },
 
