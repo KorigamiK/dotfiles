@@ -75,6 +75,7 @@ M.treesitter = {
 }
 
 M.mason = {
+  auto_install = true,
   ensure_installed = {
     -- lua stuff
     "lua-language-server",
@@ -92,6 +93,16 @@ M.mason = {
 
     -- shell stuff
     "shfmt",
+
+    --rust
+    "rust-analyzer",
+
+    -- python
+    "black",
+    "isort",
+
+    -- solidity
+    "nomicfoundation-solidity-language-server",
   },
 }
 
