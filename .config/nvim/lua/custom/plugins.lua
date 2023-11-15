@@ -53,8 +53,11 @@ local plugins = {
 
   {
     "NeogitOrg/neogit",
+    ft = { "diff" },
     cmd = "Neogit",
-    opts = {},
+    opts = {
+      signs = { section = { "", "" }, item = { "", "" } },
+    },
   },
 
   {
@@ -230,7 +233,7 @@ local plugins = {
   -- LSP diagnostics
   {
     "folke/trouble.nvim",
-    cmd = "TroubleToggle",
+    cmd = { "TroubleToggle" },
     config = function()
       dofile(vim.g.base46_cache .. "trouble")
       require("trouble").setup()
