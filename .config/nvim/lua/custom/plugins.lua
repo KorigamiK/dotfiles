@@ -40,14 +40,8 @@ local plugins = {
   },
 
   {
-    "nvim-telescope/telescope-project.nvim",
-    lazy = true,
-    cmd = "Telescope",
-  },
-
-  {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-telescope/telescope-project.nvim" },
+    dependencies = { "nvim-telescope/telescope-project.nvim", "jvgrootveld/telescope-zoxide" },
     opts = overrides.telescope,
   },
 
