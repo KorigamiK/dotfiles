@@ -1,9 +1,22 @@
 ---@type MappingsTable
 local M = {}
 
+local ft_cmds = {
+  markdown = "make",
+  ...,
+}
+
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
+
+    -- terminal
+    ["<C-l>"] = {
+      function()
+        require("nvterm.terminal").send(ft_cmds[vim.bo.filetype])
+      end,
+      "Send ft_cmd to terminal",
+    },
 
     -- tansparency toggle
     ["<leader>tt"] = { "<cmd> lua require('base46').toggle_transparency() <CR>", "Toggle Transparency" },
