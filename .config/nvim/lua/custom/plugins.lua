@@ -195,7 +195,7 @@ local plugins = {
       closing_tags = {
         enabled = true, -- set to false to disable
       },
-      dev_log = { enabled = true },
+      dev_log = { enabled = true, notify_errors = true, open_cmd = "tabedit" },
       dev_tools = {
         autostart = false,
         auto_open_browser = false,
