@@ -5,10 +5,10 @@ M.treesitter = {
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = '<CR>',
-      scope_incremental = '<TAB>',
-      node_incremental = '<CR>',
-      node_decremental = '<S-TAB>',
+      init_selection = "<CR>",
+      scope_incremental = "<TAB>",
+      node_incremental = "<CR>",
+      node_decremental = "<S-TAB>",
     },
   },
   textobjects = {
@@ -129,6 +129,12 @@ M.telescope = {
   pickers = {
     find_files = {
       find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+    },
+    live_grep = {
+      file_ignore_patterns = { "node_modules", ".git", ".venv" },
+      additional_args = function(_)
+        return { "--hidden" }
+      end,
     },
   },
   extensions = {
