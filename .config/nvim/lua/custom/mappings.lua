@@ -69,6 +69,9 @@ M.general = {
 
     -- Zen mode
     ["<leader>n"] = { "<cmd> set nu! <CR> <cmd> ToggleTabline <CR>", "Zen mode and Toggle line number" },
+
+    -- Zoxide
+    ["<leader>z"] = { "<cmd> Telescope zoxide list <CR>", "Zoxide list" },
   },
   x = {
     -- Move selected line / block of text in visual mode
