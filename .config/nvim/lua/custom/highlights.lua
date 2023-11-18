@@ -13,8 +13,7 @@ M.override = {
 
 ---@type HLTable
 M.add = {
-  -- NvimTreeOpenedFolderName = { fg = "green", bold = true },
-  CursorLineNr = { bg = "line", fg = "nord_blue" },
+  CursorLineNr = { bg = "statusline_bg", fg = "nord_blue" },
   NeogitDiffDelete = { bg = "NONE", fg = "baby_pink" },
   NeogitDiffDeleteHighlight = { bg = "NONE", fg = "red" },
 }

@@ -11,7 +11,7 @@ M.general = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
 
     -- terminal
-    ["<C-l>"] = {
+    ["<C-b>"] = {
       function()
         require("nvterm.terminal").send(ft_cmds[vim.bo.filetype])
       end,
@@ -99,6 +99,9 @@ M.general = {
     ["<A-j>"] = { "<cmd> m +1 <CR>", "move current line", opts = { silent = true } },
     ["<A-k>"] = { "<cmd> m -2 <CR>", "move current line", opts = { silent = true } },
   },
+  t = {
+    ["<C-k>"] = { "<C-\\><C-N><C-w><C-w>", "Window prev" },
+  }
 }
 
 M.disabled = {
