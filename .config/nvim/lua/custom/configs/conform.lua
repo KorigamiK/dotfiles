@@ -9,6 +9,7 @@ return {
     markdown = { "deno_fmt" },
     json = { "deno_fmt" },
     jsonc = { "deno_fmt" },
+    yaml = { "prettier" },
     sh = { "shfmt" },
     tex = { "latexindent" },
 
@@ -22,9 +23,12 @@ return {
 
     rust = { "rustfmt" },
     dart = { "dart_format" },
+
+    haskell = { "fourmolu" },
   },
   formatters = {
     shfmt = { prepend_args = { "-i", "2" } },
+    fourmolu = { prepend_args = { "--indentation", "2" } },
   },
   log_level = vim.log.levels.ERROR,
 }
