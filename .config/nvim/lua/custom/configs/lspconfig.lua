@@ -30,8 +30,8 @@ lspconfig.hls.setup {
   capabilities = capabilities,
   settings = {
     haskell = {
+      formattingProvider = "fourmolu",
       cabalFormattingProvider = "cabalfmt",
-      formattingProvider = "stylish-haskell",
     },
   },
 }

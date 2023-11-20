@@ -67,6 +67,7 @@ M.treesitter = {
     "python",
     "cpp",
     "dart",
+    "haskell",
   },
   indent = {
     enable = true,
