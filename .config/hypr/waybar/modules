@@ -76,7 +76,8 @@
     "exec-if": "ping wttr.in -c1",
     "tooltip": true
   },
-  "hyprland/workspaces": {
+  // changed to hyprland
+  "wlr/workspaces": {
     // "format": "{name}",
     "format": "{name}: {icon}",
     "on-click": "activate",
