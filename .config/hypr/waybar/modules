@@ -4,11 +4,7 @@
     "align": 0,
     "rotate": 0,
     "format": "{icon} {percent}",
-    "format-icons": [
-      "󰃞",
-      "󰃟",
-      "󰃠"
-    ],
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
     "on-click": "",
     "on-click-middle": "",
     "on-click-right": "",
@@ -31,20 +27,11 @@
     "interval": 1,
     "format-alt-click": "click",
     "format-alt": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% 󰍛",
-    "format-icons": [
-      "▁",
-      "▂",
-      "▃",
-      "▄",
-      "▅",
-      "▆",
-      "▇",
-      "█"
-    ]
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
   },
   "disk": {
     "interval": 30,
-    //"format": "󰋊",
+    // "format": "󰋊",
     "path": "/",
     //"format-alt-click": "click",
     "format": "{percentage_used}% 󰋊",
@@ -68,9 +55,7 @@
     "critical-threshold": 82,
     "format-critical": "{temperatureC}°C {icon}",
     "format": "{temperatureC}°C {icon}",
-    "format-icons": [
-      ""
-    ],
+    "format-icons": [""],
     "on-click-right": "foot --title btop sh -c 'btop'"
   },
   "custom/menu": {
@@ -91,23 +76,23 @@
     "exec-if": "ping wttr.in -c1",
     "tooltip": true
   },
-  "wlr/workspaces": {
-    "format": "{name}",
-    //"format": "{name}: {icon}",
+  "hyprland/workspaces": {
+    // "format": "{name}",
+    "format": "{name}: {icon}",
     "on-click": "activate",
     "all-outputs": true,
     "sort-by-number": true,
     "format-icons": {
-      "1": "1  ",
-      "2": "2  ",
-      "3": "3  ",
-      "4": "4  ",
-      "5": "5  ",
-      "6": "6  ",
-      "7": "7  ",
-      "8": "8  ",
-      "9": "9  ",
-      "10": " 10 "
+      "1": " ",
+      "2": " ",
+      "3": " ",
+      "4": " ",
+      "5": " ",
+      "6": " ",
+      "7": " ",
+      "8": " ",
+      "9": " ",
+      "10": "10 "
     },
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1"
@@ -119,9 +104,7 @@
     "tooltip-format": "{title}",
     "on-click": "activate",
     "on-click-middle": "close",
-    "ignore-list": [
-      "wofi"
-    ]
+    "ignore-list": ["wofi"]
   },
   "battery": {
     "interval": 60,
@@ -140,15 +123,9 @@
     "format-charging": " {capacity}%",
     "format-plugged": " {capacity}%",
     "format-full": "{icon} Full",
-    //"format-good": "",
+    // "format-good": "",
     "format-alt": "{icon} {time}",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ],
+    "format-icons": ["", "", "", "", ""],
     "format-time": "{H}h {M}min",
     "tooltip": true,
     "on-click-right": "~/.config/hypr/scripts/glassmorphism"
@@ -225,14 +202,8 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": [
-        "",
-        "",
-        ""
-      ],
-      "ignored-sinks": [
-        "Easy Effects Sink"
-      ]
+      "default": ["", "", ""],
+      "ignored-sinks": ["Easy Effects Sink"]
     },
     "scroll-step": 5.0,
     "on-click": "~/.config/hypr/scripts/volume --toggle",
@@ -258,11 +229,7 @@
     "on-click-right": "pavucontrol",
     "on-scroll-up": "~/.config/hypr/scripts/volume --inc",
     "on-scroll-down": "~/.config/hypr/scripts/volume --dec",
-    "format-icons": [
-      "",
-      "",
-      ""
-    ]
+    "format-icons": ["", "", ""]
   },
   "tray": {
     "icon-size": 16,
@@ -285,19 +252,8 @@
     "waves": false,
     "noise_reduction": 0.77,
     "input_delay": 2,
-    "format-icons": [
-      "▁",
-      "▂",
-      "▃",
-      "▄",
-      "▅",
-      "▆",
-      "▇",
-      "█"
-    ],
-    "actions": {
-      "on-click-right": "mode"
-    }
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "actions": { "on-click-right": "mode" }
   },
   "custom/light_dark": {
     "format": "󰐾",
