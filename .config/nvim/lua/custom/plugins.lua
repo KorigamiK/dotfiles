@@ -109,23 +109,29 @@ local plugins = {
   {
     "xeluxee/competitest.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
-    config = function()
-      require("competitest").setup {
-        compile_command = {
-          cpp = {
-            exec = "g++",
-            args = { "$(FNAME)", "-o", "$(FNOEXT)", "-DKORIGAMIK", "-std=c++20", "-O2", "-H", "-Wall" },
-          },
-        },
-        run_command = {
-          cpp = { exec = "./$(FNOEXT)" },
-          py = { exec = "python3", args = { "$(FNAME)" } },
-        },
-        testcases_use_single_file = true,
-        template_file = "~/Dev/projects/dotfiles/snippets/template.$(FEXT)",
-      }
-    end,
     cmd = { "CompetiTest" },
+    opts = {
+      compile_command = {
+        cpp = {
+          exec = "g++",
+          args = { "$(FNAME)", "-o", "$(FNOEXT)", "-DKORIGAMIK", "-std=c++20", "-O2", "-H", "-Wall" },
+        },
+        haskell = {
+          exec = "stack",
+          args = { "ghc", "$(FNAME)" },
+        },
+      },
+      run_command = {
+        cpp = { exec = "./$(FNOEXT)" },
+        py = { exec = "python3", args = { "$(FNAME)" } },
+        haskell = { exec = "./$(FNOEXT)" },
+      },
+      testcases_use_single_file = true,
+      evaluate_template_modifiers = true,
+      template_file = "$(HOME)/Dev/projects/dotfiles/snippets/template.$(FEXT)",
+      received_contests_directory = "$(HOME)/Dev/projects/competetive_coding/contests/$(JUDGE)/$(CONTEST)/",
+      received_problems_path = "$(HOME)/Dev/projects/competetive_coding/learning/$(JUDGE)/$(CONTEST)/$(PROBLEM).$(FEXT)",
+    },
   },
 
   -- Cmake
