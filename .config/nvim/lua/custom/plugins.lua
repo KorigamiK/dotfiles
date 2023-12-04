@@ -120,11 +120,16 @@ local plugins = {
           exec = "stack",
           args = { "ghc", "$(FNAME)" },
         },
+        rust = {
+          exec = "rustc",
+          args = { "$(FNAME)", "-o", "$(FNOEXT)" },
+        }
       },
       run_command = {
         cpp = { exec = "./$(FNOEXT)" },
         py = { exec = "python3", args = { "$(FNAME)" } },
         haskell = { exec = "./$(FNOEXT)" },
+        rust = { exec = "./$(FNOEXT)" },
       },
       testcases_use_single_file = true,
       evaluate_template_modifiers = true,

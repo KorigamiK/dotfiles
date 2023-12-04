@@ -13,9 +13,10 @@ M.override = {
 
 ---@type HLTable
 M.add = {
-  CursorLineNr = { bg = "statusline_bg", fg = "nord_blue" },
+  IndentBlanklineContextStart = { bg = "line" },
   NeogitDiffDelete = { bg = "NONE", fg = "baby_pink" },
   NeogitDiffDeleteHighlight = { bg = "NONE", fg = "red" },
+  TelescopeSelection = { bg = "red" },
 }
 
 return M
