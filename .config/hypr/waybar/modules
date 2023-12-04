@@ -76,6 +76,10 @@
     "exec-if": "ping wttr.in -c1",
     "tooltip": true
   },
+  "hyprland/workspaces": {
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+  },
   // changed to hyprland
   "wlr/workspaces": {
     // "format": "{name}",
