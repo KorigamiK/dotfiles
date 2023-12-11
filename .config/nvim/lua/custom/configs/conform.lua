@@ -13,6 +13,7 @@ return {
     yaml = { "prettier" },
     sh = { "shfmt" },
     tex = { "latexindent" },
+    bib = { "latexindent" },
 
     -- clang
     c = { "clang_format" },
