@@ -73,6 +73,7 @@ M.treesitter = {
     enable = true,
     disable = { "python" },
   },
+  autotag = { enable = true },
 }
 
 M.mason = {

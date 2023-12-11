@@ -31,7 +31,7 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
-    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects", "windwp/nvim-ts-autotag" },
   },
 
   {
@@ -123,7 +123,7 @@ local plugins = {
         rust = {
           exec = "rustc",
           args = { "$(FNAME)", "-o", "$(FNOEXT)" },
-        }
+        },
       },
       run_command = {
         cpp = { exec = "./$(FNOEXT)" },
