@@ -121,15 +121,21 @@ local plugins = {
           args = { "ghc", "$(FNAME)" },
         },
         rust = {
-          exec = "rustc",
-          args = { "$(FNAME)", "-o", "$(FNOEXT)" },
+          -- exec = "rustc",
+          -- args = { "$(FNAME)", "-o", "$(FNOEXT)" },
+          exec = "cargo",
+          args = { "build", "--release", "--bin", "$(FNOEXT)" },
         },
       },
       run_command = {
         cpp = { exec = "./$(FNOEXT)" },
         py = { exec = "python3", args = { "$(FNAME)" } },
         haskell = { exec = "./$(FNOEXT)" },
-        rust = { exec = "./$(FNOEXT)" },
+        rust = {
+          -- exec = "cargo",
+          -- args = { "metadata", "--format-version", "1", "--no-deps", "|", "jq", "-r", ".target_directory" },
+          exec = "../../target/release/$(FNOEXT)"
+        },
       },
       testcases_use_single_file = true,
       evaluate_template_modifiers = true,

@@ -4,7 +4,7 @@
 }
 
 #window {
-  background-color: rgba(50, 50, 50, 0.8);
+  background-color: rgba(27, 42, 65, 0.8);
   color: --wofi-color2;
   border: 2px solid --wofi-color1;
   border-radius: 0px;
@@ -43,7 +43,7 @@
 
 #entry:selected {
   background-color: --wofi-color3;
-  background: linear-gradient(90deg, #bbccdd, #cca5dd);
+  background: linear-gradient(90deg, #98B9F2, #4472CA);
   color: --wofi-color0;
 }
 
