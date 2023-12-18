@@ -114,7 +114,7 @@ local plugins = {
       compile_command = {
         cpp = {
           exec = "g++",
-          args = { "$(FNAME)", "-o", "$(FNOEXT)", "-DKORIGAMIK", "-std=c++20", "-O2", "-H", "-Wall" },
+          args = { "$(FNAME)", "-o", "$(FNOEXT)", "-DKORIGAMIK", "-std=c++20", "-Wall" },
         },
         haskell = {
           exec = "stack",
@@ -250,6 +250,14 @@ local plugins = {
       require("trouble").setup()
     end,
   },
+
+  -- Surround
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    opts = {},
+  }
 }
 
 return plugins
