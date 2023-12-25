@@ -78,7 +78,20 @@
   },
   "hyprland/workspaces": {
     "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1"
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一 ",
+      "2": "二 ",
+      "3": "三 ",
+      "4": "四 ",
+      "5": "五 ",
+      "6": "六 ",
+      "7": "七 ",
+      "8": "八 ",
+      "9": "九 ",
+      "10": "十"
+    }
   },
   // changed to hyprland
   "wlr/workspaces": {
@@ -132,7 +145,7 @@
     "format-alt": "{icon} {time}",
     "format-icons": ["", "", "", "", ""],
     "format-time": "{H}h {M}min",
-    "tooltip": true,
+    "tooltip": true
     // "on-click-right": "~/.config/hypr/scripts/glassmorphism"
   },
   "clock": {
