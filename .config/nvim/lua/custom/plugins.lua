@@ -51,6 +51,7 @@ local plugins = {
     cmd = "Neogit",
     opts = {
       signs = { section = { "", "" }, item = { "", "" } },
+      console_timeout = 6000,
       auto_show_console = false,
       kind = "tab",
       commit_editor = {
