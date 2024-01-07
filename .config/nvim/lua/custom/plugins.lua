@@ -134,7 +134,7 @@ local plugins = {
         rust = {
           -- exec = "cargo",
           -- args = { "metadata", "--format-version", "1", "--no-deps", "|", "jq", "-r", ".target_directory" },
-          exec = "../../target/release/$(FNOEXT)"
+          exec = "../../target/release/$(FNOEXT)",
         },
       },
       testcases_use_single_file = true,
@@ -191,9 +191,9 @@ local plugins = {
     opts = function()
       return require "custom.configs.rust-tools"
     end,
-    config = function(_, opts)
-      require("rust-tools").setup(opts)
-    end,
+    -- config = function(_, opts)
+    --   require("rust-tools").setup(opts)
+    -- end,
   },
 
   -- Flutter
@@ -257,7 +257,20 @@ local plugins = {
     version = "*",
     event = "VeryLazy",
     opts = {},
-  }
+  },
+
+  -- AI
+  --[[ {
+    "jackMort/ChatGPT.nvim",
+    -- event = "VeryLazy",
+    cmd = { "ChatGPT", "ChatGPTActAs", "ChatGPTCompleteCode", "ChatGPTEditWithInstructions", "ChatGPTRun" },
+    opts = { api_key_cmd = "secret-tool lookup password openai" },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  } ]]
 }
 
 return plugins
