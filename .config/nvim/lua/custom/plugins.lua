@@ -257,12 +257,13 @@ local plugins = {
     end,
   },
 
-  -- Surround
+  --[[ 
+      [NOTE]: custom config 
+      fix which-key there is no `"` here
+  --]]
   {
-    "kylechui/nvim-surround",
-    version = "*",
-    event = "VeryLazy",
-    opts = {},
+    "folke/which-key.nvim",
+    keys = { "<leader>", "<c-r>", "<c-w>", "'", "`", "c", "g" },
   },
 
   -- AI
