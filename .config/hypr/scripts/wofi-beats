@@ -20,7 +20,7 @@ notification() {
 
 menu() {
   printf "1. Lofi Girl\n"
-  printf "2. 96.3 Easy Rock - FM Radio\n"
+  printf "2. Anime songs\n"
   printf "3. Box Lofi\n"
   printf "4. Top Music 2023\n"
   printf "5. Youtube Global Top 100\n"
@@ -29,6 +29,7 @@ menu() {
   printf "8. Youtube Remix\n"
   printf "9. K-Drama-OST2"
 }
+
 main() {
   choice=$(menu | ${wofi_command} | cut -d. -f1)
   case $choice in
@@ -39,7 +40,7 @@ main() {
     ;;
   2)
     notification
-    mpv "https://tunein.com/radio/Easy-Rock-Manila-963-s120725/"
+    mpv --shuffle --vid=no "https://www.youtube.com/playlist?list=PL8lZieNFgOdmrNGTqwjqYJpJ_2nw_O_M2"
     return
     ;;
   3)
@@ -80,4 +81,4 @@ main() {
   esac
 }
 
-pkill -f http && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/music.png" "Online Music stopped" || main
+pkill -f http && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/music.png" "Online Music stopped" || (pidof wofi && pkill wofi || main)
