@@ -1,0 +1,91 @@
+#!/bin/bash
+
+menu() {
+  printf "1. get a shortened url\n"
+  printf "2. download file in ~/D\n"
+  printf "3. open in incognito\n"
+  printf "4. play in mpv\n"
+  printf "5. open in nbviewer\n"
+  printf "6. save clipboard image\n"
+  printf "7. tgsend script\n"
+  printf "8. run shell command\n"
+  printf "9. download torrent\n"
+  if [[ "$cbtext" == *"$scihub"* ]]; then
+    printf "S. open in scihub\n"
+  fi
+}
+
+spell_failed() {
+  notify-send "Failed to cast spell"
+}
+
+CONFIG="$HOME/.config/hypr/wofifull/config"
+STYLE="$HOME/.config/hypr/wofifull/style.css"
+COLORS="$HOME/.config/hypr/wofifull/colors"
+
+wofi_command="wofi --show dmenu \
+			--conf ${CONFIG} --style ${STYLE} --color ${COLORS} \
+			--width=350 --height=380 \
+			--cache-file=/dev/null \
+			--hide-scroll --no-actions \
+			--define=matching=fuzzy"
+
+cbtext=$(wl-paste)
+preview="${cbtext:0:30}"
+choice=$(menu | ${wofi_command} -p "'$preview..'" -i -l 20 | cut -d. -f1)
+
+case $choice in
+1)
+  output=$(curl -s -F"shorten=$cbtext" 0x0.st)
+  if [ "$output" = "Segmentation Fault" ]; then
+    spell_failed
+  else
+    echo "$output" | wl-copy
+    notify-send "shortened link is in clipboard"
+  fi
+  break
+  ;;
+2)
+  wget -P ~/Downloads $cbtext &&
+    notify-send "Downloading File" ||
+    spell_failed
+  break
+  ;;
+3)
+  firefox --incognito $cbtext
+  break
+  ;;
+
+5)
+  modurl="https://nbviewer.jupyter.org/github/$(echo $cbtext | sed 's,https://github.com/,,')"
+  firefox $modurl
+  break
+  ;;
+4)
+  mpv "$cbtext" || spell_failed
+  break
+  ;;
+6)
+  file=$(date +"%d-%m-%Y-%I-%M-%p")
+  wl-copy -t image/png -o >$HOME/Downloads/screenshots/$file-clip.png ||
+    spell_failed
+  break
+  ;;
+7)
+  user=$(echo "" | dmenu -p "Enter Username: ")
+  tgsend $user "$cbtext"
+  break
+  ;;
+8)
+  $cbtext || spell_failed
+  break
+  ;;
+9)
+  transadd $cbtext
+  break
+  ;;
+S)
+  firefox "https://sci-hub.se/$cbtext"
+  break
+  ;;
+esac
