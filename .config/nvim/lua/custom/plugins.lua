@@ -189,16 +189,25 @@ local plugins = {
     ft = "hypr",
   },
 
+  {
+    "lvimuser/lsp-inlayhints.nvim",
+    opts = {
+      inlay_hints = {
+        parameter_hints = { prefix = "<= ", remove_colon_start = true },
+        type_hints = { prefix = "<= ", remove_colon_start = true },
+      },
+    },
+  },
+
   -- Rust
   {
     "mrcjkb/rustaceanvim",
     version = "^4", -- Recommended
     ft = { "rust" },
-    dependencies = { { "lvimuser/lsp-inlayhints.nvim", opts = {} } },
     config = function()
       vim.g.rustaceanvim = {
         inlay_hints = {
-          auto = false
+          auto = false,
         },
         tools = {
           hover_actions = {
