@@ -29,7 +29,7 @@ parse_search=false
 insensitive=false
 
 ## Other
-hide_scroll=true
+# hide_scroll=true
 no_actions=true
 sort_order=default
 gtk_dark=true

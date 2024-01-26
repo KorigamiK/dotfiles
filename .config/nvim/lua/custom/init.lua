@@ -1,7 +1,5 @@
--- local autocmd = vim.api.nvim_create_autocmd
-
 -- Auto resize panes when resizing nvim window
--- autocmd("VimResized", {
+-- vim.api.nvim_create_autocmd("VimResized", {
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
@@ -38,18 +36,18 @@ vim.o.scrolloff = 6
 vim.o.guifont = "Iosevka Term:h14"
 vim.opt.clipboard = ""
 
---[[ vim.g.neovide_padding_top = 0
-vim.g.neovide_padding_bottom = 0
-vim.g.neovide_padding_right = 0
-vim.g.neovide_padding_left = 0 ]]
+--[[ VIM.G.NEOVIDE_PADDING_TOP = 0
+VIM.G.NEOVIDE_PADDING_BOTTOM = 0
+VIM.G.NEOVIDE_PADDING_RIGHT = 0
+VIM.G.NEOVIDE_PADDING_LEFT = 0 ]]
 
--- Helper function for transparency formatting
--- vim.g.neovide_transparency = 0.6
--- vim.g.neovide_transparency = 0.8
--- vim.g.transparency = 0.8
---[[ local alpha = function()
-  return string.format("%x", math.floor(255 * (vim.g.transparency or 0.8)))
-end
-vim.g.neovide_background_color = "#0f1117" .. alpha() ]]
+-- HELPER FUNCTION FOR TRANSPARENCY FORMATTING
+-- VIM.G.NEOVIDE_TRANSPARENCY = 0.6
+-- VIM.G.NEOVIDE_TRANSPARENCY = 0.8
+-- VIM.G.TRANSPARENCY = 0.8
+--[[ LOCAL ALPHA = FUNCTION()
+  RETURN STRING.FORMAT("%X", MATH.FLOOR(255 * (VIM.G.TRANSPARENCY OR 0.8)))
+END
+VIM.G.NEOVIDE_BACKGROUND_COLOR = "#0F1117" .. ALPHA() ]]
 
 
