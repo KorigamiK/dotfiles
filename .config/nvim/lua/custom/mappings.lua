@@ -85,6 +85,11 @@ M.general = {
 
     -- Zoxide
     ["<leader>z"] = { "<cmd> Telescope zoxide list <CR>", "Zoxide list" },
+
+    -- Inaly hints
+    ["<leader>ih"] = { function() 
+	    require("lsp-inlayhints").toggle()
+    end, "Toggle inlay hints" },
   },
   x = {
     -- Move selected line / block of text in visual mode
@@ -101,7 +106,7 @@ M.general = {
   },
   t = {
     ["<C-k>"] = { "<C-\\><C-N><C-w><C-w>", "Window prev" },
-  }
+  },
 }
 
 M.disabled = {
