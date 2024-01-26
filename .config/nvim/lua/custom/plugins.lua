@@ -191,15 +191,32 @@ local plugins = {
 
   -- Rust
   {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    opts = function()
-      return require "custom.configs.rust-tools"
+    "mrcjkb/rustaceanvim",
+    version = "^4", -- Recommended
+    ft = { "rust" },
+    dependencies = { { "lvimuser/lsp-inlayhints.nvim", opts = {} } },
+    config = function()
+      vim.g.rustaceanvim = {
+        inlay_hints = {
+          auto = false
+        },
+        tools = {
+          hover_actions = {
+            auto_focus = true,
+          },
+        },
+        server = {
+          capabilities = require("plugins.configs.lspconfig").capabilities,
+          on_attach = function(client, bufnr)
+            require("plugins.configs.lspconfig").on_attach(client, bufnr)
+            require("lsp-inlayhints").on_attach(client, bufnr)
+            if client.server_capabilities.inlayHintProvider then
+              vim.lsp.inlay_hint(bufnr, true)
+            end
+          end,
+        },
+      }
     end,
-    -- config = function(_, opts)
-    --   require("rust-tools").setup(opts)
-    -- end,
   },
 
   -- Flutter

@@ -17,6 +17,7 @@ M.add = {
   NeogitDiffDelete = { bg = "NONE", fg = "baby_pink" },
   NeogitDiffDeleteHighlight = { bg = "NONE", fg = "red" },
   TelescopeSelection = { bg = "red" },
+  LspInlayHint = { bg = "NONE", fg = "light_grey" },
 }
 
 return M
