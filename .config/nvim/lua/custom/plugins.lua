@@ -147,7 +147,7 @@ local plugins = {
       evaluate_template_modifiers = true,
       template_file = "$(HOME)/Dev/projects/dotfiles/snippets/template.$(FEXT)",
       received_contests_directory = "$(HOME)/Dev/projects/competetive_coding/contests/$(JUDGE)/$(CONTEST)/",
-      received_problems_path = "$(HOME)/Dev/projects/competetive_coding/learning/$(JUDGE)/$(CONTEST)/$(PROBLEM).$(FEXT)",
+      -- received_problems_path = "$(HOME)/Dev/projects/competetive_coding/learning/$(JUDGE)/$(CONTEST)/$(PROBLEM).$(FEXT)",
     },
   },
 
@@ -270,7 +270,11 @@ local plugins = {
   {
     "folke/zen-mode.nvim",
     cmd = { "ZenMode" },
-    opts = {},
+    opts = {
+      window = {
+        width = 0.85, -- width will be 85% of the editor width
+      },
+    },
   },
 
   -- LSP diagnostics

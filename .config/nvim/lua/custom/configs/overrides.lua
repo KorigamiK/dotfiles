@@ -61,13 +61,14 @@ M.treesitter = {
     "c",
     "cpp",
     "glsl",
-    "markdown",
+    -- "markdown",
     "markdown_inline",
     "astro",
     "python",
     "cpp",
     "dart",
     "haskell",
+    "wgsl",
   },
   indent = {
     enable = true,
@@ -95,12 +96,12 @@ M.mason = {
     -- shell stuff
     "shfmt",
 
-    --rust
-    "rust-analyzer",
-
     -- python
     "black",
     "isort",
+
+    -- rust
+    "rust-analyzer",
 
     -- solidity
     "nomicfoundation-solidity-language-server",

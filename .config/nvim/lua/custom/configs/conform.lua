@@ -5,6 +5,7 @@ return {
     javascript = { { "deno_fmt" } },
     typescript = { { "prettier" } },
     typescriptreact = { { "prettier" } },
+    html = { "prettier" },
     css = { "prettier" },
     astro = { "prettier" },
     markdown = { "deno_fmt" },
