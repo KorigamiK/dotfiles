@@ -14,7 +14,7 @@ vim.opt.relativenumber = true
 
 vim.g.markdown_fenced_languages = { "ts=typescript" }
 vim.filetype.add {
-  extension = { wgsl = "wgsl" },
+  extension = { wgsl = "wgsl", stpl = "html" },
 }
 vim.api.nvim_create_user_command("ToggleTabline", function()
   ---@diagnostic disable-next-line: undefined-field
@@ -29,7 +29,6 @@ end, {})
 vim.o.scrolloff = 6
 vim.o.guifont = "Iosevka Term:h14"
 vim.opt.clipboard = ""
-
 
 --[[ VIM.G.NEOVIDE_PADDING_TOP = 0
 VIM.G.NEOVIDE_PADDING_BOTTOM = 0

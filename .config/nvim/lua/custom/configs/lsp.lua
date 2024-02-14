@@ -59,7 +59,7 @@ lspconfig.tsserver.setup {
   root_dir = lspconfig.util.root_pattern "package.json",
   on_attach = on_attach,
   capabilities = capabilities,
-  single_file_support = false,
+  single_file_support = true,
 }
 
 lspconfig.solidity_ls_nomicfoundation.setup {
