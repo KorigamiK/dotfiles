@@ -1,11 +1,6 @@
 ---@type MappingsTable
 local M = {}
 
-local ft_cmds = {
-  markdown = "make",
-  ...,
-}
-
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
@@ -13,9 +8,9 @@ M.general = {
     -- terminal
     ["<C-b>"] = {
       function()
-        require("nvterm.terminal").send(ft_cmds[vim.bo.filetype])
+        require("nvterm.terminal").send("fc -s", "horizontal")
       end,
-      "Send ft_cmd to terminal",
+      "Run the last command in the current terminal",
     },
 
     -- tansparency toggle

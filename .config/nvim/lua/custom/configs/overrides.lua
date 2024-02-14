@@ -112,7 +112,11 @@ M.mason = {
 M.nvimtree = {
   update_focused_file = { enable = true },
   git = { enable = false },
-  filters = { custom = { "node_modules", ".git", ".cache" } },
+  filters = {
+    custom = { "node_modules", ".git", ".cache" },
+    dotfiles = false,
+    exclude = { ".gitignore", ".github" },
+  },
   view = { side = "right" },
   renderer = {
     highlight_git = true,
