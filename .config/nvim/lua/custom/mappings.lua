@@ -13,6 +13,21 @@ M.general = {
       "Run the last command in the current terminal",
     },
 
+    -- buffers
+    ["<A-y>"] = {
+      function()
+        print('hello')
+        require("nvchad.tabufline").move_buf(-1)
+      end,
+      "Goto prev buffer",
+    },
+    ["<A-o>"] = {
+      function()
+        require("nvchad.tabufline").move_buf(1)
+      end,
+      "Goto next buffer",
+    },
+
     -- tansparency toggle
     ["<leader>tt"] = { "<cmd> lua require('base46').toggle_transparency() <CR>", "Toggle Transparency" },
 
@@ -82,9 +97,12 @@ M.general = {
     ["<leader>z"] = { "<cmd> Telescope zoxide list <CR>", "Zoxide list" },
 
     -- Inaly hints
-    ["<leader>ih"] = { function() 
-	    require("lsp-inlayhints").toggle()
-    end, "Toggle inlay hints" },
+    ["<leader>ih"] = {
+      function()
+        require("lsp-inlayhints").toggle()
+      end,
+      "Toggle inlay hints",
+    },
   },
   x = {
     -- Move selected line / block of text in visual mode
