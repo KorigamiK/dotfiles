@@ -135,7 +135,7 @@ M.telescope = {
   },
   pickers = {
     find_files = {
-      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*", "--no-ignore", "--debug", "-g", ""},
     },
     live_grep = {
       file_ignore_patterns = { "node_modules", ".git", ".venv" },
