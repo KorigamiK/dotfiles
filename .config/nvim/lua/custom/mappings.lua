@@ -16,7 +16,6 @@ M.general = {
     -- buffers
     ["<A-y>"] = {
       function()
-        print('hello')
         require("nvchad.tabufline").move_buf(-1)
       end,
       "Goto prev buffer",

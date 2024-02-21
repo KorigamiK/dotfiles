@@ -60,12 +60,12 @@ M.treesitter = {
     "tsx",
     "c",
     "cpp",
+    "rust",
     "glsl",
-    -- "markdown",
+    "markdown",
     "markdown_inline",
     "astro",
     "python",
-    "cpp",
     "dart",
     "haskell",
     "wgsl",
@@ -75,6 +75,10 @@ M.treesitter = {
     disable = { "python" },
   },
   autotag = { enable = true },
+  highlight = {
+    -- disable = { "latex" },
+    -- additional_vim_regex_highlighting = { "latex" },
+  },
 }
 
 M.mason = {
@@ -135,7 +139,7 @@ M.telescope = {
   },
   pickers = {
     find_files = {
-      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*", "--no-ignore", "--debug", "-g", ""},
+      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
     },
     live_grep = {
       file_ignore_patterns = { "node_modules", ".git", ".venv" },

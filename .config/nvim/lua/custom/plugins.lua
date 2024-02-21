@@ -206,14 +206,8 @@ local plugins = {
     ft = { "rust" },
     config = function()
       vim.g.rustaceanvim = {
-        inlay_hints = {
-          auto = false,
-        },
-        tools = {
-          hover_actions = {
-            auto_focus = true,
-          },
-        },
+        inlay_hints = { auto = false },
+        tools = { hover_actions = { auto_focus = true } },
         server = {
           capabilities = require("plugins.configs.lspconfig").capabilities,
           on_attach = function(client, bufnr)
@@ -233,37 +227,40 @@ local plugins = {
     "akinsho/flutter-tools.nvim",
     enabled = true,
     ft = "dart",
-    opts = {
-      widget_guides = { enabled = false },
-      closing_tags = {
-        enabled = true, -- set to false to disable
-      },
-      dev_log = { enabled = true, notify_errors = true, open_cmd = "tabedit" },
-      dev_tools = {
-        autostart = false,
-        auto_open_browser = false,
-      },
-      outline = {
-        open_cmd = "30vnew",
-        auto_open = false,
-      },
-      lsp = {
-        color = {
-          enabled = true,
-          background = true,
-          foreground = false,
-          virtual_text = true,
-          virtual_text_str = "■",
+    dependencies = { "neovim/nvim-lspconfig" },
+    config = function()
+      require('flutter-tools').setup {
+        widget_guides = { enabled = false },
+        closing_tags = {
+          enabled = true, -- set to false to disable
         },
-        on_attach = require("plugins.configs.lspconfig").on_attach,
-        capabilities = require("plugins.configs.lspconfig").capabilities,
-        settings = {
-          showTodos = true,
-          completeFunctionCalls = true,
-          analysisExcludedFolders = { "/home/origami/.pub-cache/" },
+        dev_log = { enabled = true, notify_errors = true, open_cmd = "tabedit" },
+        dev_tools = {
+          autostart = false,
+          auto_open_browser = false,
         },
-      },
-    },
+        outline = {
+          open_cmd = "30vnew",
+          auto_open = false,
+        },
+        lsp = {
+          color = {
+            enabled = true,
+            background = true,
+            foreground = false,
+            virtual_text = true,
+            virtual_text_str = "■",
+          },
+          capabilities = require("plugins.configs.lspconfig").capabilities,
+          on_attach = require("plugins.configs.lspconfig").on_attach,
+          settings = {
+            showTodos = true,
+            completeFunctionCalls = true,
+            analysisExcludedFolders = { "/home/origami/.pub-cache/" },
+          },
+        },
+      }
+    end
   },
 
   -- Zen mode
