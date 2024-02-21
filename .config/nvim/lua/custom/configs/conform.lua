@@ -32,6 +32,7 @@ return {
   formatters = {
     shfmt = { prepend_args = { "-i", "2" } },
     fourmolu = { prepend_args = { "--indentation", "2" } },
+    latexindent = { prepend_args = { "-l=./latexindent.yaml" } },
   },
   log_level = vim.log.levels.ERROR,
 }
