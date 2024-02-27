@@ -102,6 +102,13 @@ M.general = {
       end,
       "Toggle inlay hints",
     },
+
+    ["<leader>X"] = {
+      function()
+        require("nvchad.tabufline").closeAllBufs()
+      end,
+      "Close all buffers",
+    },
   },
   x = {
     -- Move selected line / block of text in visual mode
