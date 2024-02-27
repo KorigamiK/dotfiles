@@ -30,6 +30,8 @@ vim.o.scrolloff = 6
 vim.o.guifont = "Iosevka Term:h14"
 vim.opt.clipboard = ""
 
+vim.opt.fillchars = { eob = "~" }
+
 --[[ VIM.G.NEOVIDE_PADDING_TOP = 0
 VIM.G.NEOVIDE_PADDING_BOTTOM = 0
 VIM.G.NEOVIDE_PADDING_RIGHT = 0
