@@ -35,12 +35,15 @@ sort_order=default
 gtk_dark=true
 filter_rate=100
 
+style=/home/origami/.config/hypr/wofifull/style.css
+colors=/home/origami/.config/hypr/wofifull/colors
+
 ## Keys
-key_expand=Control_L+Return
+# key_expand=Ctrl+Return
 key_exit=Escape
-key_up=Control_L-k,Up
-key_down=Control_L-j,Down
-key_left=Control_L-h,Left
-key_right=Control_L-l,Right
-key_forward=Control_L-n,Tab
-key_backward=Control_L-p,ISO_Left_Tab
+# key_up=Ctrl-k,Up
+# key_down=Ctrl-j,Down
+# key_left=Ctrl-h,Left
+# key_right=Ctrl-l,Right
+key_forward=Ctrl-n,Tab
+key_backward=Ctrl-p,ISO_Left_Tab

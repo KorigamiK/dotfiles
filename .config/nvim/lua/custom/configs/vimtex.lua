@@ -45,7 +45,7 @@ function M.setup()
     "Package hyperref Warning: Token not allowed in a PDF string",
     [[Overfull \\hbox ([0-9]*.[0-9]*pt too wide) in paragraph at lines]],
   }
-  vim.g.vimtex_fold_enabled = 0
+  vim.g.vimtex_fold_enabled = 1
   vim.g.vimtex_fold_manual = 1
   vim.g.vimtex_fold_types = {
     cmd_addplot = {

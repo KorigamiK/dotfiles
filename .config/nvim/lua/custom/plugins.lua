@@ -229,7 +229,7 @@ local plugins = {
     ft = "dart",
     dependencies = { "neovim/nvim-lspconfig" },
     config = function()
-      require('flutter-tools').setup {
+      require("flutter-tools").setup {
         widget_guides = { enabled = false },
         closing_tags = {
           enabled = true, -- set to false to disable
@@ -260,7 +260,7 @@ local plugins = {
           },
         },
       }
-    end
+    end,
   },
 
   -- Zen mode
