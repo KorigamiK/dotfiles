@@ -1,0 +1,7 @@
+plugin
+spell
+syntax
+.luarc.json
+lazy-lock.json
+after
+**/.DS_Store
