@@ -141,6 +141,13 @@ end, {
   desc = "Run the last command in the current terminal",
 })
 
+-- paste
+map("i", "<C-v>", '<esc>"+pi', { desc = "Paste from clipboard" })
+
+-- Resenters screen after jumping (Note scrol down add 1 line to correct for navic)
+map("n", "<C-d>", "<C-d>zz<C-y>", { desc = "Jump Half page down" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Jump Half page up" })
+
 -- terminal
 map("t", "<C-k>", "<C-\\><C-N><C-w><C-w>", {
   desc = "Window prev",
