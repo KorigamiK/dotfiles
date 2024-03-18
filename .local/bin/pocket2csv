@@ -1,0 +1,164 @@
+#!/usr/bin/bash
+
+read -r -d '' LOGO <<'EOF'
+...                   _          _    ___                   
+                     | |        | |  |__ \                  
+  _ __    ___    ___ | | __ ___ | |_    ) | ___  ___ __   __
+ | '_ \  / _ \  / __|| |/ // _ \| __|  / / / __|/ __|\ \ / /
+ | |_) || (_) || (__ |   <|  __/| |_  / /_| (__ \__ \ \ V / 
+ | .__/  \___/  \___||_|\_\\___| \__||____|\___||___/  \_/  
+ | |                                                        
+ |_|
+...   
+
+EOF
+echo ""
+echo "$LOGO"
+echo ""
+echo ""
+read -p '[1] Enter Your Pocket API Consumer Key: ' CONSUMER_KEY
+
+read -r -d '' MY_DATA <<EOF
+{
+"consumer_key":"$CONSUMER_KEY",
+"redirect_uri":"https://getpocket.com"
+}
+EOF
+
+MY_CODE=$(
+  curl \
+    --silent \
+    --request POST \
+    --url https://getpocket.com/v3/oauth/request \
+    --header 'content-type: application/json; charset=UTF-8' \
+    --header 'x-accept: application/json' \
+    --data "$MY_DATA" |
+    jq -r .code
+)
+
+echo "[2] Visit this link in a browser:"
+echo ""
+echo "https://getpocket.com/auth/authorize?request_token=$MY_CODE&redirect_uri=https://getpocket.com"
+echo ""
+echo "[3] Login to Pocket (if not already logged in)."
+echo "[4] Click the Authorize button."
+echo "[!] "
+echo "[!] DO NOT CONTINUE UNTIL YOU DO [2], [3], [4] !"
+echo "[!] OTHERWISE THIS SCRIPT WILL FAIL. ☠"
+echo "[!] "
+read -p "[5] Press any key to continue (CTRL-C to quit)... "
+
+read -r -d '' MY_DATA <<EOF
+{
+"consumer_key":"$CONSUMER_KEY",
+"code":"$MY_CODE"
+}
+EOF
+
+MY_ACCESS_TOKEN=$(
+  curl \
+    --silent \
+    --request POST \
+    --url https://getpocket.com/v3/oauth/authorize \
+    --header 'content-type: application/json; charset=UTF-8' \
+    --header 'x-accept: application/json' \
+    --data "$MY_DATA" |
+    jq -r .access_token
+)
+
+read -r -d '' MY_DATA <<EOF
+{
+"state": "all",
+"sort": "newest",
+"detailType": "complete",
+"consumer_key":"$CONSUMER_KEY",
+"access_token":"$MY_ACCESS_TOKEN"
+}
+EOF
+
+echo "[+] Downloading Pocket bookmarks to bookmarks.json..."
+
+curl \
+  --silent \
+  --request POST \
+  --url https://getpocket.com/v3/get \
+  --header 'content-type: application/json' \
+  --output bookmarks.json \
+  --data "$MY_DATA"
+
+echo "[+] Converting bookmarks.json to bookmarks.csv..."
+echo " [>] Creating intermediate file bookmarks-tmp.json..."
+
+jq '.list | .[]' bookmarks.json |
+  jq '
+if .tags == null
+ then
+ .tags = {}
+ else
+ .tags = .tags 
+ end
+' |
+  jq '.favorite = (.favorite | tonumber)' |
+  jq '.has_video = (.has_video | tonumber)' |
+  jq '.has_image = (.has_image | tonumber)' |
+  jq '.word_count = (.word_count | tonumber)' |
+  jq '.time_added = (.time_added | tonumber | todate)' |
+  jq '.year_added = (.time_added | split("T") | .[0] | split("-") | .[0] | tonumber)' |
+  jq '.month_added = (.time_added | split("T") | .[0] | split("-") | .[1] | tonumber)' |
+  jq '.day_added = (.time_added | split("T") | .[0] | split("-") | .[2] | tonumber)' |
+  jq '.hour_added = (.time_added | split("T") | .[1] | split(":") | .[0] | tonumber)' |
+  jq '.tags = (.tags | keys)' |
+  jq '.ntags = (.tags | length)' |
+  jq '.tags = (.tags | join(" AND "))' |
+  jq '.given_domain = (.given_url | split ("/") | .[2])' |
+  jq '.n_given_domain = (.given_url | split (".") | length)' |
+  jq '.resolved_domain = (.resolved_url | split ("/") | .[2])' |
+  jq '.n_resolved_domain = (.resolved_url | split (".") | length)' |
+  jq '.n_domain_equal = (.n_given_domain == .n_resolved_domain)' |
+  jq '.given_tld1 = (.given_domain | tostring | split(".") | .[length-1])' |
+  jq '.given_tld2 = (.given_domain | tostring | split(".") | .[length-2])' |
+  jq '.resolved_tld1 = (.resolved_domain | tostring | split(".") | .[length-1])' |
+  jq '.resolved_tld2 = (.resolved_domain | tostring |split(".") | .[length-2])' |
+  jq '.titles_match = (.given_title == .resolved_title)' |
+  jq '.urls_match = (.given_url == .resolved_url)' |
+  jq '.domains_match = (.given_domain == .resolved_domain)' |
+  jq '.excerpt = (.excerpt | gsub("[\\n\\t]"; ""))' |
+  jq '.given_title = (.given_title | gsub("[\\n\\t]"; ""))' |
+  jq '{
+time_added: .time_added,
+year_added: .year_added,
+month_added: .month_added,
+day_added: .day_added,
+hour_added: .hour_added,
+favorite: .favorite,
+has_video: .has_video,
+has_image: .has_image,
+word_count: .word_count,
+n_given_domain: .n_given_domain,
+n_resolved_domain: .n_resolved_domain,
+n_domain_equal: .n_domain_equal,
+ntags: .ntags,
+tags: .tags,
+titles_match: .titles_match,
+domains_match: .domains_match,
+urls_match: .urls_match,
+given_title: .given_title,
+given_domain: .given_domain,
+given_tld1: .given_tld1,
+given_tld2: .given_tld2,
+given_url: .given_url,
+resolved_title: .resolved_title,
+resolved_domain: .resolved_domain,
+resolved_tld1: .resolved_tld1,
+resolved_tld2: .resolved_tld2,
+resolved_url: .resolved_url,
+excerpt: .excerpt}' >bookmarks-tmp.json
+
+jq -r -s '.[0] | keys_unsorted | @csv' <bookmarks-tmp.json >bookmarks.csv
+
+echo " [>] Writing to bookmarks.csv..."
+
+jq 'map(.)' bookmarks-tmp.json |
+  jq -r '@csv' >>bookmarks.csv
+
+echo "[+] Done."
