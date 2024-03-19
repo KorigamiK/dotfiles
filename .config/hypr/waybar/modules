@@ -179,7 +179,7 @@
     "format": "  ",
     "tooltip": false,
     "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
-    "on-click-right": "~/.config/hypr/scripts/glassmorphism"
+    "on-click-right": "hyprlock"
   },
   "network": {
     "format": "{ifname}",
@@ -286,7 +286,7 @@
   "custom/keybindings": {
     "format": "",
     "tooltip": false,
-    "on-click": "~/.config/hypr/scripts/keyhint"
+    "on-click": "hyprlock"
   },
   "custom/updater": {
     "format": " {}",
