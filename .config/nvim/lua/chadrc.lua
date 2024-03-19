@@ -5,15 +5,14 @@ local highlights = require "highlights"
 
 M.ui = {
   theme = "kanagawa",
-  transparency = true,
+  transparency = false,
   lsp_semantic_tokens = true,
 
   hl_override = highlights.override,
   hl_add = highlights.add,
-  extended_integrations = { "trouble" },
 
   cmp = {
-    style = "atom_colored",
+    style = "default",
     icons = true,
     selected_item_bg = "simple",
   },
@@ -36,5 +35,6 @@ M.ui = {
     },
   },
 }
+
 
 return M

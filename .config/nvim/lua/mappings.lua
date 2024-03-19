@@ -29,6 +29,7 @@ map("n", "<leader>h", "<cmd> split <CR>", {
 })
 
 map("n", "<leader>fm", function()
+  ---@diagnostic disable-next-line: different-requires
   require("conform").format()
 end, { desc = "File Format with conform" })
 
