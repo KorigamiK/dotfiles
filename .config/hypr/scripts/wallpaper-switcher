@@ -12,8 +12,6 @@ DURATION=1
 WIDTH=20
 HEIGHT=30
 
-SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION"
-
 PICS=($(ls ${DIR} | grep -e ".jpg$" -e ".jpeg$" -e ".png$" -e ".gif$"))
 
 RANDOM_PIC=${PICS[$RANDOM % ${#PICS[@]}]}
@@ -22,12 +20,6 @@ RANDOM_PIC_NAME="${#PICS[@]}. random"
 # WOFI STYLES
 CONFIG="$HOME/.config/hypr/wofifull/config"
 COLORS="$HOME/.config/hypr/wofifull/colors"
-
-# to check if swaybg is running
-
-if [[ $(pidof swaybg) ]]; then
-  pkill swaybg
-fi
 
 ## Wofi Command
 wofi_command="wofi --show dmenu \
@@ -53,8 +45,6 @@ menu() {
   echo "$RANDOM_PIC_NAME"
 }
 
-swww query || swww init
-
 main() {
   choice=$(menu | ${wofi_command})
 
@@ -63,12 +53,12 @@ main() {
 
   # random choice case
   if [ "$choice" = "$RANDOM_PIC_NAME" ]; then
-    swww img ${DIR}/${RANDOM_PIC} $SWWW_PARAMS
+    hyprctl hyprpaper wallpaper "eDP-1,${DIR}/$RANDOM_PIC"
     return
   fi
 
   pic_index=$(echo $choice | cut -d. -f1)
-  swww img ${DIR}/${PICS[$pic_index]} $SWWW_PARAMS
+  hyprctl hyprpaper wallpaper "eDP-1,${DIR}/${PICS[$pic_index]}"
 }
 
 # Check if wofi is already running

@@ -62,8 +62,7 @@
     "format": "",
     "tooltip": false,
     "on-click": "$HOME/.config/hypr/scripts/fullmenu",
-    "on-click-right": "$HOME/.config/hypr/scripts/layout-switcher",
-    "on-click-middle": "~/.config/hypr/scripts/changeWallpaper swaybg"
+    "on-click-right": "~/.config/hypr/scripts/changeWallpaper"
   },
   "custom/weather": {
     "format": "{}",
@@ -204,8 +203,8 @@
   "custom/cycle_wall": {
     "format": " ",
     "on-click": "~/.config/hypr/scripts/wallpaper-switcher",
-    "on-click-right": "~/.config/hypr/scripts/changeWallpaper swww",
-    "on-click-middle": "~/.config/hypr/scripts/waybar-style-change",
+    "on-click-right": "~/.config/hypr/scripts/changeWallpaper",
+    "on-click-middle": "~/.config/hypr/scripts/waybar-reload",
     "tooltip": true,
     "tooltip-format": "Change wallpaper or style"
   },
@@ -275,12 +274,12 @@
   },
   "custom/light_dark": {
     "format": "󰐾",
-    "on-click": "~/.config/hypr/scripts/dark-light-mode",
+    "on-click": "~/.config/hypr/scripts/waybar-reload",
     "tooltip": false
   },
   "custom/lock": {
     "format": "",
-    "on-click": "~/.config/hypr/scripts/lockscreen",
+    "on-click": "hyprlock",
     "tooltip": false
   },
   "custom/keybindings": {
@@ -294,7 +293,7 @@
     "exec-if": "[[ $(checkupdates | wc -l) ]]",
     "interval": 15,
     "on-click": "foot -T update paru -Syu || yay -Syu && notify-send 'The system has been updated'",
-    "on-click-right": "~/.config/hypr/scripts/changeWallpaper swaybg"
+    "on-click-right": "~/.config/hypr/scripts/changeWallpaper"
   },
   "idle_inhibitor": {
     "format": "{icon}",
