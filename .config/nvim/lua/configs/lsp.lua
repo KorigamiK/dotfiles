@@ -1,5 +1,7 @@
 local configs = require "nvchad.configs.lspconfig"
 
+configs.defaults()
+
 local on_attach = configs.on_attach
 local on_init = configs.on_init
 local capabilities = configs.capabilities
