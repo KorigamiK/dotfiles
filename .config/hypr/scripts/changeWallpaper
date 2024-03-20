@@ -5,8 +5,9 @@ PICS=($(ls ${DIR} | grep -e ".jpg$" -e ".jpeg$" -e ".png$" -e ".gif$"))
 RANDOMPICS=$DIR/${PICS[$RANDOM % ${#PICS[@]}]}
 
 change_bg() {
-  notify-send -u normal "Changing wallpaper to $RANDOMPICS"
+  hyprctl hyprpaper preload "$RANDOMPICS"
   hyprctl hyprpaper wallpaper "eDP-1,${RANDOMPICS}"
+  hyprctl hyprpaper unload all
 }
 
 change_bg

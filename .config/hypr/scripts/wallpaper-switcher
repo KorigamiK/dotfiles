@@ -53,12 +53,16 @@ main() {
 
   # random choice case
   if [ "$choice" = "$RANDOM_PIC_NAME" ]; then
+    hyprctl hyprpaper preload "$RANDOMPICS"
     hyprctl hyprpaper wallpaper "eDP-1,${DIR}/$RANDOM_PIC"
+    hyprctl hyprpaper unload all
     return
   fi
 
   pic_index=$(echo $choice | cut -d. -f1)
+  hyprctl hyprpaper preload "${DIR}/${PICS[$pic_index]}"
   hyprctl hyprpaper wallpaper "eDP-1,${DIR}/${PICS[$pic_index]}"
+  hyprctl hyprpaper unload all
 }
 
 # Check if wofi is already running
