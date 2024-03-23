@@ -44,6 +44,7 @@ return {
         "html-lsp",
         "typescript-language-server",
         "astro-language-server",
+        "tailwindcss-language-server",
         "shfmt",
         "black",
         "isort",
