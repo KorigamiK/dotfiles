@@ -278,4 +278,13 @@ return {
       },
     },
   },
+
+  {
+    "vuki656/package-info.nvim",
+    event = "BufReadPost package.json",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    config = function ()
+      require("package-info").setup()
+    end
+  },
 }

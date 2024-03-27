@@ -20,12 +20,6 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig.tailwindcss.setup {
-  init_options = {
-    userLanguages = { stpl = "html" },
-  },
-}
-
 lspconfig.clangd.setup {
   on_init = on_init,
   on_attach = on_attach,
@@ -105,5 +99,11 @@ lspconfig.lua_ls.setup {
         preloadFileSize = 10000,
       },
     },
+  },
+}
+
+lspconfig.tailwindcss.setup {
+  init_options = {
+    userLanguages = { stpl = "html" },
   },
 }
