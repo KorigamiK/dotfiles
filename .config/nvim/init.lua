@@ -43,3 +43,12 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     vim.highlight.on_yank()
   end,
 })
+
+vim.filetype.add {
+  pattern = {
+    [".*/hypr/.*%.conf"] = function (_, _, _)
+      vim.bo.commentstring = "# %s"
+      return 'hyprlang'
+    end
+  },
+}

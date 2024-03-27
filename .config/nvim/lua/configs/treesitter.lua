@@ -67,7 +67,8 @@ return {
     "dart",
     "haskell",
     "wgsl",
-    "jsonc"
+    "jsonc",
+    "hyprlang",
   },
   indent = {
     enable = true,
