@@ -147,6 +147,20 @@ map("i", "<C-v>", '<esc>"+pi', { desc = "Paste from clipboard" })
 map("n", "<C-d>", "<C-d>zz<C-y>", { desc = "Jump Half page down" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Jump Half page up" })
 
+-- npm
+map(
+  "n",
+  "<leader>np",
+  require("package-info").change_version,
+  { silent = true, noremap = true, desc = "Show package versions" }
+)
+vim.keymap.set(
+  { "n" },
+  "<LEADER>nu",
+  require("package-info").update,
+  { silent = true, noremap = true, desc = "Update package" }
+)
+
 -- terminal
 map("t", "<C-k>", "<C-\\><C-N><C-w><C-w>", {
   desc = "Window prev",
