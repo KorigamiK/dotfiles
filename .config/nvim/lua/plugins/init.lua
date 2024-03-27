@@ -181,13 +181,6 @@ return {
     end,
   },
 
-  -- Hyprland config
-  {
-    "theRealCarneiro/hyprland-vim-syntax",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    ft = "hypr",
-  },
-
   -- Rust
   {
     "mrcjkb/rustaceanvim",
