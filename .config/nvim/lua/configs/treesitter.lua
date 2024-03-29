@@ -74,7 +74,7 @@ return {
     enable = true,
     disable = { "python" },
   },
-  autotag = { enable = true },
+  autotag = { enable = true, enable_rename = true },
   highlight = {
     -- disable = { "latex" },
     -- additional_vim_regex_highlighting = { "latex" },
