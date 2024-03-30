@@ -44,6 +44,12 @@ map("n", "<leader>fp", "<cmd> Telescope project <CR>", {
 map("n", "<leader><leader>", "<cmd> Telescope resume <CR>", {
   desc = "Telescope Resume",
 })
+map(
+  "n",
+  "<leader>fw",
+  "<cmd>Telescope live_grep_args<CR>",
+  { desc = "Grep args" }
+)
 -- zoxide
 map("n", "<leader>z", "<cmd> Telescope zoxide list <CR>", {
   desc = "Zoxide list",
@@ -141,7 +147,7 @@ end, {
 })
 
 -- paste
-map("i", "<C-v>", '<esc>"+pi', { desc = "Paste from clipboard" })
+map("i", "<C-v>", "<c-r>+", { desc = "Paste from clipboard" })
 
 -- Resenters screen after jumping (Note scrol down add 1 line to correct for navic)
 map("n", "<C-d>", "<C-d>zz<C-y>", { desc = "Jump Half page down" })

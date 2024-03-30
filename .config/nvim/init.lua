@@ -52,3 +52,7 @@ vim.filetype.add {
     end,
   },
 }
+
+vim.diagnostic.config {
+  float = { border = "rounded" },
+}

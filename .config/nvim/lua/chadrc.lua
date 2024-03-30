@@ -36,4 +36,8 @@ M.ui = {
   },
 }
 
+M.base46 = {
+  integrations = { "trouble" },
+}
+
 return M
