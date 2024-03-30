@@ -23,7 +23,11 @@ return {
 
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-telescope/telescope-project.nvim", "jvgrootveld/telescope-zoxide" },
+    dependencies = {
+      "nvim-telescope/telescope-project.nvim",
+      "jvgrootveld/telescope-zoxide",
+      "nvim-telescope/telescope-live-grep-args.nvim",
+    },
     opts = require "configs.telescope",
   },
 
@@ -75,7 +79,7 @@ return {
     config = function()
       require "nvchad.configs.lspconfig"
       require "configs.lsp"
-    end, -- Override to setup mason-lspconfig
+    end,
   },
 
   {
