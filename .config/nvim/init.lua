@@ -53,6 +53,5 @@ vim.filetype.add {
   },
 }
 
-vim.diagnostic.config {
-  float = { border = "rounded" },
-}
+vim.g.snipmate_snippets_path = "~/Dev/projects/dotfiles/snippets/snipmate"
+vim.g.vscode_snippets_path = "~/Dev/projects/dotfiles/snippets/vscode"

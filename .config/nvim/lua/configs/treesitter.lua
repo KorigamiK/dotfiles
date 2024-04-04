@@ -12,7 +12,7 @@ return {
   textobjects = {
     select = {
       enable = true,
-      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
       keymaps = {
         -- You can use the capture groups defined in textobjects.scm
         ["aa"] = "@parameter.outer",
@@ -68,7 +68,11 @@ return {
     "haskell",
     "wgsl",
     "jsonc",
+    "yaml",
     "hyprlang",
+    "cmake",
+    "bibtex",
+    "latex",
   },
   indent = {
     enable = true,
@@ -76,7 +80,7 @@ return {
   },
   autotag = { enable = true, enable_rename = true },
   highlight = {
-    -- disable = { "latex" },
+    disable = { "latex" },
     -- additional_vim_regex_highlighting = { "latex" },
   },
 }

@@ -53,6 +53,7 @@ return {
         "black",
         "isort",
         "nomicfoundation-solidity-language-server",
+        "tree-sitter-cli"
       },
       ui = { border = "rounded" },
     },

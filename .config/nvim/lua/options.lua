@@ -1,8 +1,5 @@
 require "nvchad.options"
 
-vim.g.snipmate_snippets_path = "~/Dev/projects/dotfiles/snippets/snipmate"
-vim.g.vscode_snippets_path = "~/Dev/projects/dotfiles/snippets/vscode"
-
 vim.opt.foldlevel = 99
 -- vim.opt.foldnestmax = 1
 vim.opt.foldlevelstart = 99
