@@ -81,4 +81,6 @@ main() {
   esac
 }
 
-pkill -f http && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/music.png" "Online Music stopped" || (pidof wofi && pkill wofi || main)
+pkill -f http && \
+  notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/music.png" "Online Music stopped" || \
+  (pidof wofi && pkill wofi || main)

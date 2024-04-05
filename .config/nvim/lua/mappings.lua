@@ -44,12 +44,7 @@ map("n", "<leader>fp", "<cmd> Telescope project <CR>", {
 map("n", "<leader><leader>", "<cmd> Telescope resume <CR>", {
   desc = "Telescope Resume",
 })
-map(
-  "n",
-  "<leader>fw",
-  "<cmd>Telescope live_grep_args<CR>",
-  { desc = "Grep args" }
-)
+map("n", "<leader>fw", "<cmd>Telescope live_grep_args<CR>", { desc = "Grep args" })
 -- zoxide
 map("n", "<leader>z", "<cmd> Telescope zoxide list <CR>", {
   desc = "Zoxide list",
@@ -166,6 +161,13 @@ vim.keymap.set(
   require("package-info").update,
   { silent = true, noremap = true, desc = "Update package" }
 )
+
+-- movement
+map({ "n", "x" }, "j", "gj", { silent = true })
+map({ "n", "x" }, "k", "gk", { silent = true })
+
+-- toggle line wrapping
+map('n', '<A-z>', '<cmd>set wrap!<CR>', { desc = "Toggle line wrap" })
 
 -- terminal
 map("t", "<C-k>", "<C-\\><C-N><C-w><C-w>", {
