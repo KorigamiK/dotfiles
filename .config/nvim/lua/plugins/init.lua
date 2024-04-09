@@ -53,7 +53,7 @@ return {
         "black",
         "isort",
         "nomicfoundation-solidity-language-server",
-        "tree-sitter-cli"
+        "tree-sitter-cli",
       },
       ui = { border = "rounded" },
     },
@@ -182,6 +182,7 @@ return {
   {
     "lervag/vimtex",
     ft = "tex",
+    cmd = "VimtexInverseSearch",
     config = function()
       require("configs.vimtex").setup()
     end,
