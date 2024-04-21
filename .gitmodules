@@ -2,3 +2,6 @@
 	path = snippets
 	url = git@github.com:KorigamiK/snippets.git
 	branch = main
+[submodule "firefox"]
+	path = firefox
+	url = git@github.com:KorigamiK/firefox-conf.git
