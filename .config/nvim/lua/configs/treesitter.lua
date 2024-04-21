@@ -73,6 +73,7 @@ return {
     "cmake",
     "bibtex",
     "latex",
+    "toml",
   },
   indent = {
     enable = true,
