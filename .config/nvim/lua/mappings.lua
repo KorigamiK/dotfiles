@@ -143,6 +143,7 @@ end, {
 
 -- paste
 map("i", "<C-v>", "<c-r>+", { desc = "Paste from clipboard" })
+map({ "n", "x", "v" }, "<A-c>", '"+', { desc = "Use the system clipboard" })
 
 -- Resenters screen after jumping (Note scrol down add 1 line to correct for navic)
 map("n", "<C-d>", "<C-d>zz<C-y>", { desc = "Jump Half page down" })
@@ -167,7 +168,7 @@ map({ "n", "x" }, "j", "gj", { silent = true })
 map({ "n", "x" }, "k", "gk", { silent = true })
 
 -- toggle line wrapping
-map('n', '<A-z>', '<cmd>set wrap!<CR>', { desc = "Toggle line wrap" })
+map("n", "<A-z>", "<cmd>set wrap!<CR>", { desc = "Toggle line wrap" })
 
 -- terminal
 map("t", "<C-k>", "<C-\\><C-N><C-w><C-w>", {

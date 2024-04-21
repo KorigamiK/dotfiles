@@ -50,6 +50,7 @@ vim.filetype.add {
       vim.bo.commentstring = "# %s"
       return "hyprlang"
     end,
+    [".*/foot.ini"] = 'toml'
   },
 }
 
