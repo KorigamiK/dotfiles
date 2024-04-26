@@ -3,12 +3,25 @@
 CONFIG="$HOME/.config/hypr/wofifull/config"
 projects_file="$HOME/.local/share/nvim/telescope-projects.txt"
 
-projects=$(sed 's/=.*//' $projects_file)
+# Extract project details from
+projects=$(while IFS='=' read -r title path workspace activated last_accessed; do
+  # Handle different line formats
+  if [[ -n "$last_accessed" ]]; then
+    echo "$title=$path=$workspace=$activated=$last_accessed"
+  elif [[ -n "$activated" ]]; then
+    echo "$title=$path=$workspace=$activated"
+  else
+    echo "$title=$path=w0=1=$last_accessed"
+  fi
+done <"$projects_file")
 
-selected_project=$(echo "$projects" | wofi -d --conf ${CONFIG} -p "Select a project:")
+# Sort the projects based on the last accessed time (descending order)
+sorted_projects=$(echo "$projects" | sort -t'=' -k5 -nr)
 
-project_path=$(grep "^$selected_project=" $projects_file | cut -d'=' -f2)
+# Create a list of project names for dmenu
+project_names=$(echo "$sorted_projects" | awk -F'=' '{print $1}' | wofi --conf ${CONFIG} -d -l 20 -i -p "Select a project:" -k /dev/null)
 
-if [ -n "$project_path" ]; then
+if [ -n "$project_names" ]; then
+  project_path=$(echo "$sorted_projects" | grep "^$project_names=" | awk -F'=' '{print $2}')
   footclient -e nvim +"cd $project_path" +'lua require("telescope.builtin").find_files()'
 fi
