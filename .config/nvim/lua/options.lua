@@ -9,7 +9,7 @@ vim.opt.relativenumber = true
 
 -- vim.opt.conceallevel = 1
 vim.o.scrolloff = 6
-vim.o.guifont = "Iosevka Term:h14"
+-- vim.o.guifont = "Berkeley Mono:h16"
 vim.opt.clipboard = ""
 
 vim.opt.fillchars = { eob = "~" }

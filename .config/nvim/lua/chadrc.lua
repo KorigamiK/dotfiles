@@ -4,8 +4,8 @@ local M = {}
 local highlights = require "highlights"
 
 M.ui = {
-  theme = "kanagawa",
-  transparency = true,
+  theme = "bearded-arc",
+  transparency = false,
   lsp_semantic_tokens = true,
 
   hl_override = highlights.override,

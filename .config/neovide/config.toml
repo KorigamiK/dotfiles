@@ -1,0 +1,16 @@
+maximized = false
+transparency = 0.5
+neovide_scroll_animation_length = 0.2
+
+[font]
+normal = { family = "Victor Mono", style = "Medium"}
+italic = { family = "Victor Mono", style = "Medium Italic"}
+bold = "Victor Mono"
+
+# normal = { family = "Monaspace Argon"}
+# italic = { family = "Monaspace Radon" }
+# bold = { family = "Monaspace Krypton" }
+
+size = 18
+
+[font.features]

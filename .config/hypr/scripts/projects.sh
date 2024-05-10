@@ -23,5 +23,5 @@ project_names=$(echo "$sorted_projects" | awk -F'=' '{print $1}' | wofi --conf $
 
 if [ -n "$project_names" ]; then
   project_path=$(echo "$sorted_projects" | grep "^$project_names=" | awk -F'=' '{print $2}')
-  footclient -e nvim +"cd $project_path" +'lua require("telescope.builtin").find_files()'
+  neovide +"cd $project_path" +'lua require("telescope.builtin").find_files()'
 fi

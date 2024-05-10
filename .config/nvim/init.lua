@@ -50,7 +50,8 @@ vim.filetype.add {
       vim.bo.commentstring = "# %s"
       return "hyprlang"
     end,
-    [".*/foot.ini"] = 'toml'
+    [".*/foot.ini"] = "toml",
+    [".*/waybar/modules"] = "jsonc",
   },
 }
 
