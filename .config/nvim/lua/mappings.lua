@@ -76,6 +76,11 @@ end, {
 map("n", "H", function()
   require("nvchad.tabufline").prev()
 end, { desc = "Goto prev buffer" })
+for i = 1, 4, 1 do
+  map("n", string.format("<A-%s>", i), function()
+    vim.api.nvim_set_current_buf(vim.t.bufs[i])
+  end)
+end
 
 -- trouble
 map("n", "<leader>lt", "<cmd>TroubleToggle<CR>", { desc = "Toggle trouble" })
@@ -174,6 +179,35 @@ map("n", "<A-z>", "<cmd>set wrap!<CR>", { desc = "Toggle line wrap" })
 map("t", "<C-k>", "<C-\\><C-N><C-w><C-w>", {
   desc = "Window prev",
 })
+
+if vim.g.neovide == true then
+  map("n", "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", { silent = true })
+  map("n", "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>", { silent = true })
+  map("n", "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>", { silent = true })
+end
+
+local preferred_fonts = {
+  "Berkeley Mono",
+  "Iosevka Term",
+  "Victor Mono", -- use the semibold vaiant
+  "PragmataPro",
+  "Input",
+}
+
+local function cycle_gui_font()
+  local current_font = vim.o.guifont
+  local current_index = 1
+  for i, font in ipairs(preferred_fonts) do
+    if font == current_font then
+      current_index = i
+      break
+    end
+  end
+  vim.o.guifont = preferred_fonts[(current_index % #preferred_fonts) + 1]
+  print("GUI font set to: " .. vim.o.guifont)
+end
+
+map("n", "<leader>F", cycle_gui_font, { desc = "Cycle GUI font" })
 
 local unmap = vim.keymap.del
 

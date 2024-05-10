@@ -11,6 +11,7 @@ M.override = {
   Conditional = { italic = true, bold = true },
   Repeat = { italic = true },
   ["@keyword.return"] = { italic = true },
+  ["@comment.cpp"] = { italic = true },
   ["@keyword.operator"] = { italic = true },
   ["@keyword.function"] = { italic = true },
   ["@exception"] = { italic = true },
@@ -26,6 +27,7 @@ M.add = {
   NeogitDiffDeleteHighlight = { bg = "NONE", fg = "red" },
   TelescopeSelection = { bg = "red" },
   LspInlayHint = { bg = "NONE", fg = "light_grey" },
+  Whitespace = { fg = "white" },
 
   -- Flat Floating
   -- NormalFloat = { fg = "white", bg = "darker_black", blend = 0 },
