@@ -7,17 +7,20 @@ local M = {}
 ---@type Base46HLGroupsList
 M.override = {
   Comment = { italic = true },
+  ["@comment"] = { fg = "nord_blue" },
   Boolean = { italic = true },
   Conditional = { italic = true, bold = true },
   Repeat = { italic = true },
   ["@keyword.return"] = { italic = true },
-  ["@comment.cpp"] = { italic = true },
   ["@keyword.operator"] = { italic = true },
   ["@keyword.function"] = { italic = true },
   ["@exception"] = { italic = true },
   ["@include"] = { italic = true },
   ["@repeat"] = { italic = true },
   TelescopePromptNormal = { blend = 100 },
+  -- TelescopeBorder = { fg = "blue" },
+  TelescopePromptBorder = { fg = "pink" },
+  TelescopeResultsTitle = { fg = "pink" },
 }
 
 ---@type HLTable
@@ -35,6 +38,7 @@ M.add = {
 
   -- Nvim Tree
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
+  ['@markup.math.latex'] = { fg = "vibrant_green" },
 }
 
 return M

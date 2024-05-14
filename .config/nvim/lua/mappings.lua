@@ -214,4 +214,3 @@ local unmap = vim.keymap.del
 unmap("n", "<leader>e")
 unmap("n", "<tab>")
 unmap("n", "<S-tab>")
-unmap("t", "<Esc>")
