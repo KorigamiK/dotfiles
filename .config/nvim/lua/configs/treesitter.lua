@@ -67,6 +67,7 @@ return {
     "dart",
     "haskell",
     "wgsl",
+    "json",
     "jsonc",
     "yaml",
     "hyprlang",
