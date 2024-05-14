@@ -62,7 +62,7 @@ lspconfig.hls.setup {
   },
 }
 
---[[ lspconfig.denols.setup {
+lspconfig.denols.setup {
   on_init = on_init,
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
   on_attach = on_attach,
