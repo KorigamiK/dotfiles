@@ -5,8 +5,7 @@ local highlights = require "highlights"
 
 M.ui = {
   theme = "bearded-arc",
-  transparency = false,
-  lsp_semantic_tokens = true,
+  transparency = true,
 
   hl_override = highlights.override,
   hl_add = highlights.add,

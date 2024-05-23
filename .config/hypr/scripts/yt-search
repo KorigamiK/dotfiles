@@ -1,0 +1,66 @@
+#!/bin/bash
+
+CONFIG="$HOME/.config/hypr/wofifull/config"
+
+pkill wofi && exit 0
+
+# if mpv is playing in audio mode, kill
+pkill -f "mpv --really-quiet --no-audio-display"
+
+# Prompt the user for a search query using Wofi
+query=$(wofi --conf $CONFIG --dmenu --prompt="Search YouTube:")
+
+# Check if the query is not empty
+if [ -z "$query" ]; then
+  exit 1
+fi
+
+# Use yt-dlp to search for the query and get the top 10 results in a JSON format
+results=$(
+  yt-dlp "ytsearch5:$query" \
+    --print-json \
+    --default-search "https://music.youtube.com/search?q=" \
+    --no-playlist \
+    --no-check-certificate \
+    --geo-bypass \
+    --flat-playlist \
+    --skip-download \
+    --quiet \
+    --ignore-errors
+)
+
+# Initialize empty arrays for titles and urls
+titles=()
+urls=()
+
+# Process each JSON object individually
+while IFS= read -r line; do
+  if [-z "$line" ]; then
+    continue
+  fi
+  title=$(echo "$line" | jq -r '.title')
+  url=$(echo "$line" | jq -r '.url')
+  titles+=("$title")
+  urls+=("$url")
+done <<<"$results"
+
+# Combine titles and URLs into a menu format for Wofi
+menu=""
+for i in "${!titles[@]}"; do
+  menu+="${titles[i]} |${urls[i]}\n"
+done
+
+# Prompt the user to select a video using Wofi
+selection=$(echo -e "$menu" | wofi --conf $CONFIG --dmenu --prompt="Select a video:")
+
+# Check if a selection was made
+if [ -z "$selection" ]; then
+  notify-send "YouTube Search" "No video selected"
+  exit 1
+fi
+
+# Extract the URL from the selection
+url=$(echo "$selection" | awk -F'|' '{print $2}')
+
+# Play the selected video using mpv
+mpv --really-quiet --no-audio-display --no-video --no-terminal "$url"

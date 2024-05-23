@@ -12,7 +12,7 @@ selected_window_id=$(echo "$client_info" | wofi --dmenu --conf "${CONFIG}" --sty
 
 # If a window is selected, focus on it using hyprctl dispatcher
 if [[ -n "$selected_window_id" ]]; then
-    hyprctl dispatcher focuswindow "address:0x$selected_window_id"
+  hyprctl dispatcher focuswindow "address:0x$selected_window_id"
 else
-    echo "No window selected."
+  echo "No window selected."
 fi

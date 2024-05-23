@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# get user input for a string
+read -p "Enter a string:" string
+
+# base64 decode the string
+decoded=$(base64 -d <<< "$string")
+
+# echo the decoded string
+echo "$decoded"
+
+# copy the sting to clipboard
+echo "$decoded" | wl-copy
+
+# exit with success
+exit 0

@@ -11,6 +11,6 @@ bold = "Victor Mono"
 # italic = { family = "Monaspace Radon" }
 # bold = { family = "Monaspace Krypton" }
 
-size = 18
+size = 13
 
 [font.features]

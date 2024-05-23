@@ -38,7 +38,7 @@ M.add = {
 
   -- Nvim Tree
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
-  ['@markup.math.latex'] = { fg = "vibrant_green" },
+  ["@markup.math.latex"] = { fg = "vibrant_green" },
 }
 
 return M
