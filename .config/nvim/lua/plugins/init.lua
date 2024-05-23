@@ -33,6 +33,7 @@ return {
 
   {
     "nvim-tree/nvim-tree.lua",
+    enabled = true,
     opts = require "configs.nvim-tree",
   },
 
@@ -202,7 +203,6 @@ return {
           capabilities = require("nvchad.configs.lspconfig").capabilities,
           on_attach = function(client, bufnr)
             require("nvchad.configs.lspconfig").on_attach(client, bufnr)
-            -- require("lsp-inlayhints").on_attach(client, bufnr)
             if client.server_capabilities.inlayHintProvider then
               vim.lsp.inlay_hint(bufnr, true)
             end
