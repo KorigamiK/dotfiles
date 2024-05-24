@@ -5,7 +5,7 @@ CONFIG="$HOME/.config/hypr/wofifull/config"
 pkill wofi && exit 0
 
 # if mpv is playing in audio mode, kill
-pkill -f "mpv --really-quiet --no-audio-display"
+echo 'quit' | socat - /tmp/mpvsocket
 
 # Prompt the user for a search query using Wofi
 query=$(wofi --conf $CONFIG --dmenu --prompt="Search YouTube:")
@@ -63,4 +63,5 @@ fi
 url=$(echo "$selection" | awk -F'|' '{print $2}')
 
 # Play the selected video using mpv
-mpv --really-quiet --no-audio-display --no-video --no-terminal "$url"
+mpv --input-ipc-server=/tmp/mpvsocket \
+  --really-quiet --no-audio-display --no-video --no-terminal "$url"
