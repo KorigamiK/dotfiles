@@ -23,11 +23,12 @@ main() {
   local playlist
   playlist=$(select_playlist)
   [ -z "$playlist" ] && {
-    echo "No playlist selected."
+    notify-send "No playlist selected."
     exit 1
   }
   local playlist_id
   playlist_id=$(echo "$playlist" | awk -F' | ' '{print $NF}')
+  notify-send "Now playing" "$(echo "$playlist" | cut -d '|' -f1)"
 
   local clip_urls
   clip_urls=$(get_clip_urls "$playlist_id")
