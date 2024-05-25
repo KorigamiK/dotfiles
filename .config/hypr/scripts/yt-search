@@ -47,7 +47,7 @@ done <<<"$results"
 # Combine titles and URLs into a menu format for Wofi
 menu=""
 for i in "${!titles[@]}"; do
-  menu+="${titles[i]} |${urls[i]}\n"
+  menu+="$i. ${titles[i]}\n"
 done
 
 # Prompt the user to select a video using Wofi
@@ -60,7 +60,9 @@ if [ -z "$selection" ]; then
 fi
 
 # Extract the URL from the selection
-url=$(echo "$selection" | awk -F'|' '{print $2}')
+url_id=$(echo "$selection" | cut -d. -f1)
+url=${urls[$url_id]}
+notify-send "Now playing" "${titles[$url_id]}"
 
 # Play the selected video using mpv
 mpv --input-ipc-server=/tmp/mpvsocket \

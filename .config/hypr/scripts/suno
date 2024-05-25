@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# API endpoint
+API_URL="https://studio-api.suno.ai/api/trending/metaplaylist/"
+CONFIG="$HOME/.config/hypr/wofifull/config"
+
+# Fetch data from API
+data=$(curl -s "$API_URL")
+
+# Function to display playlists and get user selection
+select_playlist() {
+  echo "$data" | jq -r '.playlists[] | .name + " | " + .id' | wofi --dmenu -p "Select Playlist" --conf ${CONFIG}
+}
+
+# Function to collect all clip audio URLs from the selected playlist
+get_clip_urls() {
+  local playlist_id=$1
+  echo "$data" | jq -r --arg id "$playlist_id" '.playlists[] | select(.id == $id) | .playlist_clips[].clip.audio_url'
+}
+
+# Main script execution
+main() {
+  local playlist
+  playlist=$(select_playlist)
+  [ -z "$playlist" ] && {
+    echo "No playlist selected."
+    exit 1
+  }
+  local playlist_id
+  playlist_id=$(echo "$playlist" | awk -F' | ' '{print $NF}')
+
+  local clip_urls
+  clip_urls=$(get_clip_urls "$playlist_id")
+  [ -z "$clip_urls" ] && {
+    echo "No clips found in the selected playlist."
+    exit 1
+  }
+
+  # Play all clip audio URLs using mpv as a playlist
+  echo "$clip_urls" |
+    mpv --input-ipc-server=/tmp/mpvsocket \
+      --really-quiet --no-audio-display --no-video --no-terminal "$url" \
+      --playlist=-
+}
+
+pkill wofi || ((echo 'quit' | socat - /tmp/mpvsocket) && main)
