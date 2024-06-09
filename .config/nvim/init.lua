@@ -46,10 +46,6 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 
 vim.filetype.add {
   pattern = {
-    [".*/hypr/.*%.conf"] = function()
-      vim.bo.commentstring = "# %s"
-      return "hyprlang"
-    end,
     [".*/foot.ini"] = "toml",
     [".*/waybar/modules"] = "jsonc",
   },
