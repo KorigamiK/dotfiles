@@ -44,4 +44,9 @@ main() {
       --playlist=-
 }
 
-pkill wofi || ((echo 'quit' | socat - /tmp/mpvsocket) && main)
+if [ -z "$(pgrep wofi)" ]; then
+  echo quit | socat - /tmp/mpvsocket
+  main
+else
+  pkill wofi
+fi

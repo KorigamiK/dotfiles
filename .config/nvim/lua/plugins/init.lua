@@ -69,9 +69,6 @@ return {
       console_timeout = 6000,
       -- auto_show_console = false,
       kind = "tab",
-      commit_editor = {
-        kind = "replace",
-      },
     },
   },
 
@@ -197,16 +194,11 @@ return {
     config = function()
       vim.g.rustaceanvim = {
         inlay_hints = { auto = false },
-        tools = { hover_actions = { auto_focus = true } },
+        tools = { hover_actions = { auto_focus = true }, float_win_config = { border = "rounded" } },
         server = {
           on_init = require("nvchad.configs.lspconfig").on_init,
+          on_attach = require("nvchad.configs.lspconfig").on_attach,
           capabilities = require("nvchad.configs.lspconfig").capabilities,
-          on_attach = function(client, bufnr)
-            require("nvchad.configs.lspconfig").on_attach(client, bufnr)
-            if client.server_capabilities.inlayHintProvider then
-              vim.lsp.inlay_hint(bufnr, true)
-            end
-          end,
         },
       }
     end,
@@ -255,7 +247,7 @@ return {
   -- LSP diagnostics
   {
     "folke/trouble.nvim",
-    cmd = { "TroubleToggle" },
+    cmd = { "Trouble" },
     config = function()
       dofile(vim.g.base46_cache .. "trouble")
       require("trouble").setup()

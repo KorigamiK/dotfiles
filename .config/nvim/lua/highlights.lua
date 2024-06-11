@@ -20,7 +20,6 @@ M.override = {
   TelescopePromptNormal = { blend = 100 },
   -- TelescopeBorder = { fg = "blue" },
   TelescopePromptBorder = { fg = "pink" },
-  TelescopeResultsTitle = { fg = "pink" },
 }
 
 ---@type HLTable
@@ -30,8 +29,7 @@ M.add = {
   NeogitDiffDeleteHighlight = { bg = "NONE", fg = "red" },
   TelescopeSelection = { bg = "red" },
   LspInlayHint = { bg = "NONE", fg = "light_grey" },
-  Whitespace = { fg = "white" },
-
+  IblWhitespace = { fg = "white" },
   -- Flat Floating
   -- NormalFloat = { fg = "white", bg = "darker_black", blend = 0 },
   -- FloatBorder = { fg = "darker_black", bg = "darker_black", blend = 5 },

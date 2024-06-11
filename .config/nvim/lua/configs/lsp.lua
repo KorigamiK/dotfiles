@@ -83,7 +83,7 @@ lspconfig.denols.setup {
 }
 
 lspconfig.tsserver.setup {
-  autostart = false,
+  autostart = true,
   on_init = on_init,
   root_dir = lspconfig.util.root_pattern "package.json",
   on_attach = on_attach,
