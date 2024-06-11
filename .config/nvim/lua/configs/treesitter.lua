@@ -71,7 +71,7 @@ return {
     "jsonc",
     "yaml",
     "hyprlang",
-    "cmake",
+    -- "cmake",
     "bibtex",
     "latex",
     "toml",

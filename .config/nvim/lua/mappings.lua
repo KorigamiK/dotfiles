@@ -56,11 +56,17 @@ map("n", "<leader>ls", "<cmd> LspStart <CR>", {
 map("n", "<leader>lS", "<cmd> LspStop <CR>", {
   desc = "Stop lsp",
 })
+map("n", "[d", vim.diagnostic.goto_prev, { desc = "lsp prev diagnostic" })
+map("n", "]d", vim.diagnostic.goto_next, { desc = "lsp next diagnostic" })
+map("n", "<leader>li", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = vim.api.nvim_get_current_buf() })
+end, { desc = "Toggle inlay hints" })
+
 -- quit
-map("n", "<leader>Q", "<cmd> qall <CR>", {
+map("n", "<leader>Q", "<cmd>qall<CR>", {
   desc = "Quit all",
 })
-map("n", "<leader>q", "<cmd> q <CR>", {
+map("n", "<leader>q", "<cmd>q<CR>", {
   desc = "Quit",
 })
 -- neogit
@@ -83,7 +89,7 @@ for i = 1, 4, 1 do
 end
 
 -- trouble
-map("n", "<leader>lt", "<cmd>TroubleToggle<CR>", { desc = "Toggle trouble" })
+map("n", "<leader>lt", "<cmd>Trouble diagnostics<CR>", { desc = "Toggle trouble" })
 
 -- close all buffers
 map("n", "<leader>X", function()
@@ -187,6 +193,7 @@ if vim.g.neovide == true then
 end
 
 local preferred_fonts = {
+  "DM Mono",
   "Berkeley Mono",
   "Iosevka Term",
   "Victor Mono", -- use the semibold vaiant

@@ -45,8 +45,8 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 vim.filetype.add {
+  filename = { ['foot.ini'] = 'toml' },
   pattern = {
-    [".*/foot.ini"] = "toml",
     [".*/waybar/modules"] = "jsonc",
   },
 }
