@@ -50,6 +50,7 @@ return {
     },
   },
   ensure_installed = {
+    "vimdoc",
     "lua",
     "html",
     "css",
@@ -71,7 +72,7 @@ return {
     "jsonc",
     "yaml",
     "hyprlang",
-    -- "cmake",
+    "cmake",
     "bibtex",
     "latex",
     "toml",

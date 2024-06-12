@@ -48,6 +48,7 @@ vim.filetype.add {
   filename = { ['foot.ini'] = 'toml' },
   pattern = {
     [".*/waybar/modules"] = "jsonc",
+    [".*/hypr/.*%.conf"] = "hyprlang",
   },
 }
 
