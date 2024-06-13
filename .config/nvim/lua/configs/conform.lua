@@ -27,6 +27,7 @@ return {
     proto = { "clang_format" },
 
     rust = { "rustfmt" },
+    toml = { "taplo" },
     dart = { "dart_format" },
 
     haskell = { "fourmolu" },

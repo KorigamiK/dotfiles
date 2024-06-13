@@ -55,6 +55,7 @@ return {
         "isort",
         "nomicfoundation-solidity-language-server",
         "tree-sitter-cli",
+        "taplo",
       },
       ui = { border = "rounded" },
     },
