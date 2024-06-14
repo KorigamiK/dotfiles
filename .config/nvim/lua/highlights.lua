@@ -11,6 +11,7 @@ M.override = {
   Boolean = { italic = true },
   Conditional = { italic = true, bold = true },
   Repeat = { italic = true },
+  Include = { italic = true },
   ["@keyword.return"] = { italic = true },
   ["@keyword.operator"] = { italic = true },
   ["@keyword.function"] = { italic = true },
@@ -18,8 +19,9 @@ M.override = {
   ["@include"] = { italic = true },
   ["@repeat"] = { italic = true },
   TelescopePromptNormal = { blend = 100 },
-  -- TelescopeBorder = { fg = "blue" },
   TelescopePromptBorder = { fg = "pink" },
+  -- ["@string"] = { italic = true },
+  -- TelescopeBorder = { fg = "blue" },
 }
 
 ---@type HLTable
