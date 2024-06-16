@@ -6,10 +6,19 @@ directory=~/Pictures/wallpapers
 monitor=$(hyprctl monitors | grep Monitor | awk '{print $2}')
 
 if [ -d "$directory" ]; then
-  random_background=$(ls $directory/*.{jpg,png} | shuf -n 1)
+  # make sure the directory is not empty and has at least 2 png/jpg file
+  if [ "$(find "$directory" -maxdepth 1 -type f \( -iname \*.png -o -iname \*.jpg \) | wc -l)" -lt 2 ]; then
+    exit 1
+  fi
+
+  current_background=$(hyprctl hyprpaper listloaded)
+  random_background=$(find "$directory" -maxdepth 1 -type f \( -iname \*.png -o -iname \*.jpg \) | shuf -n 1)
+  while [ "$current_background" = "$random_background" ]; do
+    random_background=$(find "$directory" -maxdepth 1 -type f \( -iname \*.png -o -iname \*.jpg \) | shuf -n 1)
+  done
 
   hyprctl hyprpaper unload all
-  hyprctl hyprpaper preload $random_background
+  hyprctl hyprpaper preload "$random_background"
   hyprctl hyprpaper wallpaper "$monitor, $random_background"
 
   exit 0
