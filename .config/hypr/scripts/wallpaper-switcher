@@ -54,7 +54,7 @@ main() {
   notify-send Selected "$choice"
 
   pic_index=$(echo $choice | cut -d. -f1)
-  monitor=$(hyprctl monitors | grep Monitor | awk '{print $2}')
+  monitor=$(hyprctl monitors all -j | jq -r '.[] | select(.focused==true) | .name')
 
   hyprctl hyprpaper unload all
   hyprctl hyprpaper preload "$DIR/${PICS[$pic_index]}"
