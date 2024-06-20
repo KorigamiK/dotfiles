@@ -3,7 +3,7 @@
 set -e
 
 directory=~/Pictures/wallpapers
-monitor=$(hyprctl monitors | grep Monitor | awk '{print $2}')
+monitor=$(hyprctl monitors all -j | jq -r '.[] | select(.focused==true) | .name')
 
 if [ -d "$directory" ]; then
   # make sure the directory is not empty and has at least 2 png/jpg file
