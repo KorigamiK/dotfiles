@@ -27,7 +27,7 @@ M.override = {
 ---@type HLTable
 M.add = {
   IndentBlanklineContextStart = { bg = "black2" },
-  NeogitDiffDelete = { bg = "NONE", fg = "baby_pink" },
+  NeogitDiffDeleteCursor = { bg = "NONE", fg = "red" },
   NeogitDiffDeleteHighlight = { bg = "NONE", fg = "red" },
   TelescopeSelection = { bg = "red" },
   LspInlayHint = { bg = "NONE", fg = "light_grey" },

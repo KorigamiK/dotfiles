@@ -1,5 +1,40 @@
 ---@type NvPluginSpec[]
 return {
+  {
+    "numToStr/Comment.nvim",
+    keys = {
+      { "gcc", mode = "n", desc = "Comment toggle current line" },
+      { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
+      { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
+      { "gbc", mode = "n", desc = "Comment toggle current block" },
+      { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
+      { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
+    },
+    config = function(_, opts)
+      require("Comment").setup(opts)
+    end,
+  },
+
+  {
+    dir = "~/Dev/projects/dotfiles/llm.nvim",
+    name = "llm",
+    cmd = { "LLM" },
+    opts = {
+      services = {
+        groq = {
+          url = "https://api.groq.com/openai/v1/chat/completions",
+          model = "llama3-70b-8192",
+          api_key_name = "GROQ_API_KEY",
+        },
+      },
+    },
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    -- opts = { experimental = { ghost_text = { hl_group = "Comment" } } },
+  },
+
   -- Formatting
   {
     "stevearc/conform.nvim",
@@ -56,6 +91,7 @@ return {
         "nomicfoundation-solidity-language-server",
         "tree-sitter-cli",
         "taplo",
+        "json-lsp",
       },
       ui = { border = "rounded" },
     },
@@ -92,46 +128,27 @@ return {
   },
 
   {
-    "Exafunction/codeium.vim",
-    enabled = true,
-    config = function()
-      vim.g.codeium_no_map_tab = true
-      vim.keymap.set("i", "<C-y>", function()
-        return vim.fn["codeium#Accept"]()
-      end, { expr = true }) -- Accept completion is Ctrl + g
-      --[[ vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
-      vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
-      vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true }) ]]
-
-      --[[ Clear current suggestion 	codeium#Clear() 	<C-]>
-      Next suggestion 	codeium#CycleCompletions(1) 	<M-]>
-      Previous suggestion 	codeium#CycleCompletions(-1) 	<M-[>
-      Insert suggestion 	codeium#Accept() 	<Tab>
-      Manually trigger suggestion 	codeium#Complete() 	<M-Bslash> ]]
-    end,
-    event = "InsertEnter",
-  },
-
-  {
     "zbirenbaum/copilot.lua",
-    enabled = false,
+    enabled = true,
     event = "InsertEnter",
-    opts = {
-      suggestion = {
-        enabled = true,
-        keys = {
-          accept = "<C-y>",
-          accept_word = true,
-          accept_line = true,
-          next = "<M-]>",
-          prev = "<M-[>",
-          dismiss = "<C-]>",
+    config = function()
+      require("copilot").setup {
+        filetypes = { markdown = true },
+        suggestion = {
+          hide_during_completion = true,
+          auto_trigger = true,
+          debounce = 75,
+          keymap = {
+            accept = "<C-y>",
+            accept_word = false,
+            accept_line = false,
+            next = "<M-]>",
+            prev = "<M-[>",
+            dismiss = "<C-]>",
+          },
         },
-      },
-      filetypes = {
-        env = false,
-      },
-    },
+      }
+    end,
   },
 
   {

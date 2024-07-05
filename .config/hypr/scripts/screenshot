@@ -67,12 +67,19 @@ shotocr() {
   notify-send -h string:x-canonical-private-synchronous:shot-notify -u low "OCR Copied."
 }
 
+#mega
+shotmega() {
+	cd /home/origami/MEGAsync/ && grim - | tee "$file"
+}
+
 if [[ ! -d "$dir" ]]; then
 	mkdir -p "$dir"
 fi
 
 if [[ "$1" == "--now" ]]; then
 	shotnow
+elif [[ "$1" == "--mega" ]]; then
+	shotmega
 elif [[ "$1" == "--in5" ]]; then
 	shot5
 elif [[ "$1" == "--in10" ]]; then

@@ -4,7 +4,7 @@ local M = {}
 local highlights = require "highlights"
 
 M.ui = {
-  theme = "bearded-arc",
+  theme = "oceanic-next",
   transparency = true,
 
   hl_override = highlights.override,
