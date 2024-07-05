@@ -186,6 +186,28 @@ map("t", "<C-k>", "<C-\\><C-N><C-w><C-w>", {
   desc = "Window prev",
 })
 
+-- LLM
+map("n", "<leader>ll", "<cmd>LLM<CR>", { desc = "Prompt with LLM" })
+
+-- keybinds for prompting with groq
+map("n", "<leader>,", function()
+  require("llm").prompt { replace = false, service = "groq" }
+end, { desc = "Prompt with groq" })
+map("v", "<leader>,", function()
+  require("llm").prompt { replace = false, service = "groq" }
+end, { desc = "Prompt with groq" })
+map("v", "<leader>.", function()
+  require("llm").prompt { replace = true, service = "groq" }
+end, { desc = "Prompt while replacing with groq" })
+
+-- keybinds to support vim motions
+map("n", "g,", function()
+  require("llm").prompt_operatorfunc { replace = false, service = "groq" }
+end)
+map("n", "g.", function()
+  require("llm").prompt_operatorfunc { replace = true, service = "groq" }
+end)
+
 if vim.g.neovide == true then
   map("n", "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", { silent = true })
   map("n", "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>", { silent = true })
