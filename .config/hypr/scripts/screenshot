@@ -69,7 +69,7 @@ shotocr() {
 
 #mega
 shotmega() {
-	cd /home/origami/MEGAsync/ && grim - | tee "$file"
+	cd /home/origami/Dev/projects/helper-ai/static/ && grim - | tee "$file"
 }
 
 if [[ ! -d "$dir" ]]; then
