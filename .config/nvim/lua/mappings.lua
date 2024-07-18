@@ -32,30 +32,15 @@ map("n", "<leader>fm", function()
 end, { desc = "File Format with conform" })
 
 -- telescope
-map("n", "<leader>m", "<cmd> Telescope marks <CR>", {
-  desc = "Search bookmarks",
-})
-map("n", "<leader>fg", "<cmd> Telescope git_files <CR>", {
-  desc = "Search git files",
-})
-map("n", "<leader>fp", "<cmd> Telescope project <CR>", {
-  desc = "Search projects",
-})
-map("n", "<leader><leader>", "<cmd> Telescope resume <CR>", {
-  desc = "Telescope Resume",
-})
+map("n", "<leader>fg", "<cmd> Telescope git_files <CR>", { desc = "Search git files" })
+map("n", "<leader>fp", "<cmd> Telescope project <CR>", { desc = "Search projects" })
+map("n", "<leader><leader>", "<cmd> Telescope resume <CR>", { desc = "Telescope Resume" })
 map("n", "<leader>fw", "<cmd>Telescope live_grep_args<CR>", { desc = "Grep args" })
 -- zoxide
-map("n", "<leader>z", "<cmd> Telescope zoxide list <CR>", {
-  desc = "Zoxide list",
-})
+map("n", "<leader>z", "<cmd> Telescope zoxide list <CR>", { desc = "Zoxide list" })
 -- toggle lsp
-map("n", "<leader>ls", "<cmd> LspStart <CR>", {
-  desc = "Start lsp",
-})
-map("n", "<leader>lS", "<cmd> LspStop <CR>", {
-  desc = "Stop lsp",
-})
+map("n", "<leader>ls", "<cmd> LspStart <CR>", { desc = "Start lsp" })
+map("n", "<leader>lS", "<cmd> LspStop <CR>", { desc = "Stop lsp" })
 map("n", "[d", vim.diagnostic.goto_prev, { desc = "lsp prev diagnostic" })
 map("n", "]d", vim.diagnostic.goto_next, { desc = "lsp next diagnostic" })
 map("n", "<leader>li", function()
@@ -63,16 +48,10 @@ map("n", "<leader>li", function()
 end, { desc = "Toggle inlay hints" })
 
 -- quit
-map("n", "<leader>Q", "<cmd>qall<CR>", {
-  desc = "Quit all",
-})
-map("n", "<leader>q", "<cmd>q<CR>", {
-  desc = "Quit",
-})
+map("n", "<leader>Q", "<cmd>qall<CR>", { desc = "Quit all" })
+map("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit" })
 -- neogit
-map("n", "<leader>gs", "<cmd>Neogit<CR>", {
-  desc = "Open neogit",
-})
+map("n", "<leader>gs", "<cmd>Neogit<CR>", { desc = "Open neogit" })
 -- move buffers
 map("n", "L", function()
   require("nvchad.tabufline").next()
@@ -163,16 +142,12 @@ map("n", "<C-u>", "<C-u>zz", { desc = "Jump Half page up" })
 -- npm
 map(
   "n",
-  "<leader>np",
+  "<leader>pn",
   require("package-info").change_version,
   { silent = true, noremap = true, desc = "Show package versions" }
 )
-vim.keymap.set(
-  { "n" },
-  "<LEADER>nu",
-  require("package-info").update,
-  { silent = true, noremap = true, desc = "Update package" }
-)
+
+map("n", "<leader>pu", require("package-info").update, { silent = true, noremap = true, desc = "Update package" })
 
 -- movement
 map({ "n", "x" }, "j", "gj", { silent = true })
@@ -180,11 +155,8 @@ map({ "n", "x" }, "k", "gk", { silent = true })
 
 -- toggle line wrapping
 map("n", "<A-z>", "<cmd>set wrap!<CR>", { desc = "Toggle line wrap" })
-
 -- terminal
-map("t", "<C-k>", "<C-\\><C-N><C-w><C-w>", {
-  desc = "Window prev",
-})
+map("t", "<C-k>", "<C-\\><C-N><C-w><C-w>", { desc = "Window prev" })
 
 -- LLM
 map("n", "<leader>ll", "<cmd>LLM<CR>", { desc = "Prompt with LLM" })
@@ -243,3 +215,4 @@ local unmap = vim.keymap.del
 unmap("n", "<leader>e")
 unmap("n", "<tab>")
 unmap("n", "<S-tab>")
+unmap('n', 'gc')
