@@ -16,14 +16,13 @@ return {
   },
 
   {
-    dir = "~/Dev/projects/dotfiles/llm.nvim",
-    name = "llm",
+    "melbaldove/llm.nvim",
     cmd = { "LLM" },
     opts = {
       services = {
         groq = {
           url = "https://api.groq.com/openai/v1/chat/completions",
-          model = "llama3-70b-8192",
+          model = "llama-3.1-70b-versatile",
           api_key_name = "GROQ_API_KEY",
         },
       },
@@ -40,7 +39,6 @@ return {
     "stevearc/conform.nvim",
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
-    ---@diagnostic disable-next-line: different-requires
     opts = require "configs.conform",
     init = function()
       vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
