@@ -27,7 +27,6 @@ map("n", "<leader>h", "<cmd> split <CR>", {
 })
 
 map("n", "<leader>fm", function()
-  ---@diagnostic disable-next-line: different-requires
   require("conform").format()
 end, { desc = "File Format with conform" })
 
@@ -126,6 +125,7 @@ end, { desc = "Toggle deleted" })
 -- run last command
 map("n", "<C-b>", function()
   local nvterm = require "nvchad.term"
+  vim.cmd('write');
   nvterm.runner { pos = "sp", id = "htoggleTerm", cmd = "fc -s" }
 end, {
   desc = "Run the last command in the current terminal",

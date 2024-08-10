@@ -10,7 +10,7 @@ return {
     html = { "prettier" },
     css = { "prettier" },
     astro = { "prettier" },
-    markdown = { "deno_fmt" },
+    markdown = { "injected", "deno_fmt" },
     json = { "deno_fmt" },
     jsonc = { "deno_fmt" },
     yaml = { "prettier" },
@@ -36,6 +36,14 @@ return {
     shfmt = { prepend_args = { "-i", "2" } },
     fourmolu = { prepend_args = { "--indentation", "2" } },
     latexindent = { prepend_args = { "-m", "-l=./latexindent.yaml" } },
+    injected = {
+      options = {
+        ignore_errors = true,
+        lang_to_formatters = {
+          cpp = { "clang_format" },
+        },
+      },
+    },
   },
   log_level = vim.log.levels.ERROR,
 }
