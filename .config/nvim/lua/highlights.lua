@@ -29,6 +29,7 @@ M.add = {
   IndentBlanklineContextStart = { bg = "black2" },
   NeogitDiffDeleteCursor = { bg = "NONE", fg = "red" },
   NeogitDiffDeleteHighlight = { bg = "NONE", fg = "red" },
+  NeogitDiffDelete = { bg = "NONE", fg = "red" },
   TelescopeSelection = { bg = "red" },
   LspInlayHint = { bg = "NONE", fg = "light_grey" },
   IblWhitespace = { fg = "white" },
