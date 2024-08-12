@@ -4,8 +4,8 @@ local M = {}
 local highlights = require "highlights"
 
 M.ui = {
-  theme = "chadracula-evondev",
-  transparency = true,
+  theme = "jabuti",
+  transparency = false,
 
   hl_override = highlights.override,
   hl_add = highlights.add,
