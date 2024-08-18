@@ -22,6 +22,14 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.pyright.setup {
+  cmd = { "/home/origami/.local/share/zed/languages/pyright/node_modules/.bin/pyright-langserver", "--stdio" },
+  handlers = handlers,
+  on_init = on_init,
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 lspconfig.tailwindcss.setup {
   handlers = handlers,
   init_options = {

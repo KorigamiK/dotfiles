@@ -3,7 +3,7 @@ return {
 
   formatters_by_ft = {
     lua = { "stylua" },
-    python = { "isort", "black" },
+    python = { "ruff_organize_imports", "ruff_format" },
     javascript = { { "deno_fmt" } },
     typescript = { { "prettier" } },
     typescriptreact = { { "prettier" } },
