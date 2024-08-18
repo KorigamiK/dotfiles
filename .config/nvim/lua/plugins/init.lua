@@ -90,6 +90,7 @@ return {
         "tree-sitter-cli",
         "taplo",
         "json-lsp",
+        "ruff",
       },
       ui = { border = "rounded" },
     },
