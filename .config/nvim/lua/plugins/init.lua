@@ -296,10 +296,8 @@ return {
 
   {
     "vuki656/package-info.nvim",
-    event = "BufReadPost package.json",
+    event = "BufRead package.json",
     dependencies = { "MunifTanjim/nui.nvim" },
-    config = function()
-      require("package-info").setup()
-    end,
+    config = true,
   },
 }

@@ -5,11 +5,16 @@ local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
   ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
 }
+
 local on_attach = configs.on_attach
 local on_init = configs.on_init
 local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
+
+lspconfig.lua_ls.setup {
+  handlers = handlers,
+}
 
 local servers = { "html", "astro", "jsonls" }
 
