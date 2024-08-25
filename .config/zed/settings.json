@@ -47,7 +47,7 @@
   "assistant": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4"
+      "model": "gpt-4o"
     },
     "version": "2"
   },
@@ -63,6 +63,9 @@
       "EDITOR": "zed --wait"
     }
   },
+  "gutter": {
+    "code_actions": false
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false
@@ -74,6 +77,10 @@
   },
   "outline_panel": {
     "dock": "right"
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": false,
+    "show": true
   },
   "collaboration_panel": {
     "dock": "left"

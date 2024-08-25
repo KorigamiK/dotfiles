@@ -7,15 +7,24 @@
     }
   },
   {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      // [...]
+      "j": ["vim::Down", { "displayLines": true }],
+      "k": ["vim::Up", { "displayLines": true }]
+    }
+  },
+  {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
       // put key-bindings here if you want them to work in normal & visual mode
       // Git
+      "space Q": "workspace::CloseWindow",
       "space b": "workspace::NewFile",
       "space r h": "editor::RevertSelectedHunks",
-      "space Q": "workspace::CloseWindow",
       "space g b": "editor::ToggleGitBlameInline",
       "space g B": "editor::ToggleGitBlame",
+      "alt-c": ["workspace::SendKeystrokes", "\"+"],
 
       // Toggle inlay hints
       "space l i": "editor::ToggleInlayHints",
@@ -116,7 +125,9 @@
       "ctrl-l": "vim::Right",
       "ctrl-h": "vim::Left",
       "ctrl-j": "vim::Down",
-      "ctrl-k": "vim::Up"
+      "ctrl-k": "vim::Up",
+      "ctrl-b": "editor::MoveToBeginningOfLine",
+      "ctrl-e": "editor::MoveToEndOfLine"
     }
   },
   // Toggle terminal
@@ -130,7 +141,8 @@
     "context": "Terminal",
     "bindings": {
       "ctrl-n": "zed::NoAction",
-      "ctrl-p": "zed::NoAction"
+      "ctrl-p": "zed::NoAction",
+      "ctrl-x": "terminal_panel::ToggleFocus"
     }
   },
   // File panel (netrw)
