@@ -45,7 +45,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 vim.filetype.add {
-  filename = { ['foot.ini'] = 'toml' },
+  filename = { ["foot.ini"] = "toml" },
   pattern = {
     [".*/waybar/modules"] = "jsonc",
     [".*/hypr/.*%.conf"] = "hyprlang",
@@ -54,3 +54,6 @@ vim.filetype.add {
 
 vim.g.snipmate_snippets_path = "~/Dev/projects/dotfiles/snippets/snipmate"
 vim.g.vscode_snippets_path = "~/Dev/projects/dotfiles/snippets/vscode"
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
