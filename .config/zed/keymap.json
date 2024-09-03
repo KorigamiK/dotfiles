@@ -95,21 +95,13 @@
       "ctrl-s": "workspace::Save",
       // File finder
       "space space": "file_finder::Toggle",
+      "space f f": "file_finder::Toggle",
       // TODO: Open other files
       // Show project panel with current file
       "space e": "pane::RevealInProjectPanel"
     }
   },
   // Empty pane, set of keybindings that are available when there is no active editor
-  {
-    "context": "EmptyPane || SharedScreen",
-    "bindings": {
-      // Open file finder
-      "space space": "file_finder::Toggle",
-      // Open recent project
-      "space f p": "projects::OpenRecent"
-    }
-  },
   // Comment code
   {
     "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
@@ -158,17 +150,21 @@
       "p": "project_panel::Paste",
       // Close project panel as project file panel on the right
       "q": "workspace::ToggleRightDock",
-      "ctrl-n": "workspace::ToggleRightDock"
+      "ctrl-n": "workspace::ToggleRightDock",
+      "space Q": "workspace::CloseWindow",
+      "space f f": "file_finder::Toggle",
+      "space space": "file_finder::Toggle",
+      "space f p": "projects::OpenRecent"
     }
   },
   // Panel nagivation
   {
-    "context": "Dock",
+    "context": "(Dock || EmptyPane) && vim_mode == normal",
     "bindings": {
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+      "space Q": "workspace::CloseWindow",
+      "space space": "file_finder::Toggle",
+      "space f p": "projects::OpenRecent",
+      "space f f": "file_finder::Toggle"
     }
   },
   {
@@ -189,6 +185,25 @@
       "alt-k": "editor::MoveLineUp",
       "space f m": "editor::Format",
       "enter": "editor::SelectLargerSyntaxNode"
+    }
+  },
+  {
+    "context": "Dock || EmptyPane",
+    "bindings": {
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  },
+  {
+    "context": "EmptyPane",
+    "bindings": {
+      "space f p": "projects::OpenRecent",
+      "space Q": "workspace::CloseWindow",
+      "space space": "file_finder::Toggle",
+      "space f f": "file_finder::Toggle",
+      "ctrl-o": "pane::GoBack"
     }
   }
 ]
