@@ -42,6 +42,6 @@ luac.out
 .git/
 
 .config/mpv/watch_later/
-
-
 .config/hypr/cheatsheet.md
+zed/*
+!zed/*.json

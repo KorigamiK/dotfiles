@@ -46,12 +46,12 @@
   },
   "assistant": {
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4o"
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-20240620"
     },
     "version": "2"
   },
-  "theme": "Rosé Pine Moon",
+  "theme": "Ayu Mirage",
   "ui_font_size": 20,
   "buffer_font_size": 18,
   "vim_mode": true,
@@ -91,5 +91,6 @@
   },
   "chat_panel": {
     "dock": "left"
-  }
+  },
+  "gpu": "integrated"
 }
