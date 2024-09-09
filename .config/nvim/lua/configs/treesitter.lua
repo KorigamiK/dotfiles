@@ -77,6 +77,7 @@ return {
     "bibtex",
     "latex",
     "toml",
+"prisma"
   },
   indent = {
     enable = true,

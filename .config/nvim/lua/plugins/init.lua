@@ -21,9 +21,9 @@ return {
     opts = {
       services = {
         groq = {
-          url = "https://api.groq.com/openai/v1/chat/completions",
-          model = "llama-3.1-70b-versatile",
-          api_key_name = "GROQ_API_KEY",
+          url = "https://models.inference.ai.azure.com/chat/completions",
+          model = "gpt-4o",
+          api_key_name = "GITHUB_TOKEN",
         },
       },
     },

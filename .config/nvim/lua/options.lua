@@ -21,3 +21,5 @@ vim.opt.colorcolumn = "100"
 vim.opt.showbreak = '↳ '
 
 vim.opt.showcmd = false
+
+require('lspconfig.ui.windows').default_options.border = 'single'
