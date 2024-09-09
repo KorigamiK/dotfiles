@@ -8,7 +8,7 @@ local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
 
-local servers = { "html", "astro", "jsonls", "solidity_ls_nomicfoundation" }
+local servers = { "ts_ls", "html", "astro", "jsonls", "solidity_ls_nomicfoundation" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -87,11 +87,11 @@ lspconfig.denols.setup {
   },
 }
 
-lspconfig.tsserver.setup {
+--[[ lspconfig.ts_ls.setup {
   autostart = true,
   on_init = on_init,
   root_dir = lspconfig.util.root_pattern "package.json",
   on_attach = on_attach,
   capabilities = capabilities,
   single_file_support = false,
-}
+} ]]

@@ -126,7 +126,9 @@
   {
     "context": "Workspace",
     "bindings": {
-      "alt-h": "workspace::ToggleBottomDock"
+      "alt-h": "workspace::ToggleBottomDock",
+      "ctrl-tab": "pane::ActivateNextItem",
+      "ctrl-shift-tab": "pane::ActivatePrevItem"
     }
   },
   {
@@ -188,7 +190,7 @@
     }
   },
   {
-    "context": "Dock || EmptyPane",
+    "context": "Dock || EmptyPane || vim_mode == visual",
     "bindings": {
       "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
       "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],

@@ -44,4 +44,5 @@ luac.out
 .config/mpv/watch_later/
 .config/hypr/cheatsheet.md
 zed/*
-!zed/*.json
+!zed/keymap.json
+!zed/settings.json
