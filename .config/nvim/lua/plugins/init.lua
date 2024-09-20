@@ -25,6 +25,11 @@ return {
           model = "gpt-4o",
           api_key_name = "GITHUB_TOKEN",
         },
+        anthropic = {
+          url = "https://api.anthropic.com/v1/messages",
+          model = "claude-3-5-sonnet-20240620",
+          api_key_name = "ANTHROPIC_API_KEY",
+        },
       },
     },
   },
@@ -299,6 +304,6 @@ return {
     dependencies = { "MunifTanjim/nui.nvim" },
     opts = {
       package_manager = "pnpm",
-    }
+    },
   },
 }

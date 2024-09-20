@@ -177,6 +177,12 @@
     }
   },
   {
+    "context": "AssistantPanel",
+    "bindings": {
+      "ctrl-n": "workspace::ToggleRightDock"
+    }
+  },
+  {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
       // put key-bindings here if you want them to work in normal & visual mode
