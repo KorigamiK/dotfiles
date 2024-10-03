@@ -34,7 +34,29 @@ end, { desc = "File Format with conform" })
 map("n", "<leader>fg", "<cmd> Telescope git_files <CR>", { desc = "Search git files" })
 map("n", "<leader>fp", "<cmd> Telescope project <CR>", { desc = "Search projects" })
 map("n", "<leader><leader>", "<cmd> Telescope resume <CR>", { desc = "Telescope Resume" })
-map("n", "<leader>fw", "<cmd>Telescope live_grep_args<CR>", { desc = "Grep args" })
+
+local live_grep_in_glob = function(glob_pattern)
+  if not glob_pattern or glob_pattern == "" then
+    return
+  end
+  require("telescope.builtin").live_grep {
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--hidden",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--glob=" .. glob_pattern,
+    },
+  }
+end
+map("n", "<leader>fw", function()
+  vim.ui.input({ prompt = "Glob: ", completion = "file", default = "**/*.*" }, live_grep_in_glob)
+end, { desc = "Grep args" })
+
 -- zoxide
 map("n", "<leader>z", "<cmd> Telescope zoxide list <CR>", { desc = "Zoxide list" })
 -- toggle lsp
@@ -54,9 +76,7 @@ map("n", "<leader>gs", "<cmd>Neogit<CR>", { desc = "Open neogit" })
 -- move buffers
 map("n", "L", function()
   require("nvchad.tabufline").next()
-end, {
-  desc = "Goto next buffer",
-})
+end, { desc = "Goto next buffer" })
 map("n", "H", function()
   require("nvchad.tabufline").prev()
 end, { desc = "Goto prev buffer" })
@@ -121,11 +141,14 @@ end, { desc = "Jump to prev hunk", expr = true })
 map("n", "<leader>td", function()
   require("gitsigns").toggle_deleted()
 end, { desc = "Toggle deleted" })
+map("n", "<leader>rh", function()
+  require("gitsigns").reset_hunk()
+end, { desc = "Toggle deleted" })
 
 -- run last command
 map("n", "<C-b>", function()
   local nvterm = require "nvchad.term"
-  vim.cmd('write');
+  vim.cmd "write"
   nvterm.runner { pos = "sp", id = "htoggleTerm", cmd = "fc -s" }
 end, {
   desc = "Run the last command in the current terminal",
@@ -190,6 +213,7 @@ local preferred_fonts = {
   "DM Mono",
   "Berkeley Mono",
   "Iosevka Term",
+  "Zed Mono",
   "Victor Mono", -- use the semibold vaiant
   "PragmataPro",
   "Input",
@@ -215,4 +239,4 @@ local unmap = vim.keymap.del
 unmap("n", "<leader>e")
 unmap("n", "<tab>")
 unmap("n", "<S-tab>")
-unmap('n', 'gc')
+unmap("n", "gc")

@@ -4,11 +4,6 @@ local M = {}
 local highlights = require "highlights"
 
 M.ui = {
-  theme = "bearded-arc",
-  transparency = false,
-
-  hl_override = highlights.override,
-  hl_add = highlights.add,
 
   cmp = {
     style = "default",
@@ -37,6 +32,31 @@ M.ui = {
 
 M.base46 = {
   integrations = { "trouble" },
+  theme = "jabuti",
+  transparency = false,
+
+  hl_override = highlights.override,
+  hl_add = highlights.add,
+}
+
+M.mason = {
+  pkgs = {
+    "lua-language-server",
+    "stylua",
+    "css-lsp",
+    "html-lsp",
+    "typescript-language-server",
+    "astro-language-server",
+    "tailwindcss-language-server",
+    "shfmt",
+    "black",
+    "isort",
+    "nomicfoundation-solidity-language-server",
+    "tree-sitter-cli",
+    "taplo",
+    "json-lsp",
+    "ruff",
+  },
 }
 
 return M
