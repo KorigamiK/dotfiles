@@ -54,7 +54,7 @@ local live_grep_in_glob = function(glob_pattern)
   }
 end
 map("n", "<leader>fw", function()
-  vim.ui.input({ prompt = "Glob: ", completion = "file", default = "**/*.*" }, live_grep_in_glob)
+  vim.ui.input({ prompt = "Glob: ", completion = "file", default = "**/*" }, live_grep_in_glob)
 end, { desc = "Grep args" })
 
 -- zoxide
@@ -92,31 +92,18 @@ map("n", "<leader>lt", "<cmd>Trouble diagnostics<CR>", { desc = "Toggle trouble"
 -- close all buffers
 map("n", "<leader>X", function()
   require("nvchad.tabufline").closeAllBufs()
-end, {
-  desc = "Close all buffers",
-})
+end, { desc = "Close all buffers" })
+
 -- competetive coding
-map("n", "<leader>rr", "<cmd> CompetiTest run <CR>", {
-  desc = "Compile and run test cases",
-})
-map("n", "<leader>rc", "<cmd> CompetiTest run_no_compile <CR>", {
-  desc = "Run test cases",
-})
+map("n", "<leader>rr", "<cmd> CompetiTest run <CR>", { desc = "Compile and run test cases" })
+map("n", "<leader>rc", "<cmd> CompetiTest run_no_compile <CR>", { desc = "Run test cases" })
 -- move current line
-map("n", "<A-j>", "<cmd> m +1 <CR>", {
-  desc = "move current line",
-})
-map("n", "<A-k>", "<cmd> m -2 <CR>", {
-  desc = "move current line",
-})
+map("n", "<A-j>", "<cmd> m +1 <CR>", { desc = "move current line" })
+map("n", "<A-k>", "<cmd> m -2 <CR>", { desc = "move current line" })
 
 -- selection
-map("x", "<A-j>", ":move '>+1<CR>gv-gv", {
-  desc = "move selected line",
-})
-map("x", "<A-k>", ":move '<-2<CR>gv-gv", {
-  desc = "move selected line",
-})
+map("x", "<A-j>", ":move '>+1<CR>gv-gv", { desc = "move selected line" })
+map("x", "<A-k>", ":move '<-2<CR>gv-gv", { desc = "move selected line" })
 
 map("n", "]c", function()
   if vim.wo.diff then
@@ -150,9 +137,7 @@ map("n", "<C-b>", function()
   local nvterm = require "nvchad.term"
   vim.cmd "write"
   nvterm.runner { pos = "sp", id = "htoggleTerm", cmd = "fc -s" }
-end, {
-  desc = "Run the last command in the current terminal",
-})
+end, { desc = "Run the last command in the current terminal" })
 
 -- paste
 map("i", "<C-v>", "<c-r>+", { desc = "Paste from clipboard" })
