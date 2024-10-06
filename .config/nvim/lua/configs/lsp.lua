@@ -8,7 +8,7 @@ local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
 
-local servers = { "ts_ls", "html", "astro", "jsonls", "solidity_ls_nomicfoundation" }
+local servers = { "ts_ls", "html", "astro", "jsonls", "solidity_ls_nomicfoundation",  }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -114,6 +114,12 @@ lspconfig.denols.setup {
       },
     },
   },
+}
+
+lspconfig.zls.setup {
+  on_init = on_init,
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 --[[ lspconfig.ts_ls.setup {
