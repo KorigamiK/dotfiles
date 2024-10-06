@@ -32,7 +32,7 @@ M.ui = {
 
 M.base46 = {
   integrations = { "trouble" },
-  theme = "jabuti",
+  theme = "kanagawa",
   transparency = false,
 
   hl_override = highlights.override,
@@ -56,6 +56,7 @@ M.mason = {
     "taplo",
     "json-lsp",
     "ruff",
+    'zls'
   },
 }
 

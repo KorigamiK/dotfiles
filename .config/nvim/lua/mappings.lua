@@ -27,7 +27,7 @@ map("n", "<leader>h", "<cmd> split <CR>", {
 })
 
 map("n", "<leader>fm", function()
-  require("conform").format()
+  require("conform").format { async = false, lsp_fallback = true }
 end, { desc = "File Format with conform" })
 
 -- telescope
@@ -91,7 +91,7 @@ map("n", "<leader>lt", "<cmd>Trouble diagnostics<CR>", { desc = "Toggle trouble"
 
 -- close all buffers
 map("n", "<leader>X", function()
-  require("nvchad.tabufline").closeAllBufs()
+  require("nvchad.tabufline").closeAllBufs(false)
 end, { desc = "Close all buffers" })
 
 -- competetive coding
@@ -218,7 +218,6 @@ local function cycle_gui_font()
 end
 
 map("n", "<leader>F", cycle_gui_font, { desc = "Cycle GUI font" })
-
 local unmap = vim.keymap.del
 
 unmap("n", "<leader>e")

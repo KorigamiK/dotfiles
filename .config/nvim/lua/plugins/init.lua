@@ -288,4 +288,20 @@ return {
       package_manager = "pnpm",
     },
   },
+
+  {
+    "kawre/leetcode.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    lazy = "leetcode" ~= vim.fn.argv()[1],
+    opts = {
+      arg = "leetcode",
+      storage = {
+        home = '/home/origami/Dev/projects/competetive_coding/learning/LeetCode/problems'
+      },
+    },
+  },
 }
