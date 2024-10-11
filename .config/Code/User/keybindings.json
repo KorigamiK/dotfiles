@@ -1,16 +1,6 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
   {
-    "command": "workbench.action.nextEditor",
-    "key": "shift+l",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
-  },
-  {
-    "command": "workbench.action.previousEditor",
-    "key": "shift+h",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
-  },
-  {
     "key": "ctrl+h",
     "command": "workbench.action.navigateLeft",
     "when": "(vim.mode != 'Insert' && editorTextFocus) || filesExplorerFocus"
@@ -78,7 +68,12 @@
   {
     "key": "alt+c",
     "command": "vim.remap",
-    "args": { "after": ["\"", "+"] },
+    "args": {
+      "after": [
+        "\"",
+        "+"
+      ]
+    },
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine') && editorTextFocus"
   },
   {
@@ -227,6 +222,20 @@
     "key": "enter",
     "command": "-python.execInInteractiveWindowEnter",
     "when": "!config.interactiveWindow.executeWithShiftEnter && !inlineChatFocused && activeEditor == 'workbench.editor.interactive'"
+  },
+  {
+    "key": "shift+alt+enter",
+    "command": "github.copilot.generate",
+    "when": "editorTextFocus && github.copilot.activated && !commentEditorFocused && !inInteractiveInput && !interactiveEditorFocused"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-github.copilot.generate",
+    "when": "editorTextFocus && github.copilot.activated && !commentEditorFocused && !inInteractiveInput && !interactiveEditorFocused"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-editor.action.insertLineAfter",
+    "when": "editorTextFocus && !editorReadonly"
   }
 ]
-

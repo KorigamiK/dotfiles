@@ -186,8 +186,6 @@
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
       // put key-bindings here if you want them to work in normal & visual mode
-      "z a": "editor::Fold",
-      "z A": "editor::UnfoldLines",
       "space /": "editor::ToggleComments",
       "alt-j": "editor::MoveLineDown",
       "alt-k": "editor::MoveLineUp",

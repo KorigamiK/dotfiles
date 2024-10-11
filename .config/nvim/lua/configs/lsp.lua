@@ -122,11 +122,11 @@ lspconfig.zls.setup {
   capabilities = capabilities,
 }
 
---[[ lspconfig.ts_ls.setup {
+lspconfig.ts_ls.setup {
   autostart = true,
   on_init = on_init,
   root_dir = lspconfig.util.root_pattern "package.json",
   on_attach = on_attach,
   capabilities = capabilities,
   single_file_support = false,
-} ]]
+}
