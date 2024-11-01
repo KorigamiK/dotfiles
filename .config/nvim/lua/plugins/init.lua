@@ -1,5 +1,6 @@
 ---@type NvPluginSpec[]
 return {
+  { "nvchad/menu", enabled = false },
   {
     "numToStr/Comment.nvim",
     keys = {
@@ -27,7 +28,7 @@ return {
         },
         anthropic = {
           url = "https://api.anthropic.com/v1/messages",
-          model = "claude-3-5-sonnet-20240620",
+          model = "claude-3-5-sonnet-20241022",
           api_key_name = "ANTHROPIC_API_KEY",
         },
       },
@@ -295,6 +296,7 @@ return {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
+      "3rd/image.nvim",
     },
     lazy = "leetcode" ~= vim.fn.argv()[1],
     opts = {
@@ -314,5 +316,46 @@ return {
       vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
       vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
     end,
+  },
+
+  {
+    "Al0den/notion.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      autoUpdate = true,
+      open = "notion",
+      keys = {
+        deleteKey = "d",
+        editKey = "<cr>",
+        openNotion = "O",
+        itemAdd = "A",
+        viewKey = "V",
+      },
+      delays = {
+        reminder = 4000,
+        format = 200,
+        update = 10000,
+      },
+      notifications = true,
+      editor = "light",
+      viewOnEdit = {
+        enabled = true, --Enable double window, view and edit simultaneously
+        replace = false, --Replace current window with preview window
+      },
+      direction = "vsplit", --Direction windows will be opened in
+      noEvent = "No events",
+      debug = false,
+    },
+  },
+
+  {
+    dir = "/home/origami/Dev/projects/lua/ai.nvim",
+    lazy = false,
+    opts = {
+      test = "opt",
+    },
   },
 }
