@@ -1,5 +1,13 @@
 require "nvchad.mappings"
 
+local unmap = vim.keymap.del
+
+unmap("n", "<leader>e")
+unmap("n", "<tab>")
+unmap("n", "<S-tab>")
+unmap("n", "gc")
+unmap("n", "<leader>n")
+
 local map = vim.keymap.set
 
 map("n", ";", ":", { nowait = true })
@@ -218,9 +226,6 @@ local function cycle_gui_font()
 end
 
 map("n", "<leader>F", cycle_gui_font, { desc = "Cycle GUI font" })
-local unmap = vim.keymap.del
-
-unmap("n", "<leader>e")
-unmap("n", "<tab>")
-unmap("n", "<S-tab>")
-unmap("n", "gc")
+map("n", "<leader>no", function()
+  require("notion").openMenu()
+end)

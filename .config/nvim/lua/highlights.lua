@@ -31,7 +31,7 @@ M.add = {
   NeogitDiffDeleteHighlight = { bg = "NONE", fg = "red" },
   NeogitDiffDelete = { bg = "NONE", fg = "red" },
   NeogitChangeDeleted = { bg = "NONE", fg = "red" },
-  TelescopeSelection = { bg = "red" },
+  -- TelescopeSelection = { bg = "red" },
   LspInlayHint = { bg = "NONE", fg = "light_grey" },
   IblWhitespace = { fg = "white" },
   -- Flat Floating
