@@ -45,13 +45,15 @@
     }
   },
   "assistant": {
+    "dock": "left",
+    "default_width": 450,
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-3-5-sonnet-latest"
     },
     "version": "2"
   },
-  "theme": "Catppuccin Mocha",
+  "theme": "Kanagawa",
   "ui_font_size": 20,
   "buffer_font_size": 18,
   "vim_mode": true,

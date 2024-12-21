@@ -1,11 +1,6 @@
 {
   "window.titleBarStyle": "custom",
-  "terminal.integrated.rendererType": "canvas",
   "python.languageServer": "Pylance",
-  "code-runner.preserveFocus": false,
-  "code-runner.runInTerminal": true,
-  "code-runner.saveFileBeforeRun": true,
-  "code-runner.showExecutionMessage": false,
   "zenMode.fullScreen": false,
   "zenMode.centerLayout": true,
   "workbench.editorAssociations": {
@@ -21,7 +16,7 @@
   "redhat.telemetry.enabled": false,
   "notebook.cellToolbarLocation": {
     "default": "right",
-    "jupyter-notebook": "left"
+    "jupyter-notebook": "right"
   },
   "python.defaultInterpreterPath": "/bin/python",
   "editor.minimap.enabled": false,
@@ -73,7 +68,7 @@
   },
   "C_Cpp.autocompleteAddParentheses": true,
   "workbench.sideBar.location": "right",
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
@@ -81,7 +76,8 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "workbench.iconTheme": "material-icon-theme",
   "git.enableCommitSigning": true,
-  "editor.fontFamily": "'Zed Mono', 'Victor Mono', 'monospace', 'Noto Color Emoji'",
+  "editor.fontFamily": "'Berkeley Mono', 'monospace', 'Noto Color Emoji'",
+  "editor.lineHeight": 1.5,
   "terminal.integrated.fontFamily": "'Zed Mono', 'Symbols Nerd Font', 'Victor Mono SemiBold', 'monospace', 'Noto Color Emoji'",
   "terminal.integrated.detectLocale": "on",
   "terminal.integrated.defaultProfile.linux": "zsh",
@@ -200,7 +196,7 @@
   "haskell.manageHLS": "GHCup",
   "window.zoomLevel": 2,
   "explorer.confirmDragAndDrop": false,
-  "workbench.colorTheme": "Kanagawa Paper",
+  "workbench.colorTheme": "Firefox Quantum Dark",
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-f>": false,
@@ -222,6 +218,16 @@
       "statusBar.background": "#110f17",
       "editorGroupHeader.tabsBackground": "#110f17",
       "tab.inactiveBackground": "#110f17"
+    },
+    "[Kanagawa Glass]": {
+      "editorCursor.foreground": "#c6d0f5",
+      "editorCursor.background": "#232634",
+      "statusBarItem.remoteBackground": "#455374",
+      "statusBarItem.remoteForeground": "#c6d0f5",
+      // "activityBar.background": "#110f17",
+      // "editorGroupHeader.tabsBackground": "#110f17",
+      // "statusBar.background": "#110f17",
+      // "tab.inactiveBackground": "#110f17"
     }
   },
   "Lua.codeLens.enable": true,
@@ -289,6 +295,16 @@
       ],
       "commands": [
         "editor.action.goToDeclaration"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "f",
+        "p"
+      ],
+      "commands": [
+        "workbench.action.quickOpenRecent"
       ]
     },
     // Move panes
@@ -597,6 +613,15 @@
     },
     {
       "before": [
+        "leader",
+        "/"
+      ],
+      "commands": [
+        "editor.action.commentLine"
+      ]
+    },
+    {
+      "before": [
         "<C-d>"
       ],
       "after": [
@@ -618,5 +643,5 @@
       ]
     }
   ],
-  "notebook.lineNumbers": "on"
+  "notebook.showCellStatusBar": "hidden",
 }

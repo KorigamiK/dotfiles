@@ -153,6 +153,7 @@
       // Close project panel as project file panel on the right
       "q": "workspace::ToggleRightDock",
       "ctrl-n": "workspace::ToggleRightDock",
+      "ctrl-alt-n": "workspace::ToggleLeftDock",
       "space Q": "workspace::CloseWindow",
       "space f f": "file_finder::Toggle",
       "space space": "file_finder::Toggle",
@@ -173,7 +174,8 @@
     "context": "Workspace",
     "bindings": {
       // Map VSCode like keybindings
-      "ctrl-n": "workspace::ToggleRightDock"
+      "ctrl-n": "workspace::ToggleRightDock",
+      "ctrl-alt-n": "workspace::ToggleLeftDock"
     }
   },
   {
