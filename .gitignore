@@ -46,3 +46,5 @@ luac.out
 zed/
 !zed/keymap.json
 !zed/settings.json
+.config/kitty/kitty-themes/
+.config/nvim/llm.md
