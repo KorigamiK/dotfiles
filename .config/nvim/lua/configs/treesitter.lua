@@ -76,9 +76,12 @@ return {
     "cmake",
     "bibtex",
     "latex",
+    "typst",
     "toml",
     "prisma",
     "zig",
+    "make",
+    "kotlin",
   },
   indent = {
     enable = true,

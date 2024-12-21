@@ -24,7 +24,7 @@ return {
         groq = {
           url = "https://models.inference.ai.azure.com/chat/completions",
           model = "gpt-4o",
-          api_key_name = "GITHUB_TOKEN",
+          api_key_name = "GITHUB_AI_TOKEN",
         },
         anthropic = {
           url = "https://api.anthropic.com/v1/messages",
@@ -72,6 +72,7 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     enabled = true,
+    lazy = true,
     opts = require "configs.nvim-tree",
   },
 
@@ -108,34 +109,10 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-context",
     config = function()
-      require("treesitter-context").setup { enable = true }
+      require("treesitter-context").setup { enable = false }
     end,
     cmd = { "TSContextDisable", "TSContextEnable", "TSContextToggle" },
     lazy = false,
-  },
-
-  {
-    "zbirenbaum/copilot.lua",
-    enabled = true,
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup {
-        filetypes = { markdown = true },
-        suggestion = {
-          hide_during_completion = true,
-          auto_trigger = true,
-          debounce = 75,
-          keymap = {
-            accept = "<C-y>",
-            accept_word = false,
-            accept_line = false,
-            next = "<M-]>",
-            prev = "<M-[>",
-            dismiss = "<C-]>",
-          },
-        },
-      }
-    end,
   },
 
   {
@@ -146,7 +123,17 @@ return {
       compile_command = {
         cpp = {
           exec = "g++",
-          args = { "$(FNAME)", "-o", "$(FNOEXT)", "-DKORIGAMIK", "-std=c++20", "-Wall", "-Wpedantic", "-H" },
+          args = {
+            "$(FNAME)",
+            "-o",
+            "$(FNOEXT)",
+            "-DKORIGAMIK",
+            "-std=c++20",
+            "-Wall",
+            "-Wpedantic",
+            "-H",
+            "-I" .. vim.fn.expandcmd "~/Dev/projects/cpp/atcoder",
+          },
         },
         haskell = {
           exec = "stack",
@@ -178,7 +165,9 @@ return {
     "Civitasv/cmake-tools.nvim",
     enabled = true,
     cmd = { "CMakeBuild" },
-    opts = {},
+    opts = {
+      cmake_virtual_text_support = false,
+    },
   },
 
   -- LaTeX
@@ -296,17 +285,25 @@ return {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-      "3rd/image.nvim",
+      {
+        "3rd/image.nvim",
+        opts = {},
+      },
     },
     lazy = "leetcode" ~= vim.fn.argv()[1],
     opts = {
       arg = "leetcode",
+      image_support = true,
       storage = {
         home = "/home/origami/Dev/projects/competetive_coding/learning/LeetCode/problems",
       },
     },
   },
-
+  {
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
   {
     "toppair/peek.nvim",
     event = { "VeryLazy" },
@@ -352,10 +349,191 @@ return {
   },
 
   {
-    dir = "/home/origami/Dev/projects/lua/ai.nvim",
+    dir = "/home/origami/Dev/projects/lua/newchat.nvim",
     lazy = false,
     opts = {
       test = "opt",
     },
+  },
+
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    enabled = false,
+    lazy = false,
+    version = "*",
+    opts = {
+      provider = "copilot",
+      auto_suggestions_provider = "copilot",
+      copilot = { model = "claude-3.5-sonnet" },
+      behaviour = {
+        auto_suggestions = false,
+        auto_set_highlight_group = true,
+        auto_set_keymaps = true,
+        auto_apply_diff_after_generation = false,
+        support_paste_from_clipboard = true,
+      },
+      mappings = {
+        --- @class AvanteConflictMappings
+        diff = {
+          ours = "co",
+          theirs = "ct",
+          all_theirs = "ca",
+          both = "cb",
+          cursor = "cc",
+          next = "]x",
+          prev = "[x",
+        },
+        suggestion = {
+          accept = "<C-y>",
+          next = "<M-]>",
+          prev = "<M-[>",
+          dismiss = "<C-]>",
+        },
+        jump = {
+          next = "]]",
+          prev = "[[",
+        },
+        submit = {
+          normal = "<CR>",
+          insert = "<C-s>",
+        },
+        sidebar = {
+          apply_all = "A",
+          apply_cursor = "a",
+          switch_windows = "<Tab>",
+          reverse_switch_windows = "<S-Tab>",
+        },
+      },
+      hints = { enabled = false },
+      windows = {
+        position = "right", -- the position of the sidebar
+        wrap = true, -- similar to vim.o.wrap
+        width = 30, -- default % based on available width
+        sidebar_header = {
+          enabled = true, -- true, false to enable/disable the header
+          align = "center", -- left, center, right for title
+          rounded = true,
+        },
+        input = {
+          prefix = " ",
+          height = 8, -- Height of the input window in vertical layout
+        },
+        edit = {
+          border = "rounded",
+          start_insert = true, -- Start insert mode when opening the edit window
+        },
+        ask = {
+          floating = false, -- Open the 'AvanteAsk' prompt in a floating window
+          start_insert = true, -- Start insert mode when opening the ask window
+          border = "rounded",
+          ---@type "ours" | "theirs"
+          focus_on_apply = "ours", -- which diff to focus after applying
+        },
+      },
+      highlights = {
+        diff = {
+          current = "DiffText",
+          incoming = "DiffAdd",
+        },
+      },
+      --- @class AvanteConflictUserConfig
+      diff = {
+        autojump = true,
+        ---@type string | fun(): any
+        list_opener = "copen",
+        --- Override the 'timeoutlen' setting while hovering over a diff (see :help timeoutlen).
+        --- Helps to avoid entering operator-pending mode with diff mappings starting with `c`.
+        --- Disable by setting to -1.
+        override_timeoutlen = 500,
+      },
+    },
+    build = "make",
+    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-lua/plenary.nvim",
+      "zbirenbaum/copilot.lua",
+      "MunifTanjim/nui.nvim",
+      --[[ {
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = { file_types = { "markdown", "Avante" } },
+        ft = { "markdown", "Avante" },
+      }, ]]
+      {
+        -- support for image pasting
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = { insert_mode = true },
+          },
+        },
+      },
+    },
+  },
+
+  {
+    "zbirenbaum/copilot.lua",
+    enabled = true,
+    event = "InsertEnter",
+    opts = {
+      filetypes = {
+        markdown = true,
+        sh = function()
+          return not string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env.*")
+        end,
+      },
+      suggestion = {
+        hide_during_completion = true,
+        auto_trigger = true,
+        debounce = 75,
+        keymap = {
+          accept = "<C-y>",
+          accept_word = false,
+          accept_line = false,
+          next = "<M-]>",
+          prev = "<M-[>",
+          dismiss = "<C-]>",
+        },
+      },
+    },
+  },
+
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    event = "VeryLazy",
+    branch = "main",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" },
+      { "nvim-lua/plenary.nvim" },
+    },
+    build = "make tiktoken",
+    opts = {},
+  },
+
+  {
+    "nosduco/remote-sshfs.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    cmd = { "RemoteSSHFSConnect" },
+    opts = {
+      -- Refer to the configuration section below
+      -- or leave empty for defaults
+    },
+  },
+
+  {
+    "NeViRAIDE/nekifoch.nvim",
+    build = "chmod +x ./install.sh && ./install.sh",
+    cmd = "Nekifoch",
+    config = true,
+  },
+
+  {
+    "nvim-pack/nvim-spectre",
+    build = "make build-oxi",
+    opts = {},
   },
 }

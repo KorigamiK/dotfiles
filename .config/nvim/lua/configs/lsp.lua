@@ -8,7 +8,7 @@ local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
 
-local servers = { "ts_ls", "html", "astro", "jsonls", "solidity_ls_nomicfoundation",  }
+local servers = { "ts_ls", "html", "astro", "jsonls", "solidity_ls_nomicfoundation", }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -98,9 +98,9 @@ lspconfig.hls.setup {
 
 lspconfig.denols.setup {
   on_init = on_init,
-  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
   on_attach = on_attach,
   capabilities = capabilities,
+  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
   init_options = {
     lint = true,
     unstable = true,
@@ -122,6 +122,13 @@ lspconfig.zls.setup {
   capabilities = capabilities,
 }
 
+lspconfig.texlab.setup {
+  autostart = false,
+  on_init = on_init,
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 lspconfig.ts_ls.setup {
   autostart = true,
   on_init = on_init,
@@ -129,4 +136,27 @@ lspconfig.ts_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   single_file_support = false,
+}
+
+lspconfig.tinymist.setup {
+  on_init = on_init,
+  on_attach = on_attach,
+  capabilities = capabilities,
+  root_dir = function(_, bufnr)
+    return vim.fs.root(bufnr, { ".git" }) or vim.fn.expand "%:p:h"
+  end,
+  settings = {
+    exportPdf = "onSave",
+    outputPath = "$root/$dir/$name",
+  },
+}
+local jdk_home = "/usr/lib/jvm/java-11-openjdk"
+lspconfig.kotlin_language_server.setup {
+  on_init = on_init,
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd_env = {
+    PATH = jdk_home .. "/bin:" .. vim.env.PATH,
+    JAVA_HOME = jdk_home,
+  },
 }

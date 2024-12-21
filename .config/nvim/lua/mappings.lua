@@ -179,13 +179,13 @@ map("n", "<leader>ll", "<cmd>LLM<CR>", { desc = "Prompt with LLM" })
 
 -- keybinds for prompting with groq
 map("n", "<leader>,", function()
-  require("llm").prompt { replace = false, service = "anthropic" }
+  require("llm").prompt { replace = false, service = "groq" }
 end, { desc = "Prompt with ai" })
 map("v", "<leader>,", function()
-  require("llm").prompt { replace = false, service = "anthropic" }
+  require("llm").prompt { replace = false, service = "groq" }
 end, { desc = "Prompt with ai" })
 map("v", "<leader>.", function()
-  require("llm").prompt { replace = true, service = "anthropic" }
+  require("llm").prompt { replace = true, service = "groq" }
 end, { desc = "Prompt while replacing with ai" })
 
 -- keybinds to support vim motions
@@ -229,3 +229,38 @@ map("n", "<leader>F", cycle_gui_font, { desc = "Cycle GUI font" })
 map("n", "<leader>no", function()
   require("notion").openMenu()
 end)
+
+
+function Invert(calledFromVisual)
+  local antonyms = { "true", "false", "after", "before", "start", "end", "left", "right", "first", "last", "True", "False", "After", "Before", "Start", "End", "Left", "Right", "First", "Last", }
+  if calledFromVisual then
+    vim.cmd 'normal! gv"wy'
+  else
+    vim.cmd 'normal! "wyiw'
+  end
+
+  local wordUnderCaret = vim.fn.getreg "w"
+  local eraseWord = calledFromVisual and "gvc" or "ciw"
+
+  for count = 1, #antonyms do
+    if antonyms[count] == wordUnderCaret then
+      local antonym
+      if count % 2 == 1 then
+        antonym = antonyms[count + 1]
+      else
+        antonym = antonyms[count - 1]
+      end
+      vim.cmd("normal! " .. eraseWord .. antonym)
+      break
+    end
+  end
+end
+
+map("n", "!", function()
+  Invert(false)
+end, { noremap = true, silent = true })
+
+map("v", "!", function()
+  Invert(true)
+end, { noremap = true, silent = true })
+
