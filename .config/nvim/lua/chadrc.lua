@@ -11,7 +11,23 @@ M.ui = {
     selected_item_bg = "simple",
   },
 
-  tabufline = { order = { "buffers", "tabs" } },
+  tabufline = {
+    order = { "buffers", "tabs" },
+    modules = {
+      tabs = function()
+        local result, tabs = "", vim.fn.tabpagenr "$"
+        local btn = require("nvchad.tabufline.utils").btn
+        if tabs > 1 then
+          for nr = 1, tabs, 1 do
+            local tab_hl = "TabO" .. (nr == vim.fn.tabpagenr() and "n" or "ff")
+            result = result .. btn(" " .. nr .. " ", tab_hl, "GotoTab", nr)
+          end
+          return result
+        end
+        return ""
+      end,
+    },
+  },
 
   statusline = {
     theme = "vscode_colored",
@@ -21,7 +37,6 @@ M.ui = {
         if not utils.is_activewin() then
           return ""
         end
-
         local modes = utils.modes
         local m = vim.api.nvim_get_mode().mode
         return "%#St_" .. modes[m][2] .. "mode# " .. modes[m][1] .. " "
@@ -32,7 +47,7 @@ M.ui = {
 
 M.base46 = {
   integrations = { "trouble" },
-  theme = "kanagawa",
+  theme = "gruvbox",
   transparency = false,
 
   hl_override = highlights.override,
@@ -56,8 +71,12 @@ M.mason = {
     "taplo",
     "json-lsp",
     "ruff",
-    'zls'
+    "zls",
   },
+}
+
+M.term = {
+  winopts = { winfixbuf = true }
 }
 
 return M

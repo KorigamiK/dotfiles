@@ -24,4 +24,9 @@ return {
   sync_root_with_cwd = true,
   respect_buf_cwd = true,
   update_focused_file = { enable = true },
+  hijack_unnamed_buffer_when_opening = false,
+  hijack_directories = {
+    enable = false,
+    auto_open = true,
+  },
 }

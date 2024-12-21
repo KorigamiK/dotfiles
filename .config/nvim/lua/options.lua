@@ -18,8 +18,10 @@ vim.opt.fillchars = { eob = "~" }
 vim.opt.pumheight = 8
 
 vim.opt.colorcolumn = "100"
-vim.opt.showbreak = '↳ '
+vim.opt.showbreak = "↳ "
 
 vim.opt.showcmd = false
 
-require('lspconfig.ui.windows').default_options.border = 'single'
+require("lspconfig.ui.windows").default_options.border = "single"
+
+vim.opt.concealcursor = 'nc'

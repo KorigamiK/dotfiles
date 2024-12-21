@@ -52,8 +52,18 @@ vim.filetype.add {
   },
 }
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt.shiftwidth = 2
+    vim.opt.tabstop = 2
+    vim.opt.softtabstop = 2
+  end,
+})
+
 vim.g.snipmate_snippets_path = "~/Dev/projects/dotfiles/snippets/snipmate"
 vim.g.vscode_snippets_path = "~/Dev/projects/dotfiles/snippets/vscode"
+vim.g.markdown_recommended_style = 0
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })

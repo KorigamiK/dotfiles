@@ -17,7 +17,7 @@ fi
 
 # Use yt-dlp to search for the query and get the top 10 results in a JSON format
 results=$(
-  yt-dlp "ytsearch5:$query" \
+  yt-dlp "ytsearch15:$query" \
     --print-json \
     --default-search "https://music.youtube.com/search?q=" \
     --no-playlist \
