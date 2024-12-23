@@ -68,8 +68,19 @@ end, { desc = "Grep args" })
 -- zoxide
 map("n", "<leader>z", "<cmd> Telescope zoxide list <CR>", { desc = "Zoxide list" })
 -- toggle lsp
-map("n", "<leader>ls", "<cmd> LspStart <CR>", { desc = "Start lsp" })
-map("n", "<leader>lS", "<cmd> LspStop <CR>", { desc = "Stop lsp" })
+map("n", "<leader>ls", function()
+  -- check if the current file is a rust file
+  if vim.bo.filetype == "rust" then
+    require("rustaceanvim.lsp").start()
+  end
+  vim.cmd "LspStart"
+end, { desc = "Start lsp" })
+map("n", "<leader>lS",function ()
+  if vim.bo.filetype == "rust" then
+    require("rustaceanvim.lsp").stop()
+  end
+   vim.cmd "LspStop"
+end, { desc = "Stop lsp" })
 map("n", "[d", vim.diagnostic.goto_prev, { desc = "lsp prev diagnostic" })
 map("n", "]d", vim.diagnostic.goto_next, { desc = "lsp next diagnostic" })
 map("n", "<leader>li", function()
@@ -230,9 +241,29 @@ map("n", "<leader>no", function()
   require("notion").openMenu()
 end)
 
-
 function Invert(calledFromVisual)
-  local antonyms = { "true", "false", "after", "before", "start", "end", "left", "right", "first", "last", "True", "False", "After", "Before", "Start", "End", "Left", "Right", "First", "Last", }
+  local antonyms = {
+    "true",
+    "false",
+    "after",
+    "before",
+    "start",
+    "end",
+    "left",
+    "right",
+    "first",
+    "last",
+    "True",
+    "False",
+    "After",
+    "Before",
+    "Start",
+    "End",
+    "Left",
+    "Right",
+    "First",
+    "Last",
+  }
   if calledFromVisual then
     vim.cmd 'normal! gv"wy'
   else
