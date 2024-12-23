@@ -90,6 +90,9 @@ return {
   autotag = { enable = true, enable_rename = true },
   highlight = {
     disable = { "latex" },
-    -- additional_vim_regex_highlighting = { "latex" },
+    additional_vim_regex_highlighting = {
+      -- "latex",
+      "vim",
+    },
   },
 }

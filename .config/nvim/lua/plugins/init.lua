@@ -184,15 +184,20 @@ return {
   {
     "mrcjkb/rustaceanvim",
     version = "^4", -- Recommended
+    enabled = true,
     ft = { "rust" },
     config = function()
       vim.g.rustaceanvim = {
         inlay_hints = { auto = false },
         tools = { hover_actions = { auto_focus = true }, float_win_config = { border = "rounded" } },
         server = {
+          auto_attach = false,
           on_init = require("nvchad.configs.lspconfig").on_init,
           on_attach = require("nvchad.configs.lspconfig").on_attach,
           capabilities = require("nvchad.configs.lspconfig").capabilities,
+          default_settings = {
+            ["rust-analyzer"] = {},
+          },
         },
       }
     end,
