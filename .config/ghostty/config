@@ -1,0 +1,64 @@
+# vi:ft=conf
+#
+# https://github.com/mitchellh/ghostty/blob/main/src/config/Config.zig
+#
+
+# You can preview the config here
+window-decoration = false 
+# font-family = Zenbones Mono
+# font-family = Zed Mono Extended
+font-family = Berkeley Mono
+# font-family = JetBrainsMono Nerd Font
+font-size = 13
+cursor-style = bar
+cursor-style-blink = true
+window-padding-x = 0
+window-padding-y = 0
+window-decoration = false
+shell-integration = detect
+
+# background = #1d2021
+background = #000000
+foreground = #ebdbb2
+cursor-color = #ea6962
+selection-background = #404040
+selection-foreground = #ebdbb2
+
+palette = 0=#292929
+palette = 1=#ea6962
+palette = 2=#a9b665
+palette = 3=#d8a657
+palette = 4=#7daea3
+palette = 5=#d3869b
+palette = 6=#89b482
+palette = 7=#bdae93
+palette = 8=#595959
+palette = 9=#ea6962
+palette = 10=#a9b665
+palette = 11=#d8a657
+palette = 12=#7daea3
+palette = 13=#d3869b
+palette = 14=#89b482
+palette = 15=#a89984
+
+# term = xterm-256color
+
+adjust-cell-height = 9
+
+background-opacity = 0.3
+
+gtk-single-instance = true
+
+quit-after-last-window-closed=false
+
+# initial-window = false
+
+# font-thicken = true
+
+window-padding-balance = true
+
+window-padding-color = extend-always
+
+# custom-shader = ./cubes.glsl
+
+resize-overlay = never
