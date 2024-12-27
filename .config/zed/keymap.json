@@ -30,7 +30,7 @@
       "space l i": "editor::ToggleInlayHints",
 
       // Toggle soft wrap
-      "space z": "editor::ToggleSoftWrap",
+      "alt-z": "editor::ToggleSoftWrap",
 
       // NOTE: Toggle Zen mode, not fully working yet
       "space c z": "workspace::ToggleCenteredLayout",
