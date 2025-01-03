@@ -1,13 +1,26 @@
-# vi:ft=conf
+# vi:ft=toml
 #
 # https://github.com/mitchellh/ghostty/blob/main/src/config/Config.zig
 #
 
 # You can preview the config here
 window-decoration = false 
+window-theme = ghostty
+gtk-wide-tabs = true
+adw-toolbar-style = flat
 # font-family = Zenbones Mono
 # font-family = Zed Mono Extended
-font-family = Berkeley Mono
+font-family = Cartograph CF
+font-style = Light
+font-style-bold = Bold
+font-style-italic = Light Italic
+font-style-bold-italic = Heavy Italic
+# font-family = JetBrainsMono Nerd Font
+# font-family = Victor Mono
+# font-style = Semibold
+# font-style-bold = Bold
+# font-style-italic = Semibold Italic
+# font-style-bold-italic = Bold Italic
 # font-family = JetBrainsMono Nerd Font
 font-size = 13
 cursor-style = bar
@@ -62,3 +75,9 @@ window-padding-color = extend-always
 # custom-shader = ./cubes.glsl
 
 resize-overlay = never
+
+working-directory = inherit
+
+window-inherit-working-directory = true
+
+keybind = ctrl+enter=unbind

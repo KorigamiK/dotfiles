@@ -20,6 +20,7 @@ return {
 
     -- clang
     c = { "clang_format" },
+    glsl = { "clang_format" },
     cpp = { "clang_format" },
     cs = { "clang_format" },
     java = { "clang_format" },

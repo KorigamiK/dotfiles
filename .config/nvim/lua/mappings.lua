@@ -190,21 +190,21 @@ map("n", "<leader>ll", "<cmd>LLM<CR>", { desc = "Prompt with LLM" })
 
 -- keybinds for prompting with groq
 map("n", "<leader>,", function()
-  require("llm").prompt { replace = false, service = "groq" }
+  require("llm").prompt { replace = false, service = "openrouter" }
 end, { desc = "Prompt with ai" })
 map("v", "<leader>,", function()
-  require("llm").prompt { replace = false, service = "groq" }
+  require("llm").prompt { replace = false, service = "openrouter" }
 end, { desc = "Prompt with ai" })
 map("v", "<leader>.", function()
-  require("llm").prompt { replace = true, service = "groq" }
+  require("llm").prompt { replace = true, service = "openrouter" }
 end, { desc = "Prompt while replacing with ai" })
 
 -- keybinds to support vim motions
 map("n", "g,", function()
-  require("llm").prompt_operatorfunc { replace = false, service = "groq" }
+  require("llm").prompt_operatorfunc { replace = false, service = "openrouter" }
 end)
 map("n", "g.", function()
-  require("llm").prompt_operatorfunc { replace = true, service = "groq" }
+  require("llm").prompt_operatorfunc { replace = true, service = "openrouter" }
 end)
 
 if vim.g.neovide == true then
@@ -295,3 +295,11 @@ map("v", "!", function()
   Invert(true)
 end, { noremap = true, silent = true })
 
+map("n", "<leader>cp", function()
+  local actions = require "CopilotChat.actions"
+  require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+end, { desc = "CopilotChat - Prompt actions" })
+
+map("n", "<leader>cc", function()
+  require("CopilotChat").ask("", {})
+end, { desc = "CopilotChat - Quick chat" })
