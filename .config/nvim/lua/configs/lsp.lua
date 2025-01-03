@@ -8,7 +8,7 @@ local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
 
-local servers = { "ts_ls", "html", "astro", "jsonls", "solidity_ls_nomicfoundation", }
+local servers = { "ts_ls", "html", "astro", "jsonls", "solidity_ls_nomicfoundation" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

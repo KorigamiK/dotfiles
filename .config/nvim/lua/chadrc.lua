@@ -47,7 +47,7 @@ M.ui = {
 
 M.base46 = {
   integrations = { "trouble" },
-  theme = "gruvbox",
+  theme = "gruvchad",
   transparency = false,
 
   hl_override = highlights.override,
@@ -76,7 +76,7 @@ M.mason = {
 }
 
 M.term = {
-  winopts = { winfixbuf = true }
+  winopts = { winfixbuf = true },
 }
 
 return M

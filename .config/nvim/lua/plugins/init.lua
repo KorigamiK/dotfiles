@@ -31,6 +31,11 @@ return {
           model = "claude-3-5-sonnet-20241022",
           api_key_name = "ANTHROPIC_API_KEY",
         },
+        openrouter = {
+          url = "https://openrouter.ai/api/v1/chat/completions",
+          model = "deepseek/deepseek-chat",
+          api_key_name = "OPENROUTER_API_KEY",
+        }
       },
     },
   },
@@ -516,7 +521,16 @@ return {
       { "nvim-lua/plenary.nvim" },
     },
     build = "make tiktoken",
-    opts = {},
+    opts = {
+      highlight_headers = false,
+      error_header = "> [!ERROR] Error",
+      window = {
+        layout = "float",
+        width = 0.8,
+        height = 0.6,
+        row = 1,
+      },
+    },
   },
 
   {
@@ -541,4 +555,56 @@ return {
     build = "make build-oxi",
     opts = {},
   },
+
+  {
+    "olimorris/codecompanion.nvim",
+    cmd = { "CodeCompanionChat" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {
+      strategies = {
+        chat = {
+          keymaps = {
+            previous_chat = {
+              modes = { n = "<C-K>" },
+              index = 9,
+              callback = "keymaps.previous_chat",
+              description = "Previous Chat",
+            },
+            next_chat = {
+              modes = { n = "<C-J>" },
+              index = 8,
+              callback = "keymaps.next_chat",
+              description = "Next Chat",
+            },
+          },
+        },
+      },
+    },
+    config = true,
+  },
+
+  {
+    "gsuuon/note.nvim",
+    opts = {
+      -- opts.spaces are note workspace parent directories.
+      -- These directories contain a `notes` directory which will be created if missing.
+      -- `<space path>/notes` acts as the note root, so for space '~' the note root is `~/notes`.
+      -- Defaults to { '~' }.
+      spaces = {
+        "~/Dev",
+        -- '~/projects/foo'
+      },
+
+      -- Set keymap = false to disable keymapping
+      -- keymap = {
+      --   prefix = '<leader>n'
+      -- }
+    },
+    cmd = "Note",
+    ft = "note",
+  },
+
 }
