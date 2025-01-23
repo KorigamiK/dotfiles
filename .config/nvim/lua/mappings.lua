@@ -185,6 +185,12 @@ map("n", "<A-z>", "<cmd>set wrap!<CR>", { desc = "Toggle line wrap" })
 -- terminal
 map("t", "<C-k>", "<C-\\><C-N><C-w><C-w>", { desc = "Window prev" })
 
+-- Window resize
+map("n", "<A-.>", "<cmd>vert resize +2<CR>", { desc = "Increase window width" })
+map("n", "<A-,>", "<cmd>vert resize -2<CR>", { desc = "Decrease window width" })
+map("n", "<A-S-.>", "<cmd>resize +2<CR>", { desc = "Increase window height" })
+map("n", "<A-S-,>", "<cmd>resize -2<CR>", { desc = "Decrease window height" })
+
 -- LLM
 map("n", "<leader>ll", "<cmd>LLM<CR>", { desc = "Prompt with LLM" })
 

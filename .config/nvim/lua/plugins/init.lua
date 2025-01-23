@@ -35,7 +35,7 @@ return {
           url = "https://openrouter.ai/api/v1/chat/completions",
           model = "deepseek/deepseek-chat",
           api_key_name = "OPENROUTER_API_KEY",
-        }
+        },
       },
     },
   },

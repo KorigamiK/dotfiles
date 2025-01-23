@@ -4,7 +4,6 @@ local M = {}
 local highlights = require "highlights"
 
 M.ui = {
-
   cmp = {
     style = "default",
     icons = true,
