@@ -81,3 +81,8 @@ working-directory = inherit
 window-inherit-working-directory = true
 
 keybind = ctrl+enter=unbind
+
+keybind = alt+1=unbind
+keybind = alt+2=unbind
+keybind = alt+3=unbind
+keybind = alt+4=unbind

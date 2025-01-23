@@ -53,9 +53,12 @@
     },
     "version": "2"
   },
-  "theme": "Kanagawa",
+  "theme": "Forestpaper Dark",
   "ui_font_size": 18,
   "buffer_font_size": 16,
+  "buffer_font_features": {
+    "liga": true
+  },
   "buffer_line_height": "comfortable",
   "vim_mode": true,
   "relative_line_numbers": true,
@@ -104,5 +107,11 @@
     "**/.classpath",
     "**/.settings",
     "**/.venv"
-  ]
+  ],
+  "vim": {
+    "use_system_clipboard": "never"
+  },
+  "format_on_save": "off",
+  "experimental.theme_overrides": {
+  }
 }

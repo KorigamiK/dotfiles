@@ -78,7 +78,7 @@
   "git.enableCommitSigning": true,
   "editor.fontFamily": "'Berkeley Mono', 'monospace', 'Noto Color Emoji'",
   "editor.lineHeight": 1.5,
-  "terminal.integrated.fontFamily": "'Zed Mono', 'Symbols Nerd Font', 'Victor Mono SemiBold', 'monospace', 'Noto Color Emoji'",
+  "terminal.integrated.fontFamily": "'Berkeley Mono', 'Symbols Nerd Font', 'Victor Mono SemiBold', 'monospace', 'Noto Color Emoji'",
   "terminal.integrated.detectLocale": "on",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "qtConfigure.qtDir": "/usr/share/qt6/modules",
@@ -600,7 +600,8 @@
       "commands": [
         ":split"
       ]
-    }
+    },
+
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
@@ -644,4 +645,8 @@
     }
   ],
   "notebook.showCellStatusBar": "hidden",
+  "terminal.integrated.lineHeight": 1.3,
+  "cmake.buildDirectory": "${workspaceFolder}/out/${buildType}",
+  "workbench.activityBar.location": "hidden",
+  "notebook.lineNumbers": "on",
 }
