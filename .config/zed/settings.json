@@ -17,22 +17,40 @@
       }
     },
     "Python": {
-      "formatter": {
-        "external": {
-          "command": "ruff",
-          "arguments": [
-            "format",
-            "--force-exclude",
-            "--stdin-filename",
-            "$FILENAME",
-            "-"
-          ]
+      "language_servers": [
+        "pyright"
+        // "ruff"
+      ],
+      "format_on_save": "off",
+      "formatter": [
+        {
+          "external": {
+            "command": "bash",
+            "arguments": ["-c", "ruff check --select I --fix - | ruff format -"]
+          }
         }
-      }
+      ]
+    },
+    "C++": {
+      "tab_size": 2
     }
   },
   "git": { "inline_blame": { "enabled": false } },
   "lsp": {
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lineLength": 80,
+          "lint": { "extendSelect": ["I"] }
+        }
+      }
+    },
+    "rust-analyzer": {
+      "binary": {
+        "path": "/usr/lib/rustup/bin/rust-analyzer",
+        "args": []
+      }
+    },
     "pyright": {
       "settings": {
         "python.analysis": {

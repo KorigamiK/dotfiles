@@ -75,11 +75,11 @@ map("n", "<leader>ls", function()
   end
   vim.cmd "LspStart"
 end, { desc = "Start lsp" })
-map("n", "<leader>lS",function ()
+map("n", "<leader>lS", function()
   if vim.bo.filetype == "rust" then
     require("rustaceanvim.lsp").stop()
   end
-   vim.cmd "LspStop"
+  vim.cmd "LspStop"
 end, { desc = "Stop lsp" })
 map("n", "[d", vim.diagnostic.goto_prev, { desc = "lsp prev diagnostic" })
 map("n", "]d", vim.diagnostic.goto_next, { desc = "lsp next diagnostic" })
@@ -196,21 +196,21 @@ map("n", "<leader>ll", "<cmd>LLM<CR>", { desc = "Prompt with LLM" })
 
 -- keybinds for prompting with groq
 map("n", "<leader>,", function()
-  require("llm").prompt { replace = false, service = "openrouter" }
+  require("llm").prompt { replace = false, service = "groq" }
 end, { desc = "Prompt with ai" })
 map("v", "<leader>,", function()
-  require("llm").prompt { replace = false, service = "openrouter" }
+  require("llm").prompt { replace = false, service = "groq" }
 end, { desc = "Prompt with ai" })
 map("v", "<leader>.", function()
-  require("llm").prompt { replace = true, service = "openrouter" }
+  require("llm").prompt { replace = true, service = "groq" }
 end, { desc = "Prompt while replacing with ai" })
 
 -- keybinds to support vim motions
 map("n", "g,", function()
-  require("llm").prompt_operatorfunc { replace = false, service = "openrouter" }
+  require("llm").prompt_operatorfunc { replace = false, service = "groq" }
 end)
 map("n", "g.", function()
-  require("llm").prompt_operatorfunc { replace = true, service = "openrouter" }
+  require("llm").prompt_operatorfunc { replace = true, service = "groq" }
 end)
 
 if vim.g.neovide == true then
