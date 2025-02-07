@@ -17,7 +17,7 @@ window#waybar.hidden {
 
 tooltip {
   background: #242728;
-  border-radius: 10px;
+  border-radius: 8px;
   border-width: 2px;
   border-style: solid;
   border-color: #404344;
@@ -26,17 +26,17 @@ tooltip {
 .modules-right {
   background-color: rgba(236, 236, 236, 0.1);
   border: 0px solid #b4befe;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 .modules-center {
   background-color: rgba(232, 236, 241, 0.1);
   border: 0px solid #b4befe;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 .modules-left {
   background-color: rgba(232, 236, 241, 0.1);
   border: 0px solid #b4befe;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 #workspaces button {
   padding: 2px;
@@ -101,7 +101,7 @@ tooltip {
 #custom-weather.default #idle_inhibitor {
   color: #b7bdf8;
   padding: 0px 10px;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 #temperature.critical {

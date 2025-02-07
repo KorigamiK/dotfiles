@@ -82,6 +82,7 @@ return {
     "zig",
     "make",
     "kotlin",
+    "query",
   },
   indent = {
     enable = true,

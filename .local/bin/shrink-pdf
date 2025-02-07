@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 gs -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook   -dNOPAUSE -dBATCH \
-  -sOutputFile=$2 $1
+  -sOutputFile="$2" "$1"

@@ -22,6 +22,11 @@ return {
     opts = {
       services = {
         groq = {
+          url = "https://api.groq.com/openai/v1/chat/completions",
+          model = "deepseek-r1-distill-llama-70b",
+          api_key_name = "GROQ_API_KEY",
+        },
+        github = {
           url = "https://models.inference.ai.azure.com/chat/completions",
           model = "gpt-4o",
           api_key_name = "GITHUB_AI_TOKEN",
