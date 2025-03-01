@@ -43,8 +43,8 @@ luac.out
 
 .config/mpv/watch_later/
 .config/hypr/cheatsheet.md
-zed/
-!zed/keymap.json
-!zed/settings.json
+.config/zed/
+!.config/zed/keymap.json
+!.config/zed/settings.json
 .config/kitty/kitty-themes/
 .config/nvim/llm.md
