@@ -286,4 +286,8 @@
     "command": "-editor.action.inlineSuggest.commit",
     "when": "editorTextFocus && inlineEditIsVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible || editorTextFocus && inlineEditIsVisible && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible"
   },
+  {
+    "key": "ctrl+shift+escape",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
 ]

@@ -67,11 +67,11 @@
     "default_width": 450,
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
+      "model": "claude-3-7-sonnet-latest"
     },
     "version": "2"
   },
-  "theme": "Forestpaper Dark",
+  "theme": "Forestpaper",
   "ui_font_size": 18,
   "buffer_font_size": 16,
   "buffer_font_features": {
@@ -130,6 +130,32 @@
     "use_system_clipboard": "never"
   },
   "format_on_save": "off",
-  "experimental.theme_overrides": {
+  "experimental.theme_overrides": {},
+  "context_servers": {
+    "parseer": {
+      "settings": {},
+      "command": {
+        "path": "uv",
+        "args": [
+          "--directory",
+          "/home/origami/Dev/projects/python/markitdown_mcp_server",
+          "run",
+          "markitdown"
+        ]
+      }
+      // "mcp-server": {
+      //   "settings": {},
+      //   "command": {
+      //     "path": "bun",
+      //     "args": [
+      //       "/home/origami/Dev/projects/rust/postgres-context-server/server/index.mjs"
+      //     ]
+      //   }
+      // },
+    }
+  },
+  "git_panel": {
+    "button": true,
+    "dock": "right"
   }
 }

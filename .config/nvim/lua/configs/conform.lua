@@ -17,6 +17,7 @@ return {
     sh = { "shfmt" },
     tex = { "latexindent" },
     bib = { "latexindent" },
+    ocaml = {"ocamlformat"},
 
     -- clang
     c = { "clang_format" },

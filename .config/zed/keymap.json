@@ -1,22 +1,23 @@
 [
   {
-    "context": "Editor && inline_completion",
+    "context": "Editor && edit_prediction",
     "bindings": {
-      "ctrl-y": "editor::AcceptInlineCompletion"
+      "ctrl-y": "editor::AcceptEditPrediction"
     }
   },
   {
     "context": "(ContextEditor > Editor) && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
       "space b": "assistant::NewContext",
-      "space h": "assistant::DeployHistory"
+      "space h": "assistant::DeployHistory",
+      "space ,": "assistant::Assist"
     }
   },
   {
     "context": "KeyContextView",
     "bindings": {
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
       "shift-h": "pane::ActivatePrevItem",
       "shift-l": "pane::ActivateNextItem",
       "ctrl-w": "pane::CloseActiveItem"
@@ -32,24 +33,24 @@
     "context": "BufferSearchBar > Editor",
     "use_key_equivalents": true,
     "bindings": {
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"]
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight"
     }
   },
   {
     "context": "Picker > Editor",
     "use_key_equivalents": true,
     "bindings": {
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"]
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight"
     }
   },
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
       // [...]
-      "j": ["vim::Down", { "displayLines": true }],
-      "k": ["vim::Up", { "displayLines": true }]
+      "j": ["vim::Down", { "display_lines": true }],
+      "k": ["vim::Up", { "display_lines": true }]
     }
   },
   {
@@ -100,12 +101,12 @@
       // put key-bindings here if you want them to work only in normal mode
       // Window movement bindings
       // Ctrl jklk to move between panes
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
 
-      "space t d": "editor::ToggleHunkDiff",
+      "space t d": "editor::ToggleSelectedDiffHunks",
       "space q": "pane::CloseAllItems",
 
       ";": "command_palette::Toggle",
@@ -175,7 +176,11 @@
     "bindings": {
       "alt-h": "workspace::ToggleBottomDock",
       "ctrl-tab": "pane::ActivateNextItem",
-      "ctrl-shift-tab": "pane::ActivatePrevItem"
+      "ctrl-shift-tab": "pane::ActivatePrevItem",
+      "alt-,": "vim::ResizePaneLeft",
+      "alt-.": "vim::ResizePaneRight",
+      "alt-<": "vim::ResizePaneUp",
+      "alt->": "vim::ResizePaneDown"
     }
   },
   {
@@ -245,10 +250,10 @@
   {
     "context": "Dock || EmptyPane || vim_mode == visual",
     "bindings": {
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
     }
   },
   {
