@@ -8,7 +8,12 @@ window-decoration = false
 window-theme = ghostty
 gtk-wide-tabs = true
 adw-toolbar-style = flat
-font-family = Berkeley Mono
+# font-family = TX-02
+# font-feature = "liga"
+# font-feature = ss01
+# font-feature = ss04
+
+font-family = Iosevka Paper
 # font-family = Dank Mono
 # font-family = Roobert Mono TRIAL
 # font-family = Zenbones Mono
@@ -60,6 +65,7 @@ palette = 15=#a89984
 # term = xterm-256color
 
 adjust-cell-height = 9
+adjust-cursor-height = 7
 
 background-opacity = 0.3
 
@@ -68,8 +74,6 @@ gtk-single-instance = true
 quit-after-last-window-closed=false
 
 # initial-window = false
-
-# font-thicken = true
 
 window-padding-balance = true
 

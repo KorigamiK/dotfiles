@@ -41,6 +41,16 @@ return {
           model = "deepseek/deepseek-chat",
           api_key_name = "OPENROUTER_API_KEY",
         },
+        mistral = {
+          url = "https://api.mistral.ai/v1/chat/completions",
+          model = "mistral-large-latest",
+          api_key_name = "MISTRALAI_API_KEY",
+        },
+        gemini = {
+          url = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+          model = "gemini-2.5-pro-exp-03-25",
+          api_key_name = "GEMINI_API_KEY",
+        }
       },
     },
   },

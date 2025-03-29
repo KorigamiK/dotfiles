@@ -290,4 +290,45 @@
     "key": "ctrl+shift+escape",
     "command": "workbench.action.toggleMaximizedPanel"
   },
+  {
+    "key": "ctrl+h",
+    "command": "-editor.action.startFindReplaceAction",
+    "when": "editorFocus || editorIsOpen"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-expandLineSelection",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "shift+l",
+    "command": "-notebook.toggleLineNumbers",
+    "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
+  },
+  {
+    "key": "f",
+    "command": "-notebook.find",
+    "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
+  },
+  {
+    "key": "alt+,",
+    "command": "workbench.action.increaseViewWidth"
+  },
+  {
+    "key": "shift+alt+,",
+    "command": "workbench.action.increaseViewHeight"
+  },
+  {
+    "key": "alt+.",
+    "command": "workbench.action.decreaseViewWidth"
+  },
+  {
+    "key": "shift+alt+.",
+    "command": "-editor.action.autoFix",
+    "when": "textInputFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)quickfix\\b/"
+  },
+  {
+    "key": "shift+alt+.",
+    "command": "workbench.action.decreaseViewHeight"
+  },
 ]

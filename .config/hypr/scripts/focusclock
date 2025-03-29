@@ -1,3 +1,3 @@
 #!/bin/env bash
 
-/home/origami/Dev/projects/cpp/focusclock/out/Release/focusclock -F 'Berkeley Mono' --color="#95C1E780" -f 48 -br -B 100
+/home/origami/Dev/projects/cpp/focusclock/out/Release/focusclock -F 'Berkeley Mono' --color="#75758980" -f 64 -br -B 120
