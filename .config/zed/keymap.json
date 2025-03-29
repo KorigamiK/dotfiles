@@ -8,7 +8,7 @@
   {
     "context": "(ContextEditor > Editor) && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
-      "space b": "assistant::NewContext",
+      "space b": "assistant::NewChat",
       "space h": "assistant::DeployHistory",
       "space ,": "assistant::Assist"
     }
@@ -18,7 +18,7 @@
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
-      "shift-h": "pane::ActivatePrevItem",
+      "shift-h": "pane::ActivatePreviousItem",
       "shift-l": "pane::ActivateNextItem",
       "ctrl-w": "pane::CloseActiveItem"
     }
@@ -35,6 +35,18 @@
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      "s": "git::ToggleStaged",
+      "S": "git::StageAll",
+      "U": "git::UnstageAll",
+      "ctrl-j": "git_panel::FocusEditor",
+      "ctrl-k": "git_panel::ToggleFocus",
+      "P p": "git::Push",
+      "p p": "git::Pull"
     }
   },
   {
@@ -66,8 +78,15 @@
     "bindings": {
       // put key-bindings here if you want them to work in normal & visual mode
       // Git
+      "alt-,": "vim::ResizePaneLeft",
+      "alt-.": "vim::ResizePaneRight",
+      "alt-<": "vim::ResizePaneUp",
+      "alt->": "vim::ResizePaneDown",
+      "ctrl-c": ["workspace::SendKeystrokes", "m m g g \" + y G ' m z z"],
       "space Q": "workspace::CloseWindow",
-      "space r h": "editor::RevertSelectedHunks",
+      "space g s": "git_panel::ToggleFocus",
+      "space f l": "language_selector::Toggle",
+      "space r h": "git::Restore",
       "space g b": "editor::ToggleGitBlameInline",
       "space g B": "editor::ToggleGitBlame",
       "alt-c": ["workspace::SendKeystrokes", "\" +"],
@@ -122,18 +141,18 @@
       "g T": "editor::GoToTypeDefinitionSplit",
       "g r": "editor::FindAllReferences",
       "] d": "editor::GoToDiagnostic",
-      "[ d": "editor::GoToPrevDiagnostic",
+      "[ d": "editor::GoToPreviousDiagnostic",
       // Diagnostic
       "space l t": "diagnostics::Deploy",
 
       // +Git
       // Git prev/next hunk
       "] c": "editor::GoToHunk",
-      "[ c": "editor::GoToPrevHunk",
+      "[ c": "editor::GoToPreviousHunk",
 
       // + Buffers
       // Switch between buffers
-      "shift-h": "pane::ActivatePrevItem",
+      "shift-h": "pane::ActivatePreviousItem",
       "shift-l": "pane::ActivateNextItem",
       // Close active panel
       "space x": "pane::CloseActiveItem",
@@ -176,11 +195,7 @@
     "bindings": {
       "alt-h": "workspace::ToggleBottomDock",
       "ctrl-tab": "pane::ActivateNextItem",
-      "ctrl-shift-tab": "pane::ActivatePrevItem",
-      "alt-,": "vim::ResizePaneLeft",
-      "alt-.": "vim::ResizePaneRight",
-      "alt-<": "vim::ResizePaneUp",
-      "alt->": "vim::ResizePaneDown"
+      "ctrl-shift-tab": "pane::ActivatePreviousItem"
     }
   },
   {

@@ -1,5 +1,4 @@
 {
-  "window.titleBarStyle": "native",
   "python.languageServer": "Pylance",
   "zenMode.fullScreen": false,
   "zenMode.centerLayout": true,
@@ -20,7 +19,6 @@
   },
   "python.defaultInterpreterPath": "/bin/python",
   "editor.minimap.enabled": false,
-  "window.commandCenter": false,
   "editor.scrollbar.horizontal": "auto",
   "vetur.experimental.templateInterpolationService": true,
   "vetur.validation.templateProps": true,
@@ -194,7 +192,7 @@
   "javascript.updateImportsOnFileMove.enabled": "never",
   "haskell.ghcupExecutablePath": "/usr/bin/ghcup",
   "haskell.manageHLS": "GHCup",
-  "window.zoomLevel": 2,
+  "window.zoomLevel": 1,
   "explorer.confirmDragAndDrop": false,
   "vim.handleKeys": {
     "<C-a>": false,
@@ -239,8 +237,7 @@
     "/usr/share/nvim/runtime/lua/vim/lsp"
   ],
   "sqltools.useNodeRuntime": true,
-  "breadcrumbs.enabled": false,
-  "window.menuBarVisibility": "compact",
+  "window.menuBarVisibility": "hidden",
   "diffEditor.renderSideBySide": false,
   "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
@@ -600,6 +597,15 @@
         ":split"
       ]
     },
+    {
+      "before": [
+        "leader",
+        "f", "l"
+      ],
+      "commands": [
+        "workbench.action.editor.changeLanguageMode"
+      ]
+    },
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
@@ -645,7 +651,15 @@
   "notebook.showCellStatusBar": "hidden",
   "terminal.integrated.lineHeight": 1.3,
   "cmake.buildDirectory": "${workspaceFolder}/out/${buildType}",
-  "notebook.lineNumbers": "on",
   "cmake.showOptionsMovedNotification": false,
   "workbench.colorTheme": "Horizon Extended - Neo",
+  "notebook.lineNumbers": "on",
+  "workbench.activityBar.location": "hidden",
+  "window.enableMenuBarMnemonics": false,
+  "editor.inlineSuggest.edits.showCollapsed": true,
+  "workbench.navigationControl.enabled": false,
+  "workbench.layoutControl.enabled": false,
+  "chat.commandCenter.enabled": false,
+  "window.commandCenter": false,
+  "git.blame.statusBarItem.enabled": false,
 }
