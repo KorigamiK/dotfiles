@@ -20,7 +20,8 @@
       "ctrl-l": "workspace::ActivatePaneRight",
       "shift-h": "pane::ActivatePreviousItem",
       "shift-l": "pane::ActivateNextItem",
-      "ctrl-w": "pane::CloseActiveItem"
+      "ctrl-w": "pane::CloseActiveItem",
+      "space q": "pane::CloseActiveItem"
     }
   },
   {
@@ -50,11 +51,13 @@
     }
   },
   {
-    "context": "Picker > Editor",
+    "context": "(Picker > Editor) || (MessageEditor > Editor)",
     "use_key_equivalents": true,
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight"
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-w": "editor::DeleteToPreviousWordStart",
+      "ctrl-e": "editor::MoveToEnd"
     }
   },
   {

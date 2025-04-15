@@ -18,8 +18,8 @@
     },
     "Python": {
       "language_servers": [
-        "pyright"
-        // "ruff"
+        "pyright",
+        "ruff"
       ],
       "format_on_save": "off",
       "formatter": [
@@ -37,14 +37,14 @@
   },
   "git": { "inline_blame": { "enabled": false } },
   "lsp": {
-    "ruff": {
-      "initialization_options": {
-        "settings": {
-          "lineLength": 80,
-          "lint": { "extendSelect": ["I"] }
-        }
-      }
-    },
+    // "ruff": {
+    //   "initialization_options": {
+    //     "settings": {
+    //       "lineLength": 80,
+    //       "lint": { "extendSelect": ["I"] }
+    //     }
+    //   }
+    // },
     "rust-analyzer": {
       "binary": {
         "path": "/usr/lib/rustup/bin/rust-analyzer",
@@ -75,12 +75,14 @@
   "ui_font_size": 18,
   "buffer_font_size": 16,
   "buffer_font_features": {
-    "liga": true
+    "liga": false,
+    "ss06": true // => test
   },
   "buffer_line_height": "comfortable",
   "vim_mode": true,
   "relative_line_numbers": true,
-  "buffer_font_family": "Berkeley Mono",
+  "buffer_font_family": "Iosevka Paper",
+  "ui_font_family": ".SystemUIFont",
   "terminal": {
     "working_directory": "current_project_directory",
     "env": { "EDITOR": "zed --wait" }

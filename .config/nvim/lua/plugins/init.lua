@@ -1,5 +1,10 @@
 ---@type NvPluginSpec[]
 return {
+  { import = "nvchad.blink.lazyspec" },
+  {
+    "saghen/blink.cmp",
+    opts = { keymap = { ["<C-y>"] = { "fallback" } } },
+  },
   { "nvchad/menu", enabled = false },
   {
     "numToStr/Comment.nvim",
@@ -50,15 +55,15 @@ return {
           url = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
           model = "gemini-2.5-pro-exp-03-25",
           api_key_name = "GEMINI_API_KEY",
-        }
+        },
       },
     },
   },
 
-  {
-    "hrsh7th/nvim-cmp",
-    -- opts = { experimental = { ghost_text = { hl_group = "Comment" } } },
-  },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   -- opts = { experimental = { ghost_text = { hl_group = "Comment" } } },
+  -- },
 
   -- Formatting
   {
@@ -124,15 +129,6 @@ return {
       require "nvchad.configs.lspconfig"
       require "configs.lsp"
     end,
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    config = function()
-      require("treesitter-context").setup { enable = false }
-    end,
-    cmd = { "TSContextDisable", "TSContextEnable", "TSContextToggle" },
-    lazy = false,
   },
 
   {
