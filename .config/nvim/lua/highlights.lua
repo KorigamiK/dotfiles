@@ -18,10 +18,12 @@ M.override = {
   ["@exception"] = { italic = true },
   ["@include"] = { italic = true },
   ["@repeat"] = { italic = true },
+  ["@boolean"] = { italic = true },
   TelescopePromptNormal = { blend = 100 },
   TelescopePromptBorder = { fg = "pink" },
   -- ["@string"] = { italic = true },
   -- TelescopeBorder = { fg = "blue" },
+  LazyButton = { fg = "white", bg = "black" }
 }
 
 ---@type HLTable
@@ -41,6 +43,7 @@ M.add = {
   -- Nvim Tree
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
   ["@markup.math.latex"] = { fg = "vibrant_green" },
+  ["@chat.user"] = { fg = "one_bg", bg = "vibrant_green" },
 }
 
 return M

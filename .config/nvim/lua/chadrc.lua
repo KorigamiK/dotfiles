@@ -45,7 +45,7 @@ M.ui = {
 }
 
 M.base46 = {
-  integrations = { "trouble" },
+  integrations = { "trouble", "blink" },
   theme = "gruvchad",
   transparency = false,
 

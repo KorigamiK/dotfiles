@@ -65,5 +65,4 @@ vim.g.snipmate_snippets_path = "~/Dev/projects/dotfiles/snippets/snipmate"
 vim.g.vscode_snippets_path = "~/Dev/projects/dotfiles/snippets/vscode"
 vim.g.markdown_recommended_style = 0
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+vim.diagnostic.config { jump = { float = true }, float = { border = "rounded" } }

@@ -13,7 +13,7 @@ adw-toolbar-style = flat
 # font-feature = ss01
 # font-feature = ss04
 
-font-family = Iosevka Paper
+font-family = Iosevka Paper Condensed
 # font-family = Dank Mono
 # font-family = Roobert Mono TRIAL
 # font-family = Zenbones Mono
@@ -36,7 +36,7 @@ cursor-style-blink = true
 window-padding-x = 0
 window-padding-y = 0
 window-decoration = false
-shell-integration = detect
+shell-integration = zsh
 
 # background = #1d2021
 background = #000000

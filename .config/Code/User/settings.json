@@ -18,7 +18,6 @@
     "jupyter-notebook": "right"
   },
   "python.defaultInterpreterPath": "/bin/python",
-  "editor.minimap.enabled": false,
   "editor.scrollbar.horizontal": "auto",
   "vetur.experimental.templateInterpolationService": true,
   "vetur.validation.templateProps": true,
@@ -74,9 +73,9 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "workbench.iconTheme": "material-icon-theme",
   "git.enableCommitSigning": true,
-  "editor.fontFamily": "'Berkeley Mono', 'monospace', 'Noto Color Emoji'",
+  "editor.fontFamily": "'Iosevka Paper Condensed', 'monospace', 'Noto Color Emoji'",
   "editor.lineHeight": 1.5,
-  "terminal.integrated.fontFamily": "'Berkeley Mono', 'Symbols Nerd Font', 'Victor Mono SemiBold', 'monospace', 'Noto Color Emoji'",
+  "terminal.integrated.fontFamily": "'Iosevka Paper Condensed', 'Symbols Nerd Font', 'Victor Mono SemiBold', 'monospace', 'Noto Color Emoji'",
   "terminal.integrated.detectLocale": "on",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "qtConfigure.qtDir": "/usr/share/qt6/modules",
@@ -654,7 +653,6 @@
   "cmake.showOptionsMovedNotification": false,
   "workbench.colorTheme": "Horizon Extended - Neo",
   "notebook.lineNumbers": "on",
-  "workbench.activityBar.location": "hidden",
   "window.enableMenuBarMnemonics": false,
   "editor.inlineSuggest.edits.showCollapsed": true,
   "workbench.navigationControl.enabled": false,
@@ -662,4 +660,7 @@
   "chat.commandCenter.enabled": false,
   "window.commandCenter": false,
   "git.blame.statusBarItem.enabled": false,
+  "chat.agent.enabled": true,
+  "github.copilot.chat.agent.thinkingTool": true,
+  "editor.minimap.enabled": false
 }

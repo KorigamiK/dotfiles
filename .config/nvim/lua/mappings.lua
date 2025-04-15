@@ -67,22 +67,24 @@ end, { desc = "Grep args" })
 
 -- zoxide
 map("n", "<leader>z", "<cmd> Telescope zoxide list <CR>", { desc = "Zoxide list" })
+
 -- toggle lsp
 map("n", "<leader>ls", function()
   -- check if the current file is a rust file
   if vim.bo.filetype == "rust" then
     require("rustaceanvim.lsp").start()
   end
+  require('rustaceanvim.config.internal').server.auto_attach = true
   vim.cmd "LspStart"
 end, { desc = "Start lsp" })
 map("n", "<leader>lS", function()
   if vim.bo.filetype == "rust" then
     require("rustaceanvim.lsp").stop()
   end
+  require('rustaceanvim.config.internal').server.auto_attach = false
   vim.cmd "LspStop"
 end, { desc = "Stop lsp" })
-map("n", "[d", vim.diagnostic.goto_prev, { desc = "lsp prev diagnostic" })
-map("n", "]d", vim.diagnostic.goto_next, { desc = "lsp next diagnostic" })
+
 map("n", "<leader>li", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = vim.api.nvim_get_current_buf() })
 end, { desc = "Toggle inlay hints" })
