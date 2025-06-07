@@ -33,13 +33,13 @@ return {
         },
         github = {
           url = "https://models.inference.ai.azure.com/chat/completions",
-          model = "gpt-4o",
+          model = "gpt-4.1",
           api_key_name = "GITHUB_AI_TOKEN",
         },
         anthropic = {
           url = "https://api.anthropic.com/v1/messages",
-          model = "claude-3-5-sonnet-20241022",
-          api_key_name = "ANTHROPIC_API_KEY",
+          model = "claude-3-7-sonnet-20250219",
+          api_key_name = "ANTHROPIC_STUDENT_API_KEY",
         },
         openrouter = {
           url = "https://openrouter.ai/api/v1/chat/completions",
@@ -524,27 +524,6 @@ return {
   },
 
   {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    event = "VeryLazy",
-    branch = "main",
-    dependencies = {
-      { "zbirenbaum/copilot.lua" },
-      { "nvim-lua/plenary.nvim" },
-    },
-    build = "make tiktoken",
-    opts = {
-      highlight_headers = false,
-      error_header = "> [!ERROR] Error",
-      window = {
-        layout = "float",
-        width = 0.8,
-        height = 0.6,
-        row = 1,
-      },
-    },
-  },
-
-  {
     "nosduco/remote-sshfs.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
     cmd = { "RemoteSSHFSConnect" },
@@ -569,7 +548,7 @@ return {
 
   {
     "olimorris/codecompanion.nvim",
-    cmd = { "CodeCompanionChat" },
+    cmd = { "CodeCompanionChat", "CodeCompanionActions" },
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",

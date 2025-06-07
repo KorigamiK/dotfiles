@@ -60,14 +60,72 @@
           "pythonPath": ".venv/bin/python"
         }
       }
+    },
+    "texlab": {
+      "settings": {
+        "texlab": {
+          "build": {
+            "onSave": true,
+            "forwardSearchAfter": true
+          },
+          "forwardSearch": {
+            "executable": "sioyek",
+            "args": [
+              "--reuse-window",
+              "--inverse-search",
+              "zeditor \"%%1\":%%2",
+              "--forward-search-file",
+              "%f",
+              "--forward-search-line",
+              "%l",
+              "%p"
+            ]
+          }
+        }
+      }
     }
   },
-  "assistant": {
+  "agent": {
+    "profiles": {
+      "write": {
+        "name": "Write",
+        "tools": {
+          "terminal": true,
+          "batch_tool": true,
+          "code_actions": true,
+          "code_symbols": true,
+          "contents": true,
+          "copy_path": true,
+          "create_file": true,
+          "delete_path": false,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": false,
+          "move_path": false,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "rename": true,
+          "symbol_info": true,
+          "thinking": true,
+          "open": true
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {}
+      }
+    },
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4"
+    },
+    "default_profile": "write",
     "dock": "left",
     "default_width": 450,
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-latest"
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4"
     },
     "version": "2"
   },

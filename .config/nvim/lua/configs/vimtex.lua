@@ -26,8 +26,8 @@ function M.setup()
 	-- Disable quickfix auto open
 	vim.g.vimtex_quickfix_ignore_mode = 0
 	-- PDF viewer settings
-	vim.g.vimtex_view_general_viewer = "okular"
-	vim.g.vimtex_view_general_options = "--unique file:@pdf\\#src:@line@tex"
+	vim.g.vimtex_view_general_viewer = "sioyek"
+  vim.g.vimtex_view_general_options = '--reuse-window --inverse-search "nvim --headless -c \"VimtexInverseSearch %l \'%f\'\"" --forward-search-file @tex --forward-search-line @line @pdf'
 	-- Auto open quickfix on compile erros
 	vim.g.vimtex_quickfix_mode = 1
 	-- Latex warnings to ignore

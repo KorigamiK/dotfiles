@@ -6,10 +6,16 @@
     }
   },
   {
+    "context": "AgentPanel > MessageEditor > Editor",
+    "bindings": {
+      "ctrl-enter": "assistant::Assist"
+    }
+  },
+  {
     "context": "(ContextEditor > Editor) && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
-      "space b": "assistant::NewChat",
-      "space h": "assistant::DeployHistory",
+      "space b": "agent::NewThread",
+      "space h": "agent::OpenHistory",
       "space ,": "assistant::Assist"
     }
   },
@@ -76,22 +82,30 @@
       "space h": "pane::SplitDown"
     }
   },
+  // Add the following lines
+  {
+    "context": "GitPanel || ProjectPanel || CollabPanel || OutlinePanel || ChatPanel || VimControl || EmptyPane || SharedScreen || MarkdownPreview || KeyContextView || DebugPanel",
+    "bindings": {
+      "alt-.": "vim::ResizePaneRight",
+      "alt-,": "vim::ResizePaneLeft"
+    }
+  },
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
       // put key-bindings here if you want them to work in normal & visual mode
       // Git
-      "alt-,": "vim::ResizePaneLeft",
-      "alt-.": "vim::ResizePaneRight",
-      "alt-<": "vim::ResizePaneUp",
-      "alt->": "vim::ResizePaneDown",
+      // "alt-,": "vim::ResizePaneLeft",
+      // "alt-.": "vim::ResizePaneRight",
+      // "alt-<": "vim::ResizePaneUp",
+      // "alt->": "vim::ResizePaneDown",
       "ctrl-c": ["workspace::SendKeystrokes", "m m g g \" + y G ' m z z"],
       "space Q": "workspace::CloseWindow",
       "space g s": "git_panel::ToggleFocus",
       "space f l": "language_selector::Toggle",
       "space r h": "git::Restore",
       "space g b": "editor::ToggleGitBlameInline",
-      "space g B": "editor::ToggleGitBlame",
+      "space g B": "editor::OpenGitBlameCommit",
       "alt-c": ["workspace::SendKeystrokes", "\" +"],
       // Toggle inlay hints
       "space l i": "editor::ToggleInlayHints",
@@ -112,7 +126,7 @@
       "space f w": "pane::DeploySearch",
 
       // Chat with AI
-      "space a c": "assistant::ToggleFocus",
+      "space a c": "agent::ToggleFocus",
       // Go to file with `gf`
       "g f": "editor::OpenExcerpts"
     }

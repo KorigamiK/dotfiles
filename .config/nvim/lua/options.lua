@@ -22,6 +22,4 @@ vim.opt.showbreak = "󱞩 "
 
 vim.opt.showcmd = false
 
-require("lspconfig.ui.windows").default_options.border = "single"
-
-vim.opt.concealcursor = 'nc'
+vim.opt.concealcursor = "nc"
