@@ -74,14 +74,14 @@ map("n", "<leader>ls", function()
   if vim.bo.filetype == "rust" then
     require("rustaceanvim.lsp").start()
   end
-  require('rustaceanvim.config.internal').server.auto_attach = true
+  require("rustaceanvim.config.internal").server.auto_attach = true
   vim.cmd "LspStart"
 end, { desc = "Start lsp" })
 map("n", "<leader>lS", function()
   if vim.bo.filetype == "rust" then
     require("rustaceanvim.lsp").stop()
   end
-  require('rustaceanvim.config.internal').server.auto_attach = false
+  require("rustaceanvim.config.internal").server.auto_attach = false
   vim.cmd "LspStop"
 end, { desc = "Stop lsp" })
 
@@ -198,13 +198,13 @@ map("n", "<leader>ll", "<cmd>LLM<CR>", { desc = "Prompt with LLM" })
 
 -- keybinds for prompting with groq
 map("n", "<leader>,", function()
-  require("llm").prompt { replace = false, service = "gemini" }
+  require("llm").prompt { replace = false, service = "anthropic" }
 end, { desc = "Prompt with ai" })
 map("v", "<leader>,", function()
-  require("llm").prompt { replace = false, service = "gemini" }
+  require("llm").prompt { replace = false, service = "anthropic" }
 end, { desc = "Prompt with ai" })
 map("v", "<leader>.", function()
-  require("llm").prompt { replace = true, service = "gemini" }
+  require("llm").prompt { replace = true, service = "anthropic" }
 end, { desc = "Prompt while replacing with ai" })
 
 -- keybinds to support vim motions
@@ -222,9 +222,9 @@ if vim.g.neovide == true then
 end
 
 local preferred_fonts = {
+  "Iosevka Paper, Condensed",
   "DM Mono",
   "Berkeley Mono",
-  "Iosevka Term",
   "Zed Mono",
   "Victor Mono", -- use the semibold vaiant
   "PragmataPro",
@@ -303,11 +303,6 @@ map("v", "!", function()
   Invert(true)
 end, { noremap = true, silent = true })
 
-map("n", "<leader>cp", function()
-  local actions = require "CopilotChat.actions"
-  require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
-end, { desc = "CopilotChat - Prompt actions" })
-
-map("n", "<leader>cc", function()
-  require("CopilotChat").ask("", {})
-end, { desc = "CopilotChat - Quick chat" })
+map("n", "K", function()
+  vim.lsp.buf.hover { border = "single" }
+end, { desc = "LSP hover" })

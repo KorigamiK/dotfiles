@@ -3,7 +3,9 @@ transparency = 0.5
 neovide_scroll_animation_length = 0.2
 
 [font]
-normal = {family="Zed Mono", style = "Extended"}
+normal = {family="Iosevka Paper Condensed", style = "Condensed"}
+
+# normal = {family="Zed Mono", style = "Extended"}
 
 # normal = { family = "Victor Mono", style = "Medium"}
 # italic = { family = "Victor Mono", style = "Medium Italic"}
@@ -13,6 +15,6 @@ normal = {family="Zed Mono", style = "Extended"}
 # italic = { family = "Monaspace Radon" }
 # bold = { family = "Monaspace Krypton" }
 
-size = 15
+size = 13
 
 [font.features]

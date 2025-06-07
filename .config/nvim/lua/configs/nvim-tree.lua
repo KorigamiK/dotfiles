@@ -11,7 +11,7 @@ return {
       open_win_config = function()
         return {
           relative = "editor",
-          border = "rounded",
+          border = "single",
           width = 60,
           height = 20,
           row = (vim.api.nvim_list_uis()[1].height - 20) * 0.4,

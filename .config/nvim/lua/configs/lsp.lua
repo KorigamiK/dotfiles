@@ -8,7 +8,12 @@ local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
 
-local servers = { "ts_ls", "html", "astro", "jsonls", "solidity_ls_nomicfoundation", "ocamllsp" }
+local servers = { "ts_ls", "html", "astro", "jsonls", "solidity_ls_nomicfoundation", "ocamllsp", "vala_ls" }
+
+local default_handlers = {
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" }),
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" }),
+}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -160,3 +165,15 @@ lspconfig.kotlin_language_server.setup {
     JAVA_HOME = jdk_home,
   },
 }
+
+--[[ lspconfig.markdown_oxide.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = vim.tbl_deep_extend(
+    "force",
+    capabilities,
+    -- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
+    -- Create Unresolved File code action, resolving completions for unindexed code blocks, ...
+    { workspace = { didChangeWatchedFiles = { dynamicRegistration = true } } }
+  ),
+} ]]
