@@ -597,4 +597,39 @@ return {
     ft = "note",
   },
 
+  {
+    "neo451/feed.nvim",
+    cmd = "Feed",
+    opts = {
+      feeds = { "https://neovim.io/news.xml", name = "Neovim News", tags = { "tech", "news" } },
+    },
+  },
+
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    event = "VeryLazy",
+    branch = "main",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" },
+      { "nvim-lua/plenary.nvim" },
+    },
+    build = "make tiktoken",
+    opts = {
+      highlight_headers = false,
+      window = {
+        layout = "float",
+        width = 0.8,
+        height = 0.6,
+        row = 1,
+      },
+    },
+  },
+
+  {
+    "saecki/crates.nvim",
+    event = { "BufRead Cargo.toml" },
+    config = function()
+      require("crates").setup()
+    end,
+  },
 }

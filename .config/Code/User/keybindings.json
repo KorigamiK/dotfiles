@@ -287,8 +287,9 @@
     "when": "editorTextFocus && inlineEditIsVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible || editorTextFocus && inlineEditIsVisible && inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible"
   },
   {
-    "key": "ctrl+shift+escape",
-    "command": "workbench.action.toggleMaximizedPanel"
+    "key": "shift+escape",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "terminal.active && terminalFocus"
   },
   {
     "key": "ctrl+h",
@@ -410,5 +411,9 @@
     "key": "ctrl+enter",
     "command": "repl.execute",
     "when": "isCompositeNotebook && !config.interactiveWindow.executeWithShiftEnter && !notebookCellListFocused && activeEditor == 'workbench.editor.repl'"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "-workbench.action.quickOpen"
   },
 ]

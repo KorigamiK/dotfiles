@@ -6,17 +6,30 @@
     }
   },
   {
-    "context": "AgentPanel > MessageEditor > Editor",
+    "context": "AgentPanel",
     "bindings": {
-      "ctrl-enter": "assistant::Assist"
+      "ctrl-b": null
+    }
+  },
+  {
+    "context": "Markdown",
+    "bindings": {
+      "j": "editor::PageDown",
+      "k": "vim::ScrollUp",
+      "space h": "workspace::ActivatePaneLeft"
     }
   },
   {
     "context": "(ContextEditor > Editor) && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
-      "space b": "agent::NewThread",
       "space h": "agent::OpenHistory",
       "space ,": "assistant::Assist"
+    }
+  },
+  {
+    "context": "BufferSearchBar > Editor",
+    "bindings": {
+      "ctrl-w": "editor::DeleteToPreviousWordStart"
     }
   },
   {
@@ -57,11 +70,9 @@
     }
   },
   {
-    "context": "(Picker > Editor) || (MessageEditor > Editor)",
+    "context": "(Picker > Editor) || (MessageEditor > Editor) || (ProjectSearchBar > Editor)",
     "use_key_equivalents": true,
     "bindings": {
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-w": "editor::DeleteToPreviousWordStart",
       "ctrl-e": "editor::MoveToEnd"
     }
@@ -77,9 +88,9 @@
   {
     "context": "(Pane > Editor) && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
-      "space b": "workspace::NewFile",
       "space v": "pane::SplitLeft",
-      "space h": "pane::SplitDown"
+      "space h": "pane::SplitDown",
+      "ctrl-f": "vim::Search"
     }
   },
   // Add the following lines
@@ -137,6 +148,8 @@
       // put key-bindings here if you want them to work only in normal mode
       // Window movement bindings
       // Ctrl jklk to move between panes
+      "d N": "debugger::StepInto",
+      "d n": "debugger::StepOver",
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
@@ -144,6 +157,7 @@
 
       "space t d": "editor::ToggleSelectedDiffHunks",
       "space q": "pane::CloseAllItems",
+      "space b": "workspace::NewFile",
 
       ";": "command_palette::Toggle",
 
@@ -196,7 +210,7 @@
   },
   // Navigation in insert mode
   {
-    "context": "Editor && vim_mode == insert && !menu",
+    "context": "Pane > Editor && vim_mode == insert && !menu",
     "bindings": {
       "ctrl-l": "vim::Right",
       "ctrl-h": "vim::Left",
@@ -204,6 +218,19 @@
       "ctrl-k": "vim::Up",
       "ctrl-b": "editor::MoveToBeginningOfLine",
       "ctrl-e": "editor::MoveToEndOfLine"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "ctrl-l": null
+    }
+  },
+  {
+    "context": "AgentPanel  > Editor && vim_mode == insert && !menu",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight"
     }
   },
   // Toggle terminal
@@ -295,7 +322,8 @@
       "space Q": "workspace::CloseWindow",
       "space space": "file_finder::Toggle",
       "space f f": "file_finder::Toggle",
-      "ctrl-o": "pane::GoBack"
+      "ctrl-o": "pane::GoBack",
+      "space b": "workspace::NewFile"
     }
   }
 ]
