@@ -298,6 +298,15 @@
     },
     {
       "before": [
+        "g",
+        "R"
+      ],
+      "commands": [
+        "references-view.findReferences"
+      ]
+    },
+    {
+      "before": [
         "leader",
         "f",
         "p"
@@ -664,7 +673,7 @@
   "workbench.layoutControl.enabled": false,
   "chat.commandCenter.enabled": false,
   "window.commandCenter": false,
-  "git.blame.statusBarItem.enabled": false,
+  "git.blame.statusBarItem.enabled": true,
   "chat.agent.enabled": true,
   "github.copilot.chat.agent.thinkingTool": true,
   "editor.minimap.enabled": false,
@@ -672,5 +681,6 @@
   "workbench.editor.enablePreview": false,
   "workbench.quickOpen.closeOnFocusLost": false,
   "jupyter.askForKernelRestart": false,
+  "workbench.activityBar.location": "hidden",
   // "inlineChat.enableV2": true,
 }
