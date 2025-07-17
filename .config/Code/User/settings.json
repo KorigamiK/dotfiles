@@ -63,7 +63,6 @@
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "C_Cpp.autocompleteAddParentheses": true,
-  "workbench.sideBar.location": "right",
   "editor.formatOnSave": false,
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
@@ -681,6 +680,7 @@
   "workbench.editor.enablePreview": false,
   "workbench.quickOpen.closeOnFocusLost": false,
   "jupyter.askForKernelRestart": false,
-  "workbench.activityBar.location": "hidden",
+  "database-client.autoSync": true,
+  "workbench.sideBar.location": "right",
   // "inlineChat.enableV2": true,
 }

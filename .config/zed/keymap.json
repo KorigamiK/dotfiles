@@ -8,7 +8,9 @@
   {
     "context": "AgentPanel",
     "bindings": {
-      "ctrl-b": null
+      "ctrl-b": null,
+      "ctrl-alt-n": "workspace::ToggleLeftDock",
+      "alt-b": "agent::NewTextThread"
     }
   },
   {
@@ -93,14 +95,6 @@
       "ctrl-f": "vim::Search"
     }
   },
-  // Add the following lines
-  {
-    "context": "GitPanel || ProjectPanel || CollabPanel || OutlinePanel || ChatPanel || VimControl || EmptyPane || SharedScreen || MarkdownPreview || KeyContextView || DebugPanel",
-    "bindings": {
-      "alt-.": "vim::ResizePaneRight",
-      "alt-,": "vim::ResizePaneLeft"
-    }
-  },
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
@@ -110,6 +104,9 @@
       // "alt-.": "vim::ResizePaneRight",
       // "alt-<": "vim::ResizePaneUp",
       // "alt->": "vim::ResizePaneDown",
+      "alt-<": "vim::ResizePaneDown",
+      "alt-,": ["workspace::DecreaseOpenDocksSize", { "px": 0 }],
+      "alt-.": ["workspace::IncreaseOpenDocksSize", { "px": 0 }],
       "ctrl-c": ["workspace::SendKeystrokes", "m m g g \" + y G ' m z z"],
       "space Q": "workspace::CloseWindow",
       "space g s": "git_panel::ToggleFocus",
@@ -148,8 +145,8 @@
       // put key-bindings here if you want them to work only in normal mode
       // Window movement bindings
       // Ctrl jklk to move between panes
-      "d N": "debugger::StepInto",
-      "d n": "debugger::StepOver",
+      // "d N": "debugger::StepInto",
+      // "d n": "debugger::StepOver",
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
@@ -221,16 +218,17 @@
     }
   },
   {
-    "context": "Editor && vim_mode == insert",
+    "context": "AgentPanel > MessageEditor > Editor && vim_mode == insert && !menu",
     "bindings": {
-      "ctrl-l": null
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "enter": "editor::Newline"
     }
   },
   {
-    "context": "AgentPanel  > Editor && vim_mode == insert && !menu",
+    "context": "AgentPanel",
     "bindings": {
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight"
+      "ctrl-shift-escape": "agent::ExpandMessageEditor"
     }
   },
   // Toggle terminal
