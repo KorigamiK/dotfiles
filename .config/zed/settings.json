@@ -122,10 +122,9 @@
     "dock": "left",
     "default_width": 450,
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-sonnet-4-thinking"
-    },
-    "version": "2"
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4"
+    }
   },
   "theme": "Siri Dark",
   "ui_font_size": 18,
@@ -137,8 +136,8 @@
   "buffer_line_height": "comfortable",
   "vim_mode": true,
   "relative_line_numbers": true,
-  "buffer_font_family": "Iosevka Paper",
-  "ui_font_family": "Adwaita Sans",
+  "buffer_font_family": "Berkeley Mono",
+  "ui_font_family": ".SystemUIFont",
   "terminal": {
     "working_directory": "current_project_directory",
     "env": { "EDITOR": "zed --wait" }
@@ -172,7 +171,6 @@
   "chat_panel": {
     "dock": "left"
   },
-  "gpu": "integrated",
   "file_scan_exclusions": [
     "**/.git",
     "**/.svn",
@@ -190,27 +188,78 @@
   "format_on_save": "off",
   "context_servers": {
     "parseer": {
-      "settings": {},
-      "command": {
-        "path": "uv",
-        "args": [
-          "--directory",
-          "/home/origami/Dev/projects/python/markitdown_mcp_server",
-          "run",
-          "markitdown"
-        ]
-      }
+      "source": "custom",
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/home/origami/Dev/projects/python/markitdown_mcp_server",
+        "run",
+        "markitdown"
+      ]
     },
     "context7": {
-      "settings": {},
-      "command": {
-        "path": "bunx",
-        "args": ["-y", "@upstash/context7-mcp@latest"]
-      }
+      "source": "custom",
+      "command": "bunx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
     }
   },
   "git_panel": {
     "button": true,
     "dock": "right"
+  },
+  "inline_code_actions": false,
+  "experimental.theme_overrides": {
+    "search.match_background": "#528b8b66",
+    "editor.document_highlight.bracket_background": "#528b8b22",
+    "players": [
+      {
+        "cursor": "#518b8bff",
+        "background": "#518b8bff",
+        "selection": "#518b8b3d"
+      },
+      {
+        "cursor": "#a87222ff",
+        "background": "#a87222ff",
+        "selection": "#a872223d"
+      },
+      {
+        "cursor": "#a07d3aff",
+        "background": "#a07d3aff",
+        "selection": "#a07d3a3d"
+      },
+      {
+        "cursor": "#d75f5fff",
+        "background": "#d75f5fff",
+        "selection": "#d75f5f3d"
+      },
+      {
+        "cursor": "#83a598ff",
+        "background": "#83a598ff",
+        "selection": "#83a5983d"
+      },
+      {
+        "cursor": "#b3627aff",
+        // testte
+        "background": "#b3627aff",
+        "selection": "#b3627a3d"
+      },
+      {
+        "cursor": "#a07d3aff",
+        "background": "#a07d3aff",
+        "selection": "#a07d3a3d"
+      },
+      {
+        "cursor": "#83a598ff",
+        "background": "#83a598ff",
+        "selection": "#83a5983d"
+      }
+    ],
+    "syntax": {
+      "comment": {
+        "color": "#a89984ff",
+        "font_style": null,
+        "font_weight": null
+      }
+    }
   }
 }
