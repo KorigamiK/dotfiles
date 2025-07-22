@@ -60,10 +60,12 @@ return {
     },
   },
 
-  -- {
-  --   "hrsh7th/nvim-cmp",
-  --   -- opts = { experimental = { ghost_text = { hl_group = "Comment" } } },
-  -- },
+  --[[ 
+  {
+    "hrsh7th/nvim-cmp",
+    -- opts = { experimental = { ghost_text = { hl_group = "Comment" } } },
+  }, 
+  ]]
 
   -- Formatting
   {
@@ -208,9 +210,7 @@ return {
         tools = { hover_actions = { auto_focus = true }, float_win_config = { border = "rounded" } },
         server = {
           auto_attach = false,
-          on_init = require("nvchad.configs.lspconfig").on_init,
-          on_attach = require("nvchad.configs.lspconfig").on_attach,
-          capabilities = require("nvchad.configs.lspconfig").capabilities,
+          autostart = false,
           default_settings = {
             ["rust-analyzer"] = {},
           },

@@ -2,38 +2,16 @@ local configs = require "nvchad.configs.lspconfig"
 
 configs.defaults()
 
-local on_attach = configs.on_attach
-local on_init = configs.on_init
-local capabilities = configs.capabilities
+local servers = { "ts_ls", "html", "astro", "jsonls", "solidity_ls_nomicfoundation", "ocamllsp", "vala_ls", "zls" }
 
-local lspconfig = require "lspconfig"
+vim.lsp.enable(servers)
 
-local servers = { "ts_ls", "html", "astro", "jsonls", "solidity_ls_nomicfoundation", "ocamllsp", "vala_ls" }
-
-local default_handlers = {
-  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" }),
-  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" }),
-}
-
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_init = on_init,
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
-
-lspconfig.pyright.setup {
+vim.lsp.config.pyright = {
   cmd = { "/home/origami/.local/share/zed/languages/pyright/node_modules/.bin/pyright-langserver", "--stdio" },
-  on_init = on_init,
-  on_attach = on_attach,
-  capabilities = capabilities,
 }
 
-lspconfig.tailwindcss.setup {
-  init_options = {
-    userLanguages = { stpl = "html" },
-  },
+vim.lsp.config.tailwindcss = {
+  init_options = { userLanguages = { stpl = "html" } },
   filetypes = {
     "astro",
     "astro-markdown",
@@ -76,23 +54,17 @@ lspconfig.tailwindcss.setup {
   },
 }
 
-lspconfig.clangd.setup {
-  on_init = on_init,
-  on_attach = on_attach,
-  capabilities = capabilities,
-  flags = { debounce_text_changes = 150 },
+vim.lsp.config.clangd = {
   autostart = false,
   -- fixes lsp warning: multiple different client offset
   cmd = { "clangd", "--background-index", "--offset-encoding=utf-16" },
   filetypes = { "c", "cpp", "objc", "objcpp", "h", "hpp", "hxx", "hh", "cc", "cxx" },
+  flags = { debounce_text_changes = 150, exit_timeout = 1000 },
   -- set standard to c++17
 }
 
-lspconfig.hls.setup {
-  on_init = on_init,
+vim.lsp.config.hls = {
   filetypes = { "haskell", "lhaskell", "cabal" },
-  on_attach = on_attach,
-  capabilities = capabilities,
   settings = {
     haskell = {
       formattingProvider = "fourmolu",
@@ -101,11 +73,8 @@ lspconfig.hls.setup {
   },
 }
 
-lspconfig.denols.setup {
-  on_init = on_init,
-  on_attach = on_attach,
-  capabilities = capabilities,
-  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+vim.lsp.config.denols = {
+  root_markers = { "deno.json", "deno.jsonc" },
   init_options = {
     lint = true,
     unstable = true,
@@ -121,45 +90,25 @@ lspconfig.denols.setup {
   },
 }
 
-lspconfig.zls.setup {
-  on_init = on_init,
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-
-lspconfig.texlab.setup {
+vim.lsp.config.texlab = {
   autostart = false,
-  on_init = on_init,
-  on_attach = on_attach,
-  capabilities = capabilities,
 }
 
-lspconfig.ts_ls.setup {
+vim.lsp.config.ts_ls = {
   autostart = true,
-  on_init = on_init,
-  root_dir = lspconfig.util.root_pattern "package.json",
-  on_attach = on_attach,
-  capabilities = capabilities,
+  root_markers = { "package.json", "tsconfig.json", "jsconfig.json" },
   single_file_support = false,
 }
 
-lspconfig.tinymist.setup {
-  on_init = on_init,
-  on_attach = on_attach,
-  capabilities = capabilities,
-  root_dir = function(_, bufnr)
-    return vim.fs.root(bufnr, { ".git" }) or vim.fn.expand "%:p:h"
-  end,
+vim.lsp.config.tinymist = {
+  root_markers = { ".git" },
   settings = {
     exportPdf = "onSave",
     outputPath = "$root/$dir/$name",
   },
 }
 local jdk_home = "/usr/lib/jvm/java-11-openjdk"
-lspconfig.kotlin_language_server.setup {
-  on_init = on_init,
-  on_attach = on_attach,
-  capabilities = capabilities,
+vim.lsp.config.kotlin_language_server = {
   cmd_env = {
     PATH = jdk_home .. "/bin:" .. vim.env.PATH,
     JAVA_HOME = jdk_home,
