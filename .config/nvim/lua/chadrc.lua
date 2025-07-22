@@ -46,7 +46,7 @@ M.ui = {
 
 M.base46 = {
   integrations = { "trouble", "blink" },
-  theme = "gruvchad",
+  theme = "kanagawa",
   transparency = false,
 
   hl_override = highlights.override,

@@ -682,5 +682,6 @@
   "jupyter.askForKernelRestart": false,
   "database-client.autoSync": true,
   "workbench.sideBar.location": "right",
+  "workbench.activityBar.location": "hidden",
   // "inlineChat.enableV2": true,
 }
