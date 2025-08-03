@@ -34,6 +34,10 @@ map("n", "<leader>h", "<cmd> split <CR>", {
   desc = "Split horizontally",
 })
 
+map("n", "<leader>fl", ":set filetype=", {
+  desc = "change filetype",
+})
+
 map("n", "<leader>fm", function()
   require("conform").format { async = false, lsp_fallback = true }
 end, { desc = "File Format with conform" })

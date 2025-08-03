@@ -2,12 +2,19 @@ local configs = require "nvchad.configs.lspconfig"
 
 configs.defaults()
 
-local servers = { "ts_ls", "html", "astro", "jsonls", "solidity_ls_nomicfoundation", "ocamllsp", "vala_ls", "zls" }
-
-vim.lsp.enable(servers)
-
 vim.lsp.config.pyright = {
   cmd = { "/home/origami/.local/share/zed/languages/pyright/node_modules/.bin/pyright-langserver", "--stdio" },
+  filetypes = { "python" },
+  root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
+  settings = {
+    python = {
+      analysis = {
+        typeCheckingMode = "basic",
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+      },
+    },
+  },
 }
 
 vim.lsp.config.tailwindcss = {
@@ -126,3 +133,23 @@ vim.lsp.config.kotlin_language_server = {
     { workspace = { didChangeWatchedFiles = { dynamicRegistration = true } } }
   ),
 } ]]
+
+local servers = {
+  "ts_ls",
+  "html",
+  "astro",
+  "jsonls",
+  "solidity_ls_nomicfoundation",
+  "ocamllsp",
+  "vala_ls",
+  "zls",
+  "pyright",
+  "tailwindcss",
+  "clangd",
+  "hls",
+  "denols",
+  "texlab",
+  "tinymist",
+  "kotlin_language_server",
+}
+vim.lsp.enable(servers)
