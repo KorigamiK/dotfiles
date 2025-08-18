@@ -253,6 +253,10 @@
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
+      "before": ["Y"],
+      "after": ["y", "$"]
+    },
+    {
       "before": [
         "j"
       ],
@@ -683,5 +687,9 @@
   "database-client.autoSync": true,
   "workbench.sideBar.location": "right",
   "workbench.activityBar.location": "hidden",
-  // "inlineChat.enableV2": true,
+  "inlineChat.enableV2": true,
+  "inlineChat.notebookAgent": true,
+  "chat.mcp.autostart": "onlyNew",
+  "terminal.integrated.stickyScroll.enabled": true,
+  "terminal.integrated.rightClickBehavior": "selectWord",
 }
