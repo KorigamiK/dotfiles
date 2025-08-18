@@ -447,6 +447,7 @@
   },
   {
     "key": "ctrl+a",
-    "command": "-editor.action.selectAll"
+    "command": "-editor.action.selectAll",
+    "when": "vim.mode == 'Normal'"
   }
 ]
