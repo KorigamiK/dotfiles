@@ -252,6 +252,15 @@
     "workbench.action.tasks.runTask"
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
+  {
+    "before": [
+      "Y"
+    ],
+    "after": [
+      "y",
+      "$"
+    ]
+  },
     {
       "before": ["Y"],
       "after": ["y", "$"]

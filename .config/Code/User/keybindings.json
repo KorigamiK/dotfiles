@@ -430,4 +430,23 @@
     "key": "ctrl+e",
     "command": "-workbench.action.quickOpen"
   },
+    {
+    "key": "ctrl+i",
+    "command": "-inlineChat.startWithCurrentLine",
+    "when": "inlineChatHasProvider && inlineChatShowingHint && !editorReadonly && !inlineChatVisible"
+  },
+  {
+    "key": "alt+i",
+    "command": "inlineChat.start",
+    "when": "editorFocus && inlineChatHasEditsAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput || editorFocus && inlineChatHasProvider && inlineChatPossible && !editorReadonly && !editorSimpleInput"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "-inlineChat.start",
+    "when": "editorFocus && inlineChatHasEditsAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput || editorFocus && inlineChatHasProvider && inlineChatPossible && !editorReadonly && !editorSimpleInput"
+  },
+  {
+    "key": "ctrl+a",
+    "command": "-editor.action.selectAll"
+  }
 ]
