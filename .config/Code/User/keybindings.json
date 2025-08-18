@@ -52,6 +52,16 @@
     "key": "ctrl+tab"
   },
   {
+    "key": "ctrl+tab",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+tab",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+  },
+  {
     "command": "editor.action.moveLinesUpAction",
     "key": "alt+k",
     "when": "editorTextFocus && !editorReadonly"
@@ -333,14 +343,18 @@
     "command": "workbench.action.decreaseViewHeight"
   },
   {
-    "key": "alt+shift+h",
+    "key": "alt+shift+y",
     "command": "moveActiveEditor",
-    "args": { "to": "left" },
+    "args": {
+      "to": "left"
+    }
   },
   {
-    "key": "alt+shift+l",
+    "key": "alt+shift+o",
     "command": "moveActiveEditor",
-    "args": { "to": "right" },
+    "args": {
+      "to": "right"
+    }
   },
   {
     "key": "z a",
