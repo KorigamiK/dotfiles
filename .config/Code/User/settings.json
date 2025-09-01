@@ -251,16 +251,58 @@
     "workbench.action.tasks.configureTaskRunner",
     "workbench.action.tasks.runTask"
   ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-  {
-    "before": [
-      "Y"
-    ],
-    "after": [
-      "y",
-      "$"
-    ]
-  },
+    "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "leader",
+        "t",
+        "d"
+      ],
+      "commands": [
+        {
+          "command": "git.openChange"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<C-o>"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.navigateBack"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<C-i>"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.navigateForward"
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "m",
+        "p"
+      ],
+      "commands": [
+        "markdown.showPreviewToSide"
+      ]
+    },
+    {
+      "before": [
+        "Y"
+      ],
+      "after": [
+        "y",
+        "$"
+      ]
+    },
     {
       "before": [
         "j"
@@ -320,7 +362,7 @@
         "p"
       ],
       "commands": [
-        "workbench.action.quickOpenRecent"
+        "workbench.action.openRecent"
       ]
     },
     // Move panes
@@ -629,6 +671,18 @@
     },
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "leader",
+        "r",
+        "h"
+      ],
+      "commands": [
+        {
+          "command": "git.revertSelectedRanges"
+        }
+      ]
+    },
     {
       "before": [
         "enter"
