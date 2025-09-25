@@ -3,7 +3,7 @@
   {
     "key": "ctrl+h",
     "command": "workbench.action.navigateLeft",
-    "when": "(vim.mode != 'Insert' && editorTextFocus) || filesExplorerFocus"
+    "when": "(vim.mode != 'Insert' && editorTextFocus)"
   },
   {
     "key": "ctrl+l",
@@ -39,9 +39,9 @@
     "key": "ctrl+j"
   },
   {
-    "command": "workbench.action.focusActiveEditorGroup",
+    "command": "workbench.action.navigateEditorGroups",
     "key": "ctrl+k",
-    "when": "terminalFocus"
+    "when": "inOutput"
   },
   {
     "command": "workbench.action.previousEditor",
@@ -93,11 +93,6 @@
   {
     "key": "shift+k",
     "command": "editor.action.showHover",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
-  {
-    "key": "ctrl+k",
-    "command": "editor.action.showDefinitionPreviewHover",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   // File Explorer
@@ -170,6 +165,11 @@
     "command": "editor.action.scrollRightHover",
     "key": "l",
     "when": "editorHoverFocused"
+  },
+  {
+    "command": "workbench.action.closeQuickOpen",
+    "key": "ctrl+w",
+    "when": "inQuickOpen"
   },
   {
     "command": "workbench.action.quickOpenSelectNext",
@@ -259,7 +259,7 @@
   {
     "key": "ctrl+h",
     "command": "workbench.action.navigateLeft",
-    "when": "chatIsEnabled && inChat"
+    "when": "auxiliaryBarFocus || sideBarFocus"
   },
   {
     "key": "ctrl+l",
@@ -274,12 +274,7 @@
   {
     "key": "ctrl+l",
     "command": "workbench.action.navigateRight",
-    "when": "chatIsEnabled && inChat"
-  },
-  {
-    "key": "ctrl+h",
-    "command": "workbench.action.navigateLeft",
-    "when": "scmRepository"
+    "when": "auxiliaryBarFocus || sideBarFocus"
   },
   {
     "key": "ctrl+i",
@@ -299,7 +294,7 @@
   {
     "key": "shift+escape",
     "command": "workbench.action.toggleMaximizedPanel",
-    "when": "terminal.active && terminalFocus"
+    "when": "panelFocus && panelVisible"
   },
   {
     "key": "ctrl+h",
@@ -369,7 +364,7 @@
   {
     "key": "ctrl+h",
     "command": "workbench.action.navigateLeft",
-    "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
+    "when": "notebookEditorFocused && !inputFocus"
   },
   {
     "key": "ctrl+l",
@@ -449,5 +444,19 @@
     "key": "ctrl+a",
     "command": "-editor.action.selectAll",
     "when": "vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "deleteWordLeft",
+    "when": "chatIsEnabled && inChat"
+  },
+  {
+    "key": "ctrl+shift+w",
+    "command": "-workbench.action.closeWindow"
+  },
+  {
+    "key": "shift+escape",
+    "command": "workbench.action.toggleMaximizedAuxiliaryBar",
+    "when": "auxiliaryBarFocus"
   }
 ]

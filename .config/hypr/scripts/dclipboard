@@ -19,16 +19,7 @@ spell_failed() {
   notify-send "Failed to cast spell"
 }
 
-CONFIG="$HOME/.config/hypr/wofifull/config"
-STYLE="$HOME/.config/hypr/wofifull/style.css"
-COLORS="$HOME/.config/hypr/wofifull/colors"
-
-wofi_command="wofi --show dmenu \
-			--conf ${CONFIG} --style ${STYLE} --color ${COLORS} \
-			--width=350 --height=380 \
-			--cache-file=/dev/null \
-			--hide-scroll --no-actions \
-			--define=matching=fuzzy"
+wofi_command="fuzzel -d"
 
 cbtext=$(wl-paste)
 preview="${cbtext:0:30}"
