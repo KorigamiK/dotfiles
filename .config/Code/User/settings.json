@@ -256,6 +256,12 @@
       "commands": ["git.revertSelectedRanges"]
     },
     {
+      "before": [ "leader", "t", "d" ],
+      "commands": [
+        { "command": "git.openChange" }
+      ]
+    },
+    {
       "before": [
         "<C-o>"
       ],
@@ -277,11 +283,12 @@
     },
     {
       "before": [
-        "Y"
+        "leader",
+        "m",
+        "p"
       ],
-      "after": [
-        "y",
-        "$"
+      "commands": [
+        "markdown.showPreviewToSide"
       ]
     },
     {
@@ -658,7 +665,7 @@
       "commands": [
         "workbench.action.editor.changeLanguageMode"
       ]
-    },
+    }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
@@ -668,6 +675,18 @@
       ],
       "commands": [
         "workbench.action.quickOpen"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "r",
+        "h"
+      ],
+      "commands": [
+        {
+          "command": "git.revertSelectedRanges"
+        }
       ]
     },
     {
