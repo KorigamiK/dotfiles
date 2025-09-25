@@ -193,7 +193,6 @@
   "window.zoomLevel": 1,
   "explorer.confirmDragAndDrop": false,
   "vim.handleKeys": {
-    "<C-a>": false,
     "<C-f>": false,
     "<C-n>": false,
     "<C-p>": false,
@@ -252,18 +251,47 @@
     "workbench.action.tasks.runTask"
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
-  {
-    "before": [
-      "Y"
-    ],
-    "after": [
-      "y",
-      "$"
-    ]
-  },
     {
-      "before": ["Y"],
-      "after": ["y", "$"]
+      "before": ["leader", "r", "h"],
+      "commands": ["git.revertSelectedRanges"]
+    },
+    {
+      "before": [
+        "<C-o>"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.navigateBack"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<C-i>"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.navigateForward"
+        }
+      ]
+    },
+    {
+      "before": [
+        "Y"
+      ],
+      "after": [
+        "y",
+        "$"
+      ]
+    },
+    {
+      "before": [
+        "Y"
+      ],
+      "after": [
+        "y",
+        "$"
+      ]
     },
     {
       "before": [
@@ -324,7 +352,7 @@
         "p"
       ],
       "commands": [
-        "workbench.action.quickOpenRecent"
+        "workbench.action.openRecent"
       ]
     },
     // Move panes
@@ -635,6 +663,15 @@
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": [
+        "leader",
+        "leader"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
+    },
+    {
+      "before": [
         "enter"
       ],
       "commands": [
@@ -695,10 +732,18 @@
   "jupyter.askForKernelRestart": false,
   "database-client.autoSync": true,
   "workbench.sideBar.location": "right",
-  "workbench.activityBar.location": "hidden",
   "inlineChat.enableV2": true,
   "inlineChat.notebookAgent": true,
   "chat.mcp.autostart": "onlyNew",
   "terminal.integrated.stickyScroll.enabled": true,
   "terminal.integrated.rightClickBehavior": "selectWord",
+  "githubPullRequests.codingAgent.uiIntegration": true,
+  "chat.todoListTool.enabled": true,
+  "mssql.connectionGroups": [
+    {
+      "name": "ROOT",
+      "id": "B35E7469-6D84-45C1-AA37-FF671CAC101D"
+    }
+  ],
+  "git.blame.editorDecoration.enabled": false
 }
