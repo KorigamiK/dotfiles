@@ -133,6 +133,16 @@
     "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
   },
   {
+    "command": "selectNextCodeAction",
+    "key": "ctrl+n",
+    "when": "codeActionMenuVisible"
+  },
+  {
+    "command": "selectPrevCodeAction",
+    "key": "ctrl+p",
+    "when": "codeActionMenuVisible"
+  },
+  {
     "command": "selectPrevSuggestion",
     "key": "ctrl+p",
     "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
@@ -140,7 +150,7 @@
   {
     "key": "ctrl+n",
     "command": "workbench.action.toggleSidebarVisibility",
-    "when": "!suggestWidgetVisible"
+    "when": "!suggestWidgetVisible && !codeActionMenuVisible"
   },
   {
     "command": "workbench.action.toggleAuxiliaryBar",
@@ -179,7 +189,7 @@
   {
     "command": "workbench.action.quickOpen",
     "key": "ctrl+p",
-    "when": "!suggestWidgetVisible && !terminalFocus && !inQuickOpen"
+    "when": "!suggestWidgetVisible && !terminalFocus && !inQuickOpen && !codeActionMenuVisible"
   },
   {
     "command": "workbench.action.toggleActivityBarVisibility",
@@ -456,6 +466,10 @@
     "key": "shift+escape",
     "command": "workbench.action.toggleMaximizedAuxiliaryBar",
     "when": "auxiliaryBarFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.files.newUntitledFile"
   },
   {
     "key": "enter",
