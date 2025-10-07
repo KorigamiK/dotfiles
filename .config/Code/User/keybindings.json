@@ -167,11 +167,6 @@
     "when": "editorHoverFocused"
   },
   {
-    "command": "workbench.action.closeQuickOpen",
-    "key": "ctrl+w",
-    "when": "inQuickOpen"
-  },
-  {
     "command": "workbench.action.quickOpenSelectNext",
     "key": "ctrl+n",
     "when": "inQuickOpen"
@@ -446,17 +441,45 @@
     "when": "vim.mode == 'Normal'"
   },
   {
-    "key": "ctrl+w",
-    "command": "deleteWordLeft",
-    "when": "chatIsEnabled && inChat"
+    "key": "ctrl+shift+w",
+    "command": "-workbench.action.closeWindow"
   },
   {
     "key": "ctrl+shift+w",
-    "command": "-workbench.action.closeWindow"
+    "command": "workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.closeActiveEditor"
   },
   {
     "key": "shift+escape",
     "command": "workbench.action.toggleMaximizedAuxiliaryBar",
     "when": "auxiliaryBarFocus"
-  }
+  },
+  {
+    "key": "enter",
+    "command": "-repl.action.acceptInput",
+    "when": "inDebugRepl && textInputFocus"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "repl.action.acceptInput",
+    "when": "inDebugRepl && textInputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "acceptSelectedSuggestion",
+    "when": "suggestWidgetHasFocusedSuggestion && inDebugRepl"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "deleteWordLeft",
+    "when": "textInputFocus && !editorReadonly && !(editorFocus && vim.mode != 'Insert')"
+  },
+  {
+    "command": "workbench.action.closeQuickOpen",
+    "key": "ctrl+w",
+    "when": "inQuickOpen"
+  },
 ]
