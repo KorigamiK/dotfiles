@@ -670,6 +670,22 @@
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": [
+        "shift+l"
+      ],
+      "commands": [
+        "workbench.action.nextEditor"
+      ]
+    },
+    {
+      "before": [
+        "shift+h"
+      ],
+      "commands": [
+        "workbench.action.previousEditor"
+      ]
+    },
+    {
+      "before": [
         "leader",
         "leader"
       ],
