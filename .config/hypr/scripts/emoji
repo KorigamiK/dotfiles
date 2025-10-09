@@ -1,15 +1,11 @@
 #!/bin/bash
 set -euo pipefail
 
-CONFIG="$HOME/.config/hypr/wofifull/config"
-STYLE="$HOME/.config/hypr/wofifull/style.css"
-COLORS="$HOME/.config/hypr/wofifull/colors"
-
 if [[ ! $(pidof wofi) ]]; then
-  EMOJI="$(sed '1,/^### DATA ###$/d' "$0" | wofi -p "Emoji" --show dmenu -i --conf "${CONFIG}" --style "${STYLE}" --color "${COLORS}" | cut -d ' ' -f 1 | tr -d '\n')"
+  EMOJI="$(sed '1,/^### DATA ###$/d' "$0" | fuzzel -d -p "Emoji " -i | cut -d ' ' -f 1 | tr -d '\n')"
   wtype "$EMOJI"; wl-copy "$EMOJI"
 else
-	pkill wofi
+	pkill fuzzel
 fi
 
 ### DATA ###

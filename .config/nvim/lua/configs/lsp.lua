@@ -147,7 +147,7 @@ local servers = {
   "tailwindcss",
   "clangd",
   "hls",
-  "denols",
+  -- "denols",
   "texlab",
   "tinymist",
   "kotlin_language_server",

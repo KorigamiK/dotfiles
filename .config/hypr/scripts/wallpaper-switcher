@@ -3,15 +3,6 @@
 # WALLPAPERS PATH
 DIR=~/Pictures/wallpapers
 
-# Transition config (type swww img --help for more settings
-FPS=30
-TYPE="simple"
-DURATION=1
-
-# wofi window config (in %)
-WIDTH=20
-HEIGHT=30
-
 PICS=($(ls ${DIR} | grep -e ".jpg$" -e ".jpeg$" -e ".png$" -e ".gif$"))
 
 RANDOM_PIC=${PICS[$RANDOM % ${#PICS[@]}]}
@@ -22,13 +13,8 @@ CONFIG="$HOME/.config/hypr/wofifull/config"
 COLORS="$HOME/.config/hypr/wofifull/colors"
 
 ## Wofi Command
-wofi_command="wofi --show dmenu \
-			--prompt choose...
-			--conf "$CONFIG" \
-			--width=$WIDTH% --height=$HEIGHT% \
-			--cache-file=/dev/null \
-			--hide-scroll --no-actions \
-			--matching=fuzzy"
+wofi_command="fuzzel -d \
+			--prompt Choose..."
 
 menu() {
   # Here we are looping in the PICS array that is composed of all images in the $DIR
@@ -61,15 +47,9 @@ main() {
   hyprctl hyprpaper wallpaper "$monitor, $DIR/${PICS[$pic_index]}"
 }
 
-# Check if wofi is already running
-if pidof wofi >/dev/null; then
-  killall wofi
+if pidof fuzzel >/dev/null; then
+  killall fuzzel
   exit 0
 else
   main
 fi
-
-# Uncomment to launch something if a choice was made
-# if [[ -n "$choice" ]]; then
-# Restart Waybar
-# fi

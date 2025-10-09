@@ -192,6 +192,7 @@
   "haskell.manageHLS": "GHCup",
   "window.zoomLevel": 1,
   "explorer.confirmDragAndDrop": false,
+  "vim.visualstar": true,
   "vim.handleKeys": {
     "<C-f>": false,
     "<C-n>": false,

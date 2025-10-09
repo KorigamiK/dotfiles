@@ -2,14 +2,13 @@
 
 # API endpoint
 API_URL="https://studio-api.suno.ai/api/trending/metaplaylist/"
-CONFIG="$HOME/.config/hypr/wofifull/config"
 
 # Fetch data from API
 data=$(curl -s "$API_URL")
 
 # Function to display playlists and get user selection
 select_playlist() {
-  echo "$data" | jq -r '.playlists[] | .name + " | " + .id' | wofi --dmenu -p "Select Playlist" --conf ${CONFIG}
+  echo "$data" | jq -r '.playlists[] | .name + " | " + .id' | fuzzel --dmenu -p "Select Playlist: "
 }
 
 # Function to collect all clip audio URLs from the selected playlist
@@ -44,9 +43,9 @@ main() {
       --playlist=-
 }
 
-if [ -z "$(pgrep wofi)" ]; then
+if [ -z "$(pgrep fuzzel)" ]; then
   echo quit | socat - /tmp/mpvsocket
   main
 else
-  pkill wofi
+  pkill fuzzel
 fi

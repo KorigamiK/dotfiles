@@ -1,14 +1,12 @@
 #!/bin/bash
 
-CONFIG="$HOME/.config/hypr/wofifull/config"
-
-pkill wofi && exit 0
+pkill fuzzel && exit 0
 
 # if mpv is playing in audio mode, kill
 echo 'quit' | socat - /tmp/mpvsocket
 
 # Prompt the user for a search query using Wofi
-query=$(wofi --conf $CONFIG --dmenu --prompt="Search YouTube:")
+query=$(fuzzel -d --prompt="Search YouTube:")
 
 # Check if the query is not empty
 if [ -z "$query" ]; then
@@ -35,7 +33,7 @@ urls=()
 
 # Process each JSON object individually
 while IFS= read -r line; do
-  if [-z "$line" ]; then
+  if [ -z "$line" ]; then
     continue
   fi
   title=$(echo "$line" | jq -r '.title')
@@ -51,7 +49,7 @@ for i in "${!titles[@]}"; do
 done
 
 # Prompt the user to select a video using Wofi
-selection=$(echo -e "$menu" | wofi --conf $CONFIG --dmenu --prompt="Select a video:")
+selection=$(echo -e "$menu" | fuzzel --dmenu --prompt="Select a video:")
 
 # Check if a selection was made
 if [ -z "$selection" ]; then

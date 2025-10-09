@@ -496,4 +496,14 @@
     "key": "ctrl+w",
     "when": "inQuickOpen"
   },
+  {
+    "key": "ctrl+e",
+    "command": "mssql.runQuery",
+    "when": "editorTextFocus && editorLangId == 'sql'"
+  },
+  {
+    "key": "ctrl+shift+e",
+    "command": "-mssql.runQuery",
+    "when": "editorTextFocus && editorLangId == 'sql'"
+  },
 ]

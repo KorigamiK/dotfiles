@@ -14,10 +14,10 @@ map("n", ";", ":", { nowait = true })
 map("i", "<C-s>", "<cmd>w<cr>", { desc = "Save" })
 
 -- buffers
-map("n", "<A-y>", function()
+map("n", "<A-Y>", function()
   require("nvchad.tabufline").move_buf(-1)
 end, { noremap = true, silent = true, expr = false, nowait = true })
-map("n", "<A-o>", function()
+map("n", "<A-O>", function()
   require("nvchad.tabufline").move_buf(1)
 end, { noremap = true, silent = true, expr = false, nowait = true })
 
@@ -105,8 +105,9 @@ end, { desc = "Goto next buffer" })
 map("n", "H", function()
   require("nvchad.tabufline").prev()
 end, { desc = "Goto prev buffer" })
+
 for i = 1, 4, 1 do
-  map("n", string.format("<A-%s>", i), function()
+  map("n", string.format("<C-%s>", i), function()
     vim.api.nvim_set_current_buf(vim.t.bufs[i])
   end)
 end
