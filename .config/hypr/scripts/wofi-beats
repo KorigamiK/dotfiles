@@ -1,18 +1,7 @@
 #!/bin/bash
 
-## Files
-CONFIG="$HOME/.config/hypr/wofifull/config"
-STYLE="$HOME/.config/hypr/wofifull/style.css"
-COLORS="$HOME/.config/hypr/wofifull/colors"
-iDIR="$HOME/.config/hypr/mako/icons"
-
 ## Wofi Command
-wofi_command="wofi --show dmenu \
-			--conf ${CONFIG} --style ${STYLE} --color ${COLORS} \
-			--width=350 --height=380 \
-			--cache-file=/dev/null \
-			--hide-scroll --no-actions \
-			--define=matching=fuzzy"
+prompt_command="fuzzel -d -p Music"
 
 notification() {
   notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/music.png" "Now Playing: Online Music"
@@ -30,7 +19,7 @@ menu() {
 }
 
 main() {
-  choice=$(menu | ${wofi_command} | cut -d. -f1)
+  choice=$(menu | ${prompt_command} | cut -d. -f1)
   case $choice in
   1)
     notification
@@ -77,4 +66,4 @@ main() {
 
 pkill -f http && \
   notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/music.png" "Online Music stopped" || \
-  (pidof wofi && pkill wofi || main)
+  (pidof fuzzel && pkill fuzzel || main)

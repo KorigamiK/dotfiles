@@ -38,7 +38,7 @@ return {
         },
         anthropic = {
           url = "https://api.anthropic.com/v1/messages",
-          model = "claude-3-7-sonnet-20250219",
+          model = "claude-sonnet-4-20250514",
           api_key_name = "ANTHROPIC_STUDENT_API_KEY",
         },
         openrouter = {

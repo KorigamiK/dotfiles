@@ -6,6 +6,10 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "title_bar": {
+    "show_sign_in": false,
+    "show": "never"
+  },
   "edit_predictions": {
     "disabled_globs": [".env*"],
     "mode": "eager",
@@ -59,7 +63,11 @@
       "tab_size": 2
     }
   },
-  "git": { "inline_blame": { "enabled": false } },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
   "lsp": {
     // "ruff": {
     //   "initialization_options": {
@@ -110,6 +118,8 @@
     }
   },
   "agent": {
+    "use_modifier_to_send": true,
+    "play_sound_when_agent_done": false,
     "always_allow_tool_actions": true,
     "profiles": {
       "write": {
@@ -143,40 +153,44 @@
     },
     "inline_assistant_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4.1"
+      "model": "claude-sonnet-4"
     },
     "default_profile": "write",
     "dock": "left",
     "default_width": 450,
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4"
+      "model": "claude-sonnet-4.5"
     }
   },
-  "theme": "Siri Dark",
+  "theme": "Duskfox - opaque",
   "ui_font_size": 18,
-  "buffer_font_size": 16,
+  "agent_font_size": 17,
+  "buffer_font_size": 17,
   "buffer_font_features": {
     "liga": false,
-    "ss06": true // => test
+    "ss06": true // => test kushagra,
   },
   "buffer_line_height": "comfortable",
   "vim_mode": true,
   "relative_line_numbers": true,
-  "buffer_font_family": "Berkeley Mono",
+  "buffer_font_family": "Iosevka Paper",
   "ui_font_family": ".SystemUIFont",
   "terminal": {
     "working_directory": "current_project_directory",
-    "env": { "EDITOR": "zed --wait" }
+    "env": {
+      "EDITOR": "zed --wait"
+    }
   },
   "gutter": {
-    "code_actions": false
+    "min_line_number_digits": 2
   },
   "telemetry": {
     "diagnostics": false,
     "metrics": false
   },
   "project_panel": {
+    "hide_gitignore": false,
     "button": true,
     "dock": "right",
     "git_status": true
@@ -186,16 +200,15 @@
   },
   "tab_bar": {
     "show_nav_history_buttons": false,
-    "show": true
+    "show": true,
+    "show_tab_bar_buttons": false
   },
+  "toolbar": {},
   "collaboration_panel": {
     "dock": "left"
   },
   // Move some unnecessary panels to the left
   "notification_panel": {
-    "dock": "left"
-  },
-  "chat_panel": {
     "dock": "left"
   },
   "file_scan_exclusions": [
@@ -236,57 +249,59 @@
   },
   "inline_code_actions": false,
   "experimental.theme_overrides": {
-    "search.match_background": "#528b8b66",
-    "editor.document_highlight.bracket_background": "#528b8b22",
+    "search.match_background": "#a07d3a3d",
+    // "editor.document_highlight.bracket_background": "#528b8b22",
+    "editor.document_highlight.read_background": "#528b8b22",
     "players": [
       {
         "cursor": "#518b8bff",
         "background": "#518b8bff",
         "selection": "#518b8b3d"
-      },
-      {
-        "cursor": "#a87222ff",
-        "background": "#a87222ff",
-        "selection": "#a872223d"
-      },
-      {
-        "cursor": "#a07d3aff",
-        "background": "#a07d3aff",
-        "selection": "#a07d3a3d"
-      },
-      {
-        "cursor": "#d75f5fff",
-        "background": "#d75f5fff",
-        "selection": "#d75f5f3d"
-      },
-      {
-        "cursor": "#83a598ff",
-        "background": "#83a598ff",
-        "selection": "#83a5983d"
-      },
-      {
-        "cursor": "#b3627aff",
-        // testte
-        "background": "#b3627aff",
-        "selection": "#b3627a3d"
-      },
-      {
-        "cursor": "#a07d3aff",
-        "background": "#a07d3aff",
-        "selection": "#a07d3a3d"
-      },
-      {
-        "cursor": "#83a598ff",
-        "background": "#83a598ff",
-        "selection": "#83a5983d"
       }
-    ],
-    "syntax": {
-      "comment": {
-        "color": "#a89984ff",
-        "font_style": null,
-        "font_weight": null
-      }
-    }
+      //     {
+      //       "cursor": "#a87222ff",
+      //       "background": "#a87222ff",
+      //       "selection": "#a872223d"
+      //     },
+      //     {
+      //       "cursor": "#a07d3aff",
+      //       "background": "#a07d3aff",
+      //       "selection": "#a07d3a3d"
+      //     },
+      //     {
+      //       "cursor": "#d75f5fff",
+      //       "background": "#d75f5fff",
+      //       "selection": "#d75f5f3d"
+      //     },
+      //     {
+      //       "cursor": "#83a598ff",
+      //       "background": "#83a598ff",
+      //       "selection": "#83a5983d"
+      //     },
+      //     {
+      //       "cursor": "#b3627aff",
+      //       "background": "#b3627aff",
+      //       "selection": "#b3627a3d"
+      //     },
+      //     {
+      //       "cursor": "#a07d3aff",
+      //       "background": "#a07d3aff",
+      //       "selection": "#a07d3a3d"
+      //     },
+      //     {
+      //       "cursor": "#83a598ff",
+      //       "background": "#83a598ff",
+      //       "selection": "#83a5983d"
+      //     }
+      //   ],
+      //   "syntax": {
+      //     "comment": {
+      //       "color": "#828993",
+      //       "font_style": null,
+      //       "font_weight": null
+      //     }
+      //   }
+      // }
+    ]
   }
 }

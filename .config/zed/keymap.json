@@ -1,8 +1,19 @@
 [
   {
+    "bindings": {
+      "ctrl-shift-w": null
+    }
+  },
+  {
     "context": "Editor && edit_prediction",
     "bindings": {
       "ctrl-y": "editor::AcceptEditPrediction"
+    }
+  },
+  {
+    "context": "Prompt",
+    "bindings": {
+      "space": "menu::Confirm"
     }
   },
   {
@@ -10,22 +21,16 @@
     "bindings": {
       "ctrl-b": null,
       "ctrl-alt-n": "workspace::ToggleLeftDock",
-      "alt-b": "agent::NewTextThread"
+      "alt-b": "agent::ToggleNewThreadMenu",
+      "ctrl-shift-escape": "agent::ExpandMessageEditor"
     }
   },
   {
-    "context": "Markdown",
+    "context": "AgentPanel && external_agent_thread",
+    "use_key_equivalents": true,
     "bindings": {
-      "j": "editor::PageDown",
-      "k": "vim::ScrollUp",
-      "space h": "workspace::ActivatePaneLeft"
-    }
-  },
-  {
-    "context": "(ContextEditor > Editor) && vim_mode == normal && !VimWaiting && !menu",
-    "bindings": {
-      "space h": "agent::OpenHistory",
-      "space ,": "assistant::Assist"
+      "ctrl-n": null,
+      "ctrl-alt-t": "agent::NewThread"
     }
   },
   {
@@ -35,14 +40,18 @@
     }
   },
   {
-    "context": "KeyContextView",
+    "context": "KeyContextView || MarkdownPreview",
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "shift-h": "pane::ActivatePreviousItem",
       "shift-l": "pane::ActivateNextItem",
       "ctrl-w": "pane::CloseActiveItem",
-      "space q": "pane::CloseActiveItem"
+      "space q": "pane::CloseActiveItem",
+      "space x": "pane::CloseActiveItem",
+      ";": "command_palette::Toggle",
+      "k": "markdown::MovePageUp",
+      "j": "markdown::MovePageDown"
     }
   },
   {
@@ -52,11 +61,10 @@
     }
   },
   {
-    "context": "BufferSearchBar > Editor",
+    "context": "ThreadHistory > Editor",
     "use_key_equivalents": true,
     "bindings": {
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight"
+      "escape": "pane::GoBack"
     }
   },
   {
@@ -72,11 +80,14 @@
     }
   },
   {
-    "context": "(Picker > Editor) || (MessageEditor > Editor) || (ProjectSearchBar > Editor)",
+    "context": "(BufferSearchBar || ThreadHistory || Picker || ProjectSearchBar) > Editor",
     "use_key_equivalents": true,
     "bindings": {
       "ctrl-w": "editor::DeleteToPreviousWordStart",
-      "ctrl-e": "editor::MoveToEnd"
+      "ctrl-e": "editor::MoveToEnd",
+      "ctrl-shift-w": "pane::CloseActiveItem",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight"
     }
   },
   {
@@ -125,8 +136,8 @@
       "space c z": "workspace::ToggleCenteredLayout",
 
       // Open markdown preview
-      "space m p": "markdown::OpenPreview",
-      "space m P": "markdown::OpenPreviewToTheSide",
+      "space m P": "markdown::OpenPreview",
+      "space m p": "markdown::OpenPreviewToTheSide",
 
       // Open recent project
       "space f p": "projects::OpenRecent",
@@ -185,9 +196,9 @@
       // Close active panel
       "space x": "pane::CloseActiveItem",
       // Close other items
-      "space X": "pane::CloseInactiveItems",
+      "space X": "pane::CloseOtherItems",
       // Save file
-      "ctrl-s": "workspace::Save",
+      "ctrl-s": "workspace::SaveWithoutFormat",
       // File finder
       "space space": "file_finder::Toggle",
       "space f f": "file_finder::Toggle",
@@ -222,13 +233,21 @@
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
-      "enter": "editor::Newline"
+      "enter": "editor::Newline",
+      "ctrl-enter": "agent::Chat"
     }
   },
   {
-    "context": "AgentPanel",
+    "context": "MessageEditor > Editor && vim_mode != insert && !menu",
     "bindings": {
-      "ctrl-shift-escape": "agent::ExpandMessageEditor"
+      "space ,": "agent::Chat",
+      "space H": "agent::OpenHistory",
+      "space h": "agent::ToggleNavigationMenu",
+      "space m": "agent::ToggleModelSelector",
+      "space M": "agent::OpenActiveThreadAsMarkdown",
+      "space b": "agent::ToggleNewThreadMenu",
+      "space p": "agent::ToggleProfileSelector",
+      "escape": null
     }
   },
   // Toggle terminal
@@ -237,7 +256,8 @@
     "bindings": {
       "alt-h": "workspace::ToggleBottomDock",
       "ctrl-tab": "pane::ActivateNextItem",
-      "ctrl-shift-tab": "pane::ActivatePreviousItem"
+      "ctrl-shift-tab": "pane::ActivatePreviousItem",
+      "ctrl-shift-e": "project_panel::ToggleFocus"
     }
   },
   {
@@ -314,6 +334,24 @@
     }
   },
   {
+    "context": "Pane > Terminal",
+    "bindings": {
+      "ctrl-l": null
+    }
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "shift-y": ["workspace::SendKeystrokes", "y $"]
+    }
+  },
+  {
+    "context": "InlineAssistEditor",
+    "bindings": {
+      "ctrl-w": "editor::DeleteToPreviousWordStart"
+    }
+  },
+  {
     "context": "EmptyPane",
     "bindings": {
       "space f p": "projects::OpenRecent",
@@ -322,6 +360,12 @@
       "space f f": "file_finder::Toggle",
       "ctrl-o": "pane::GoBack",
       "space b": "workspace::NewFile"
+    }
+  },
+  {
+    "context": "(Editor && mode == full)",
+    "bindings": {
+      "ctrl-f": "vim::PageDown"
     }
   }
 ]

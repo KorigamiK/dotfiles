@@ -1,6 +1,5 @@
 #!/bin/bash
 
-CONFIG="$HOME/.config/hypr/wofifull/config"
 projects_file="$HOME/.local/share/nvim/telescope-projects.txt"
 
 # Extract project details from
@@ -19,7 +18,7 @@ done <"$projects_file")
 sorted_projects=$(echo "$projects" | sort -t'=' -k5 -nr)
 
 # Create a list of project names for dmenu
-project_names=$(echo "$sorted_projects" | awk -F'=' '{print $1}' | wofi --conf ${CONFIG} -d -l 20 -i -p "Select a project:" -k /dev/null)
+project_names=$(echo "$sorted_projects" | awk -F'=' '{print $1}' | fuzzel -d -p "Select a project:")
 
 if [ -n "$project_names" ]; then
   project_path=$(echo "$sorted_projects" | grep "^$project_names=" | awk -F'=' '{print $2}')
