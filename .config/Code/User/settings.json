@@ -671,6 +671,15 @@
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": [
+        "leader",
+        "x"
+      ],
+      "commands": [
+        "workbench.action.closeActiveEditor"
+      ]
+    },
+    {
+      "before": [
         "shift+l"
       ],
       "commands": [
