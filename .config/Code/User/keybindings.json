@@ -167,6 +167,11 @@
     "when": "editorHoverFocused"
   },
   {
+    "command": "editor.action.hideHover",
+    "key": "q",
+    "when": "editorHoverFocused"
+  },
+  {
     "command": "editor.action.scrollUpHover",
     "key": "k",
     "when": "editorHoverFocused"
@@ -302,6 +307,11 @@
     "when": "panelFocus && panelVisible"
   },
   {
+    "key": "shift+escape",
+    "command": "workbench.action.toggleMaximizeEditorGroup",
+    "when": "editorFocus"
+  },
+  {
     "key": "ctrl+h",
     "command": "-editor.action.startFindReplaceAction",
     "when": "editorFocus || editorIsOpen"
@@ -430,7 +440,7 @@
     "key": "ctrl+e",
     "command": "-workbench.action.quickOpen"
   },
-    {
+  {
     "key": "ctrl+i",
     "command": "-inlineChat.startWithCurrentLine",
     "when": "inlineChatHasProvider && inlineChatShowingHint && !editorReadonly && !inlineChatVisible"
@@ -505,5 +515,15 @@
     "key": "ctrl+shift+e",
     "command": "-mssql.runQuery",
     "when": "editorTextFocus && editorLangId == 'sql'"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft",
+    "when": "chatIsEnabled && inChat"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight",
+    "when": "chatIsEnabled && inChat"
   },
 ]

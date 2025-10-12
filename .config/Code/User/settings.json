@@ -790,5 +790,10 @@
       "id": "B35E7469-6D84-45C1-AA37-FF671CAC101D"
     }
   ],
-  "git.blame.editorDecoration.enabled": false
+  "git.blame.editorDecoration.enabled": false,
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "update.mode": "manual",
+  "interactiveWindow.executeWithShiftEnter": true
 }

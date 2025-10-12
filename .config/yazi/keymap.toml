@@ -1,0 +1,25 @@
+[[mgr.prepend_keymap]]
+on   = [ "g", "d" ]
+run  = "cd ~/Downloads"
+desc = "Cd to ~/Downloads"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "p" ]
+run  = "cd ~/Dev/projects/"
+desc = "Cd to ~/Dev/projects/"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "h" ]
+run  = "cd ~"
+desc = "Cd to ~"
+
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "m" ]
+run  = "cd ~/MEGAsync/"
+desc = "Cd to ~/MEGAsync/"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "v" ]
+run  = "cd ~/Videos/"
+desc = "Cd to ~/Videos/"

@@ -48,3 +48,5 @@ luac.out
 !.config/zed/settings.json
 .config/kitty/kitty-themes/
 .config/nvim/llm.md
+.config/nvim/indent.log
+.config/yazi/keymap.toml-*
