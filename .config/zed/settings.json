@@ -31,8 +31,7 @@
       "padding": 4,
       "min_column": 0,
       "max_severity": null
-    },
-    "cargo": null
+    }
   },
   "ssh_connections": [
   ],
