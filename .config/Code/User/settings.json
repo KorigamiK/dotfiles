@@ -253,6 +253,15 @@
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
+      "before": [
+        "g",
+        "o"
+      ],
+      "commands": [
+        "workbench.action.gotoSymbol"
+      ]
+    },
+    {
       "before": ["leader", "r", "h"],
       "commands": ["git.revertSelectedRanges"]
     },
@@ -669,6 +678,18 @@
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "g",
+        "b",
+        "c"
+      ],
+      "commands": [
+        {
+          "command": "editor.action.blockComment"
+        }
+      ]
+    },
     {
       "before": [
         "leader",
