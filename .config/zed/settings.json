@@ -6,9 +6,20 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "icon_theme": "Material Icon Theme",
   "title_bar": {
     "show_sign_in": false,
-    "show": "never"
+    "show_branch_icon": true,
+    "show_menus": false,
+    "show_onboarding_banner": true,
+    "show_branch_name": true,
+    "show_project_items": true,
+    "show_user_picture": true,
+    "show": false
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false
   },
   "edit_predictions": {
     "disabled_globs": [".env*"],
@@ -34,8 +45,167 @@
     }
   },
   "ssh_connections": [
+    {
+      "host": "192.168.3.19",
+      "username": "riya23077",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/20TB-storage/tony21360"
+          ]
+        },
+        {
+          "paths": [
+            "/home/kushagra"
+          ]
+        },
+        {
+          "paths": [
+            "~/citation"
+          ]
+        },
+        {
+          "paths": [
+            "~/citation/analysis"
+          ]
+        },
+        {
+          "paths": [
+            "~/test"
+          ]
+        },
+        {
+          "paths": [
+            "~/test/Iosevka-Paper"
+          ]
+        }
+      ],
+      "upload_binary_over_ssh": false
+    },
+    {
+      "host": "192.168.1.187",
+      "username": "tony21360",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "~/BTP"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "kl-iiitd",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "~/power"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "tn-iiitd",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/20TB-storage/tony21360/BTP"
+          ]
+        },
+        {
+          "paths": [
+            "/20TB-storage/tony21360/citation"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "ggndev",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/kushagra/Estee.Linux/Platform/Estee.Linux/Estee.Strategy"
+          ]
+        },
+        {
+          "paths": [
+            "/home/kushagra/JsonWSAdapter"
+          ]
+        },
+        {
+          "paths": [
+            "/home/kushagra/ST_ATP_Backend"
+          ]
+        },
+        {
+          "paths": [
+            "/home/kushagra/Sehamati"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "ggn101",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/kushagra/Estee.Linux"
+          ]
+        },
+        {
+          "paths": [
+            "/home/kushagra/Estee.Linux/Platform/Estee.Linux"
+          ]
+        },
+        {
+          "paths": [
+            "/home/kushagra/Estee.Linux/Platform/Estee.Linux/build"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "tn-iiitd.korigamik.dev",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/20TB-storage/tony21360"
+          ]
+        },
+        {
+          "paths": [
+            "/20TB-storage/tony21360/citation"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "ri-iiitd",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/ip_arul/riya23077/citation"
+          ]
+        },
+        {
+          "paths": [
+            "/home/ip_arul/riya23077/citation/analysis/./"
+          ]
+        }
+      ]
+    }
   ],
   "languages": {
+    "JavaScript": {
+      "format_on_save": "off"
+    },
     "Shell Script": {
       "format_on_save": "off",
       "tab_size": 4,
@@ -47,7 +217,8 @@
       }
     },
     "Python": {
-      "language_servers": ["pyright", "ruff"],
+      "language_servers": ["basedpyright"],
+      // "language_servers": ["pyright", "ruff"],
       "format_on_save": "off",
       "formatter": [
         {
@@ -68,18 +239,24 @@
     }
   },
   "lsp": {
-    // "ruff": {
-    //   "initialization_options": {
-    //     "settings": {
-    //       "lineLength": 80,
-    //       "lint": { "extendSelect": ["I"] }
-    //     }
-    //   }
-    // },
+    "basedpyright": {
+      "settings": {
+        "basedpyright": {
+          "typeCheckingMode": "standard"
+        }
+      }
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lineLength": 80,
+          "lint": { "extendSelect": ["I"] }
+        }
+      }
+    },
     "rust-analyzer": {
       "binary": {
-        "path": "/usr/lib/rustup/bin/rust-analyzer",
-        "args": []
+        "path": "/usr/lib/rustup/bin/rust-analyzer"
       }
     },
     "pyright": {
@@ -159,7 +336,7 @@
     "default_width": 450,
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5"
+      "model": "claude-sonnet-4"
     }
   },
   "theme": "Duskfox - opaque",
@@ -202,7 +379,6 @@
     "show": true,
     "show_tab_bar_buttons": false
   },
-  "toolbar": {},
   "collaboration_panel": {
     "dock": "left"
   },

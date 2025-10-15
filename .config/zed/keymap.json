@@ -1,7 +1,8 @@
 [
   {
     "bindings": {
-      "ctrl-shift-w": null
+      "ctrl-shift-w": "pane::CloseActiveItem",
+      "ctrl-q": null
     }
   },
   {
@@ -80,12 +81,11 @@
     }
   },
   {
-    "context": "(BufferSearchBar || ThreadHistory || Picker || ProjectSearchBar) > Editor",
+    "context": "(BufferSearchBar || ThreadHistory || Picker || ProjectSearchBar || ContextEditor) > Editor",
     "use_key_equivalents": true,
     "bindings": {
       "ctrl-w": "editor::DeleteToPreviousWordStart",
       "ctrl-e": "editor::MoveToEnd",
-      "ctrl-shift-w": "pane::CloseActiveItem",
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight"
     }
@@ -128,6 +128,7 @@
       "alt-c": ["workspace::SendKeystrokes", "\" +"],
       // Toggle inlay hints
       "space l i": "editor::ToggleInlayHints",
+      "g o": "outline::Toggle",
 
       // Toggle soft wrap
       "alt-z": "editor::ToggleSoftWrap",
@@ -366,6 +367,27 @@
     "context": "(Editor && mode == full)",
     "bindings": {
       "ctrl-f": "vim::PageDown"
+    }
+  },
+  {
+    "context": "!ContextEditor > Editor && mode == full",
+    "bindings": {
+      "ctrl-enter": null,
+      "alt-i": "assistant::InlineAssist"
+    }
+  },
+  {
+    "context": "ContextEditor > Editor && vim_mode == normal",
+    "bindings": {
+      "space ,": "assistant::Assist",
+      "space m": "agent::ToggleModelSelector",
+    }
+  },
+  {
+    "context": "Editor && jupyter && !ContextEditor",
+    "bindings": {
+      "ctrl-enter": "repl::Run",
+      "ctrl-alt-enter": "repl::RunInPlace"
     }
   }
 ]
