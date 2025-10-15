@@ -6,9 +6,20 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "icon_theme": "Material Icon Theme",
   "title_bar": {
     "show_sign_in": false,
-    "show": "never"
+    "show_branch_icon": true,
+    "show_menus": false,
+    "show_onboarding_banner": true,
+    "show_branch_name": true,
+    "show_project_items": true,
+    "show_user_picture": true,
+    "show": false
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false
   },
   "edit_predictions": {
     "disabled_globs": [".env*"],
@@ -34,6 +45,9 @@
     }
   },
   "languages": {
+    "JavaScript": {
+      "format_on_save": "off"
+    },
     "Shell Script": {
       "format_on_save": "off",
       "tab_size": 4,
@@ -45,7 +59,8 @@
       }
     },
     "Python": {
-      "language_servers": ["pyright", "ruff"],
+      "language_servers": ["basedpyright"],
+      // "language_servers": ["pyright", "ruff"],
       "format_on_save": "off",
       "formatter": [
         {
@@ -66,18 +81,24 @@
     }
   },
   "lsp": {
-    // "ruff": {
-    //   "initialization_options": {
-    //     "settings": {
-    //       "lineLength": 80,
-    //       "lint": { "extendSelect": ["I"] }
-    //     }
-    //   }
-    // },
+    "basedpyright": {
+      "settings": {
+        "basedpyright": {
+          "typeCheckingMode": "standard"
+        }
+      }
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lineLength": 80,
+          "lint": { "extendSelect": ["I"] }
+        }
+      }
+    },
     "rust-analyzer": {
       "binary": {
-        "path": "/usr/lib/rustup/bin/rust-analyzer",
-        "args": []
+        "path": "/usr/lib/rustup/bin/rust-analyzer"
       }
     },
     "pyright": {
@@ -157,7 +178,7 @@
     "default_width": 450,
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5"
+      "model": "claude-sonnet-4"
     }
   },
   "theme": "Duskfox - opaque",
@@ -200,7 +221,6 @@
     "show": true,
     "show_tab_bar_buttons": false
   },
-  "toolbar": {},
   "collaboration_panel": {
     "dock": "left"
   },
