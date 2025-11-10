@@ -6,6 +6,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "agent_buffer_font_size": 16.0,
   "icon_theme": "Material Icon Theme",
   "title_bar": {
     "show_sign_in": false,
@@ -15,7 +16,10 @@
     "show_branch_name": true,
     "show_project_items": true,
     "show_user_picture": true,
-    "show": false
+    "experimental.show": false
+  },
+  "status_bar": {
+    "experimental.show": true
   },
   "toolbar": {
     "breadcrumbs": false,
@@ -23,7 +27,7 @@
   },
   "edit_predictions": {
     "disabled_globs": [".env*"],
-    "mode": "eager",
+    "mode": "subtle",
     "copilot": {
       "proxy": null,
       "proxy_no_verify": null
@@ -239,6 +243,19 @@
     }
   },
   "lsp": {
+    "pyrefly": {
+      "settings": {
+        "python": {
+          "pythonPath": ".venv/bin/python"
+        },
+        "pyrefly": {
+          "project_includes": ["src/**/*.py", "tests/**/*.py"],
+          "project_excludes": ["**/.[!/.]*", "**/*venv/**"],
+          "search_path": ["src"],
+          "ignore_errors_in_generated_code": false
+        }
+      }
+    },
     "basedpyright": {
       "settings": {
         "basedpyright": {
@@ -336,12 +353,12 @@
     "default_width": 450,
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4"
+      "model": "claude-sonnet-4.5"
     }
   },
   "theme": "Duskfox - opaque",
   "ui_font_size": 18,
-  "agent_font_size": 17,
+  "agent_ui_font_size": 19.0,
   "buffer_font_size": 17,
   "buffer_font_features": {
     "liga": false,
