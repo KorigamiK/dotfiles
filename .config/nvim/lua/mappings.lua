@@ -203,13 +203,13 @@ map("n", "<leader>ll", "<cmd>LLM<CR>", { desc = "Prompt with LLM" })
 
 -- keybinds for prompting with groq
 map("n", "<leader>,", function()
-  require("llm").prompt { replace = false, service = "anthropic" }
+  require("llm").prompt { replace = false, service = "github" }
 end, { desc = "Prompt with ai" })
 map("v", "<leader>,", function()
-  require("llm").prompt { replace = false, service = "anthropic" }
+  require("llm").prompt { replace = false, service = "github" }
 end, { desc = "Prompt with ai" })
 map("v", "<leader>.", function()
-  require("llm").prompt { replace = true, service = "anthropic" }
+  require("llm").prompt { replace = true, service = "github" }
 end, { desc = "Prompt while replacing with ai" })
 
 -- keybinds to support vim motions

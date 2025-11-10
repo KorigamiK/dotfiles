@@ -32,8 +32,8 @@ return {
           api_key_name = "GROQ_API_KEY",
         },
         github = {
-          url = "https://models.inference.ai.azure.com/chat/completions",
-          model = "gpt-4.1",
+          url = "https://models.github.ai/inference/chat/completions",
+          model = "openai/gpt-5-chat",
           api_key_name = "GITHUB_AI_TOKEN",
         },
         anthropic = {
@@ -53,7 +53,7 @@ return {
         },
         gemini = {
           url = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
-          model = "gemini-2.5-pro-exp-03-25",
+          model = "gemini-2.5-pro",
           api_key_name = "GEMINI_API_KEY",
         },
       },
@@ -639,7 +639,7 @@ return {
     opts = {
       ai = {
         provider = "openai", -- AI provider. Only "openai" or "anthropic" or supported.
-        model = "gpt-4.1", -- model name for the specified provider. Only chat completion models are supported (plus the o3-mini reasoning model)
+        model = "openai/gpt-5-chat", -- model name for the specified provider. Only chat completion models are supported (plus the o3-mini reasoning model)
         temperature = 0,
         tokens = 4096,
         timeout = 120, -- recommended to keep very high

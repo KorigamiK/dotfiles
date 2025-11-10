@@ -17,6 +17,25 @@ vim.lsp.config.pyright = {
   },
 }
 
+vim.lsp.config.basedpyright = {
+  cmd = {
+    "bun",
+    "/home/origami/.local/share/zed/languages/basedpyright/node_modules/basedpyright/langserver.index.js",
+    "--stdio",
+  },
+  settings = {
+    basedpyright = {
+      typeCheckingMode = "standard",
+    },
+  },
+}
+
+vim.lsp.config.pyrefly = {
+  settings = {
+      ["python.pyrefly.displayTypeErrors"] = "on"
+  },
+}
+
 vim.lsp.config.tailwindcss = {
   init_options = { userLanguages = { stpl = "html" } },
   filetypes = {
@@ -135,6 +154,7 @@ vim.lsp.config.kotlin_language_server = {
 } ]]
 
 local servers = {
+  -- "denols",
   "ts_ls",
   "html",
   "astro",
@@ -143,11 +163,13 @@ local servers = {
   "ocamllsp",
   "vala_ls",
   "zls",
-  "pyright",
+  -- "pyright",
+  -- "basedpyright",
+  -- "ty",
+  "pyrefly",
   "tailwindcss",
   "clangd",
   "hls",
-  -- "denols",
   "texlab",
   "tinymist",
   "kotlin_language_server",

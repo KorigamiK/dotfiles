@@ -186,7 +186,6 @@
   "haskell.serverExecutablePath": "~/.ghcup/hls/1.10.0.0/lib/haskell-language-server-1.10.0.0/bin/haskell-language-server-wrapper",
   "solidity.telemetry": false,
   "svelte.enable-ts-plugin": true,
-  "telemetry.telemetryLevel": "off",
   "javascript.updateImportsOnFileMove.enabled": "never",
   "haskell.ghcupExecutablePath": "/usr/bin/ghcup",
   "haskell.manageHLS": "GHCup",
@@ -812,9 +811,36 @@
     }
   ],
   "git.blame.editorDecoration.enabled": false,
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "update.mode": "manual",
-  "interactiveWindow.executeWithShiftEnter": true
+  "interactiveWindow.executeWithShiftEnter": true,
+  "telemetry.editStats.enabled": false,
+  "telemetry.editStats.showDecorations": false,
+  "telemetry.feedback.enabled": false,
+  "telemetry.editStats.details.enabled": false,
+  "telemetry.editStats.showStatusBar": false,
+  "editor.experimental.treeSitterTelemetry": false,
+  "chat.mcp.gallery.enabled": true,
+  "dataWrangler.enabledFileTypes": {
+    "jsonl": true
+  },
+  "dataWrangler.outputRenderer.enabledTypes": {
+    "pyspark.sql.dataframe.DataFrame": true,
+    "polars.dataframe.frame.DataFrame": true,
+    "builtins.list": true,
+    "numpy.ndarray": true
+  },
+  "dataWrangler.experiments.datatypes.pyspark": true,
+  "dataWrangler.experiments.copilot.enabled": true,
+  "dataWrangler.experiments.autoDetectCsvDelimiter": true,
+  "telemetry.telemetryLevel": "off",
+  "workbench.activityBar.location": "hidden"
 }

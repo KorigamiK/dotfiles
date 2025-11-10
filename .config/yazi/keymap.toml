@@ -1,4 +1,9 @@
 [[mgr.prepend_keymap]]
+on   = [ "g", "j" ]
+run  = "cd ~/journal/"
+desc = "Cd to ~/journal/"
+
+[[mgr.prepend_keymap]]
 on   = [ "g", "d" ]
 run  = "cd ~/Downloads"
 desc = "Cd to ~/Downloads"
