@@ -10,6 +10,32 @@ unmap("n", "<leader>n")
 
 local map = vim.keymap.set
 
+-- simple window "zoom": remembers layout per tab and restores on second hit
+local function toggle_maximize()
+  local win = vim.api.nvim_get_current_win()
+  local state = vim.t._maximize_state
+
+  if state and vim.api.nvim_win_is_valid(state.win) and state.win == win then
+    vim.cmd(state.cmd)
+    vim.t._maximize_state = nil
+    return
+  end
+
+  vim.t._maximize_state = { win = win, cmd = vim.fn.winrestcmd() }
+  vim.cmd "wincmd |"
+  vim.cmd "wincmd _"
+end
+
+local function ensure_terminal_insert()
+  if vim.bo.buftype == "terminal" then
+    vim.schedule(function()
+      if vim.api.nvim_buf_is_loaded(0) and vim.bo.buftype == "terminal" then
+        vim.cmd "startinsert!"
+      end
+    end)
+  end
+end
+
 map("n", ";", ":", { nowait = true })
 map("i", "<C-s>", "<cmd>w<cr>", { desc = "Save" })
 
@@ -191,6 +217,18 @@ map({ "n", "x" }, "k", "gk", { silent = true })
 map("n", "<A-z>", "<cmd>set wrap!<CR>", { desc = "Toggle line wrap" })
 -- terminal
 map("t", "<C-k>", "<C-\\><C-N><C-w><C-w>", { desc = "Window prev" })
+
+-- maximize / restore current window (works in terminal too)
+map("n", "<S-Esc>", function()
+  toggle_maximize()
+  ensure_terminal_insert()
+end, { desc = "Toggle maximize window" })
+map("t", "<S-Esc>", function()
+  local esc = vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, false, true)
+  vim.api.nvim_feedkeys(esc, "n", false)
+  toggle_maximize()
+  ensure_terminal_insert()
+end, { desc = "Toggle maximize window" })
 
 -- Window resize
 map("n", "<A-.>", "<cmd>vert resize +2<CR>", { desc = "Increase window width" })
