@@ -71,9 +71,9 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "workbench.iconTheme": "material-icon-theme",
   "git.enableCommitSigning": true,
-  "editor.fontFamily": "'Iosevka Paper Condensed', 'monospace', 'Noto Color Emoji'",
+  "editor.fontFamily": "'Iosevka Paper', 'monospace', 'Symbols Nerd Font Mono', 'Noto Color Emoji'",
   "editor.lineHeight": 1.5,
-  "terminal.integrated.fontFamily": "'Iosevka Paper Condensed', 'Symbols Nerd Font', 'Victor Mono SemiBold', 'monospace', 'Noto Color Emoji'",
+  "terminal.integrated.fontFamily": "'Iosevka Paper', 'Symbols Nerd Font', 'Victor Mono SemiBold', monospace, 'Noto Color Emoji'",
   "terminal.integrated.detectLocale": "on",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "qtConfigure.qtDir": "/usr/share/qt6/modules",
@@ -843,4 +843,9 @@
   "dataWrangler.experiments.autoDetectCsvDelimiter": true,
   "telemetry.telemetryLevel": "off",
   "workbench.activityBar.location": "hidden"
+  "editor.fontSize": 14,
+  "terminal.integrated.fontSize": 14,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "explorer.openEditors.visible": 1,
+  "explorer.openEditors.minVisible": 0
 }

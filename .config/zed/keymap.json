@@ -28,7 +28,6 @@
   },
   {
     "context": "AgentPanel && external_agent_thread",
-    "use_key_equivalents": true,
     "bindings": {
       "ctrl-n": null,
       "ctrl-alt-t": "agent::NewThread"
@@ -63,7 +62,6 @@
   },
   {
     "context": "ThreadHistory > Editor",
-    "use_key_equivalents": true,
     "bindings": {
       "escape": "pane::GoBack"
     }
@@ -82,7 +80,6 @@
   },
   {
     "context": "(BufferSearchBar || ThreadHistory || Picker || ProjectSearchBar || ContextEditor) > Editor",
-    "use_key_equivalents": true,
     "bindings": {
       "ctrl-w": "editor::DeleteToPreviousWordStart",
       "ctrl-e": "editor::MoveToEnd",
@@ -392,7 +389,6 @@
   },
   {
     "context": "SettingsWindow",
-    "use_key_equivalents": true,
     "bindings": {
       "ctrl-w": null,
       "ctrl-shift-w": "workspace::CloseWindow",
@@ -402,13 +398,18 @@
 
   {
     "context": "SettingsWindow > NavigationMenu",
-    "use_key_equivalents": true,
     "bindings": {
       "space": "settings_editor::ExpandNavEntry",
       "enter": "settings_editor::ExpandNavEntry",
       "h": "settings_editor::CollapseNavEntry",
       "j": "settings_editor::FocusNextNavEntry",
       "k": "settings_editor::FocusPreviousNavEntry"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-?": "agent::ToggleFocus"
     }
   }
 ]
