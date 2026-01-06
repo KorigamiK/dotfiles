@@ -7,7 +7,6 @@ edit = [
   { run = 'nvim "$@"', block = true, for = "unix" },
   { run = "%EDITOR% %*", block = true, for = "windows" },
 ]
-open = [
-  { mime = "application/pdf", run = 'sioyek --new-instance "$@"', for = "unix" },
-  { run = 'xdg-open "$@"', desc = "Open", for = "unix" },
-]
+
+[mgr]
+linemode = "size"

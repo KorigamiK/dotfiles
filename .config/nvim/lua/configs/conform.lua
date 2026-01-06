@@ -33,7 +33,7 @@ return {
     dart = { "dart_format" },
 
     haskell = { "fourmolu" },
-    typst = { "typstfmt" },
+    typst = { lsp_fallback = true },
 
     kotlin = { "ktfmt" },
   },
