@@ -6,7 +6,7 @@ return {
       init_selection = "<CR>",
       scope_incremental = "<TAB>",
       node_incremental = "<CR>",
-      node_decremental = "<S-TAB>",
+      node_decremental = "<S-CR>",
     },
   },
   textobjects = {

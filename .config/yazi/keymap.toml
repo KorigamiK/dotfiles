@@ -1,6 +1,6 @@
 [[mgr.prepend_keymap]]
 on   = [ "g", "j" ]
-run  = "cd ~/journal/"
+run  = "cd ~/Syncthing/Obsidian/Origami/journal"
 desc = "Cd to ~/journal/"
 
 [[mgr.prepend_keymap]]
