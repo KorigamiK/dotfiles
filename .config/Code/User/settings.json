@@ -810,7 +810,7 @@
       "id": "B35E7469-6D84-45C1-AA37-FF671CAC101D"
     }
   ],
-  "git.blame.editorDecoration.enabled": false,
+  "git.blame.editorDecoration.enabled": true,
   "[dockercompose]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
@@ -842,10 +842,17 @@
   "dataWrangler.experiments.copilot.enabled": true,
   "dataWrangler.experiments.autoDetectCsvDelimiter": true,
   "telemetry.telemetryLevel": "off",
-  "workbench.activityBar.location": "hidden"
+  "workbench.activityBar.location": "hidden",
   "editor.fontSize": 14,
   "terminal.integrated.fontSize": 14,
-  "github.copilot.nextEditSuggestions.enabled": true,
   "explorer.openEditors.visible": 1,
-  "explorer.openEditors.minVisible": 0
+  "explorer.openEditors.minVisible": 0,
+  "chat.tools.terminal.autoApprove": {
+    "/home/origami/Dev/projects/python/scraping/.venv/bin/python": true
+  },
+  "python-envs.alwaysUseUv": true,
+  "chat.viewWelcome.enabled": false,
+  "chat.agent.thinkingStyle": "collapsedPreview",
+  "chat.agent.thinking.collapsedTools": "withThinking",
+  "github.copilot.nextEditSuggestions.enabled": true
 }

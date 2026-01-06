@@ -9,10 +9,13 @@
   "use_system_path_prompts": false,
   "use_system_prompts": false,
   "agent_buffer_font_size": 16.0,
+  "journal" : {
+    "path": "/home/origami/Syncthing/Obsidian/Origami"
+  },
   "icon_theme": "Material Icon Theme",
   "title_bar": {
     "show_sign_in": false,
-    "show_branch_icon": true,
+    "show_branch_icon": false,
     "show_menus": false,
     "show_onboarding_banner": true,
     "show_branch_name": true,
@@ -29,7 +32,7 @@
   },
   "edit_predictions": {
     "disabled_globs": [".env*"],
-    "mode": "subtle",
+    "mode": "eager",
     "copilot": {
       "proxy": null,
       "proxy_no_verify": null
@@ -223,8 +226,7 @@
       }
     },
     "Python": {
-      "language_servers": ["basedpyright"],
-      // "language_servers": ["pyright", "ruff"],
+      "language_servers": ["pyrefly", "!pyright", "!pylsp", "!basedpyright"],
       "format_on_save": "off",
       "formatter": [
         {
@@ -348,17 +350,17 @@
     },
     "inline_assistant_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4"
+      "model": "oswe-vscode-prime"
     },
     "default_profile": "write",
     "dock": "left",
     "default_width": 450,
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5"
+      "model": "claude-opus-4.5"
     }
   },
-  "theme": "Duskfox - opaque",
+  "theme": "Fleet Dark Purple",
   "ui_font_size": 18,
   "agent_ui_font_size": 19.0,
   "buffer_font_size": 17,
@@ -388,7 +390,7 @@
     "hide_gitignore": false,
     "button": true,
     "dock": "right",
-    "git_status": true
+    "git_status": true,
   },
   "outline_panel": {
     "dock": "right"
@@ -421,19 +423,21 @@
   },
   "format_on_save": "off",
   "context_servers": {
-    "parseer": {
-      "source": "custom",
+    "markitdown": {
       "command": "uv",
       "args": [
         "--directory",
         "/home/origami/Dev/projects/python/markitdown_mcp_server",
         "run",
-        "markitdown"
+        "markitdown-mcp"
       ]
     },
     "context7": {
-      "command": "bunx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "settings": {},
+      "headers": {
+        "CONTEXT7_API_KEY": "CONTEXT7_API_KEY"
+      },
+      "url": "https://mcp.context7.com/mcp",
     }
   },
   "git_panel": {
@@ -442,9 +446,9 @@
   },
   "inline_code_actions": false,
   "experimental.theme_overrides": {
-    "search.match_background": "#a07d3a3d",
+    // "search.match_background": "#a07d3a3d",
     // "editor.document_highlight.bracket_background": "#528b8b22",
-    "editor.document_highlight.read_background": "#528b8b22",
+    // "editor.document_highlight.read_background": "#528b8b22",
     "players": [
       {
         "cursor": "#518b8bff",

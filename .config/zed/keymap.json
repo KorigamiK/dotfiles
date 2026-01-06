@@ -179,6 +179,8 @@
       // Switch between buffers
       "shift-h": "pane::ActivatePreviousItem",
       "shift-l": "pane::ActivateNextItem",
+      "alt-shift-y": "pane::SwapItemLeft",
+      "alt-shift-o": "pane::SwapItemRight",
       // Close active panel
       "space x": "pane::CloseActiveItem",
       // Close other items
@@ -366,7 +368,8 @@
     "bindings": {
       "space ,": "assistant::Assist",
       "space m": "agent::ToggleModelSelector",
-    },
+      "space b": "agent::ToggleNewThreadMenu"
+    }
   },
   {
     "context": "Editor && jupyter && !ContextEditor && !MessageEditor",
@@ -385,7 +388,8 @@
   },
 
   {
-    "context": "SettingsWindow > NavigationMenu",
+    "context": "SettingsWindow > NavigationMenu && !search",
+    "use_key_equivalents": true,
     "bindings": {
       "space": "settings_editor::ExpandNavEntry",
       "enter": "settings_editor::ExpandNavEntry",
