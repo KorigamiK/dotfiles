@@ -2,20 +2,20 @@
   {
     "bindings": {
       "ctrl-shift-w": "pane::CloseActiveItem",
-      "ctrl-q": null
-    }
+      "ctrl-q": null,
+    },
   },
   {
     "context": "Editor && edit_prediction",
     "bindings": {
-      "ctrl-y": "editor::AcceptEditPrediction"
-    }
+      "ctrl-y": "editor::AcceptEditPrediction",
+    },
   },
   {
     "context": "Prompt || menu",
     "bindings": {
-      "space": "menu::Confirm"
-    }
+      "space": "menu::Confirm",
+    },
   },
   {
     "context": "AgentPanel",
@@ -23,21 +23,21 @@
       "ctrl-b": null,
       "ctrl-alt-n": "workspace::ToggleLeftDock",
       "alt-b": "agent::ToggleNewThreadMenu",
-      "ctrl-shift-escape": "agent::ExpandMessageEditor"
-    }
+      "ctrl-shift-escape": "agent::ExpandMessageEditor",
+    },
   },
   {
     "context": "AgentPanel && external_agent_thread",
     "bindings": {
       "ctrl-n": null,
-      "ctrl-alt-t": "agent::NewThread"
-    }
+      "ctrl-alt-t": "agent::NewThread",
+    },
   },
   {
     "context": "(BufferSearchBar || NavigationMenu) > Editor",
     "bindings": {
-      "ctrl-w": "editor::DeleteToPreviousWordStart"
-    }
+      "ctrl-w": "editor::DeleteToPreviousWordStart",
+    },
   },
   {
     "context": "KeyContextView || MarkdownPreview",
@@ -51,32 +51,20 @@
       "space x": "pane::CloseActiveItem",
       ";": "command_palette::Toggle",
       "k": "markdown::MovePageUp",
-      "j": "markdown::MovePageDown"
-    }
+      "j": "markdown::MovePageDown",
+    },
   },
   {
     "context": "vim_mode == insert",
     "bindings": {
-      "ctrl-v": "editor::Paste"
-    }
+      "ctrl-v": "editor::Paste",
+    },
   },
   {
     "context": "ThreadHistory > Editor",
     "bindings": {
-      "escape": "pane::GoBack"
-    }
-  },
-  {
-    "context": "GitPanel",
-    "bindings": {
-      "s": "git::ToggleStaged",
-      "S": "git::StageAll",
-      "U": "git::UnstageAll",
-      "ctrl-j": "git_panel::FocusEditor",
-      "ctrl-k": "git_panel::ToggleFocus",
-      "P p": "git::Push",
-      "p p": "git::Pull"
-    }
+      "escape": "pane::GoBack",
+    },
   },
   {
     "context": "(BufferSearchBar || ThreadHistory || Picker || ProjectSearchBar || ContextEditor) > Editor",
@@ -84,24 +72,24 @@
       "ctrl-w": "editor::DeleteToPreviousWordStart",
       "ctrl-e": "editor::MoveToEnd",
       "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight"
-    }
+      "ctrl-l": "workspace::ActivatePaneRight",
+    },
   },
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
       // [...]
       "j": ["vim::Down", { "display_lines": true }],
-      "k": ["vim::Up", { "display_lines": true }]
-    }
+      "k": ["vim::Up", { "display_lines": true }],
+    },
   },
   {
     "context": "(Pane > Editor) && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
       "space v": "pane::SplitLeft",
       "space h": "pane::SplitDown",
-      "ctrl-f": "vim::Search"
-    }
+      "ctrl-f": "vim::Search",
+    },
   },
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -145,8 +133,8 @@
       // Chat with AI
       "space a c": "agent::ToggleFocus",
       // Go to file with `gf`
-      "g f": "editor::OpenExcerpts"
-    }
+      "g f": "editor::OpenExcerpts",
+    },
   },
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
@@ -202,8 +190,8 @@
       "space f f": "file_finder::Toggle",
       // TODO: Open other files
       // Show project panel with current file
-      "space e": "pane::RevealInProjectPanel"
-    }
+      "space e": "pane::RevealInProjectPanel",
+    },
   },
   // Empty pane, set of keybindings that are available when there is no active editor
   // Comment code
@@ -211,8 +199,8 @@
     "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
     "bindings": {
       // visual, visual line & visual block modes
-      "g c": "editor::ToggleComments"
-    }
+      "g c": "editor::ToggleComments",
+    },
   },
   // Navigation in insert mode
   {
@@ -223,8 +211,8 @@
       "ctrl-j": "vim::Down",
       "ctrl-k": "vim::Up",
       "ctrl-b": "editor::MoveToBeginningOfLine",
-      "ctrl-e": "editor::MoveToEndOfLine"
-    }
+      "ctrl-e": "editor::MoveToEndOfLine",
+    },
   },
   {
     "context": "AgentPanel > MessageEditor > Editor && vim_mode == insert && !menu",
@@ -232,8 +220,8 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "enter": "editor::Newline",
-      "ctrl-enter": "agent::Chat"
-    }
+      "ctrl-enter": "agent::Chat",
+    },
   },
   {
     "context": "MessageEditor > Editor && vim_mode != insert && !menu",
@@ -245,8 +233,8 @@
       "space M": "agent::OpenActiveThreadAsMarkdown",
       "space b": "agent::ToggleNewThreadMenu",
       "space p": "agent::ToggleProfileSelector",
-      "escape": null
-    }
+      "escape": null,
+    },
   },
   // Toggle terminal
   {
@@ -255,16 +243,16 @@
       "alt-h": "workspace::ToggleBottomDock",
       "ctrl-tab": "pane::ActivateNextItem",
       "ctrl-shift-tab": "pane::ActivatePreviousItem",
-      "ctrl-shift-e": "project_panel::ToggleFocus"
-    }
+      "ctrl-shift-e": "project_panel::ToggleFocus",
+    },
   },
   {
     "context": "Terminal",
     "bindings": {
       "ctrl-n": null,
       "ctrl-p": null,
-      "ctrl-x": "terminal_panel::ToggleFocus"
-    }
+      "ctrl-x": "terminal_panel::ToggleFocus",
+    },
   },
   // File panel (netrw)
   {
@@ -284,8 +272,8 @@
       "space Q": "workspace::CloseWindow",
       "space f f": "file_finder::Toggle",
       "space space": "file_finder::Toggle",
-      "space f p": "projects::OpenRecent"
-    }
+      "space f p": "projects::OpenRecent",
+    },
   },
   // Panel nagivation
   {
@@ -294,22 +282,22 @@
       "space Q": "workspace::CloseWindow",
       "space space": "file_finder::Toggle",
       "space f p": "projects::OpenRecent",
-      "space f f": "file_finder::Toggle"
-    }
+      "space f f": "file_finder::Toggle",
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
       // Map VSCode like keybindings
       "ctrl-n": "workspace::ToggleRightDock",
-      "ctrl-alt-n": "workspace::ToggleLeftDock"
-    }
+      "ctrl-alt-n": "workspace::ToggleLeftDock",
+    },
   },
   {
     "context": "AssistantPanel",
     "bindings": {
-      "ctrl-n": "workspace::ToggleRightDock"
-    }
+      "ctrl-n": "workspace::ToggleRightDock",
+    },
   },
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
@@ -319,8 +307,8 @@
       "alt-j": "editor::MoveLineDown",
       "alt-k": "editor::MoveLineUp",
       "space f m": "editor::Format",
-      "enter": "editor::SelectLargerSyntaxNode"
-    }
+      "enter": "editor::SelectLargerSyntaxNode",
+    },
   },
   {
     "context": "Dock || EmptyPane || vim_mode == visual",
@@ -328,26 +316,26 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown"
-    }
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
   },
   {
     "context": "Pane > Terminal",
     "bindings": {
-      "ctrl-l": null
-    }
+      "ctrl-l": null,
+    },
   },
   {
     "context": "vim_mode == normal",
     "bindings": {
-      "shift-y": ["workspace::SendKeystrokes", "y $"]
-    }
+      "shift-y": ["workspace::SendKeystrokes", "y $"],
+    },
   },
   {
     "context": "InlineAssistEditor",
     "bindings": {
-      "ctrl-w": "editor::DeleteToPreviousWordStart"
-    }
+      "ctrl-w": "editor::DeleteToPreviousWordStart",
+    },
   },
   {
     "context": "EmptyPane",
@@ -357,43 +345,43 @@
       "space space": "file_finder::Toggle",
       "space f f": "file_finder::Toggle",
       "ctrl-o": "pane::GoBack",
-      "space b": "workspace::NewFile"
-    }
+      "space b": "workspace::NewFile",
+    },
   },
   {
     "context": "(Editor && mode == full)",
     "bindings": {
-      "ctrl-f": "vim::PageDown"
-    }
+      "ctrl-f": "vim::PageDown",
+    },
   },
   {
     "context": "!ContextEditor > Editor && mode == full",
     "bindings": {
       "ctrl-enter": null,
-      "alt-i": "assistant::InlineAssist"
-    }
+      "alt-i": "assistant::InlineAssist",
+    },
   },
   {
     "context": "ContextEditor > Editor && vim_mode == normal",
     "bindings": {
       "space ,": "assistant::Assist",
-      "space m": "agent::ToggleModelSelector"
-    }
+      "space m": "agent::ToggleModelSelector",
+    },
   },
   {
     "context": "Editor && jupyter && !ContextEditor && !MessageEditor",
     "bindings": {
       "ctrl-enter": "repl::Run",
-      "ctrl-alt-enter": "repl::RunInPlace"
-    }
+      "ctrl-alt-enter": "repl::RunInPlace",
+    },
   },
   {
     "context": "SettingsWindow",
     "bindings": {
       "ctrl-w": null,
       "ctrl-shift-w": "workspace::CloseWindow",
-      "ctrl-j": "settings_editor::ToggleFocusNav"
-    }
+      "ctrl-j": "settings_editor::ToggleFocusNav",
+    },
   },
 
   {
@@ -403,13 +391,31 @@
       "enter": "settings_editor::ExpandNavEntry",
       "h": "settings_editor::CollapseNavEntry",
       "j": "settings_editor::FocusNextNavEntry",
-      "k": "settings_editor::FocusPreviousNavEntry"
-    }
+      "k": "settings_editor::FocusPreviousNavEntry",
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-?": "agent::ToggleFocus"
-    }
-  }
+      "ctrl-?": "agent::ToggleFocus",
+    },
+  },
+  {
+    "context": "GitPanel && !(vim_mode == insert)",
+    "bindings": {
+      "S": "git::StageAll",
+      "U": "git::UnstageAll",
+      "ctrl-j": "git_panel::FocusEditor",
+      "ctrl-k": "git_panel::ToggleFocus",
+      "P p": "git::Push",
+      "p p": "git::Pull",
+      "s": "git::ToggleStaged",
+    },
+  },
+  {
+    "context": "CommitEditor > Editor",
+    "bindings": {
+      "ctrl-enter": "git::Commit",
+    },
+  },
 ]
