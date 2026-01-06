@@ -126,3 +126,4 @@ keybind = ctrl+a>z=toggle_split_zoom
 
 keybind = ctrl+a>e=equalize_splits
 
+keybind = ctrl+shift+p=toggle_command_palette

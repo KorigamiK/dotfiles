@@ -6,6 +6,8 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "use_system_path_prompts": false,
+  "use_system_prompts": false,
   "agent_buffer_font_size": 16.0,
   "icon_theme": "Material Icon Theme",
   "title_bar": {
@@ -366,7 +368,7 @@
   },
   "buffer_line_height": "comfortable",
   "vim_mode": true,
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "buffer_font_family": "Iosevka Paper",
   "ui_font_family": ".SystemUIFont",
   "terminal": {
@@ -430,7 +432,6 @@
       ]
     },
     "context7": {
-      "source": "custom",
       "command": "bunx",
       "args": ["-y", "@upstash/context7-mcp@latest"]
     }
