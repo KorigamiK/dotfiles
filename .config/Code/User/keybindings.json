@@ -584,10 +584,6 @@
     "when": "chatIsEnabled && terminalChatAgentRegistered && terminalFocusInAny && terminalHasBeenCreated || chatIsEnabled && terminalChatAgentRegistered && terminalFocusInAny && terminalProcessSupported"
   },
   {
-    "key": "ctrl+enter",
-    "command": "git.commit"
-  },
-  {
     "key": "ctrl+shift+e",
     "command": "workbench.view.explorer",
     "when": "viewContainer.workbench.view.explorer.enabled"
