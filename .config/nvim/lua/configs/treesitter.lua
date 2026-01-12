@@ -75,7 +75,7 @@ return {
     "hyprlang",
     "cmake",
     "bibtex",
-    "latex",
+    -- "latex",
     "typst",
     "toml",
     "prisma",

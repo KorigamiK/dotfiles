@@ -40,7 +40,7 @@ cursor-style = bar
 cursor-style-blink = true
 window-padding-x = 0
 window-padding-y = 0
-window-decoration = false
+window-decoration = true
 
 # background = #1d2021
 background = #000000
@@ -71,13 +71,13 @@ palette = 15=#a89984
 adjust-cell-height = 9
 adjust-cursor-height = 7
 
-background-opacity = 0.3
+background-opacity = 0.8
 
 # initial-window = false
 
 window-padding-balance = true
 
-window-padding-color = extend-always
+# window-padding-color = extend-always
 
 # custom-shader = ./cubes.glsl
 

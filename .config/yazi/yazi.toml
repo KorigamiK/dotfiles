@@ -10,3 +10,7 @@ edit = [
 
 [mgr]
 linemode = "size"
+# open = [
+#   { mime = "application/pdf", run = 'sioyek --new-instance "$@"', for = "unix" },
+#   { run = 'xdg-open "$@"', desc = "Open", for = "unix" },
+# ]
