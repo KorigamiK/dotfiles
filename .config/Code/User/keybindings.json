@@ -627,4 +627,12 @@
     "key": "shift+cmd+f",
     "command": "-workbench.action.findInFiles"
   },
+  {
+    "key": "ctrl+shift+n",
+    "command": "workbench.action.newWindow"
+  },
+  {
+    "key": "shift+cmd+n",
+    "command": "-workbench.action.newWindow"
+  },
 ]
