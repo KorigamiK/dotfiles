@@ -204,6 +204,10 @@
   "vim.leader": "<Space>",
   "vim.foldfix": true,
   "workbench.colorCustomizations": {
+    "[Kanagawa]": {
+      "statusBarItem.remoteBackground": "#39404a",
+      "statusBarItem.remoteForeground": "#dcd7ba",
+    },
     "[Horizon Extended - Neo]": {
       "editorLineNumber.foreground": "#555555",
       "editorLineNumber.activeForeground": "#999999"
@@ -260,13 +264,25 @@
       ]
     },
     {
-      "before": ["leader", "r", "h"],
-      "commands": ["git.revertSelectedRanges"]
+      "before": [
+        "leader",
+        "r",
+        "h"
+      ],
+      "commands": [
+        "git.revertSelectedRanges"
+      ]
     },
     {
-      "before": [ "leader", "t", "d" ],
+      "before": [
+        "leader",
+        "t",
+        "d"
+      ],
       "commands": [
-        { "command": "git.openChange" }
+        {
+          "command": "git.openChange"
+        }
       ]
     },
     {
@@ -778,7 +794,7 @@
   "terminal.integrated.lineHeight": 1.3,
   "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
   "cmake.showOptionsMovedNotification": false,
-  "workbench.colorTheme": "SynthWave '84",
+  "workbench.colorTheme": "Kanagawa",
   "notebook.lineNumbers": "on",
   "window.enableMenuBarMnemonics": false,
   "editor.inlineSuggest.edits.showCollapsed": true,
