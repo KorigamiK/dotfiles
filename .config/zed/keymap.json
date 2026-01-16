@@ -422,4 +422,34 @@
       "ctrl-enter": "git::Commit",
     },
   },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-p": "command_palette::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-p": "command_palette::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-x": "zed::Extensions"
+    }
+  },
+  {
+    "context": "Editor && !Picker",
+    "bindings": {
+      "ctrl-n": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-t": "pane::ReopenClosedItem"
+    }
+  }
 ]
