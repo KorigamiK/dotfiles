@@ -645,4 +645,8 @@
     "command": "-workbench.view.debug",
     "when": "viewContainer.workbench.view.debug.enabled"
   },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-editor.action.announceCursorPosition"
+  },
 ]
