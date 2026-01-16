@@ -201,10 +201,10 @@
     "default_width": 450,
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-opus-4.5"
+      "model": "gpt-4.1"
     }
   },
-  "theme": "Fleet Dark Purple",
+  "theme": "Kanagawa",
   "ui_font_size": 18,
   "agent_ui_font_size": 19.0,
   "buffer_font_size": 17,
