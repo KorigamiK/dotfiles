@@ -217,6 +217,7 @@ map({ "n", "x" }, "k", "gk", { silent = true })
 map("n", "<A-z>", "<cmd>set wrap!<CR>", { desc = "Toggle line wrap" })
 -- terminal
 map("t", "<C-k>", "<C-\\><C-N><C-w><C-w>", { desc = "Window prev" })
+map("t", "<C-h>", "<C-\\><C-N><C-w><C-w>", { desc = "Window prev" })
 
 -- maximize / restore current window (works in terminal too)
 map("n", "<S-Esc>", function()
@@ -340,6 +341,10 @@ end
 
 map("n", "!", function()
   Invert(false)
+end, { noremap = true, silent = true })
+
+map("n", "<leader>ca", function()
+  vim.lsp.buf.code_action()
 end, { noremap = true, silent = true })
 
 map("v", "!", function()

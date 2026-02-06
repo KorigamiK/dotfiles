@@ -50,8 +50,8 @@
       "space q": "pane::CloseActiveItem",
       "space x": "pane::CloseActiveItem",
       ";": "command_palette::Toggle",
-      "k": "markdown::MovePageUp",
-      "j": "markdown::MovePageDown",
+      "k": "markdown::ScrollPageUp",
+      "j": "markdown::ScrollPageDown",
     },
   },
   {
@@ -291,7 +291,7 @@
     "context": "Workspace",
     "bindings": {
       // Map VSCode like keybindings
-      "ctrl-n": "workspace::ToggleRightDock",
+      // "ctrl-n": "workspace::ToggleRightDock",
       "ctrl-alt-n": "workspace::ToggleLeftDock",
     },
   },
@@ -382,7 +382,6 @@
     "context": "SettingsWindow",
     "bindings": {
       "ctrl-w": null,
-      "ctrl-shift-w": "workspace::CloseWindow",
       "ctrl-j": "settings_editor::ToggleFocusNav",
     },
   },
@@ -441,7 +440,7 @@
     }
   },
   {
-    "context": "Editor && !Picker",
+    "context": "(Editor && !end_of_input && !Picker && !menu && !(showing_code_actions || showing_completions))",
     "bindings": {
       "ctrl-n": "workspace::ToggleRightDock"
     }
@@ -451,5 +450,19 @@
     "bindings": {
       "ctrl-shift-t": "pane::ReopenClosedItem"
     }
-  }
+  },
+  {
+    "context": "Picker || menu",
+    "bindings": {
+      "ctrl-n": "menu::SelectNext",
+      "ctrl-p": "menu::SelectPrevious"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-n": "workspace::ToggleRightDock",
+      "ctrl-p": "file_finder::Toggle"
+    }
+  },
 ]

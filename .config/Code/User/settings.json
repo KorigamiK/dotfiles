@@ -1,5 +1,5 @@
 {
-  "python.languageServer": "Pylance",
+  "python.languageServer": "None",
   "zenMode.fullScreen": false,
   "zenMode.centerLayout": true,
   "workbench.editorAssociations": {
@@ -325,21 +325,20 @@
       ]
     },
     {
+      "silent": true,
       "before": [
         "j"
       ],
-      "after": [
-        "g",
-        "j"
+      "commands": [
+        "cursorDown"
       ]
     },
     {
       "before": [
         "k"
       ],
-      "after": [
-        "g",
-        "k"
+      "commands": [
+        "cursorUp"
       ]
     },
     {
@@ -821,7 +820,7 @@
   "mssql.connectionGroups": [
     {
       "name": "ROOT",
-      "id": "B35E7469-6D84-45C1-AA37-FF671CAC101D"
+      "id": "ROOT"
     }
   ],
   "git.blame.editorDecoration.enabled": true,
@@ -869,4 +868,7 @@
   "chat.agent.thinkingStyle": "collapsedPreview",
   "chat.agent.thinking.collapsedTools": "withThinking",
   "github.copilot.nextEditSuggestions.enabled": true,
+}
+  "github.copilot.chat.completionsFetcher": "electron-fetch",
+  "workbench.startupEditor": "agentSessionsWelcomePage",
 }
