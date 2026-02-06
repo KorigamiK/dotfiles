@@ -75,6 +75,12 @@ M.mason = {
 }
 
 M.term = {
+  sizes = {
+    sp = 0.4, -- horizontal split: 30% of screen height
+    vsp = 0.55, -- vertical split: 40% of screen width
+    ["bo sp"] = 0.5,
+    ["bo vsp"] = 0.6,
+  },
   winopts = { winfixbuf = true },
 }
 

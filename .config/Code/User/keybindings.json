@@ -474,6 +474,11 @@
   },
   {
     "key": "shift+escape",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "inOutput"
+  },
+  {
+    "key": "shift+escape",
     "command": "workbench.action.toggleMaximizedAuxiliaryBar",
     "when": "auxiliaryBarFocus"
   },
@@ -648,5 +653,20 @@
   {
     "key": "ctrl+shift+g",
     "command": "-editor.action.announceCursorPosition"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight",
+    "when": "inKeybindings && inKeybindingsSearch"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft",
+    "when": "inKeybindings && inKeybindingsSearch"
+  },
+  {
+    "key": "alt+b",
+    "command": "workbench.action.chat.newChat",
+    "when": "chatIsEnabled && inChat"
   },
 ]

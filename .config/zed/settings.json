@@ -9,8 +9,14 @@
   "use_system_path_prompts": false,
   "use_system_prompts": false,
   "agent_buffer_font_size": 16.0,
-  "journal" : {
-    "path": "/home/origami/Syncthing/Obsidian/Origami"
+  "colorize_brackets": true,
+  "cursor_blink": false,
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
+  },
+  "journal": {
+    "path": "/home/origami/Syncthing/Obsidian/Origami",
   },
   "icon_theme": "Material Icon Theme",
   "title_bar": {
@@ -21,7 +27,7 @@
     "show_branch_name": true,
     "show_project_items": true,
     "show_user_picture": true,
-    "experimental.show": false
+    "experimental.show": false,
   },
   "status_bar": {
     "experimental.show": true
