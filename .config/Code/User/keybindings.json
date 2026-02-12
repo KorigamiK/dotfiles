@@ -669,4 +669,9 @@
     "command": "workbench.action.chat.newChat",
     "when": "chatIsEnabled && inChat"
   },
+  {
+    "key": "alt+h",
+    "command": "workbench.action.chat.history",
+    "when": "chatIsEnabled && inChat"
+  },
 ]

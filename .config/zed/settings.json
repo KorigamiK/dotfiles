@@ -13,7 +13,7 @@
   "cursor_blink": false,
   "indent_guides": {
     "enabled": true,
-    "coloring": "indent_aware",
+    "coloring": "indent_aware"
   },
   "journal": {
     "path": "/home/origami/Syncthing/Obsidian/Origami",
@@ -30,23 +30,21 @@
     "experimental.show": false,
   },
   "status_bar": {
-    "experimental.show": true
+    "experimental.show": true,
   },
   "toolbar": {
     "breadcrumbs": false,
-    "quick_actions": false
+    "quick_actions": false,
   },
   "edit_predictions": {
+    "provider": "copilot",
     "disabled_globs": [".env*"],
     "mode": "eager",
     "copilot": {
       "proxy": null,
-      "proxy_no_verify": null
+      "proxy_no_verify": null,
     },
-    "enabled_in_text_threads": false
-  },
-  "features": {
-    "edit_prediction_provider": "copilot"
+    "enabled_in_text_threads": false,
   },
   "diagnostics": {
     "button": true,
@@ -56,14 +54,17 @@
       "update_debounce_ms": 150,
       "padding": 4,
       "min_column": 0,
-      "max_severity": null
-    }
+      "max_severity": null,
+    },
   },
   "ssh_connections": [
   ],
   "languages": {
+    "JSONC": {
+      "show_edit_predictions": true,
+    },
     "JavaScript": {
-      "format_on_save": "off"
+      "format_on_save": "off",
     },
     "Shell Script": {
       "format_on_save": "off",
@@ -71,9 +72,9 @@
       "formatter": {
         "external": {
           "command": "shfmt",
-          "arguments": ["-i", "4"]
-        }
-      }
+          "arguments": ["-i", "4"],
+        },
+      },
     },
     "Python": {
       "language_servers": ["pyrefly", "!pyright", "!pylsp", "!basedpyright"],
@@ -82,70 +83,75 @@
         {
           "external": {
             "command": "bash",
-            "arguments": ["-c", "ruff check --select I --fix - | ruff format -"]
-          }
-        }
-      ]
+            "arguments": [
+              "-c",
+              "ruff check --select I --fix - | ruff format -",
+            ],
+          },
+        },
+      ],
     },
     "C++": {
-      "tab_size": 2
-    }
+      "tab_size": 2,
+    },
   },
   "git": {
     "inline_blame": {
-      "enabled": false
-    }
+      "enabled": true,
+    },
   },
   "lsp": {
     "pyrefly": {
       "settings": {
         "python": {
-          "pythonPath": ".venv/bin/python"
+          "pythonPath": ".venv/bin/python",
         },
         "pyrefly": {
           "project_includes": ["src/**/*.py", "tests/**/*.py"],
           "project_excludes": ["**/.[!/.]*", "**/*venv/**"],
           "search_path": ["src"],
-          "ignore_errors_in_generated_code": false
-        }
-      }
+          "ignore_errors_in_generated_code": false,
+        },
+      },
     },
     "basedpyright": {
       "settings": {
         "basedpyright": {
-          "typeCheckingMode": "standard"
-        }
-      }
+          "typeCheckingMode": "standard",
+        },
+      },
     },
     "ruff": {
       "initialization_options": {
         "settings": {
           "lineLength": 80,
-          "lint": { "extendSelect": ["I"] }
-        }
-      }
+          "lint": {
+            "extendSelect": ["I"],
+          },
+        },
+      },
     },
     "rust-analyzer": {
       "binary": {
-        "path": "/usr/lib/rustup/bin/rust-analyzer"
-      }
+        "path": "/usr/lib/rustup/bin/rust-analyzer",
+      },
     },
     "pyright": {
       "settings": {
         "python.analysis": {
-          "diagnosticMode": "workspace"
+          "diagnosticMode": "workspace",
         },
         "python": {
-          "pythonPath": ".venv/bin/python"
-        }
-      }
+          "pythonPath": ".venv/bin/python",
+        },
+      },
     },
     "texlab": {
       "settings": {
         "texlab": {
           "build": {
             "onSave": true,
-            "forwardSearchAfter": true
+            "forwardSearchAfter": true,
           },
           "forwardSearch": {
             "executable": "sioyek",
@@ -157,12 +163,12 @@
               "%f",
               "--forward-search-line",
               "%l",
-              "%p"
-            ]
-          }
-        }
-      }
-    }
+              "%p",
+            ],
+          },
+        },
+      },
+    },
   },
   "agent": {
     "use_modifier_to_send": true,
@@ -192,23 +198,23 @@
           "rename": true,
           "symbol_info": true,
           "thinking": true,
-          "open": true
+          "open": true,
         },
         "enable_all_context_servers": true,
-        "context_servers": {}
-      }
+        "context_servers": {},
+      },
     },
     "inline_assistant_model": {
       "provider": "copilot_chat",
-      "model": "oswe-vscode-prime"
+      "model": "oswe-vscode-prime",
     },
     "default_profile": "write",
     "dock": "left",
     "default_width": 450,
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4.1"
-    }
+      "model": "gpt-4.1",
+    },
   },
   "theme": "Kanagawa",
   "ui_font_size": 18,
@@ -216,7 +222,7 @@
   "buffer_font_size": 17,
   "buffer_font_features": {
     "liga": false,
-    "ss06": true // => test kushagra,
+    "ss06": true, // => test kushagra,
   },
   "buffer_line_height": "comfortable",
   "vim_mode": true,
@@ -226,15 +232,15 @@
   "terminal": {
     "working_directory": "current_project_directory",
     "env": {
-      "EDITOR": "zed --wait"
-    }
+      "EDITOR": "zed --wait",
+    },
   },
   "gutter": {
-    "min_line_number_digits": 2
+    "min_line_number_digits": 2,
   },
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "project_panel": {
     "hide_gitignore": false,
@@ -243,19 +249,19 @@
     "git_status": true,
   },
   "outline_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "tab_bar": {
     "show_nav_history_buttons": false,
     "show": true,
-    "show_tab_bar_buttons": false
+    "show_tab_bar_buttons": false,
   },
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   // Move some unnecessary panels to the left
   "notification_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "file_scan_exclusions": [
     "**/.git",
@@ -266,10 +272,10 @@
     "**/Thumbs.db",
     "**/.classpath",
     "**/.settings",
-    "**/.venv"
+    "**/.venv",
   ],
   "vim": {
-    "use_system_clipboard": "never"
+    "use_system_clipboard": "never",
   },
   "format_on_save": "off",
   "context_servers": {
@@ -279,23 +285,28 @@
         "--directory",
         "/home/origami/Dev/projects/python/markitdown_mcp_server",
         "run",
-        "markitdown-mcp"
-      ]
+        "markitdown-mcp",
+      ],
     },
     "context7": {
       "settings": {},
       "headers": {
-        "CONTEXT7_API_KEY": "CONTEXT7_API_KEY"
+        "CONTEXT7_API_KEY": "CONTEXT7_API_KEY",
       },
       "url": "https://mcp.context7.com/mcp",
-    }
+    },
   },
   "git_panel": {
     "button": true,
-    "dock": "right"
+    "dock": "right",
   },
   "inline_code_actions": false,
   "experimental.theme_overrides": {
+    "vim.normal.background": "#202027",
+    "vim.visual.background": "#2E2E3A",
+    "vim.visual_line.background": "#2E2E3A",
+    "vim.visual_block.background": "#2E2E3A",
+    "vim.insert.background": "#2E2E3A",
     // "search.match_background": "#a07d3a3d",
     // "editor.document_highlight.bracket_background": "#528b8b22",
     // "editor.document_highlight.read_background": "#528b8b22",
@@ -303,8 +314,8 @@
       {
         "cursor": "#518b8bff",
         "background": "#518b8bff",
-        "selection": "#518b8b3d"
-      }
+        "selection": "#518b8b3d",
+      },
       //     {
       //       "cursor": "#a87222ff",
       //       "background": "#a87222ff",
@@ -349,6 +360,6 @@
       //     }
       //   }
       // }
-    ]
-  }
+    ],
+  },
 }
