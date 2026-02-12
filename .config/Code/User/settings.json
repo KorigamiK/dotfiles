@@ -334,6 +334,7 @@
       ]
     },
     {
+      "silent": true,
       "before": [
         "k"
       ],
@@ -868,7 +869,8 @@
   "chat.agent.thinkingStyle": "collapsedPreview",
   "chat.agent.thinking.collapsedTools": "withThinking",
   "github.copilot.nextEditSuggestions.enabled": true,
-}
+  "window.commandCenter": false,
   "github.copilot.chat.completionsFetcher": "electron-fetch",
   "workbench.startupEditor": "agentSessionsWelcomePage",
+  "scm.repositories.selectionMode": "single",
 }

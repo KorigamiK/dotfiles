@@ -159,7 +159,7 @@ vim.lsp.config.tinymist = {
     formatterMode = "typstyle",
     ["tinymist.preview.background.enabled"] = true,
     -- Use the built-in web preview that opens in your browser.
-    ["tinymist.preview.browsing.args"] = { "--data-plane-host=127.0.0.1:0", "--invert-colors=never", "--open" },
+    ["tinymist.preview.browsing.args"] = { "--data-plane-host=127.0.0.1:0", "--invert-colors=never", "--open", "--features=html" },
     ["tinymist.preview.refresh"] = "onType",
     ["tinymist.preview.partialRendering"] = true,
   },
