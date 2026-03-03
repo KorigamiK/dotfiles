@@ -182,9 +182,12 @@ return {
   {
     "Civitasv/cmake-tools.nvim",
     enabled = true,
-    cmd = { "CMakeBuild" },
+    cmd = { "CMakeBuild", "CMakeGenerate" },
     opts = {
       cmake_virtual_text_support = false,
+      cmake_build_directory = function()
+        return "build/${variant:buildType}"
+      end,
     },
   },
 
@@ -643,16 +646,15 @@ return {
         temperature = 0,
         tokens = 4096,
         timeout = 120, -- recommended to keep very high
-      },   -- ...
+      }, -- ...
     },
     keys = {
-      { "<leader>ae", function() require("enlighten").edit() end, desc = "Edit", mode = { "n", "v" } },
-      { "<leader>ac", function() require("enlighten").chat() end, desc = "Chat", mode = { "n", "v" } },
-      { "<leader>ay", function() require("enlighten").keep() end, desc = "Keep change", mode = { "n", "v" } },
-      { "<leader>aY", function() require("enlighten").keep_all() end, desc = "Keep all changes", mode = "n" },
-      { "<leader>an", function() require("enlighten").discard() end, desc = "Discard change", mode = { "n", "v" } },
-      { "<leader>aN", function() require("enlighten").discard_all() end, desc = "Discard all changes", mode = "n" },
+      { "<leader>ae", function() require("enlighten").edit() end, desc = "Edit", mode = { "n", "v" }, },
+      { "<leader>ac", function() require("enlighten").chat() end, desc = "Chat", mode = { "n", "v" }, },
+      { "<leader>ay", function() require("enlighten").keep() end, desc = "Keep change", mode = { "n", "v" }, },
+      { "<leader>aY", function() require("enlighten").keep_all() end, desc = "Keep all changes", mode = "n", },
+      { "<leader>an", function() require("enlighten").discard() end, desc = "Discard change", mode = { "n", "v" }, },
+      { "<leader>aN", function() require("enlighten").discard_all() end, desc = "Discard all changes", mode = "n", },
     },
   },
-
 }

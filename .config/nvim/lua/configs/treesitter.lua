@@ -17,10 +17,12 @@ return {
         -- You can use the capture groups defined in textobjects.scm
         ["aa"] = "@parameter.outer",
         ["ia"] = "@parameter.inner",
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
+        ["af"] = "@call.outer",
+        ["if"] = "@call.inner",
         ["ac"] = "@class.outer",
         ["ic"] = "@class.inner",
+        ["at"] = "@tag.outer",
+        ["it"] = "@tag.inner",
       },
     },
     move = {

@@ -354,3 +354,8 @@ end, { noremap = true, silent = true })
 map("n", "K", function()
   vim.lsp.buf.hover { border = "single" }
 end, { desc = "LSP hover" })
+
+for _, mode in ipairs { "x", "o" } do
+  vim.keymap.set(mode, "aq", 'a"', { remap = true })
+  vim.keymap.set(mode, "iq", 'i"', { remap = true })
+end

@@ -23,3 +23,4 @@ vim.opt.showbreak = "󱞩 "
 vim.opt.showcmd = false
 
 vim.opt.concealcursor = "nc"
+vim.opt.cmdheight = 0

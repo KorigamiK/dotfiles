@@ -213,7 +213,7 @@
     "default_width": 450,
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4.1",
+      "model": "gpt-5.3-codex",
     },
   },
   "theme": "Kanagawa",
