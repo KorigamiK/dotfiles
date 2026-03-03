@@ -62,6 +62,11 @@
     "when": "terminalFocus"
   },
   {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft",
+    "when": "terminalFocus"
+  },
+  {
     "command": "editor.action.moveLinesUpAction",
     "key": "alt+k",
     "when": "editorTextFocus && !editorReadonly"
@@ -674,4 +679,8 @@
     "command": "workbench.action.chat.history",
     "when": "chatIsEnabled && inChat"
   },
-]
+]  {
+    "key": "space x",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
+  }
