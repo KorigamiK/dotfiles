@@ -20,7 +20,8 @@ vim.opt.pumheight = 8
 vim.opt.colorcolumn = "100"
 vim.opt.showbreak = "󱞩 "
 
-vim.opt.showcmd = false
+vim.opt.showcmd = true
+vim.opt.showcmdloc = 'statusline'
 
 vim.opt.concealcursor = "nc"
 vim.opt.cmdheight = 0
