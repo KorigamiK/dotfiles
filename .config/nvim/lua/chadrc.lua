@@ -40,6 +40,11 @@ M.ui = {
         local m = vim.api.nvim_get_mode().mode
         return "%#St_" .. modes[m][2] .. "mode# " .. modes[m][1] .. " "
       end,
+      lsp_msg = function()
+        local utils = require "nvchad.stl.utils"
+        return "%#StText# %-12.12S %#St_LspMsg#" .. utils.lsp_msg()
+      end,
+      cursor = "%#StText# Ln %l, Col %v ",
     },
   },
 }
