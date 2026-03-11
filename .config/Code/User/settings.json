@@ -108,7 +108,6 @@
   "editor.fontLigatures": true,
   "synthwave84.disableGlow": true,
   "Lua.telemetry.enable": false,
-  "typescript.updateImportsOnFileMove.enabled": "always",
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
     "*": true,
@@ -202,7 +201,7 @@
   "haskell.serverExecutablePath": "~/.ghcup/hls/1.10.0.0/lib/haskell-language-server-1.10.0.0/bin/haskell-language-server-wrapper",
   "solidity.telemetry": false,
   "svelte.enable-ts-plugin": true,
-  "javascript.updateImportsOnFileMove.enabled": "never",
+  "js/ts.updateImportsOnFileMove.enabled": "always",
   "haskell.ghcupExecutablePath": "/usr/bin/ghcup",
   "haskell.manageHLS": "GHCup",
   "window.zoomLevel": 1,
@@ -273,6 +272,16 @@
     "workbench.action.tasks.runTask"
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "g",
+        "r",
+        "a"
+      ],
+      "commands": [
+        "editor.action.quickFix"
+      ]
+    },
     {
       "before": [
         "leader",
