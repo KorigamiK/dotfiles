@@ -45,7 +45,7 @@ window-decoration = true
 # background = #1d2021
 background = #000000
 foreground = #ebdbb2
-# cursor-color = #ea6962
+cursor-color = #ea6962
 selection-background = #404040
 selection-foreground = #ebdbb2
 
@@ -71,13 +71,13 @@ palette = 15=#a89984
 adjust-cell-height = 9
 adjust-cursor-height = 7
 
-background-opacity = 0.8
+background-opacity = 0.4
 
 # initial-window = false
 
 window-padding-balance = true
 
-# window-padding-color = extend-always
+window-padding-color = extend-always
 
 # custom-shader = ./cubes.glsl
 
@@ -95,34 +95,35 @@ keybind = alt+3=unbind
 keybind = alt+4=unbind
 
 keybind = ctrl+shift+p=toggle_command_palette
-# # tabs 
-# keybind = ctrl+a>c=new_tab
-# keybind = ctrl+a>shift+l=next_tab
-# keybind = ctrl+a>shift+h=previous_tab
-# keybind = ctrl+a>comma=move_tab:-1
-# keybind = ctrl+a>period=move_tab:1
-#
-# # quick tab switch
-# keybind = ctrl+a>1=goto_tab:1
-# keybind = ctrl+a>2=goto_tab:2
-# keybind = ctrl+a>3=goto_tab:3
-# keybind = ctrl+a>4=goto_tab:4
-# keybind = ctrl+a>5=goto_tab:5
-# keybind = ctrl+a>6=goto_tab:6
-# keybind = ctrl+a>7=goto_tab:7
-# keybind = ctrl+a>8=goto_tab:8
-# keybind = ctrl+a>9=goto_tab:9
-#
-# # split
-# keybind = ctrl+a>\=new_split:right
-# keybind = ctrl+a>-=new_split:down
-#
-# keybind = ctrl+a>j=goto_split:bottom
-# keybind = ctrl+a>k=goto_split:top
-# keybind = ctrl+a>h=goto_split:left
-# keybind = ctrl+a>l=goto_split:right
-#
-# keybind = ctrl+a>z=toggle_split_zoom
-#
-# keybind = ctrl+a>e=equalize_splits
-#
+
+# tabs 
+keybind = ctrl+b>c=new_tab
+keybind = ctrl+b>shift+l=next_tab
+keybind = ctrl+b>shift+h=previous_tab
+keybind = ctrl+b>comma=move_tab:-1
+keybind = ctrl+b>period=move_tab:1
+
+# quick tab switch
+keybind = ctrl+b>1=goto_tab:1
+keybind = ctrl+b>2=goto_tab:2
+keybind = ctrl+b>3=goto_tab:3
+keybind = ctrl+b>4=goto_tab:4
+keybind = ctrl+b>5=goto_tab:5
+keybind = ctrl+b>6=goto_tab:6
+keybind = ctrl+b>7=goto_tab:7
+keybind = ctrl+b>8=goto_tab:8
+keybind = ctrl+b>9=goto_tab:9
+
+# split
+keybind = ctrl+b>\=new_split:right
+keybind = ctrl+b>-=new_split:down
+
+keybind = ctrl+b>j=goto_split:bottom
+keybind = ctrl+b>k=goto_split:top
+keybind = ctrl+b>h=goto_split:left
+keybind = ctrl+b>l=goto_split:right
+
+keybind = ctrl+b>z=toggle_split_zoom
+
+keybind = ctrl+b>e=equalize_splits
+

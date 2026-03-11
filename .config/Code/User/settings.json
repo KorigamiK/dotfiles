@@ -20,11 +20,10 @@
   "python.defaultInterpreterPath": "/usr/bin/python",
   "terminal.integrated.inheritEnv": true,
   "python.terminal.activateEnvironment": true,
-  "python.terminal.activateEnvInCurrentTerminal": true,
   "editor.scrollbar.horizontal": "auto",
   "vetur.experimental.templateInterpolationService": true,
   "vetur.validation.templateProps": true,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+  "js/ts.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
   "git.autofetch": true,
   "editor.quickSuggestions": {
     "other": true,
@@ -74,8 +73,8 @@
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "workbench.iconTheme": "material-icon-theme",
-  "editor.fontFamily": "'Iosevka Paper', 'monospace', 'Noto Color Emoji'",
-  "editor.lineHeight": 1.5,
+  "editor.fontFamily": "'Iosevka Paper', 'monospace', 'Symbols Nerd Font Mono', 'Noto Color Emoji'",
+  "editor.lineHeight": 1.6,
   "terminal.integrated.fontFamily": "'Iosevka Paper', 'Symbols Nerd Font', 'Victor Mono SemiBold', monospace, 'Noto Color Emoji'",
   "terminal.integrated.detectLocale": "on",
   "terminal.integrated.defaultProfile.linux": "zsh",
@@ -196,7 +195,8 @@
     "editor.defaultFormatter": "Vue.volar"
   },
   "[python]": {
-    "editor.formatOnType": true
+    "editor.formatOnType": false,
+    "editor.defaultFormatter": "charliermarsh.ruff"
   },
   "cph.language.cpp.Args": "-O2 -Wall -std=c++17",
   "haskell.serverExecutablePath": "~/.ghcup/hls/1.10.0.0/lib/haskell-language-server-1.10.0.0/bin/haskell-language-server-wrapper",
@@ -224,6 +224,8 @@
     "[Kanagawa]": {
       "statusBarItem.remoteBackground": "#39404a",
       "statusBarItem.remoteForeground": "#dcd7ba",
+      "editorLineNumber.activeForeground": "#CBC6AC",
+      "editorLineNumber.dimmedForeground": "#43434C"
     },
     "[Horizon Extended - Neo]": {
       "editorLineNumber.foreground": "#555555",
@@ -813,7 +815,6 @@
   "chat.agent.enabled": true,
   "github.copilot.chat.agent.thinkingTool": true,
   "editor.minimap.enabled": false,
-
   "workbench.editor.enablePreview": false,
   "workbench.quickOpen.closeOnFocusLost": false,
   "jupyter.askForKernelRestart": false,
@@ -890,6 +891,44 @@
   "chat.agent.thinking.collapsedTools": "withThinking",
   "github.copilot.nextEditSuggestions.enabled": true,
   "window.commandCenter": false,
+  "github.copilot.chat.completionsFetcher": "electron-fetch",
+  "mssql.connections": [
+    {
+      "authenticationType": "SqlLogin",
+      "connectTimeout": 30,
+      "applicationName": "vscode-mssql",
+      "applicationIntent": "ReadWrite",
+      "server": "192.168.200.113",
+      "database": "ATP_COLO",
+      "user": "sa",
+      "password": "",
+      "commandTimeout": 30,
+      "encrypt": "Optional",
+      "profileName": "113 ATP_COLO",
+      "trustServerCertificate": true,
+      "savePassword": true,
+      "groupId": "ROOT",
+      "id": "B39B2BD2-C948-4095-A612-5ECF7AEABFE3",
+      "profileSource": 0
+    },
+    {
+      "authenticationType": "SqlLogin",
+      "connectTimeout": 30,
+      "applicationName": "vscode-mssql",
+      "applicationIntent": "ReadWrite",
+      "server": "192.168.200.113",
+      "database": "DEV_BSE",
+      "user": "sa",
+      "password": "",
+      "commandTimeout": 30,
+      "encrypt": "Optional",
+      "groupId": "ROOT",
+      "profileName": "113 DEV_BSE",
+      "trustServerCertificate": true,
+      "savePassword": true,
+      "id": "3C51D7EB-600F-401E-A315-21E6D23E09AE"
+    }
+  ],
   "scm.repositories.selectionMode": "single",
   "github.copilot.chat.anthropic.tools.websearch.enabled": true,
   "github.copilot.chat.copilotMemory.enabled": true,
@@ -899,7 +938,6 @@
   "github.copilot.chat.notebook.followCellExecution.enabled": true,
   "github.copilot.chat.notebook.enhancedNextEditSuggestions.enabled": true,
   "editor.experimentalGpuAcceleration": "off",
-  "workbench.activityBar.location": "hidden",
   "git.blame.editorDecoration.enabled": true,
   "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.maxComputationTime": 0,
@@ -907,7 +945,6 @@
   "mssql.autoDisableNonTSqlLanguageService": true,
   "github.copilot.chat.askQuestions.enabled": true,
   "inlineChat.renderMode": "hover",
-  "github.copilot.chat.completionsFetcher": "electron-fetch",
   "workbench.startupEditor": "none",
   "ruff.enable": false,
   "chat.instructionsFilesLocations": {
@@ -915,5 +952,10 @@
     ".claude/rules": true,
   },
   "remote.autoForwardPorts": false,
+  "workbench.browser.enableChatTools": true,
   "terminal.integrated.enableImages": true,
+  "terminal.integrated.windowsUseConptyDll": true,
+  "terminal.external.linuxExec": "ghostty",
+  "python.useEnvsExtension": true,
+  "github.copilot.nextEditSuggestions.extendedRange": true
 }

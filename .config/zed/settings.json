@@ -172,9 +172,11 @@
   "agent": {
     "enable_feedback": false,
     "expand_edit_card": false,
+    "tool_permissions": {
+      "default": "allow"
+    },
     "use_modifier_to_send": true,
     "play_sound_when_agent_done": false,
-    "always_allow_tool_actions": true,
     "profiles": {
       "write": {
         "name": "Write",
@@ -311,6 +313,8 @@
   },
   "inline_code_actions": false,
   "experimental.theme_overrides": {
+    "editor.active_line_number": "#CBC6AC",
+    "editor.line_number": "#43434C",
     "vim.normal.background": "#202027",
     "vim.visual.background": "#2E2E3A",
     "vim.visual_line.background": "#2E2E3A",

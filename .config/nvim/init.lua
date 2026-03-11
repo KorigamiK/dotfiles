@@ -49,6 +49,8 @@ vim.filetype.add {
   pattern = {
     [".*/waybar/modules"] = "jsonc",
     [".*/hypr/.*%.conf"] = "hyprlang",
+    [".*/zed/.*%.json"] = "jsonc",
+    [".*/Code/User/.*%.json"] = "jsonc",
   },
 }
 
