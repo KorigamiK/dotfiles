@@ -309,10 +309,10 @@ return {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-      {
-        "3rd/image.nvim",
-        opts = {},
-      },
+      -- {
+      --   "3rd/image.nvim",
+      --   opts = {},
+      -- },
     },
     lazy = "leetcode" ~= vim.fn.argv()[1],
     opts = {
@@ -372,13 +372,13 @@ return {
     },
   },
 
-  {
-    dir = "/home/origami/Dev/projects/lua/newchat.nvim",
-    lazy = false,
-    opts = {
-      test = "opt",
-    },
-  },
+  -- {
+  --   dir = "/home/origami/Dev/projects/lua/newchat.nvim",
+  --   lazy = false,
+  --   opts = {
+  --     test = "opt",
+  --   },
+  -- },
 
   {
     "yetone/avante.nvim",

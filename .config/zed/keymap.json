@@ -67,7 +67,8 @@
     },
   },
   {
-    "context": "(BufferSearchBar || ThreadHistory || Picker || ProjectSearchBar || ContextEditor) > Editor",
+    "context": "(BufferSearchBar || ThreadHistory || Picker || ProjectSearchBar || ContextEditor || InlineAssistEditor) > Editor",
+    "use_key_equivalents": true,
     "bindings": {
       "ctrl-w": "editor::DeleteToPreviousWordStart",
       "ctrl-e": "editor::MoveToEnd",
