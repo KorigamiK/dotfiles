@@ -1,0 +1,130 @@
+let mapleader = " "
+
+nmap <C-O> :vsc View.NavigateBackward<CR>
+nmap <C-I> :vsc View.NavigateForward<CR>
+
+nmap <C-]> :vsc Edit.GoToDefinition<CR>
+
+set incsearch "show matching search incrementally
+set tabstop=4 "set tab to 4 spaces
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autoindent
+set hlsearch "highlight search
+set ignorecase  "ignore case when searching
+set smartcase "if upper case was used search will be case insensitive
+set nowrap " disable line wrapping
+set number relativenumber
+
+" use <c-v> and <c-c> to copy from and to clipboard don't use for regular
+" usage you should use p and y
+noremap <A-c> "*
+vnoremap <A-c> "*
+
+" disable search highlight
+nnoremap <esc> :noh<cr>
+" paste last copied text 
+noremap <leader>p "0p
+" good to navigate wrapped lines
+nmap j gj
+nmap k gk
+" got to the method or interface impelementation
+nnoremap gi :vsc Edit.GoToImplementation<CR>
+" find all references
+map gr :vsc Edit.FindAllReferences<CR>
+map gp :vsc Edit.PeekDefinition<CR>
+" got that last edit location
+map g; `.
+" user ctrl + s to save the file
+map <c-s> :w<CR>
+nnoremap L :vsc Window.NextTab<cr>
+nnoremap H :vsc Window.PreviousTab<cr>
+nnoremap <leader>x :vsc File.Close<CR>
+nnoremap <leader>X :vsc File.CloseAllButThis<CR>
+nnoremap <leader>Q :vsc Exit<CR>
+
+
+" initate refactrogin for the item you are on 
+" you can finish refactoring by pressing enter in insert mode
+nnoremap <leader>ra :vsc Refactor.Rename<cr>
+
+
+" Split screen
+nnoremap <Leader>| <C-W>v
+nnoremap <Leader>- <C-W>s
+noremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+" nmap <C-H> :vsc Window.PreviousSplitPane<CR>
+" nmap <C-L> :vsc Window.NextSplitPane<CR>
+
+
+" toggle header/source file
+nmap <leader>ch :vsc EditorContextMenus.CodeWindow.ToggleHeaderCodeFile<CR>
+" show code actions
+"nmap <leader>ca :vsc Edit.ShowCodeLensMenu<CR>
+nmap <leader>ca :vsc View.QuickActions<CR>
+
+nmap gcc :vsc Edit.ToggleLineComment<CR>
+vmap gc :vsc Edit.ToggleLineComment<CR>
+
+" show all files that have been changed
+nnoremap <leader>gc :vsc Team.Git.GoToGitChanges<cr>
+" annotate the file with git blame
+nnoremap <leader>gb :vsc Team.Git.Annotate<cr>
+" show changes you've done to the current file
+nnoremap <leader>c :vsc Team.Git.CompareWithUnmodified<cr>
+" show variable type or method signature
+nnoremap <S-k> :vsc Edit.QuickInfo<CR>
+" open the folder containing the current file
+nnoremap gof :vsc File.OpenContainingFolder<cr>
+" show the current file in the solution explorer
+nnoremap <leader>; :vsc SolutionExplorer.SyncWithActiveDocument<CR>
+"close all tabs but the current one 
+"notice the o is in upper case
+nnoremap <C-W>O :vsc File.CloseAllButThis<CR>
+" use < to indent code that you select using visual mode
+vmap < <gv
+vmap > >gv
+" search for the selected text 
+vnoremap // y/\V<C-R>"<CR>
+" add or remove break point at the current line
+nnoremap <leader>b :vsc Debug.ToggleBreakpoint<cr>
+" when opening file diff
+" go to the prev diff
+nnoremap [c :vsc Diff.PreviousDifference<cr>
+" go to the next diff
+nnoremap ]c :vsc Diff.NextDifference<cr>
+
+
+nmap [d :vsc Edit.GoToPreviousIssueinFile<CR>
+nmap ]d :vsc Edit.GoToNextIssueinFile<CR>
+nmap [e :vsc View.PreviousError<CR>
+nmap ]e :vsc View.NextError<CR>
+
+
+nnoremap <leader><leader> :vsc Edit.GotoFile<CR>
+nnoremap <leader>ff :vsc Edit.FindinFiles<CR>
+nnoremap <leader>, :vsc Edit.GoToRecentFile<CR>
+
+
+nnoremap go :vsc Edit.GoToSymbol<CR>
+
+imap <c-j> <Down>
+imap <c-k> <Up>
+imap <c-l> <Right>
+imap <c-h> <left>
+imap <c-a> <Esc>I
+imap <c-e> <Esc>A
+
+
+
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
+
+nnoremap <leader>rr :so ~/.vsvimrc<cr>

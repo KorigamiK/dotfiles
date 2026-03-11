@@ -18,6 +18,7 @@
   "journal": {
     "path": "/home/origami/Syncthing/Obsidian/Origami",
   },
+  "middle_click_paste": false,
   "icon_theme": "Material Icon Theme",
   "title_bar": {
     "show_sign_in": false,
@@ -57,8 +58,7 @@
       "max_severity": null,
     },
   },
-  "ssh_connections": [
-  ],
+  "ssh_connections": [],
   "languages": {
     "JSONC": {
       "show_edit_predictions": true,
@@ -117,9 +117,9 @@
     "basedpyright": {
       "settings": {
         "basedpyright": {
-          "typeCheckingMode": "standard",
-        },
-      },
+          "typeCheckingMode": "basic"
+        }
+      }
     },
     "ruff": {
       "initialization_options": {
@@ -171,6 +171,8 @@
     },
   },
   "agent": {
+    "enable_feedback": false,
+    "expand_edit_card": false,
     "use_modifier_to_send": true,
     "play_sound_when_agent_done": false,
     "always_allow_tool_actions": true,
@@ -207,6 +209,7 @@
     "inline_assistant_model": {
       "provider": "copilot_chat",
       "model": "oswe-vscode-prime",
+      // "model": "grok-code-fast-1"
     },
     "default_profile": "write",
     "dock": "left",
@@ -233,7 +236,14 @@
     "working_directory": "current_project_directory",
     "env": {
       "EDITOR": "zed --wait",
+      "MSYSTEM": "MINGW64",
+      "CHERE_INVOKING": "1",
+      "MSYS2_PATH_TYPE": "inherit"
     },
+    "shell": {
+      "program": "C:/msys64/usr/bin/bash.exe --login -i"
+    },
+    "font_fallbacks": ["Symbols Nerd Font"]
   },
   "gutter": {
     "min_line_number_digits": 2,

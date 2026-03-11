@@ -17,7 +17,10 @@
     "default": "right",
     "jupyter-notebook": "right"
   },
-  "python.defaultInterpreterPath": "/bin/python",
+  "python.defaultInterpreterPath": "/usr/bin/python",
+  "terminal.integrated.inheritEnv": true,
+  "python.terminal.activateEnvironment": true,
+  "python.terminal.activateEnvInCurrentTerminal": true,
   "editor.scrollbar.horizontal": "auto",
   "vetur.experimental.templateInterpolationService": true,
   "vetur.validation.templateProps": true,
@@ -63,6 +66,7 @@
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "C_Cpp.autocompleteAddParentheses": true,
+  "workbench.sideBar.location": "right",
   "editor.formatOnSave": false,
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
@@ -70,7 +74,7 @@
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "workbench.iconTheme": "material-icon-theme",
-  "editor.fontFamily": "'Iosevka Paper', 'monospace', 'Symbols Nerd Font Mono', 'Noto Color Emoji'",
+  "editor.fontFamily": "'Iosevka Paper', 'monospace', 'Noto Color Emoji'",
   "editor.lineHeight": 1.5,
   "terminal.integrated.fontFamily": "'Iosevka Paper', 'Symbols Nerd Font', 'Victor Mono SemiBold', monospace, 'Noto Color Emoji'",
   "terminal.integrated.detectLocale": "on",
@@ -117,7 +121,7 @@
     "dotenv": false
   },
   "[cpp]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools"
+    "editor.defaultFormatter": "xaver.clang-format"
   },
   "C_Cpp.default.includePath": [
     "/usr/include"
@@ -126,7 +130,7 @@
     "editor.autoClosingBrackets": "always",
     "editor.autoClosingQuotes": "always",
     "editor.tabCompletion": "on",
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.inlayHints.enabled": "offUnlessPressed",
   "editor.stickyScroll.enabled": true,
@@ -148,20 +152,33 @@
     "Git Bash": {
       "source": "Git Bash"
     },
-    "MSYS2 mingw64": {
-      "path": [
-        "C:\\msys64\\msys2_shell.cmd"
-      ],
+    "MSYS2 ucrt64": {
+      "path": "C:\\msys64\\usr\\bin\\bash.exe",
       "args": [
-        "-defterm",
-        "-here",
-        "-no-start",
-        "-mingw64",
-        "-use-full-path"
+        "--login",
+        "-i"
       ],
-      "icon": "arrow-circle-up"
+      "env": {
+        "MSYSTEM": "UCRT64",
+        "CHERE_INVOKING": "1",
+        "MSYS2_PATH_TYPE": "inherit"
+      }
+    },
+    "MSYS2 mingw64": {
+      "path": "C:\\msys64\\usr\\bin\\bash.exe",
+      "args": [
+        "--login",
+        "-i"
+      ],
+      "env": {
+        "MSYSTEM": "MINGW64",
+        "CHERE_INVOKING": "1",
+        "MSYS2_PATH_TYPE": "inherit"
+      }
     }
   },
+  "terminal.integrated.shellIntegration.enabled": true,
+  "terminal.integrated.shellIntegration.decorationsEnabled": "both",
   "hardhat.telemetry": false,
   "githubPullRequests.fileListLayout": "tree",
   "githubPullRequests.pullBranch": "never",
@@ -190,13 +207,13 @@
   "haskell.manageHLS": "GHCup",
   "window.zoomLevel": 1,
   "explorer.confirmDragAndDrop": false,
-  "vim.visualstar": true,
   "vim.handleKeys": {
     "<C-f>": false,
     "<C-n>": false,
     "<C-p>": false,
     "<C-P>": false
   },
+  "vim.visualstar": true,
   // To improve performance
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1
@@ -243,8 +260,8 @@
   "sqltools.useNodeRuntime": true,
   "window.menuBarVisibility": "hidden",
   "diffEditor.renderSideBySide": true,
-  "diffEditor.hideUnchangedRegions.enabled": true,
-  "diffEditor.ignoreTrimWhitespace": false,
+
+  "diffEditor.ignoreTrimWhitespace": true,
   "github.copilot.editor.enableAutoCompletions": true,
   "vim.enableNeovim": true,
   "vim.overrideCopy": false,
@@ -254,15 +271,6 @@
     "workbench.action.tasks.runTask"
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "g",
-        "o"
-      ],
-      "commands": [
-        "workbench.action.gotoSymbol"
-      ]
-    },
     {
       "before": [
         "leader",
@@ -689,30 +697,18 @@
       "commands": [
         "workbench.action.editor.changeLanguageMode"
       ]
-    }
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
+    },
     {
       "before": [
         "g",
-        "b",
-        "c"
+        "o"
       ],
       "commands": [
-        {
-          "command": "editor.action.blockComment"
-        }
+        "workbench.action.gotoSymbol"
       ]
-    },
-    {
-      "before": [
-        "leader",
-        "x"
-      ],
-      "commands": [
-        "workbench.action.closeActiveEditor"
-      ]
-    },
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": [
         "shift+l"
@@ -747,6 +743,18 @@
       "commands": [
         {
           "command": "git.revertSelectedRanges"
+        }
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "b",
+        "c"
+      ],
+      "commands": [
+        {
+          "command": "editor.action.blockComment"
         }
       ]
     },
@@ -805,36 +813,49 @@
   "chat.agent.enabled": true,
   "github.copilot.chat.agent.thinkingTool": true,
   "editor.minimap.enabled": false,
-  // "window.titleBarStyle": "native",
+
   "workbench.editor.enablePreview": false,
   "workbench.quickOpen.closeOnFocusLost": false,
   "jupyter.askForKernelRestart": false,
-  "database-client.autoSync": true,
-  "workbench.sideBar.location": "right",
-  "inlineChat.enableV2": true,
-  "inlineChat.notebookAgent": true,
-  "chat.mcp.autostart": "onlyNew",
-  "terminal.integrated.stickyScroll.enabled": true,
-  "terminal.integrated.rightClickBehavior": "selectWord",
-  "githubPullRequests.codingAgent.uiIntegration": true,
-  "chat.todoListTool.enabled": true,
+  "editor.scrollOnMiddleClick": true,
+  "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.smoothScrolling": true,
+  "window.customTitleBarVisibility": "never",
+  "window.titleBarStyle": "native",
+  "jupyter.interactiveWindow.creationMode": "perFile",
+  "zenMode.hideLineNumbers": false,
   "mssql.connectionGroups": [
     {
       "name": "ROOT",
       "id": "ROOT"
     }
   ],
-  "git.blame.editorDecoration.enabled": true,
-  "[dockercompose]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.autoIndent": "advanced",
-    "editor.defaultFormatter": "redhat.vscode-yaml"
+  "chat.agentSessionsViewLocation": "view",
+  "inlineChat.notebookAgent": true,
+  "inlineChat.enableV2": true,
+  "chat.mcp.autostart": "newAndOutdated",
+  "terminal.integrated.stickyScroll.enabled": false,
+  "terminal.integrated.rightClickBehavior": "selectWord",
+  "chat.todoListTool.enabled": true,
+  "cmake.additionalCompilerSearchDirs": [
+    "C:/msys64/mingw32/bin",
+    "C:/msys64/mingw64/bin",
+    "C:/msys64/clang32/bin",
+    "C:/msys64/clang64/bin",
+    "C:/msys64/clangarm64/bin"
+  ],
+  "terminal.integrated.allowedLinkSchemes": [
+    "file",
+    "http",
+    "https",
+    "mailto",
+    "vscode",
+    "vscode-insiders",
+    "ms-settings"
+  ],
+  "[handlebars]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
   },
-  "[github-actions-workflow]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
-  },
-  "update.mode": "manual",
   "interactiveWindow.executeWithShiftEnter": true,
   "telemetry.editStats.enabled": false,
   "telemetry.editStats.showDecorations": false,
@@ -856,7 +877,6 @@
   "dataWrangler.experiments.copilot.enabled": true,
   "dataWrangler.experiments.autoDetectCsvDelimiter": true,
   "telemetry.telemetryLevel": "off",
-  "workbench.activityBar.location": "hidden",
   "editor.fontSize": 14,
   "terminal.integrated.fontSize": 14,
   "explorer.openEditors.visible": 1,
@@ -870,10 +890,7 @@
   "chat.agent.thinking.collapsedTools": "withThinking",
   "github.copilot.nextEditSuggestions.enabled": true,
   "window.commandCenter": false,
-  "github.copilot.chat.completionsFetcher": "electron-fetch",
-  "workbench.startupEditor": "agentSessionsWelcomePage",
   "scm.repositories.selectionMode": "single",
-  "ruff.enable": false,
   "github.copilot.chat.anthropic.tools.websearch.enabled": true,
   "github.copilot.chat.copilotMemory.enabled": true,
   "github.copilot.chat.languageContext.fix.typescript.enabled": true,
@@ -882,6 +899,21 @@
   "github.copilot.chat.notebook.followCellExecution.enabled": true,
   "github.copilot.chat.notebook.enhancedNextEditSuggestions.enabled": true,
   "editor.experimentalGpuAcceleration": "off",
+  "workbench.activityBar.location": "hidden",
+  "git.blame.editorDecoration.enabled": true,
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "diffEditor.maxComputationTime": 0,
+  "git.openRepositoryInParentFolders": "always",
+  "mssql.autoDisableNonTSqlLanguageService": true,
   "github.copilot.chat.askQuestions.enabled": true,
-  "workbench.activityBar.location": "hidden"
+  "inlineChat.renderMode": "hover",
+  "github.copilot.chat.completionsFetcher": "electron-fetch",
+  "workbench.startupEditor": "none",
+  "ruff.enable": false,
+  "chat.instructionsFilesLocations": {
+    ".github/instructions": true,
+    ".claude/rules": true,
+  },
+  "remote.autoForwardPorts": false,
+  "terminal.integrated.enableImages": true,
 }

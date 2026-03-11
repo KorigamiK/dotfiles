@@ -679,8 +679,10 @@
     "command": "workbench.action.chat.history",
     "when": "chatIsEnabled && inChat"
   },
-]  {
+  {
     "key": "space x",
     "command": "workbench.action.closeActiveEditor",
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
   }
+] 
+
