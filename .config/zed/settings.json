@@ -58,7 +58,143 @@
       "max_severity": null,
     },
   },
-  "ssh_connections": [],
+  "ssh_connections": [
+    {
+      "host": "192.168.3.19",
+      "username": "riya23077",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/20TB-storage/tony21360"],
+        },
+        {
+          "paths": [
+            "/Users/kushagra/OneDrive/OneDrive - Estee Advisors Pvt Ltd/Documents/code/review",
+          ],
+        },
+        {
+          "paths": ["/home/kushagra"],
+        },
+        {
+          "paths": ["/home/origami/real_code/Strategy"],
+        },
+        {
+          "paths": ["~/citation"],
+        },
+        {
+          "paths": ["~/citation/analysis"],
+        },
+        {
+          "paths": ["~/test"],
+        },
+        {
+          "paths": ["~/test/Iosevka-Paper"],
+        },
+      ],
+      "upload_binary_over_ssh": false,
+    },
+    {
+      "host": "192.168.1.187",
+      "username": "tony21360",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["~/BTP"],
+        },
+      ],
+    },
+    {
+      "host": "kl-iiitd",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["~/power"],
+        },
+      ],
+    },
+    {
+      "host": "tn-iiitd",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/20TB-storage/tony21360/BTP"],
+        },
+        {
+          "paths": ["/20TB-storage/tony21360/citation"],
+        },
+      ],
+    },
+    {
+      "host": "ggn101",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/kushagra/Estee.Linux"],
+        },
+        {
+          "paths": ["/home/kushagra/Estee.Linux/Platform/Estee.Linux"],
+        },
+        {
+          "paths": ["/home/kushagra/Estee.Linux/Platform/Estee.Linux/build"],
+        },
+      ],
+    },
+    {
+      "host": "tn-iiitd.korigamik.dev",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/20TB-storage/tony21360"],
+        },
+        {
+          "paths": ["/20TB-storage/tony21360/citation"],
+        },
+      ],
+    },
+    {
+      "host": "ri-iiitd",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/ip_arul/riya23077/citation"],
+        },
+        {
+          "paths": ["/home/ip_arul/riya23077/citation/analysis/./"],
+        },
+      ],
+    },
+    {
+      "host": "ggndev",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/origami"],
+        },
+        {
+          "paths": ["/home/origami/real_code/Strategy/./"],
+        },
+        {
+          "paths": [
+            "/home/origami/real_code/Strategy/Estee.Linux/Estee.Strategy/./",
+          ],
+        },
+      ],
+    },
+    {
+      "host": "macdev",
+      "args": [],
+      "projects": [],
+    },
+    {
+      "host": "ri-iiitd",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/ip_arul/riya23077/citation/./"],
+        },
+      ],
+    },
+  ],
   "languages": {
     "JSONC": {
       "show_edit_predictions": true,
@@ -173,9 +309,11 @@
   "agent": {
     "enable_feedback": false,
     "expand_edit_card": false,
+    "tool_permissions": {
+      "default": "allow"
+    },
     "use_modifier_to_send": true,
     "play_sound_when_agent_done": false,
-    "always_allow_tool_actions": true,
     "profiles": {
       "write": {
         "name": "Write",
@@ -312,6 +450,8 @@
   },
   "inline_code_actions": false,
   "experimental.theme_overrides": {
+    "editor.active_line_number": "#CBC6AC",
+    "editor.line_number": "#43434C",
     "vim.normal.background": "#202027",
     "vim.visual.background": "#2E2E3A",
     "vim.visual_line.background": "#2E2E3A",

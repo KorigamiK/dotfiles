@@ -219,6 +219,16 @@ map("n", "<A-z>", "<cmd>set wrap!<CR>", { desc = "Toggle line wrap" })
 map("t", "<C-k>", "<C-\\><C-N><C-w><C-w>", { desc = "Window prev" })
 map("t", "<C-h>", "<C-\\><C-N><C-w><C-w>", { desc = "Window prev" })
 
+-- -- movement (wrapped in normal! to suppress showcmd display)
+-- map({ "n", "x" }, "j", function()
+--   local prefix = vim.fn.mode() ~= "n" and "gv" or ""
+--   vim.cmd("normal! " .. prefix .. vim.v.count1 .. "gj")
+-- end, { silent = true })
+-- map({ "n", "x" }, "k", function()
+--   local prefix = vim.fn.mode() ~= "n" and "gv" or ""
+--   vim.cmd("normal! " .. prefix .. vim.v.count1 .. "gk")
+-- end, { silent = true })
+
 -- maximize / restore current window (works in terminal too)
 map("n", "<S-Esc>", function()
   toggle_maximize()

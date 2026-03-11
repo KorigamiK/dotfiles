@@ -165,6 +165,14 @@ vim.lsp.config.tinymist = {
   },
 }
 
+vim.lsp.config.jsonls = {
+  settings = {
+    json = {
+      validate = { enable = false },
+    },
+  },
+}
+
 local jdk_home = "/usr/lib/jvm/java-11-openjdk"
 vim.lsp.config.kotlin_language_server = {
   cmd_env = {
@@ -186,7 +194,7 @@ vim.lsp.config.kotlin_language_server = {
 } ]]
 
 local servers = {
-  -- "denols",
+  "denols",
   "ts_ls",
   "html",
   "astro",

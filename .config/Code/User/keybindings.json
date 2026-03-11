@@ -517,11 +517,6 @@
     "when": "inQuickOpen"
   },
   {
-    "key": "ctrl+e",
-    "command": "mssql.runQuery",
-    "when": "editorTextFocus && editorLangId == 'sql'"
-  },
-  {
     "key": "ctrl+shift+e",
     "command": "-mssql.runQuery",
     "when": "editorTextFocus && editorLangId == 'sql'"
@@ -660,6 +655,10 @@
     "command": "-editor.action.announceCursorPosition"
   },
   {
+    "key": "ctrl+e",
+    "command": "mssql.runQuery"
+  },
+  {
     "key": "ctrl+l",
     "command": "workbench.action.navigateRight",
     "when": "inKeybindings && inKeybindingsSearch"
@@ -675,14 +674,32 @@
     "when": "chatIsEnabled && inChat"
   },
   {
-    "key": "alt+h",
+    "key": "ctrl+alt+h",
     "command": "workbench.action.chat.history",
     "when": "chatIsEnabled && inChat"
+  },
+  {
+    "key": "alt+v",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.splitEditorRight",
+        "workbench.action.terminal.new",
+        "workbench.action.terminal.moveToEditor",
+        "workbench.action.focusActiveEditorGroup",
+        "workbench.action.previousEditor",
+        "workbench.action.closeActiveEditor"
+      ]
+    }
   },
   {
     "key": "space x",
     "command": "workbench.action.closeActiveEditor",
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
+  },
+  {
+    "key": "space shift+q",
+    "command": "workbench.action.closeWindow",
+    "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
   }
-] 
-
+]
