@@ -220,6 +220,11 @@
   "vim.leader": "<Space>",
   "vim.foldfix": true,
   "workbench.colorCustomizations": {
+    "[Duskfox]": {
+      "focusBorder": "#6E6A85",
+      "panel.background": "#232136",
+      "tab.activeBorderTop": "default"
+    },
     "[Kanagawa]": {
       "statusBarItem.remoteBackground": "#39404a",
       "statusBarItem.remoteForeground": "#dcd7ba",
@@ -813,7 +818,7 @@
   "terminal.integrated.lineHeight": 1.3,
   "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
   "cmake.showOptionsMovedNotification": false,
-  "workbench.colorTheme": "Kanagawa",
+  "workbench.colorTheme": "Duskfox",
   "notebook.lineNumbers": "on",
   "window.enableMenuBarMnemonics": false,
   "editor.inlineSuggest.edits.showCollapsed": true,
@@ -966,5 +971,8 @@
   "terminal.integrated.windowsUseConptyDll": true,
   "terminal.external.linuxExec": "ghostty",
   "python.useEnvsExtension": true,
-  "github.copilot.nextEditSuggestions.extendedRange": true
+  "github.copilot.nextEditSuggestions.extendedRange": true,
+  "chat.imageCarousel.enabled": true,
+  "imageCarousel.explorerContextMenu.enabled": true,
+  "workbench.activityBar.location": "hidden"
 }

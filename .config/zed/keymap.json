@@ -29,7 +29,7 @@
   {
     "context": "AgentPanel && external_agent_thread",
     "bindings": {
-      "ctrl-n": null,
+      // "ctrl-n": null,
       "ctrl-alt-t": "agent::NewThread",
     },
   },
@@ -466,4 +466,16 @@
       "ctrl-p": "file_finder::Toggle"
     }
   },
+  {
+    "context": "(AgentPanel && text_thread)",
+    "bindings": {
+      "ctrl-n": null
+    }
+  },
+  {
+    "context": "(AgentPanel && acp_thread)",
+    "bindings": {
+      "ctrl-n": null
+    }
+  }
 ]
