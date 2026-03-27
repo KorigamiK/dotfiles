@@ -818,7 +818,7 @@
   "terminal.integrated.lineHeight": 1.3,
   "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
   "cmake.showOptionsMovedNotification": false,
-  "workbench.colorTheme": "Duskfox",
+  "workbench.colorTheme": "Kanagawa",
   "notebook.lineNumbers": "on",
   "window.enableMenuBarMnemonics": false,
   "editor.inlineSuggest.edits.showCollapsed": true,
