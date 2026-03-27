@@ -263,10 +263,10 @@ end, { desc = "Prompt while replacing with ai" })
 
 -- keybinds to support vim motions
 map("n", "g,", function()
-  require("llm").prompt_operatorfunc { replace = false, service = "groq" }
+  require("llm").prompt_operatorfunc { replace = false, service = "github" }
 end)
 map("n", "g.", function()
-  require("llm").prompt_operatorfunc { replace = true, service = "groq" }
+  require("llm").prompt_operatorfunc { replace = true, service = "github" }
 end)
 
 if vim.g.neovide == true then
@@ -363,6 +363,11 @@ end, { noremap = true, silent = true })
 
 map("n", "K", function()
   vim.lsp.buf.hover { border = "single" }
+end, { desc = "LSP hover" })
+
+
+map("n", "<leader>gb", function()
+  vim.cmd('Gitsigns blame_line')
 end, { desc = "LSP hover" })
 
 for _, mode in ipairs { "x", "o" } do

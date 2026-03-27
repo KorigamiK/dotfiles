@@ -6,6 +6,11 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    }
+  },
   "use_system_path_prompts": false,
   "use_system_prompts": false,
   "agent_buffer_font_size": 16.0,
@@ -38,7 +43,7 @@
     "quick_actions": false,
   },
   "edit_predictions": {
-    "provider": "copilot",
+    "provider": "zed",
     "disabled_globs": [".env*"],
     "mode": "eager",
     "copilot": {
@@ -353,11 +358,13 @@
     "dock": "left",
     "default_width": 450,
     "default_model": {
+      "effort": "high",
+      "enable_thinking": true,
       "provider": "copilot_chat",
       "model": "gpt-5.3-codex",
     },
   },
-  "theme": "Kanagawa",
+  "theme": "Duskfox - blurred",
   "ui_font_size": 18,
   "agent_ui_font_size": 19.0,
   "buffer_font_size": 17,
