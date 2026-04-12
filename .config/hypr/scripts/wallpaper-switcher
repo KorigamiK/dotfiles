@@ -3,7 +3,7 @@
 # WALLPAPERS PATH
 DIR=~/Pictures/wallpapers
 
-PICS=($(ls ${DIR} | grep -e ".jpg$" -e ".jpeg$" -e ".png$" -e ".gif$"))
+PICS=($(ls ${DIR} | grep -e ".jpg$" -e ".webp$" -e ".jpeg$" -e ".png$" -e ".gif$"))
 
 RANDOM_PIC=${PICS[$RANDOM % ${#PICS[@]}]}
 RANDOM_PIC_NAME="${#PICS[@]}. random"

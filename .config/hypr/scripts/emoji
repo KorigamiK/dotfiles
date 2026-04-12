@@ -1,14 +1,12 @@
 #!/bin/bash
 set -euo pipefail
 
-if [[ ! $(pidof wofi) ]]; then
-  EMOJI="$(sed '1,/^### DATA ###$/d' "$0" | fuzzel -d -p "Emoji " -i | cut -d ' ' -f 1 | tr -d '\n')"
-  wtype "$EMOJI"; wl-copy "$EMOJI"
-else
-	pkill fuzzel
-fi
+SCRIPT_NAME="$(basename -- "$0")"
+CACHE_ROOT="${XDG_CACHE_HOME:-$HOME/.cache}"
+CACHE_FILE="$CACHE_ROOT/fuzzel-$SCRIPT_NAME"
 
-### DATA ###
+emoji_data() {
+  cat <<'__EMOJI_DATA__'
 😀 grinning face face smile happy joy :D grin
 😃 grinning face with big eyes face happy joy haha :D :) smile funny
 😄 grinning face with smiling eyes face happy joy funny haha laugh like :D :) smile
@@ -1393,7 +1391,6 @@ fi
 ©️ copyright ip license circle law legal
 ®️ registered alphabet circle
 ™️ trade mark trademark brand law legal
-#️⃣ keycap  symbol blue-square twitter
 *️⃣ keycap  star keycap
 0️⃣ keycap 0 0 numbers blue-square null
 1️⃣ keycap 1 blue-square numbers 1
@@ -1879,3 +1876,29 @@ fi
 🪈 flute bamboo music instrument pied piper
 🪯 khanda Sikhism religion
 🛜 wireless wifi internet contactless signal
+🙂‍↔️ head shaking horizontally no nope disagree side-to-side
+🙂‍↕️ head shaking vertically yes nod agree up-and-down
+🐦‍🔥 phoenix rebirth firebird mythical ashes rising
+🍋‍🟩 lime fruit citrus green sour
+🍄‍🟫 brown mushroom fungus toadstool earthy
+⛓️‍💥 broken chain snap escape freedom unlink
+__EMOJI_DATA__
+}
+
+mkdir -p "$CACHE_ROOT"
+
+if ! pidof fuzzel >/dev/null; then
+  EMOJI="$(
+    emoji_data |
+      fuzzel -d --cache="$CACHE_FILE" -p "Emoji " -i |
+      cut -d ' ' -f 1 |
+      tr -d '\n'
+  )"
+
+  if [[ -n "$EMOJI" ]]; then
+    wtype "$EMOJI"
+    wl-copy "$EMOJI"
+  fi
+else
+  pkill fuzzel
+fi
