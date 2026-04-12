@@ -19,6 +19,8 @@ custom-shader = ./cursor.glsl
 # ssh-integration=full
 
 font-family = Iosevka Paper
+# font-family = Ioskeley Mono
+# font-family = ProFontllx
 # font-family = Dank Mono
 # font-family = Roobert Mono TRIAL
 # font-family = Zenbones Mono
@@ -100,8 +102,8 @@ keybind = ctrl+shift+p=toggle_command_palette
 keybind = ctrl+b>c=new_tab
 keybind = ctrl+b>shift+l=next_tab
 keybind = ctrl+b>shift+h=previous_tab
-keybind = ctrl+b>comma=move_tab:-1
-keybind = ctrl+b>period=move_tab:1
+keybind = ctrl+b>y=move_tab:-1
+keybind = ctrl+b>o=move_tab:1
 
 # quick tab switch
 keybind = ctrl+b>1=goto_tab:1
