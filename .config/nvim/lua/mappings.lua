@@ -366,8 +366,12 @@ map("n", "K", function()
 end, { desc = "LSP hover" })
 
 
-map("n", "<leader>gb", function()
+map("n", "gb", function()
   vim.cmd('Gitsigns blame_line')
+end, { desc = "LSP hover" })
+
+map("n", "<leader>gB", function()
+  vim.cmd('Gitsigns blame')
 end, { desc = "LSP hover" })
 
 for _, mode in ipairs { "x", "o" } do

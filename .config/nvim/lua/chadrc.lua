@@ -30,7 +30,9 @@ M.ui = {
 
   statusline = {
     theme = "vscode_colored",
+    order = { "mode", "file", "git", "%=", "showcmd", "lsp_msg", "%=", "diagnostics", "searchcount", "lsp", "cursor", "cwd" },
     modules = {
+      showcmd = "%#StText# %-12.12S ",
       mode = function()
         local utils = require "nvchad.stl.utils"
         if not utils.is_activewin() then
@@ -40,9 +42,13 @@ M.ui = {
         local m = vim.api.nvim_get_mode().mode
         return "%#St_" .. modes[m][2] .. "mode# " .. modes[m][1] .. " "
       end,
-      lsp_msg = function()
-        local utils = require "nvchad.stl.utils"
-        return "%#StText# %-12.12S %#St_LspMsg#" .. utils.lsp_msg()
+      searchcount = function()
+        if vim.v.hlsearch == 0 then
+          return ""
+        end
+        local result = vim.fn.searchcount({ maxcount = 1000, timeout = 3000 })
+        local denominator = math.min(result.total, result.maxcount)
+        return string.format("[%d/%d]", result.current, denominator)
       end,
       cursor = "%#StText# Ln %l, Col %v ",
     },

@@ -604,7 +604,15 @@ return {
     "neo451/feed.nvim",
     cmd = "Feed",
     opts = {
-      feeds = { "https://neovim.io/news.xml", name = "Neovim News", tags = { "tech", "news" } },
+      feeds = {
+        {
+          "https://neovim.io/news.xml",
+          name = "Neovim News",
+          tags = { "tech", "news" }, -- tags given are inherited by all its entries
+        },
+        "https://korigamik.dev/rss.xml",
+        "neovim/neovim/releases", -- GitHub links
+      },
     },
   },
 
