@@ -32,6 +32,7 @@ M.add = {
   NeogitDiffDeleteCursor = { bg = "NONE", fg = "red" },
   NeogitDiffDeleteHighlight = { bg = "NONE", fg = "red" },
   NeogitDiffDelete = { bg = "NONE", fg = "red" },
+  NeogitDiffDeleteInline = { bg = "#D8616B", fg = "black2" },
   NeogitChangeDeleted = { bg = "NONE", fg = "red" },
   -- TelescopeSelection = { bg = "red" },
   LspInlayHint = { bg = "NONE", fg = "light_grey" },
