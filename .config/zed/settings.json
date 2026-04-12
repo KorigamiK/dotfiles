@@ -373,23 +373,26 @@
     "ss06": true, // => test kushagra,
   },
   "buffer_line_height": "comfortable",
+  "terminal": {
+    "line_height":"comfortable"
+  },
   "vim_mode": true,
   "relative_line_numbers": "enabled",
   "buffer_font_family": "Iosevka Paper",
   "ui_font_family": ".SystemUIFont",
-  "terminal": {
-    "working_directory": "current_project_directory",
-    "env": {
-      "EDITOR": "zed --wait",
-      "MSYSTEM": "MINGW64",
-      "CHERE_INVOKING": "1",
-      "MSYS2_PATH_TYPE": "inherit"
-    },
-    "shell": {
-      "program": "C:/msys64/usr/bin/bash.exe --login -i"
-    },
-    "font_fallbacks": ["Symbols Nerd Font"]
-  },
+  // "terminal": {
+  //   "working_directory": "current_project_directory",
+  //   "env": {
+  //     "EDITOR": "zed --wait",
+  //     "MSYSTEM": "MINGW64",
+  //     "CHERE_INVOKING": "1",
+  //     "MSYS2_PATH_TYPE": "inherit"
+  //   },
+  //   "shell": {
+  //     "program": "C:/msys64/usr/bin/bash.exe --login -i"
+  //   },
+  //   "font_fallbacks": ["Symbols Nerd Font"]
+  // },
   "gutter": {
     "min_line_number_digits": 2,
   },
@@ -464,6 +467,9 @@
     "vim.visual_line.background": "#2E2E3A",
     "vim.visual_block.background": "#2E2E3A",
     "vim.insert.background": "#2E2E3A",
+    "panel.background": "#19182b",
+    "title_bar.inactive_background": "#19182b",
+    "title_bar.background": "#19182b",
     // "search.match_background": "#a07d3a3d",
     // "editor.document_highlight.bracket_background": "#528b8b22",
     // "editor.document_highlight.read_background": "#528b8b22",

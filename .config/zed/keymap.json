@@ -114,6 +114,7 @@
       "alt-c": ["workspace::SendKeystrokes", "\" +"],
       // Toggle inlay hints
       "space l i": "editor::ToggleInlayHints",
+      "space J": "journal::NewJournalEntry",
       "g o": "outline::Toggle",
 
       // Toggle soft wrap
@@ -250,10 +251,26 @@
     },
   },
   {
+    "context": "Pane > Terminal && !Dock",
+    "bindings": {
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-h": "workspace::ActivatePaneLeft"
+    }
+  },
+  {
+    "context": "Dock > Pane > Terminal",
+    "bindings": {
+      "ctrl-h": null,
+      "ctrl-l": null,
+      "ctrl-k": "workspace::ActivatePaneUp"
+    }
+  },
+  {
     "context": "Terminal",
     "bindings": {
       "ctrl-n": null,
       "ctrl-p": null,
+      "ctrl-t": null,
       "ctrl-x": "terminal_panel::ToggleFocus",
     },
   },
@@ -323,12 +340,6 @@
     },
   },
   {
-    "context": "Pane > Terminal",
-    "bindings": {
-      "ctrl-l": null,
-    },
-  },
-  {
     "context": "vim_mode == normal",
     "bindings": {
       "shift-y": ["workspace::SendKeystrokes", "y $"],
@@ -367,10 +378,10 @@
   {
     "context": "ContextEditor > Editor && vim_mode == normal",
     "bindings": {
-      "space ,": "assistant::Assist",
+      // "space ,": "assistant::Assist",
       "space m": "agent::ToggleModelSelector",
-      "space b": "agent::ToggleNewThreadMenu"
-    }
+      "space b": "agent::ToggleNewThreadMenu",
+    },
   },
   {
     "context": "Editor && jupyter && !ContextEditor && !MessageEditor",
@@ -425,57 +436,57 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-shift-p": "command_palette::Toggle"
-    }
+      "ctrl-shift-p": "command_palette::Toggle",
+    },
   },
   {
     "context": "Editor",
     "bindings": {
-      "ctrl-shift-p": "command_palette::Toggle"
-    }
+      "ctrl-shift-p": "command_palette::Toggle",
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-shift-x": "zed::Extensions"
-    }
+      "ctrl-shift-x": "zed::Extensions",
+    },
   },
   {
     "context": "(Editor && !end_of_input && !Picker && !menu && !(showing_code_actions || showing_completions))",
     "bindings": {
-      "ctrl-n": "workspace::ToggleRightDock"
-    }
+      "ctrl-n": "workspace::ToggleRightDock",
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-shift-t": "pane::ReopenClosedItem"
-    }
+      "ctrl-shift-t": "pane::ReopenClosedItem",
+    },
   },
   {
     "context": "Picker || menu",
     "bindings": {
       "ctrl-n": "menu::SelectNext",
-      "ctrl-p": "menu::SelectPrevious"
-    }
+      "ctrl-p": "menu::SelectPrevious",
+    },
   },
   {
     "context": "ProjectPanel",
     "bindings": {
       "ctrl-n": "workspace::ToggleRightDock",
-      "ctrl-p": "file_finder::Toggle"
-    }
+      "ctrl-p": "file_finder::Toggle",
+    },
   },
   {
     "context": "(AgentPanel && text_thread)",
     "bindings": {
-      "ctrl-n": null
-    }
+      "ctrl-n": null,
+    },
   },
   {
     "context": "(AgentPanel && acp_thread)",
     "bindings": {
-      "ctrl-n": null
-    }
-  }
+      "ctrl-n": null,
+    },
+  },
 ]
