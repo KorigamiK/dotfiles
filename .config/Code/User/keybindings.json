@@ -54,12 +54,12 @@
   {
     "key": "ctrl+tab",
     "command": "workbench.action.terminal.focusNext",
-    "when": "terminalFocus"
+    "when": "terminalFocus && !terminalEditorFocus"
   },
   {
     "key": "ctrl+shift+tab",
     "command": "workbench.action.terminal.focusPrevious",
-    "when": "terminalFocus"
+    "when": "terminalFocus && !terminalEditorFocus"
   },
   {
     "key": "ctrl+h",
@@ -309,7 +309,37 @@
   {
     "key": "shift+escape",
     "command": "workbench.action.toggleMaximizedPanel",
-    "when": "panelFocus && panelVisible"
+    "when": "(panelFocus && panelVisible)"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "terminalEditorFocus && !terminalViewShowing"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight",
+    "when": "terminalEditorFocus && !terminalViewShowing"
+  },
+  {
+    "key": "ctrl+shift+tab",
+    "command": "workbench.action.previousEditorInGroup",
+    "when": "terminalEditorFocus"
+  },
+  {
+    "key": "ctrl+tab",
+    "command": "workbench.action.nextEditorInGroup",
+    "when": "terminalEditorFocus"
+  },
+  {
+    "key": "shift+escape",
+    "command": "workbench.action.toggleMaximizeEditorGroup",
+    "when": "terminalEditorFocus"
+  },
+  {
+    "key": "ctrl+shift+`",
+    "command": "workbench.action.createTerminalEditorSameGroup",
+    "when": "terminalEditorFocus"
   },
   {
     "key": "shift+escape",
@@ -679,20 +709,6 @@
     "when": "chatIsEnabled && inChat"
   },
   {
-    "key": "alt+v",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.action.splitEditorRight",
-        "workbench.action.terminal.new",
-        "workbench.action.terminal.moveToEditor",
-        "workbench.action.focusActiveEditorGroup",
-        "workbench.action.previousEditor",
-        "workbench.action.closeActiveEditor"
-      ]
-    }
-  },
-  {
     "key": "space x",
     "command": "workbench.action.closeActiveEditor",
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
@@ -701,5 +717,30 @@
     "key": "space shift+q",
     "command": "workbench.action.closeWindow",
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
-  }
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.terminal.killEditor",
+    "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated || terminalEditorFocus && terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.closeGroup",
+    "when": "activeEditorGroupEmpty && multipleEditorGroups"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "workbench.action.moveModalEditorToMain",
+    "when": "editorPartModal"
+  },
+  {
+    "key": "alt+v",
+    "command": "workbench.action.createTerminalEditorSide"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "-workbench.action.terminal.chat.start",
+    "when": "chatIsEnabled && terminalChatAgentRegistered && terminalFocusInAny && terminalHasBeenCreated || chatIsEnabled && terminalChatAgentRegistered && terminalFocusInAny && terminalProcessSupported"
+  },
+
 ]

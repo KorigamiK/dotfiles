@@ -974,5 +974,11 @@
   "github.copilot.nextEditSuggestions.extendedRange": true,
   "chat.imageCarousel.enabled": true,
   "imageCarousel.explorerContextMenu.enabled": true,
-  "workbench.activityBar.location": "hidden"
+  "workbench.activityBar.location": "hidden",
+  "terminal.integrated.commandsToSkipShell": [
+    "workbench.action.toggleMaximizeEditorGroup",
+    "workbench.action.createTerminalEditorSameGroup",
+    "workbench.action.toggleSidebarVisibility",
+    "workbench.action.navigateRight"
+  ],
 }
