@@ -100,6 +100,16 @@
     "command": "editor.action.showHover",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
+  {
+    "key": "enter",
+    "command": "editor.action.smartSelect.expand",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && editorTextFocus"
+  },
+  {
+    "key": "shift+enter",
+    "command": "editor.action.smartSelect.shrink",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && editorTextFocus"
+  },
   // File Explorer
   {
     "key": "r",
@@ -729,7 +739,7 @@
     "when": "activeEditorGroupEmpty && multipleEditorGroups"
   },
   {
-    "key": "ctrl+enter",
+    "key": "ctrl+escape",
     "command": "workbench.action.moveModalEditorToMain",
     "when": "editorPartModal"
   },
@@ -742,5 +752,4 @@
     "command": "-workbench.action.terminal.chat.start",
     "when": "chatIsEnabled && terminalChatAgentRegistered && terminalFocusInAny && terminalHasBeenCreated || chatIsEnabled && terminalChatAgentRegistered && terminalFocusInAny && terminalProcessSupported"
   },
-
 ]

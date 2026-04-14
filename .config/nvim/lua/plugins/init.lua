@@ -309,10 +309,10 @@ return {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-      -- {
-      --   "3rd/image.nvim",
-      --   opts = {},
-      -- },
+      {
+        "3rd/image.nvim",
+        opts = {},
+      },
     },
     lazy = "leetcode" ~= vim.fn.argv()[1],
     opts = {
