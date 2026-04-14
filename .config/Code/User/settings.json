@@ -229,7 +229,10 @@
       "statusBarItem.remoteBackground": "#39404a",
       "statusBarItem.remoteForeground": "#dcd7ba",
       "editorLineNumber.activeForeground": "#CBC6AC",
-      "editorLineNumber.dimmedForeground": "#43434C"
+      "editorLineNumber.dimmedForeground": "#43434C",
+      "editorGroup.border": "#5F5A77",
+      "sideBySideEditor.horizontalBorder": "#5F5A77",
+      "sideBySideEditor.verticalBorder": "#5F5A77"
     },
     "[Horizon Extended - Neo]": {
       "editorLineNumber.foreground": "#555555",
@@ -467,14 +470,6 @@
       ],
       "commands": [
         "editor.action.referenceSearch.trigger"
-      ]
-    },
-    {
-      "before": [
-        "enter"
-      ],
-      "commands": [
-        "editor.action.smartSelect.expand"
       ]
     },
     {
@@ -776,14 +771,6 @@
     },
     {
       "before": [
-        "enter"
-      ],
-      "commands": [
-        "editor.action.smartSelect.expand"
-      ]
-    },
-    {
-      "before": [
         "leader",
         "/"
       ],
@@ -981,4 +968,6 @@
     "workbench.action.toggleSidebarVisibility",
     "workbench.action.navigateRight"
   ],
+  "chat.viewSessions.orientation": "stacked",
+  "chat.tools.terminal.outputLocation": "terminal"
 }

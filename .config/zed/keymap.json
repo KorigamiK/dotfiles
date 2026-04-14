@@ -328,6 +328,7 @@
       "alt-k": "editor::MoveLineUp",
       "space f m": "editor::Format",
       "enter": "editor::SelectLargerSyntaxNode",
+      "shift-enter": "editor::SelectSmallerSyntaxNode",
     },
   },
   {
@@ -489,4 +490,22 @@
       "ctrl-n": null,
     },
   },
+  {
+    "context": "Editor && mode == full",
+    "unbind": {
+      "shift-enter": "editor::Newline"
+    }
+  },
+  {
+    "context": "Editor && mode == auto_height",
+    "unbind": {
+      "shift-enter": "editor::Newline"
+    }
+  },
+  {
+    "context": "Editor && showing_completions",
+    "unbind": {
+      "shift-enter": "editor::ConfirmCompletionReplace"
+    }
+  }
 ]
