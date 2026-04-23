@@ -232,7 +232,11 @@
       "editorLineNumber.dimmedForeground": "#43434C",
       "editorGroup.border": "#5F5A77",
       "sideBySideEditor.horizontalBorder": "#5F5A77",
-      "sideBySideEditor.verticalBorder": "#5F5A77"
+      "sideBySideEditor.verticalBorder": "#5F5A77",
+      "tab.activeBorderTop": "#7E9CD8",
+      "tab.unfocusedActiveBorderTop": "#5A6076",
+      "tab.unfocusedActiveForeground": "#8D8CA8",
+      "tab.unfocusedActiveBackground": "#212335"
     },
     "[Horizon Extended - Neo]": {
       "editorLineNumber.foreground": "#555555",
@@ -816,7 +820,6 @@
   "chat.agent.enabled": true,
   "github.copilot.chat.agent.thinkingTool": true,
   "editor.minimap.enabled": false,
-  "workbench.editor.enablePreview": false,
   "workbench.quickOpen.closeOnFocusLost": false,
   "jupyter.askForKernelRestart": false,
   "editor.scrollOnMiddleClick": true,
@@ -961,13 +964,14 @@
   "github.copilot.nextEditSuggestions.extendedRange": true,
   "chat.imageCarousel.enabled": true,
   "imageCarousel.explorerContextMenu.enabled": true,
-  "workbench.activityBar.location": "hidden",
   "terminal.integrated.commandsToSkipShell": [
     "workbench.action.toggleMaximizeEditorGroup",
     "workbench.action.createTerminalEditorSameGroup",
     "workbench.action.toggleSidebarVisibility",
-    "workbench.action.navigateRight"
+    "workbench.action.navigateRight",
   ],
   "chat.viewSessions.orientation": "stacked",
-  "chat.tools.terminal.outputLocation": "terminal"
+  "chat.tools.terminal.outputLocation": "terminal",
+  "chat.tools.confirmationCarousel.enabled": true,
+  "workbench.activityBar.location": "hidden"
 }

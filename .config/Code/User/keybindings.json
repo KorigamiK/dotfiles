@@ -44,12 +44,14 @@
     "when": "inOutput"
   },
   {
-    "command": "workbench.action.previousEditor",
-    "key": "ctrl+shift+tab"
+    "command": "workbench.action.previousEditorInGroup",
+    "key": "ctrl+shift+tab",
+    // "when": "!terminalFocus"
   },
   {
-    "command": "workbench.action.nextEditor",
-    "key": "ctrl+tab"
+    "command": "workbench.action.nextEditorInGroup",
+    "key": "ctrl+tab",
+    // "when": "!terminalFocus"
   },
   {
     "key": "ctrl+tab",
@@ -330,16 +332,6 @@
     "key": "ctrl+l",
     "command": "workbench.action.navigateRight",
     "when": "terminalEditorFocus && !terminalViewShowing"
-  },
-  {
-    "key": "ctrl+shift+tab",
-    "command": "workbench.action.previousEditorInGroup",
-    "when": "terminalEditorFocus"
-  },
-  {
-    "key": "ctrl+tab",
-    "command": "workbench.action.nextEditorInGroup",
-    "when": "terminalEditorFocus"
   },
   {
     "key": "shift+escape",
