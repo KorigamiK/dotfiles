@@ -477,7 +477,7 @@
       {
         "cursor": "#518b8bff",
         "background": "#518b8bff",
-        "selection": "#518b8b3d",
+        // "selection": "#518b8b3d",
       },
       //     {
       //       "cursor": "#a87222ff",
