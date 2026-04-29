@@ -194,6 +194,7 @@ end, { desc = "Run the last command in the current terminal" })
 -- paste
 map("i", "<C-v>", "<c-r>+", { desc = "Paste from clipboard" })
 map({ "n", "x", "v" }, "<A-c>", '"+', { desc = "Use the system clipboard" })
+map({ "n", "x", "v" }, "<D-c>", '"+', { desc = "Use the system clipboard" })
 
 -- Resenters screen after jumping (Note scrol down add 1 line to correct for navic)
 map("n", "<C-d>", "<C-d>zz<C-y>", { desc = "Jump Half page down" })
