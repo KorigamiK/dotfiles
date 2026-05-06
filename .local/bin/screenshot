@@ -1,0 +1,2 @@
+#!/bin/bash
+screencapture -i "/Users/ori/Pictures/Screenshots/Screenshot $(date '+%Y-%m-%d at %H.%M.%S').png"
