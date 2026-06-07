@@ -7,6 +7,9 @@
 // from the command palette or from `Zed` application menu.
 {
   "agent_servers": {
+    "opencode": {
+      "type": "registry"
+    },
     "codex-acp": {
       "type": "registry"
     }
@@ -359,12 +362,12 @@
     "default_width": 450,
     "default_model": {
       "effort": "high",
-      "enable_thinking": true,
+      "enable_thinking": false,
       "provider": "copilot_chat",
-      "model": "gpt-5.3-codex",
+      "model": "gpt-5.4",
     },
   },
-  "theme": "Duskfox - blurred",
+  "theme": "Kanagawa",
   "ui_font_size": 18,
   "agent_ui_font_size": 19.0,
   "buffer_font_size": 17,
