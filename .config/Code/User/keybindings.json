@@ -382,11 +382,6 @@
   },
   {
     "key": "shift+alt+.",
-    "command": "-editor.action.autoFix",
-    "when": "textInputFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)quickfix\\b/"
-  },
-  {
-    "key": "shift+alt+.",
     "command": "workbench.action.decreaseViewHeight"
   },
   {
@@ -424,11 +419,6 @@
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
   },
   {
-    "key": "ctrl+l",
-    "command": "workbench.action.navigateRight",
-    "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
-  },
-  {
     "key": "shift+l",
     "command": "workbench.action.nextEditorInGroup",
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
@@ -439,8 +429,18 @@
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
   },
   {
-    "key": "shift+x",
+    "key": "escape",
+    "command": "closeFindWidget",
+    "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused && findWidgetVisible && !isComposing"
+  },
+  {
+    "key": "space shift+x",
     "command": "workbench.action.closeOtherEditors",
+    "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
+  },
+  {
+    "key": "space g s",
+    "command": "workbench.view.scm",
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
   },
   {
@@ -788,5 +788,29 @@
     "key": "ctrl+escape",
     "command": "-claude-vscode.terminal.open.keyboard",
     "when": "config.claudeCode.useTerminal"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.switchWindow"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "workbench.action.chat.submit",
+    "when": "chatInputHasSendableContent && chatSessionOptionsValid && inChatInput && !chatSessionRequestInProgress && !withinEditSessionDiff || chatInputHasSendableContent && chatSessionOptionsValid && inChatInput && !withinEditSessionDiff && chatEditingSentRequest == 's'"
+  },
+  {
+    "key": "enter",
+    "command": "-workbench.action.chat.submit",
+    "when": "chatInputHasSendableContent && chatSessionOptionsValid && inChatInput && !chatSessionRequestInProgress && !withinEditSessionDiff || chatInputHasSendableContent && chatSessionOptionsValid && inChatInput && !withinEditSessionDiff && chatEditingSentRequest == 's'"
+  },
+  {
+    "key": "shift+alt+f",
+    "command": "actions.find",
+    "when": "editorFocus || editorIsOpen"
+  },
+  {
+    "key": "cmd+f",
+    "command": "-actions.find",
+    "when": "editorFocus || editorIsOpen"
   },
 ]

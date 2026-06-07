@@ -12,10 +12,15 @@
 
 /* Linux-style word movement */
 /* Ctrl-Left */
-"^\UF702" = "moveWordBackward:";      
+"^\UF702" = "moveWordBackward:";
 /* Ctrl-Right */
 "^\UF703" = "moveWordForward:";
 /* Ctrl-Shift-Left */
-"^$\UF702" = "moveWordBackwardAndModifySelection:"; 
+"^$\UF702" = "moveWordBackwardAndModifySelection:";
 /* Ctrl-Shift-Right */
-"^$\UF703" = "moveWordForwardAndModifySelection:";  
+"^$\UF703" = "moveWordForwardAndModifySelection:";
+
+/* External keyboard: remap ± (Shift-§/Escape on ISO) to ~ */
+"±" = ( "insertText:", "~" );
+/* And the unshifted partner, in case you also want § → ` */
+/* "§" = ( "insertText:", "`" ); */

@@ -10,13 +10,16 @@
     "opencode": {
       "type": "registry"
     },
+    "claude-acp": {
+      "type": "registry"
+    },
     "codex-acp": {
       "type": "registry"
     }
   },
   "use_system_path_prompts": false,
   "use_system_prompts": false,
-  "agent_buffer_font_size": 16.0,
+  "agent_buffer_font_size": 15.0,
   "colorize_brackets": true,
   "cursor_blink": false,
   "indent_guides": {
@@ -24,7 +27,7 @@
     "coloring": "indent_aware"
   },
   "journal": {
-    "path": "/home/origami/Syncthing/Obsidian/Origami",
+    "path": "/Users/ori/Documents/Syncthing/Obsidian/Origami",
   },
   "middle_click_paste": false,
   "icon_theme": "Material Icon Theme",
@@ -360,15 +363,15 @@
     "dock": "left",
     "default_width": 450,
     "default_model": {
-      "effort": "high",
-      "enable_thinking": false,
-      "provider": "copilot_chat",
-      "model": "gpt-5.4",
+      "effort": "max",
+      "enable_thinking": true,
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-6",
     },
   },
   "theme": "Duskfox - opaque",
   "ui_font_size": 16,
-  "agent_ui_font_size": 17.0,
+  "agent_ui_font_size": 16.0,
   "buffer_font_size": 15,
   "buffer_font_features": {
     "liga": false,
@@ -376,13 +379,14 @@
   },
   "buffer_line_height": "comfortable",
   "terminal": {
-    "font_size": 16.0,
+    "font_size": 15.0,
     "line_height":"comfortable"
   },
   "vim_mode": true,
   "relative_line_numbers": "enabled",
   "buffer_font_family": "Iosevka Paper",
   "ui_font_family": ".SystemUIFont",
+  "buffer_font_fallbacks": ["Symbols Nerd Font"],
   // "terminal": {
   //   "working_directory": "current_project_directory",
   //   "env": {
@@ -473,6 +477,7 @@
     "panel.background": "#19182b",
     "title_bar.inactive_background": "#19182b",
     "title_bar.background": "#19182b",
+    "element.selection_background": "#19182baa",
     // "search.match_background": "#a07d3a3d",
     // "editor.document_highlight.bracket_background": "#528b8b22",
     // "editor.document_highlight.read_background": "#528b8b22",
