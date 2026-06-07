@@ -731,6 +731,11 @@
     "when": "activeEditorGroupEmpty && multipleEditorGroups"
   },
   {
+    "key": "ctrl+enter",
+    "command": "workbench.action.moveModalEditorToMain",
+    "when": "editorPartModal"
+  },
+  {
     "key": "ctrl+escape",
     "command": "workbench.action.moveModalEditorToMain",
     "when": "editorPartModal"
@@ -743,5 +748,45 @@
     "key": "ctrl+i",
     "command": "-workbench.action.terminal.chat.start",
     "when": "chatIsEnabled && terminalChatAgentRegistered && terminalFocusInAny && terminalHasBeenCreated || chatIsEnabled && terminalChatAgentRegistered && terminalFocusInAny && terminalProcessSupported"
+  },
+  {
+    "key": "alt+shift+c",
+    "command": "claude-vscode.focus",
+    "when": "!config.claudeCode.useTerminal"
+  },
+  {
+    "key": "shift+escape",
+    "command": "workbench.action.toggleMaximizedAuxiliaryBar",
+    "when": "activeWebviewPanelId == 'claudeVSCodePanel' || claude-vscode.sideBarActive && !editorFocus && !panelFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "claude-vscode.blur",
+    "when": "activeWebviewPanelId == 'claudeVSCodePanel' || claude-vscode.sideBarActive && !editorFocus && !panelFocus"
+  },
+  {
+    "key": "alt+b",
+    "command": "claude-vscode.newConversation",
+    "when": "activeWebviewPanelId == 'claudeVSCodePanel' || claude-vscode.sideBarActive && !editorFocus && !panelFocus"
+  },
+  {
+    "key": "ctrl+shift+escape",
+    "command": "-claude-vscode.editor.open",
+    "when": "!config.claudeCode.useTerminal"
+  },
+  {
+    "key": "ctrl+escape",
+    "command": "-claude-vscode.focus",
+    "when": "editorTextFocus && !config.claudeCode.useTerminal"
+  },
+  {
+    "key": "ctrl+escape",
+    "command": "-claude-vscode.blur",
+    "when": "!config.claudeCode.useTerminal && !editorTextFocus"
+  },
+  {
+    "key": "ctrl+escape",
+    "command": "-claude-vscode.terminal.open.keyboard",
+    "when": "config.claudeCode.useTerminal"
   },
 ]

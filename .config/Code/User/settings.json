@@ -975,3 +975,13 @@
   "chat.tools.confirmationCarousel.enabled": true,
   "workbench.activityBar.location": "hidden"
 }
+  "claudeCode.preferredLocation": "sidebar",
+  "window.menuBarVisibility": "hidden",
+  "claudeCode.allowDangerouslySkipPermissions": true,
+  "claudeCode.hideOnboarding": true,
+  "claudeCode.useCtrlEnterToSend": true,
+  "github.copilot.chat.claude47OpusPrompt.enabled": true,
+  "window.customMenuBarAltFocus": false,
+  "editor.accessibilitySupport": "off",
+  "terminal.integrated.stickyScroll.enabled": false,
+  "workbench.editor.empty.hint": "hidden",
