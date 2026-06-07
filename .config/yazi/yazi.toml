@@ -4,7 +4,7 @@ play = [
   { run = '"C:\Program Files\mpv.exe" %*', orphan = true, for = "windows" },
 ]
 edit = [
-  { run = 'nvim "$@"', block = true, for = "unix" },
+  { run = '${EDITOR:-nvim} "$@"', block = true, for = "unix" },
   { run = "%EDITOR% %*", block = true, for = "windows" },
 ]
 
