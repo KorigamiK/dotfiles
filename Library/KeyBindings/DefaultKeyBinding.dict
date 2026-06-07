@@ -1,0 +1,21 @@
+/* can't be symlinked has to copied instead */
+
+/* Word deletion */
+"^w" = "deleteWordBackward:";
+/* Ctrl-H */
+"^\010" = "noop:";
+/* Ctrl-Backspace fallback */
+"^\177" = "deleteWordBackward:";
+/* Ctrl-Delete / Ctrl-Fn-Backspace */
+"^\UF728" = "deleteWordForward:";
+
+
+/* Linux-style word movement */
+/* Ctrl-Left */
+"^\UF702" = "moveWordBackward:";      
+/* Ctrl-Right */
+"^\UF703" = "moveWordForward:";
+/* Ctrl-Shift-Left */
+"^$\UF702" = "moveWordBackwardAndModifySelection:"; 
+/* Ctrl-Shift-Right */
+"^$\UF703" = "moveWordForwardAndModifySelection:";  
