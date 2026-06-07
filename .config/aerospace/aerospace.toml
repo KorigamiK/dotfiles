@@ -1,0 +1,208 @@
+# Minimal AeroSpace config, shaped after the core Hyprland workflow.
+# Docs: https://nikitabobko.github.io/AeroSpace/guide
+
+start-at-login = true
+
+after-login-command = []
+after-startup-command = []
+
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+accordion-padding = 30
+
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'horizontal'
+
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+automatically-unhide-macos-hidden-apps = false
+
+[gaps]
+inner.horizontal = 4
+inner.vertical = 4
+outer.left = 0
+outer.bottom = 0
+outer.top = 0
+outer.right = 0
+
+# Floating apps — must come before the catch-all tiling rule.
+[[on-window-detected]]
+if.app-id = 'com.apple.UserNotificationCenter'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.calculator'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.AppStore'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.DiskUtility'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.keychainaccess'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.FontBook'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.archiveutility'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Console'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.DigitalColorMeter'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ColorSyncUtility'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.grapher'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.MigrationAssistant'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Stickies'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.print.PrinterProxy'
+run = 'layout floating'
+
+# Use cmd as the macOS equivalent of Hyprland's SUPER.
+# macOS screenshot shortcuts need to be disabled separately for cmd-shift-3/4/5.
+[mode.main.binding]
+
+# Apps
+cmd-enter = '''exec-and-forget osascript -e 'tell application "Ghostty" to activate' -e 'delay 0.1' -e 'tell application "System Events" to tell process "Ghostty" to click menu item "New Window" of menu "File" of menu bar 1''''
+cmd-w = 'exec-and-forget open -a Firefox'
+cmd-n = 'exec-and-forget open -a Finder'
+cmd-ctrl-v = 'exec-and-forget /Users/ori/Developer/dotfiles/.local/bin/connect-vpn'
+cmd-alt-b = 'exec-and-forget /Users/ori/Developer/dotfiles/.local/bin/toggle-background-sounds'
+
+# Window actions
+cmd-q = 'close'
+# cmd-m = "exec-and-forget osascript -e 'tell application \"System Events\" to set miniaturized of front window of (first process whose frontmost is true) to true'"
+cmd-shift-space = 'layout floating tiling'
+cmd-f = 'fullscreen'
+cmd-slash = 'layout tiles horizontal vertical'
+cmd-comma = 'layout accordion horizontal vertical'
+
+alt-shift-s = 'exec-and-forget /Users/ori/Developer/dotfiles/.local/bin/screenshot'
+
+# Focus, vim-style and arrows
+cmd-h = ['focus left', 'move-mouse window-lazy-center']
+cmd-j = ['focus down', 'move-mouse window-lazy-center']
+cmd-k = ['focus up', 'move-mouse window-lazy-center']
+cmd-l = ['focus right', 'move-mouse window-lazy-center']
+cmd-left = ['focus left', 'move-mouse window-lazy-center']
+cmd-down = ['focus down', 'move-mouse window-lazy-center']
+cmd-up = ['focus up', 'move-mouse window-lazy-center']
+cmd-right = ['focus right', 'move-mouse window-lazy-center']
+
+# Move windows, vim-style and arrows
+cmd-shift-h = ['move left', 'move-mouse window-force-center']
+cmd-shift-j = ['move down', 'move-mouse window-force-center']
+cmd-shift-k = ['move up', 'move-mouse window-force-center']
+cmd-shift-l = ['move right', 'move-mouse window-force-center']
+cmd-shift-left = ['move left', 'move-mouse window-force-center']
+cmd-shift-down = ['move down', 'move-mouse window-force-center']
+cmd-shift-up = ['move up', 'move-mouse window-force-center']
+cmd-shift-right = ['move right', 'move-mouse window-force-center']
+
+# Resize
+cmd-shift-y = 'resize width -50'
+cmd-shift-o = 'resize width +50'
+cmd-shift-i = 'resize height +50'
+cmd-shift-u = 'resize height -50'
+
+# Monitor focus (jump focus to next/prev monitor)
+cmd-alt-j = ['focus-monitor down']
+cmd-alt-k = ['focus-monitor up']
+cmd-alt-h = ['focus-monitor left' ]
+cmd-alt-l = ['focus-monitor right']
+cmd-alt-left = ['focus-monitor left']
+cmd-alt-right = ['focus-monitor right']
+
+# Move window to adjacent monitor (window follows, focus stays on window)
+cmd-alt-shift-j = ['move-node-to-monitor down', 'focus-monitor down', 'move-mouse window-lazy-center']
+cmd-alt-shift-k = ['move-node-to-monitor up', 'focus-monitor up', 'move-mouse window-lazy-center']
+cmd-alt-shift-h = ['move-node-to-monitor left', 'focus-monitor left', 'move-mouse window-lazy-center']
+cmd-alt-shift-l = ['move-node-to-monitor right', 'focus-monitor right', 'move-mouse window-lazy-center']
+
+# Toggle between last two workspaces (works across monitors)
+alt-tab = 'workspace-back-and-forth'
+
+# Workspaces
+cmd-1 = 'workspace 1'
+cmd-2 = 'workspace 2'
+cmd-3 = 'workspace 3'
+cmd-4 = 'workspace 4'
+cmd-5 = 'workspace 5'
+cmd-6 = 'workspace 6'
+cmd-7 = 'workspace 7'
+cmd-8 = 'workspace 8'
+cmd-9 = 'workspace 9'
+cmd-0 = 'workspace 10'
+
+# Move active window to workspace
+cmd-shift-1 = 'move-node-to-workspace 1'
+cmd-shift-2 = 'move-node-to-workspace 2'
+cmd-shift-3 = 'move-node-to-workspace 3'
+cmd-shift-4 = 'move-node-to-workspace 4'
+cmd-shift-5 = 'move-node-to-workspace 5'
+cmd-shift-6 = 'move-node-to-workspace 6'
+cmd-shift-7 = 'move-node-to-workspace 7'
+cmd-shift-8 = 'move-node-to-workspace 8'
+cmd-shift-9 = 'move-node-to-workspace 9'
+cmd-shift-0 = 'move-node-to-workspace 10'
+
+# Keep a tiny service mode for cleanup/reload operations.
+cmd-shift-semicolon = 'mode service'
+
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']
+f = ['layout floating tiling', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']
+
+cmd-shift-h = ['join-with left', 'mode main']
+cmd-shift-j = ['join-with down', 'mode main']
+cmd-shift-k = ['join-with up', 'mode main']
+cmd-shift-l = ['join-with right', 'mode main']
+
+
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = 'main'
+4 = 'main'
+5 = 'main'
+6 = ['secondary', 'main']
+7 = ['secondary', 'main']
+8 = ['secondary', 'main']
+9 = ['secondary', 'main']
+10 = ['secondary', 'main']
+
+

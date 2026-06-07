@@ -81,9 +81,180 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = require "configs.treesitter",
+    config = function(_, opts)
+      local ts = require "nvim-treesitter"
+      ts.setup { install_dir = opts.install_dir }
+
+      local cfg = opts.incremental_selection
+      if not (cfg and cfg.enable and cfg.keymaps) then
+        return
+      end
+
+      local incremental_state = {}
+
+      local function node_range_to_visual_end(sr, sc, er, ec)
+        if ec > 0 then
+          return er, ec - 1
+        end
+
+        if er > sr then
+          local line = vim.api.nvim_buf_get_lines(0, er - 1, er, false)[1] or ""
+          return er - 1, math.max(#line - 1, 0)
+        end
+
+        return sr, sc
+      end
+
+      local function select_ts_node(node)
+        local sr, sc, er, ec = node:range()
+        local vr, vc = node_range_to_visual_end(sr, sc, er, ec)
+
+        local m = vim.fn.mode()
+        if m == "v" or m == "V" or m == "\22" then
+          vim.cmd "normal! \27"
+        end
+        vim.api.nvim_win_set_cursor(0, { sr + 1, sc })
+        vim.cmd "normal! v"
+        vim.api.nvim_win_set_cursor(0, { vr + 1, vc })
+      end
+
+      local function ts_expand_selection()
+        local bufnr = vim.api.nvim_get_current_buf()
+        local state = incremental_state[bufnr] or { stack = {} }
+        local mode = vim.fn.mode()
+        local current_node = vim.treesitter.get_node()
+
+        if not current_node then
+          return
+        end
+
+        if mode == "n" then
+          state.stack = {}
+        elseif #state.stack > 0 then
+          local top = state.stack[#state.stack]
+          if not vim.treesitter.is_ancestor(top, current_node) and top:id() ~= current_node:id() then
+            state.stack = {}
+          end
+        end
+
+        local node = state.stack[#state.stack]
+        if not node then
+          node = current_node
+        else
+          node = node:parent()
+        end
+
+        if not node then
+          return
+        end
+
+        state.stack[#state.stack + 1] = node
+        incremental_state[bufnr] = state
+        select_ts_node(node)
+      end
+
+      local function ts_shrink_selection()
+        local bufnr = vim.api.nvim_get_current_buf()
+        local state = incremental_state[bufnr]
+        if not state or #state.stack < 2 then
+          return
+        end
+
+        table.remove(state.stack)
+        select_ts_node(state.stack[#state.stack])
+      end
+
+      local seen = {}
+      local expand_keys = {
+        cfg.keymaps.init_selection,
+        cfg.keymaps.node_incremental,
+        cfg.keymaps.scope_incremental,
+      }
+
+      for _, lhs in ipairs(expand_keys) do
+        if lhs and not seen[lhs] then
+          seen[lhs] = true
+          vim.keymap.set({ "n", "x" }, lhs, ts_expand_selection, { desc = "Expand treesitter selection" })
+        end
+      end
+
+      if cfg.keymaps.node_decremental then
+        vim.keymap.set("x", cfg.keymaps.node_decremental, ts_shrink_selection, { desc = "Shrink treesitter selection" })
+      end
+    end,
     dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      "windwp/nvim-ts-autotag",
+      {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        opts = function()
+          local opts = require("configs.treesitter").textobjects
+          return {
+            select = {
+              lookahead = opts.select.lookahead,
+            },
+            move = {
+              set_jumps = opts.move.set_jumps,
+            },
+          }
+        end,
+        config = function(_, opts)
+          local ts_opts = require "configs.treesitter"
+          require("nvim-treesitter-textobjects").setup(opts)
+
+          local textobjects = ts_opts.textobjects or {}
+
+          if textobjects.select and textobjects.select.enable and textobjects.select.keymaps then
+            for lhs, query in pairs(textobjects.select.keymaps) do
+              vim.keymap.set({ "x", "o" }, lhs, function()
+                require("nvim-treesitter-textobjects.select").select_textobject(query, "textobjects")
+              end)
+            end
+          end
+
+          if textobjects.move and textobjects.move.enable then
+            local move = require "nvim-treesitter-textobjects.move"
+            local move_keymaps = {
+              goto_next_start = move.goto_next_start,
+              goto_next_end = move.goto_next_end,
+              goto_previous_start = move.goto_previous_start,
+              goto_previous_end = move.goto_previous_end,
+            }
+
+            for group, callback in pairs(move_keymaps) do
+              for lhs, query in pairs(textobjects.move[group] or {}) do
+                vim.keymap.set({ "n", "x", "o" }, lhs, function()
+                  callback(query, "textobjects")
+                end)
+              end
+            end
+          end
+
+          if textobjects.swap and textobjects.swap.enable then
+            local swap = require "nvim-treesitter-textobjects.swap"
+            for lhs, query in pairs(textobjects.swap.swap_next or {}) do
+              vim.keymap.set("n", lhs, function()
+                swap.swap_next(query, "textobjects")
+              end)
+            end
+            for lhs, query in pairs(textobjects.swap.swap_previous or {}) do
+              vim.keymap.set("n", lhs, function()
+                swap.swap_previous(query, "textobjects")
+              end)
+            end
+          end
+        end,
+      },
+      {
+        "windwp/nvim-ts-autotag",
+        opts = function()
+          local opts = require("configs.treesitter").autotag
+          return {
+            opts = {
+              enable_close = opts.enable,
+              enable_rename = opts.enable_rename,
+            },
+          }
+        end,
+      },
     },
   },
 
@@ -668,7 +839,7 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter-context",
-    cmd = "TSContextToggle",
+    cmd = "TSContext",
     opts = {
       enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
       multiwindow = false, -- Enable multiwindow support.
@@ -685,4 +856,5 @@ return {
       on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
     },
   },
+
 }
