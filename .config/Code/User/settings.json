@@ -131,7 +131,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.inlayHints.enabled": "offUnlessPressed",
-  "editor.stickyScroll.enabled": true,
+  "editor.stickyScroll.enabled": false,
   "masmtasm.ASM.emulator": "dosbox",
   "masmtasm.ASM.assembler": "MASM-v6.11",
   "terminal.integrated.profiles.windows": {
@@ -223,10 +223,11 @@
     "[Duskfox]": {
       "focusBorder": "#6E6A85",
       "panel.background": "#232136",
-      "tab.activeBorderTop": "default"
+      "tab.activeBorderTop": "default",
     },
     "[Kanagawa]": {
-      "statusBarItem.remoteBackground": "#39404a",
+      "titleBar.activeBackground": "#1f1f28",
+      "statusBarItem.remoteBackground": "#363646",
       "statusBarItem.remoteForeground": "#dcd7ba",
       "editorLineNumber.activeForeground": "#CBC6AC",
       "editorLineNumber.dimmedForeground": "#43434C",
@@ -254,11 +255,8 @@
       "editorCursor.foreground": "#c6d0f5",
       "editorCursor.background": "#232634",
       "statusBarItem.remoteBackground": "#455374",
-      "statusBarItem.remoteForeground": "#c6d0f5",
-      // "activityBar.background": "#110f17",
-      // "editorGroupHeader.tabsBackground": "#110f17",
-      // "statusBar.background": "#110f17",
-      // "tab.inactiveBackground": "#110f17"
+      "statusBarItem.remoteForeground": "#c6d0f5"
+      // commented-out overrides intentionally preserved here
     }
   },
   "Lua.codeLens.enable": true,
@@ -839,7 +837,6 @@
   "inlineChat.notebookAgent": true,
   "inlineChat.enableV2": true,
   "chat.mcp.autostart": "newAndOutdated",
-  "terminal.integrated.stickyScroll.enabled": false,
   "terminal.integrated.rightClickBehavior": "selectWord",
   "chat.todoListTool.enabled": true,
   "cmake.additionalCompilerSearchDirs": [
@@ -950,7 +947,7 @@
   "github.copilot.chat.askQuestions.enabled": true,
   "inlineChat.renderMode": "hover",
   "workbench.startupEditor": "none",
-  "ruff.enable": false,
+  "ruff.enable": true,
   "chat.instructionsFilesLocations": {
     ".github/instructions": true,
     ".claude/rules": true,
@@ -967,14 +964,14 @@
   "terminal.integrated.commandsToSkipShell": [
     "workbench.action.toggleMaximizeEditorGroup",
     "workbench.action.createTerminalEditorSameGroup",
-    "workbench.action.toggleSidebarVisibility",
-    "workbench.action.navigateRight",
+    // "workbench.action.toggleSidebarVisibility",
+    "workbench.action.navigateRight"
   ],
   "chat.viewSessions.orientation": "stacked",
   "chat.tools.terminal.outputLocation": "terminal",
   "chat.tools.confirmationCarousel.enabled": true,
-  "workbench.activityBar.location": "hidden"
-}
+  "workbench.editor.enablePreview": false,
+  "workbench.browser.showInTitleBar": false,
   "claudeCode.preferredLocation": "sidebar",
   "window.menuBarVisibility": "hidden",
   "claudeCode.allowDangerouslySkipPermissions": true,
@@ -985,3 +982,10 @@
   "editor.accessibilitySupport": "off",
   "terminal.integrated.stickyScroll.enabled": false,
   "workbench.editor.empty.hint": "hidden",
+  "[sql]": {
+    "editor.defaultFormatter": "ms-mssql.mssql"
+  },
+  "window.title": "${folderName}${separator}${activeEditorShort}",
+  "notebook.defaultFormatter": "charliermarsh.ruff",
+  "ruff.lint.enable": false
+}

@@ -324,11 +324,6 @@
     "when": "(panelFocus && panelVisible)"
   },
   {
-    "key": "ctrl+n",
-    "command": "workbench.action.toggleSidebarVisibility",
-    "when": "terminalEditorFocus && !terminalViewShowing"
-  },
-  {
     "key": "ctrl+l",
     "command": "workbench.action.navigateRight",
     "when": "terminalEditorFocus && !terminalViewShowing"
@@ -685,6 +680,10 @@
   {
     "key": "ctrl+shift+g",
     "command": "-editor.action.announceCursorPosition"
+  },
+  {
+    "key": "ctrl+alt+e",
+    "command": "pgsql.runCurrentStatement"
   },
   {
     "key": "ctrl+e",
