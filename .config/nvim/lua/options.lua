@@ -25,3 +25,13 @@ vim.opt.showcmd = true
 
 vim.opt.concealcursor = "nc"
 vim.opt.cmdheight = 0
+
+vim.opt.list = false
+vim.opt.listchars = {
+  tab = '→ ',
+  trail = '·',
+  extends = '❯',
+  precedes = '❮',
+  space = '␣',
+  eol = '¬'
+}
