@@ -4,7 +4,7 @@
   "zenMode.centerLayout": true,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook",
-    "*.pdf": "default"
+    "*.pdf": "pdf.preview"
   },
   "python.showStartPage": false,
   "deno.enable": false,
@@ -290,6 +290,26 @@
       ],
       "commands": [
         "editor.action.quickFix"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "r",
+        "r"
+      ],
+      "commands": [
+        "editor.action.goToReferences"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "r",
+        "R"
+      ],
+      "commands": [
+        "references-view.findReferences"
       ]
     },
     {
@@ -643,16 +663,6 @@
       ],
       "commands": [
         "editor.action.revealDefinition"
-      ]
-    },
-    {
-      "before": [
-        "leader",
-        "g",
-        "r"
-      ],
-      "commands": [
-        "editor.action.goToReferences"
       ]
     },
     {
