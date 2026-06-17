@@ -1,5 +1,5 @@
 {
-  "python.languageServer": "None",
+  "python.languageServer": "Default",
   "zenMode.fullScreen": false,
   "zenMode.centerLayout": true,
   "workbench.editorAssociations": {
@@ -17,7 +17,7 @@
     "default": "right",
     "jupyter-notebook": "right"
   },
-  "python.defaultInterpreterPath": "/usr/bin/python",
+  "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
   "terminal.integrated.inheritEnv": true,
   "python.terminal.activateEnvironment": true,
   "editor.scrollbar.horizontal": "auto",
@@ -269,7 +269,6 @@
     "/usr/share/nvim/runtime/lua/vim/lsp"
   ],
   "sqltools.useNodeRuntime": true,
-  "window.menuBarVisibility": "hidden",
   "diffEditor.renderSideBySide": true,
 
   "diffEditor.ignoreTrimWhitespace": true,
@@ -277,6 +276,7 @@
   "vim.enableNeovim": true,
   "vim.overrideCopy": false,
   "notebook.markup.fontSize": 14,
+  "editor.fontSize": 14,
   "cmake.pinnedCommands": [
     "workbench.action.tasks.configureTaskRunner",
     "workbench.action.tasks.runTask"
@@ -889,7 +889,6 @@
   "dataWrangler.experiments.copilot.enabled": true,
   "dataWrangler.experiments.autoDetectCsvDelimiter": true,
   "telemetry.telemetryLevel": "off",
-  "editor.fontSize": 14,
   "terminal.integrated.fontSize": 14,
   "explorer.openEditors.visible": 1,
   "explorer.openEditors.minVisible": 0,
@@ -940,7 +939,6 @@
       "id": "3C51D7EB-600F-401E-A315-21E6D23E09AE"
     }
   ],
-  "scm.repositories.selectionMode": "single",
   "github.copilot.chat.anthropic.tools.websearch.enabled": true,
   "github.copilot.chat.copilotMemory.enabled": true,
   "github.copilot.chat.languageContext.fix.typescript.enabled": true,
@@ -982,6 +980,7 @@
   "chat.tools.confirmationCarousel.enabled": true,
   "workbench.editor.enablePreview": false,
   "workbench.browser.showInTitleBar": false,
+  "scm.repositories.selectionMode": "single",
   "claudeCode.preferredLocation": "sidebar",
   "window.menuBarVisibility": "hidden",
   "claudeCode.allowDangerouslySkipPermissions": true,
@@ -990,7 +989,6 @@
   "github.copilot.chat.claude47OpusPrompt.enabled": true,
   "window.customMenuBarAltFocus": false,
   "editor.accessibilitySupport": "off",
-  "terminal.integrated.stickyScroll.enabled": false,
   "workbench.editor.empty.hint": "hidden",
   "[sql]": {
     "editor.defaultFormatter": "ms-mssql.mssql"
@@ -998,4 +996,5 @@
   "window.title": "${folderName}${separator}${activeEditorShort}",
   "notebook.defaultFormatter": "charliermarsh.ruff",
   "ruff.lint.enable": false
+  "window.menuStyle": "custom",
 }
