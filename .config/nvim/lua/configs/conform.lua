@@ -22,6 +22,7 @@ return {
     -- clang
     c = { "clang_format" },
     glsl = { "clang_format" },
+    go = { lsp_fallback = true },
     cpp = { "clang_format" },
     cs = { "clang_format" },
     java = { "clang_format" },

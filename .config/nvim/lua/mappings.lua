@@ -105,14 +105,14 @@ map("n", "<leader>ls", function()
     require("rustaceanvim.lsp").start()
   end
   require("rustaceanvim.config.internal").server.auto_attach = true
-  vim.cmd "LspStart"
+  vim.cmd "lsp restart"
 end, { desc = "Start lsp" })
 map("n", "<leader>lS", function()
   if vim.bo.filetype == "rust" then
     require("rustaceanvim.lsp").stop()
   end
   require("rustaceanvim.config.internal").server.auto_attach = false
-  vim.cmd "LspStop"
+  vim.cmd "lsp stop"
 end, { desc = "Stop lsp" })
 
 map("n", "<leader>li", function()

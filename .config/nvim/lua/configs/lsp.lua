@@ -165,6 +165,21 @@ vim.lsp.config.tinymist = {
   },
 }
 
+
+vim.lsp.config.gopls = {
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,     -- Warn about unused function parameters
+      },
+      staticcheck = true,        -- Enables advanced static analysis
+      gofumpt = true,            -- Uses stricter gofumpt formatting if installed
+      completeUnimported = true, -- Suggests unimported packages during completion
+      usePlaceholders = true,    -- Adds placeholders for function arguments
+    },
+  },
+}
+
 vim.lsp.config.jsonls = {
   settings = {
     json = {
@@ -213,5 +228,6 @@ local servers = {
   "texlab",
   "tinymist",
   "kotlin_language_server",
+  "gopls",
 }
 vim.lsp.enable(servers)

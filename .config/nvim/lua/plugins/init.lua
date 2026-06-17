@@ -1,20 +1,23 @@
 ---@type NvPluginSpec[]
 return {
   { import = "nvchad.blink.lazyspec" },
+
   {
     "saghen/blink.cmp",
     opts = { keymap = { ["<C-y>"] = { "fallback" } } },
   },
-  { "nvchad/menu", enabled = false },
+
+  { "nvchad/menu",                   enabled = false },
+
   {
     "numToStr/Comment.nvim",
     keys = {
-      { "gcc", mode = "n", desc = "Comment toggle current line" },
-      { "gc", mode = { "v", "o" }, desc = "Comment toggle linewise" },
-      { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
-      { "gbc", mode = "n", desc = "Comment toggle current block" },
-      { "gb", mode = { "v", "o" }, desc = "Comment toggle blockwise" },
-      { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
+      { "gcc", mode = "n",          desc = "Comment toggle current line" },
+      { "gc",  mode = { "v", "o" }, desc = "Comment toggle linewise" },
+      { "gc",  mode = "x",          desc = "Comment toggle linewise (visual)" },
+      { "gbc", mode = "n",          desc = "Comment toggle current block" },
+      { "gb",  mode = { "v", "o" }, desc = "Comment toggle blockwise" },
+      { "gb",  mode = "x",          desc = "Comment toggle blockwise (visual)" },
     },
     config = function(_, opts)
       require("Comment").setup(opts)
@@ -60,11 +63,11 @@ return {
     },
   },
 
-  --[[ 
+  --[[
   {
     "hrsh7th/nvim-cmp",
     -- opts = { experimental = { ghost_text = { hl_group = "Comment" } } },
-  }, 
+  },
   ]]
 
   -- Formatting
@@ -259,19 +262,19 @@ return {
   },
 
   {
+    "nvim-tree/nvim-tree.lua",
+    enabled = true,
+    lazy = true,
+    opts = require "configs.nvim-tree",
+  },
+
+  {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-telescope/telescope-project.nvim",
       "jvgrootveld/telescope-zoxide",
     },
     opts = require "configs.telescope",
-  },
-
-  {
-    "nvim-tree/nvim-tree.lua",
-    enabled = true,
-    lazy = true,
-    opts = require "configs.nvim-tree",
   },
 
   -- override plugin configs
@@ -313,15 +316,17 @@ return {
         cpp = {
           exec = "g++",
           args = {
-            "$(FNAME)",
-            "-o",
-            "$(FNOEXT)",
-            "-DKORIGAMIK",
             "-std=c++20",
+            "-DKORIGAMIK",
             "-Wall",
             "-Wpedantic",
             "-H",
+            "-include-pch",
+            "/Users/ori/Developer/dotfiles/snippets/debug.hpp.pch",
             "-I" .. vim.fn.expandcmd "~/Dev/projects/cpp/atcoder",
+            "$(FNAME)",
+            "-o",
+            "$(FNOEXT)",
           },
         },
         haskell = {
@@ -490,7 +495,7 @@ return {
       arg = "leetcode",
       image_support = true,
       storage = {
-        home = "/home/origami/Dev/projects/competetive_coding/learning/LeetCode/problems",
+        home = "/Users/ori/Developer/competetive_coding/learning/LeetCode/problems",
       },
     },
   },
@@ -508,39 +513,6 @@ return {
       vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
       vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
     end,
-  },
-
-  {
-    "Al0den/notion.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim",
-    },
-    opts = {
-      autoUpdate = true,
-      open = "notion",
-      keys = {
-        deleteKey = "d",
-        editKey = "<cr>",
-        openNotion = "O",
-        itemAdd = "A",
-        viewKey = "V",
-      },
-      delays = {
-        reminder = 4000,
-        format = 200,
-        update = 10000,
-      },
-      notifications = true,
-      editor = "light",
-      viewOnEdit = {
-        enabled = true, --Enable double window, view and edit simultaneously
-        replace = false, --Replace current window with preview window
-      },
-      direction = "vsplit", --Direction windows will be opened in
-      noEvent = "No events",
-      debug = false,
-    },
   },
 
   -- {
@@ -603,10 +575,10 @@ return {
       hints = { enabled = false },
       windows = {
         position = "right", -- the position of the sidebar
-        wrap = true, -- similar to vim.o.wrap
-        width = 30, -- default % based on available width
+        wrap = true,        -- similar to vim.o.wrap
+        width = 30,         -- default % based on available width
         sidebar_header = {
-          enabled = true, -- true, false to enable/disable the header
+          enabled = true,   -- true, false to enable/disable the header
           align = "center", -- left, center, right for title
           rounded = true,
         },
@@ -619,7 +591,7 @@ return {
           start_insert = true, -- Start insert mode when opening the edit window
         },
         ask = {
-          floating = false, -- Open the 'AvanteAsk' prompt in a floating window
+          floating = false,    -- Open the 'AvanteAsk' prompt in a floating window
           start_insert = true, -- Start insert mode when opening the ask window
           border = "rounded",
           ---@type "ours" | "theirs"
@@ -646,7 +618,7 @@ return {
     build = "make",
     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
     dependencies = {
-      "nvim-treesitter/nvim-treesitter",
+      -- "nvim-treesitter/nvim-treesitter",
       "nvim-lua/plenary.nvim",
       "zbirenbaum/copilot.lua",
       "MunifTanjim/nui.nvim",
@@ -725,7 +697,7 @@ return {
     cmd = { "CodeCompanionChat", "CodeCompanionActions" },
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
+      -- "nvim-treesitter/nvim-treesitter",
     },
     opts = {
       strategies = {
@@ -820,19 +792,19 @@ return {
     -- event = "VeryLazy",
     opts = {
       ai = {
-        provider = "openai", -- AI provider. Only "openai" or "anthropic" or supported.
+        provider = "openai",         -- AI provider. Only "openai" or "anthropic" or supported.
         model = "openai/gpt-5-chat", -- model name for the specified provider. Only chat completion models are supported (plus the o3-mini reasoning model)
         temperature = 0,
         tokens = 4096,
         timeout = 120, -- recommended to keep very high
-      }, -- ...
+      },               -- ...
     },
     keys = {
-      { "<leader>ae", function() require("enlighten").edit() end, desc = "Edit", mode = { "n", "v" }, },
-      { "<leader>ac", function() require("enlighten").chat() end, desc = "Chat", mode = { "n", "v" }, },
-      { "<leader>ay", function() require("enlighten").keep() end, desc = "Keep change", mode = { "n", "v" }, },
-      { "<leader>aY", function() require("enlighten").keep_all() end, desc = "Keep all changes", mode = "n", },
-      { "<leader>an", function() require("enlighten").discard() end, desc = "Discard change", mode = { "n", "v" }, },
+      { "<leader>ae", function() require("enlighten").edit() end,        desc = "Edit",                mode = { "n", "v" }, },
+      { "<leader>ac", function() require("enlighten").chat() end,        desc = "Chat",                mode = { "n", "v" }, },
+      { "<leader>ay", function() require("enlighten").keep() end,        desc = "Keep change",         mode = { "n", "v" }, },
+      { "<leader>aY", function() require("enlighten").keep_all() end,    desc = "Keep all changes",    mode = "n", },
+      { "<leader>an", function() require("enlighten").discard() end,     desc = "Discard change",      mode = { "n", "v" }, },
       { "<leader>aN", function() require("enlighten").discard_all() end, desc = "Discard all changes", mode = "n", },
     },
   },
@@ -841,19 +813,34 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     cmd = "TSContext",
     opts = {
-      enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-      multiwindow = false, -- Enable multiwindow support.
-      max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-      min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+      enable = true,            -- Enable this plugin (Can be enabled/disabled later via commands)
+      multiwindow = false,      -- Enable multiwindow support.
+      max_lines = 0,            -- How many lines the window should span. Values <= 0 mean no limit.
+      min_window_height = 0,    -- Minimum editor window height to enable context. Values <= 0 mean no limit.
       line_numbers = true,
       multiline_threshold = 20, -- Maximum number of lines to show for a single context
-      trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-      mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
+      trim_scope = "outer",     -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
+      mode = "cursor",          -- Line used to calculate context. Choices: 'cursor', 'topline'
       -- Separator between context and content. Should be a single character string, like '-'.
       -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
       separator = nil,
-      zindex = 20, -- The Z-index of the context window
+      zindex = 20,     -- The Z-index of the context window
       on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
+    },
+  },
+
+  -- git stuff
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "User FilePost",
+    opts = {
+      preview_config = {
+        border = 'single', -- Change to 'single', 'double', 'shadow', or 'none'
+        style = 'minimal',
+        relative = 'cursor',
+        row = 0,
+        col = 1
+      },
     },
   },
 
