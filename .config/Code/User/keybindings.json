@@ -835,13 +835,18 @@
   {
     "key": "shift+cmd+p",
     "command": "workbench.action.showCommands"
-},
-{
+  },
+  {
     "key": "shift+enter",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-        "text": "\u001b\r"
+      "text": "\u001b\r"
     },
     "when": "terminalFocus"
-},
+  },
+  {
+    "key": "g space",
+    "command": "git.openFile",
+    "when": "isInDiffEditor"
+  }
 ]

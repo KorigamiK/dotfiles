@@ -3,6 +3,8 @@
   "zenMode.fullScreen": false,
   "zenMode.centerLayout": true,
   "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "{hexdiff}:/**/*.*": "hexEditor.hexedit",
     "*.ipynb": "jupyter-notebook",
     "*.pdf": "pdf.preview"
   },
@@ -207,7 +209,6 @@
   "js/ts.updateImportsOnFileMove.enabled": "always",
   "haskell.ghcupExecutablePath": "/usr/bin/ghcup",
   "haskell.manageHLS": "GHCup",
-  "window.zoomLevel": 1,
   "explorer.confirmDragAndDrop": false,
   "vim.handleKeys": {
     "<C-f>": false,
@@ -273,8 +274,7 @@
   ],
   "sqltools.useNodeRuntime": true,
   "diffEditor.renderSideBySide": true,
-
-  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.ignoreTrimWhitespace": false,
   "github.copilot.editor.enableAutoCompletions": true,
   "vim.enableNeovim": true,
   "vim.overrideCopy": false,
@@ -421,15 +421,6 @@
     },
     {
       "before": [
-        "g",
-        "R"
-      ],
-      "commands": [
-        "references-view.findReferences"
-      ]
-    },
-    {
-      "before": [
         "leader",
         "f",
         "p"
@@ -486,15 +477,6 @@
       ],
       "commands": [
         "editor.action.goToTypeDefinition"
-      ]
-    },
-    {
-      "before": [
-        "g",
-        "r"
-      ],
-      "commands": [
-        "editor.action.referenceSearch.trigger"
       ]
     },
     {
