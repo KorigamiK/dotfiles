@@ -197,6 +197,9 @@
     "editor.formatOnType": false,
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
+  "notebook.defaultFormatter": "charliermarsh.ruff",
+  "ruff.enable": true,
+  "ruff.lint.enable": false,
   "cph.language.cpp.Args": "-O2 -Wall -std=c++17",
   "haskell.serverExecutablePath": "~/.ghcup/hls/1.10.0.0/lib/haskell-language-server-1.10.0.0/bin/haskell-language-server-wrapper",
   "solidity.telemetry": false,
@@ -955,7 +958,6 @@
   "github.copilot.chat.askQuestions.enabled": true,
   "inlineChat.renderMode": "hover",
   "workbench.startupEditor": "none",
-  "ruff.enable": true,
   "chat.instructionsFilesLocations": {
     ".github/instructions": true,
     ".claude/rules": true,
@@ -997,4 +999,5 @@
   "notebook.defaultFormatter": "charliermarsh.ruff",
   "ruff.lint.enable": false
   "window.menuStyle": "custom",
+  "terminal.integrated.mouseWheelScrollSensitivity": 3
 }

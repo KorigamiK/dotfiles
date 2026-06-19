@@ -31,6 +31,10 @@ if.app-id = 'com.apple.UserNotificationCenter'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'com.apple.QuickTimePlayerX'
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'com.apple.systempreferences'
 run = 'layout floating'
 
@@ -44,6 +48,10 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.AppStore'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Preview'
 run = 'layout floating'
 
 [[on-window-detected]]
@@ -83,11 +91,21 @@ if.app-id = 'com.apple.MigrationAssistant'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'net.ankiweb.anki'
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'com.apple.Stickies'
 run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.print.PrinterProxy'
+run = 'layout floating'
+
+# Float only the dedicated Zed scratchpad window (matched by title substring).
+[[on-window-detected]]
+if.app-id = 'dev.zed.Zed'
+if.window-title-regex-substring = 'journal'
 run = 'layout floating'
 
 # Use cmd as the macOS equivalent of Hyprland's SUPER.
@@ -96,16 +114,23 @@ run = 'layout floating'
 
 # Apps
 cmd-enter = '''exec-and-forget osascript -e 'tell application "Ghostty" to activate' -e 'delay 0.1' -e 'tell application "System Events" to tell process "Ghostty" to click menu item "New Window" of menu "File" of menu bar 1''''
-cmd-w = 'exec-and-forget open -a Firefox'
+# cmd-w = 'exec-and-forget open -a Firefox'
 cmd-n = 'exec-and-forget open -a Finder'
 cmd-ctrl-v = 'exec-and-forget /Users/ori/Developer/dotfiles/.local/bin/connect-vpn'
 cmd-alt-b = 'exec-and-forget /Users/ori/Developer/dotfiles/.local/bin/toggle-background-sounds'
+cmd-shift-z = 'exec-and-forget $HOME/Developer/dotfiles/.config/aerospace/floating_notes.sh'
+# Toggle dictation: first press starts recording, second press stops and
+# types the transcription at the cursor (Groq Whisper). `open` launch is
+# required so TCC attributes mic access to the bundle, not AeroSpace.
+cmd-shift-d = 'exec-and-forget open -gn ~/Applications/Supermoan.app'
+# cancel an in-progress recording or transcription without typing anything
+cmd-shift-c = 'exec-and-forget open -gn ~/Applications/Supermoan.app --args --cancel'
 
 # Window actions
 cmd-q = 'close'
 # cmd-m = "exec-and-forget osascript -e 'tell application \"System Events\" to set miniaturized of front window of (first process whose frontmost is true) to true'"
 cmd-shift-space = 'layout floating tiling'
-cmd-f = 'fullscreen'
+cmd-shift-f = 'fullscreen'
 cmd-slash = 'layout tiles horizontal vertical'
 cmd-comma = 'layout accordion horizontal vertical'
 
@@ -204,5 +229,3 @@ cmd-shift-l = ['join-with right', 'mode main']
 8 = ['secondary', 'main']
 9 = ['secondary', 'main']
 10 = ['secondary', 'main']
-
-
