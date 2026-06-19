@@ -67,7 +67,7 @@
     },
   },
   {
-    "context": "(BufferSearchBar || ThreadHistory || Picker || ProjectSearchBar || ContextEditor || InlineAssistEditor) > Editor",
+    "context": "(BufferSearchBar || ThreadHistory || Picker || ProjectSearchBar || ContextEditor || InlineAssistEditor || ThreadsSidebar) > Editor",
     "use_key_equivalents": true,
     "bindings": {
       "ctrl-w": "editor::DeleteToPreviousWordStart",
@@ -212,6 +212,10 @@
     "bindings": {
       "ctrl-l": "vim::Right",
       "ctrl-h": "vim::Left",
+      "ctrl-left": "editor::MoveToPreviousWordStart",
+      "ctrl-right": "editor::MoveToNextWordEnd",
+      "ctrl-shift-left": "editor::SelectToPreviousWordStart",
+      "ctrl-shift-right": "editor::SelectToNextWordEnd",
       "ctrl-j": "vim::Down",
       "ctrl-k": "vim::Up",
       "ctrl-b": "editor::MoveToBeginningOfLine",
@@ -223,6 +227,10 @@
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-left": "editor::MoveToPreviousWordStart",
+      "ctrl-right": "editor::MoveToNextWordEnd",
+      "ctrl-shift-left": "editor::SelectToPreviousWordStart",
+      "ctrl-shift-right": "editor::SelectToNextWordEnd",
       "enter": "editor::Newline",
       "ctrl-enter": "agent::Chat",
     },
@@ -531,5 +539,18 @@
     "unbind": {
       "cmd-shift-e": "project_panel::ToggleFocus"
     }
-  }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-?": "multi_workspace::ToggleWorkspaceSidebar",
+      "alt-shift-n": "multi_workspace::ToggleWorkspaceSidebar"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "alt-cmd-j": "multi_workspace::ToggleWorkspaceSidebar"
+    }
+  },
 ]

@@ -105,7 +105,7 @@
   {
     "key": "enter",
     "command": "editor.action.smartSelect.expand",
-    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && editorTextFocus"
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual' && vim.mode) && editorTextFocus"
   },
   {
     "key": "shift+enter",
@@ -429,6 +429,11 @@
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused && findWidgetVisible && !isComposing"
   },
   {
+    "key": "space space",
+    "command": "workbench.action.quickOpen",
+    "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
+  },
+  {
     "key": "space shift+x",
     "command": "workbench.action.closeOtherEditors",
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
@@ -437,6 +442,16 @@
     "key": "space g s",
     "command": "workbench.view.scm",
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
+  },
+  {
+    "key": "space space",
+    "command": "workbench.action.quickOpen",
+    "when": "notebookEditorFocused && inputFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "space f m",
+    "command": "notebook.formatCell",
+    "when": "notebookEditorFocused && inputFocus && vim.mode == 'Normal'"
   },
   {
     "key": "ctrl+h",
@@ -812,4 +827,21 @@
     "command": "-actions.find",
     "when": "editorFocus || editorIsOpen"
   },
+  {
+    "key": "ctrl+o",
+    "command": "-lineBreakInsert",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+cmd+p",
+    "command": "workbench.action.showCommands"
+},
+{
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+        "text": "\u001b\r"
+    },
+    "when": "terminalFocus"
+},
 ]
