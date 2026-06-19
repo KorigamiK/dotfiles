@@ -1,6 +1,10 @@
 /* can't be symlinked has to copied instead */
 
-/* Word deletion */
+/* Word deletion.
+   Note: ideal terminal-style behavior (preserve trailing space) requires a chained
+   selector array, but Electron apps (WhatsApp, Slack, VS Code) silently drop the
+   second selector and the key stops working entirely. Single selector below is the
+   most compatible option; for true terminal-style ^W everywhere, use Karabiner. */
 "^w" = "deleteWordBackward:";
 /* Ctrl-H */
 "^\010" = "noop:";

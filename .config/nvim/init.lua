@@ -55,7 +55,7 @@ vim.filetype.add {
 }
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {"cpp", "cuda"},
+  pattern = { "cpp", "cuda" },
   callback = function()
     vim.opt.shiftwidth = 4
     vim.opt.tabstop = 4
