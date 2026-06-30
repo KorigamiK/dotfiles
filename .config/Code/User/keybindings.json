@@ -764,6 +764,10 @@
     "when": "chatIsEnabled && terminalChatAgentRegistered && terminalFocusInAny && terminalHasBeenCreated || chatIsEnabled && terminalChatAgentRegistered && terminalFocusInAny && terminalProcessSupported"
   },
   {
+    "key": "alt+ctrl+c",
+    "command": "chatgpt.openSidebar",
+  },
+  {
     "key": "alt+shift+c",
     "command": "claude-vscode.focus",
     "when": "!config.claudeCode.useTerminal"
@@ -772,6 +776,11 @@
     "key": "shift+escape",
     "command": "workbench.action.toggleMaximizedAuxiliaryBar",
     "when": "activeWebviewPanelId == 'claudeVSCodePanel' || claude-vscode.sideBarActive && !editorFocus && !panelFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.focusLastEditorGroup",
+    "when": "chatgpt.sidebarSecondaryView.active && !editorFocus && !panelFocus"
   },
   {
     "key": "ctrl+l",

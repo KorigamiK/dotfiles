@@ -933,7 +933,6 @@
   "github.copilot.chat.notebook.enhancedNextEditSuggestions.enabled": true,
   "editor.experimentalGpuAcceleration": "off",
   "git.blame.editorDecoration.enabled": true,
-  "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.maxComputationTime": 0,
   "git.openRepositoryInParentFolders": "always",
   "mssql.autoDisableNonTSqlLanguageService": true,
@@ -979,7 +978,8 @@
   },
   "window.title": "${folderName}${separator}${activeEditorShort}",
   "notebook.defaultFormatter": "charliermarsh.ruff",
-  "ruff.lint.enable": false
+  "ruff.lint.enable": false,
   "window.menuStyle": "custom",
-  "terminal.integrated.mouseWheelScrollSensitivity": 3
+  "terminal.integrated.mouseWheelScrollSensitivity": 3,
+  "diffEditor.hideUnchangedRegions.enabled": true
 }
