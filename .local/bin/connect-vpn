@@ -1,0 +1,81 @@
+#!/bin/sh
+set -eu
+
+OPENCONNECT=/opt/homebrew/bin/openconnect
+VPN_URL=https://182.71.59.98:20886
+VPN_USER=kushagra.lakhwani
+KEYCHAIN_SERVICE=fortinet-vpn
+LOG_FILE=/tmp/connect-vpn.log
+PASS_FIFO=/tmp/connect-vpn-pass.$$.fifo
+ROUTE=/sbin/route
+
+# Host portion of VPN_URL, used to clear orphaned host routes.
+VPN_HOST=$(printf '%s' "$VPN_URL" | sed -E 's#^https?://##; s#[:/].*$##')
+
+notify() {
+  /usr/bin/osascript -e "display notification \"$2\" with title \"$1\"" >/dev/null 2>&1 || true
+}
+
+if pgrep -f "openconnect.*${VPN_URL}" >/dev/null 2>&1; then
+  PIDS=$(pgrep -f "openconnect.*${VPN_URL}")
+  # shellcheck disable=SC2086
+  if kill $PIDS 2>/dev/null || /usr/bin/sudo -n kill $PIDS 2>/dev/null; then
+    notify "VPN" "Disconnected."
+  else
+    notify "VPN" "Failed to disconnect."
+    exit 1
+  fi
+  exit 0
+fi
+
+if ! VPN_PASSWORD=$(security find-generic-password -a "$VPN_USER" -s "$KEYCHAIN_SERVICE" -w); then
+  notify "VPN" "Could not read keychain password."
+  exit 1
+fi
+
+notify "VPN" "Connecting..."
+: >"$LOG_FILE"
+
+# Remove any host route to the VPN server left over from a previous session.
+# If the old session died on a different network, this route points at a dead
+# gateway and makes the server unreachable ("Can't assign requested address").
+"$ROUTE" delete "$VPN_HOST" 2>/dev/null \
+  || /usr/bin/sudo -n "$ROUTE" delete "$VPN_HOST" 2>/dev/null \
+  || true
+
+umask 077
+mkfifo "$PASS_FIFO"
+
+nohup /bin/sh -c '
+  pass_fifo=$1
+  log_file=$2
+  openconnect=$3
+  vpn_url=$4
+  vpn_user=$5
+
+  /usr/bin/sudo -n "$openconnect" \
+    --protocol=fortinet \
+    "$vpn_url" \
+    --user "$vpn_user" \
+    --passwd-on-stdin \
+    --servercert pin-sha256:TThfY46pP0aVYouTArMwZbdnGHpZIlBpp3ufRTQVaME= \
+    <"$pass_fifo" >>"$log_file" 2>&1
+
+  rm -f "$pass_fifo"
+' sh "$PASS_FIFO" "$LOG_FILE" "$OPENCONNECT" "$VPN_URL" "$VPN_USER" >/dev/null 2>&1 &
+
+if ! printf '%s\n' "$VPN_PASSWORD" >"$PASS_FIFO"; then
+  rm -f "$PASS_FIFO"
+  notify "VPN" "Failed to pass VPN password."
+  exit 1
+fi
+rm -f "$PASS_FIFO"
+
+sleep 2
+
+if pgrep -f "openconnect.*${VPN_URL}" >/dev/null 2>&1; then
+  notify "VPN" "Connection started."
+else
+  notify "VPN" "Failed to start; check sudoers and /tmp/connect-vpn.log."
+  exit 1
+fi
