@@ -325,8 +325,8 @@
   },
   {
     "key": "ctrl+l",
-    "command": "workbench.action.navigateRight",
-    "when": "terminalEditorFocus && !terminalViewShowing"
+    "command": "workbench.view.explorer",
+    "when": "terminalFocus"
   },
   {
     "key": "shift+escape",

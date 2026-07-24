@@ -1,0 +1,186 @@
+# Rift config. Cmd (= "Meta") is the main modifier, Hyprland-style.
+# Docs: https://github.com/acsandmann/rift/wiki/Config
+# macOS screenshot shortcuts must stay disabled for cmd-shift-3/4/5.
+
+[settings]
+animate = false
+default_disable = false
+focus_follows_mouse = true
+mouse_follows_focus = true
+mouse_hides_on_focus = true
+# focus_follows_mouse_disable_hotkey = "Fn"
+hot_reload = true
+auto_focus_blacklist = [
+    "com.apple.dock",
+    "com.apple.systemuiserver",
+    "com.apple.SecurityAgent",
+    "com.apple.Spotlight",
+]
+
+[settings.layout]
+mode = "bsp"
+
+[settings.layout.stack]
+stack_offset = 30.0
+default_orientation = "perpendicular"
+
+[settings.layout.gaps.inner]
+horizontal = 0
+vertical = 0
+
+[settings.layout.gaps.outer]
+top = 0
+left = 0
+bottom = 0
+right = 0
+
+[settings.ui.menu_bar]
+enabled = true
+mode = "active"
+display_style = "label"
+active_label = "index"
+
+[settings.ui.mission_control]
+enabled = true
+fade_enabled = false
+
+[settings.gestures]
+enabled = true
+fingers = 3
+# Don't swallow native gesture events: macOS space-switching lives on 4 fingers,
+# and consuming it strands you in native-fullscreen spaces (rift doesn't manage those).
+consume_dock_swipe = false
+skip_empty = true
+haptics_enabled = true
+haptic_pattern = "level_change"
+
+[virtual_workspaces]
+# Workspaces are per-display in rift, so 5 per screen replaces the old
+# AeroSpace split of 1-5 on main / 6-10 on secondary.
+enabled = true
+default_workspace_count = 5
+auto_assign_windows = true
+preserve_focus_per_workspace = true
+
+# Per-workspace layout engines, e.g. a niri-style scrolling workspace:
+# workspace_rules = [{ workspace = 4, layout = "scrolling" }]
+
+app_rules = [
+    { app_id = "com.apple.systempreferences", floating = true },
+    # Small utility windows that make no sense tiled.
+    { app_id = "com.apple.UserNotificationCenter", floating = true },
+    { app_id = "com.apple.calculator", floating = true },
+    { app_id = "com.apple.ActivityMonitor", floating = true },
+    { app_id = "com.apple.QuickTimePlayerX", floating = true },
+    { app_id = "com.apple.Preview", floating = true },
+    { app_id = "com.apple.Stickies", floating = true },
+    { app_id = "net.ankiweb.anki", floating = true },
+    { app_id = "io.tailscale.ipn.macos", floating = true },
+    # Float only the dedicated Zed scratchpad window.
+    { app_id = "dev.zed.Zed", title_substring = "journal", floating = true },
+]
+
+[modifier_combinations]
+mod = "Meta"
+mod_shift = "Meta + Shift"
+mod_ctrl = "Meta + Ctrl"
+mod_alt = "Meta + Alt"
+mod_alt_shift = "Meta + Alt + Shift"
+
+[keys]
+"Alt + Z" = "toggle_space_activated"
+
+# Apps
+# Cmd+Enter opens a Ghostty window via Ghostty's own global keybind (see ghostty config);
+# binding it here too would have rift swallow the key before Ghostty sees it.
+"mod + N" = { exec = ["open", "-a", "Finder"] }
+"mod_ctrl + V" = { exec = "/Users/ori/Developer/dotfiles/.local/bin/connect-vpn" }
+"mod_alt + B" = { exec = "/Users/ori/Developer/dotfiles/.local/bin/toggle-background-sounds" }
+"mod_shift + Z" = { exec = "/Users/ori/Developer/dotfiles/.config/aerospace/floating_notes.sh" }
+# Toggle dictation (Groq Whisper); `open` launch keeps TCC mic attribution on the bundle.
+"mod_shift + D" = { exec = ["open", "-gn", "/Users/ori/Applications/Supermoan.app"] }
+"mod_shift + C" = { exec = ["open", "-gn", "/Users/ori/Applications/Supermoan.app", "--args", "--cancel"] }
+"Alt + Shift + S" = { exec = "/Users/ori/Developer/dotfiles/.local/bin/screenshot" }
+
+# Window actions
+"mod + Q" = "close_window"
+"mod_shift + Space" = "toggle_window_floating"
+"mod_ctrl + Space" = "toggle_focus_floating"
+"mod_shift + F" = "toggle_fullscreen"
+"mod + Slash" = "toggle_orientation"
+"mod + Comma" = "toggle_stack"
+
+# Focus, vim-style and arrows
+"mod + H" = { move_focus = "left" }
+"mod + J" = { move_focus = "down" }
+"mod + K" = { move_focus = "up" }
+"mod + L" = { move_focus = "right" }
+"mod + Left" = { move_focus = "left" }
+"mod + Down" = { move_focus = "down" }
+"mod + Up" = { move_focus = "up" }
+"mod + Right" = { move_focus = "right" }
+
+# Move windows, vim-style and arrows
+"mod_shift + H" = { move_node = "left" }
+"mod_shift + J" = { move_node = "down" }
+"mod_shift + K" = { move_node = "up" }
+"mod_shift + L" = { move_node = "right" }
+"mod_shift + Left" = { move_node = "left" }
+"mod_shift + Down" = { move_node = "down" }
+"mod_shift + Up" = { move_node = "up" }
+"mod_shift + Right" = { move_node = "right" }
+
+# Resize
+"mod_shift + O" = "resize_window_grow"
+"mod_shift + Y" = "resize_window_shrink"
+
+# Join/split windows (was AeroSpace service-mode join-with)
+"mod_ctrl + H" = { join_window = "left" }
+"mod_ctrl + J" = { join_window = "down" }
+"mod_ctrl + K" = { join_window = "up" }
+"mod_ctrl + L" = { join_window = "right" }
+"mod_ctrl + E" = "unjoin_windows"
+
+# Switch the layout engine of the active workspace
+"mod_ctrl + 1" = { set_workspace_layout = { mode = "traditional" } }
+"mod_ctrl + 2" = { set_workspace_layout = { mode = "master_stack" } }
+"mod_ctrl + 3" = { set_workspace_layout = { mode = "scrolling" } }
+"mod_ctrl + 4" = { set_workspace_layout = { mode = "bsp" } }
+
+# Mission control (rift's own, sees virtual workspaces)
+"mod_ctrl + M" = "show_mission_control_all"
+
+# Monitor focus (native again — patched binary fixes acsandmann/rift#332)
+"mod_alt + H" = { focus_display = "left" }
+"mod_alt + J" = { focus_display = "down" }
+"mod_alt + K" = { focus_display = "up" }
+"mod_alt + L" = { focus_display = "right" }
+"mod_alt + Left" = { focus_display = "left" }
+"mod_alt + Right" = { focus_display = "right" }
+
+# Move window to adjacent monitor
+"mod_alt_shift + H" = { move_window_to_display = { selector = "left" } }
+"mod_alt_shift + J" = { move_window_to_display = { selector = "down" } }
+"mod_alt_shift + K" = { move_window_to_display = { selector = "up" } }
+"mod_alt_shift + L" = { move_window_to_display = { selector = "right" } }
+
+# Toggle between last two workspaces
+"Alt + Tab" = "switch_to_last_workspace"
+
+# Workspaces (0-based: Cmd+1 -> workspace 0)
+"mod + 1" = { switch_to_workspace = 0 }
+"mod + 2" = { switch_to_workspace = 1 }
+"mod + 3" = { switch_to_workspace = 2 }
+"mod + 4" = { switch_to_workspace = 3 }
+"mod + 5" = { switch_to_workspace = 4 }
+
+# Move active window to workspace
+"mod_shift + 1" = { move_window_to_workspace = 0 }
+"mod_shift + 2" = { move_window_to_workspace = 1 }
+"mod_shift + 3" = { move_window_to_workspace = 2 }
+"mod_shift + 4" = { move_window_to_workspace = 3 }
+"mod_shift + 5" = { move_window_to_workspace = 4 }
+
+# Maintenance
+"Alt + Shift + D" = "debug" # prints layout tree
+"Alt + Ctrl + Q" = "save_and_exit"

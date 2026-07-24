@@ -8,10 +8,24 @@ window-decoration = false
 window-theme = ghostty
 gtk-wide-tabs = true
 adw-toolbar-style = flat
-# font-family = TX-02
-# font-feature = "liga"
-# font-feature = ss01
-# font-feature = ss04
+
+font-family = TX-02 Condensed
+
+# enable opentype features
+#{} #[] 0123445679 !== === != ==
+
+# font-feature = +liga # standard ligatures (-> becomes →, != becomes ≠)
+# font-feature = +calt # contextual alternates (adjusts glyphs based on context)
+# font-feature = +ss01 # stylistic set 1 (alternate glyph designs)
+# font-feature = +ss02 # stylistic set 2 (more alternates)
+# font-feature = +zero # slashed zero (0 vs o distinction)
+
+
+font-feature = liga
+font-feature = calt
+font-feature = ss01
+font-feature = ss04
+font-feature = ss02
 
 custom-shader = ./cursor.glsl
 
@@ -20,7 +34,8 @@ custom-shader = ./cursor.glsl
 
 macos-titlebar-style = hidden
 
-font-family = Iosevka Paper
+# font-family = Iosevka Paper
+# font-family = Berkeley Mono
 # font-family = Ioskeley Mono
 # font-family = ProFontllx
 # font-family = Dank Mono
@@ -39,7 +54,7 @@ font-family = Iosevka Paper
 # font-style-italic = Semibold Italic
 # font-style-bold-italic = Bold Italic
 # font-family = JetBrainsMono Nerd Font
-font-size = 15
+font-size = 16
 cursor-style = bar
 cursor-style-blink = true
 window-padding-x = 0
@@ -94,40 +109,50 @@ window-inherit-working-directory = true
 
 keybind = ctrl+enter=unbind
 
-keybind = alt+1=goto_tab:1
-keybind = alt+2=goto_tab:2
-keybind = alt+3=goto_tab:3
-keybind = alt+4=goto_tab:4
+# System-wide new-window hotkey (replaces the rift osascript binding).
+# Requires granting Ghostty accessibility permission when prompted.
+keybind = global:cmd+enter=new_window
 
+# keybind = alt+1=goto_tab:1
+# keybind = alt+2=goto_tab:2
+# keybind = alt+3=goto_tab:3
+# keybind = alt+4=goto_tab:4
+#
 keybind = ctrl+shift+p=toggle_command_palette
+keybind = ctrl+shift+v=paste_from_clipboard
 
-# tabs 
-keybind = ctrl+b>c=new_tab
-keybind = ctrl+b>shift+l=next_tab
-keybind = ctrl+b>shift+h=previous_tab
-keybind = ctrl+b>y=move_tab:-1
-keybind = ctrl+b>o=move_tab:1
+#
+# # tabs 
+# keybind = ctrl+b>c=new_tab
+# keybind = ctrl+b>shift+l=next_tab
+# keybind = ctrl+b>shift+h=previous_tab
+# keybind = ctrl+b>y=move_tab:-1
+# keybind = ctrl+b>o=move_tab:1
+#
+# # quick tab switch
+# keybind = ctrl+b>1=goto_tab:1
+# keybind = ctrl+b>2=goto_tab:2
+# keybind = ctrl+b>3=goto_tab:3
+# keybind = ctrl+b>4=goto_tab:4
+# keybind = ctrl+b>5=goto_tab:5
+# keybind = ctrl+b>6=goto_tab:6
+# keybind = ctrl+b>7=goto_tab:7
+# keybind = ctrl+b>8=goto_tab:8
+# keybind = ctrl+b>9=goto_tab:9
+#
+# # split
+# keybind = ctrl+b>\=new_split:right
+# keybind = ctrl+b>-=new_split:down
+#
+# keybind = ctrl+b>j=goto_split:bottom
+# keybind = ctrl+b>k=goto_split:top
+# keybind = ctrl+b>h=goto_split:left
+# keybind = ctrl+b>l=goto_split:right
+#
+# keybind = ctrl+b>z=toggle_split_zoom
+#
+# keybind = ctrl+b>e=equalize_splits
 
-# quick tab switch
-keybind = ctrl+b>1=goto_tab:1
-keybind = ctrl+b>2=goto_tab:2
-keybind = ctrl+b>3=goto_tab:3
-keybind = ctrl+b>4=goto_tab:4
-keybind = ctrl+b>5=goto_tab:5
-keybind = ctrl+b>6=goto_tab:6
-keybind = ctrl+b>7=goto_tab:7
-keybind = ctrl+b>8=goto_tab:8
-keybind = ctrl+b>9=goto_tab:9
+keybind = performable:ctrl+shift+c=copy_to_clipboard
 
-# split
-keybind = ctrl+b>\=new_split:right
-keybind = ctrl+b>-=new_split:down
-
-keybind = ctrl+b>j=goto_split:bottom
-keybind = ctrl+b>k=goto_split:top
-keybind = ctrl+b>h=goto_split:left
-keybind = ctrl+b>l=goto_split:right
-
-keybind = ctrl+b>z=toggle_split_zoom
-
-keybind = ctrl+b>e=equalize_splits
+keybind = command+shift+d=ignore
