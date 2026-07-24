@@ -30,7 +30,7 @@ M.ui = {
 
   statusline = {
     theme = "vscode_colored",
-    order = { "mode", "file", "git", "%=", "showcmd", "lsp_msg", "%=", "diagnostics", "searchcount", "lsp", "cursor", "cwd" },
+    order = { "mode", "file", "git", "%=", "showcmd", "lsp_msg", "%=", "diagnostics", "cursor", "searchcount", "lsp", "cwd" },
     modules = {
       showcmd = "%#StText# %-12.12S ",
       mode = function()

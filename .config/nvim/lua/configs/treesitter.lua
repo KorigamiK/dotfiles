@@ -4,7 +4,8 @@ return {
     enable = true,
     keymaps = {
       init_selection = "<CR>",
-      scope_incremental = "<TAB>",
+      -- Do not map <Tab>: terminals represent <Tab> and <C-i> identically,
+      -- which would shadow Vim's built-in forward jumplist navigation.
       node_incremental = "<CR>",
       node_decremental = "<S-CR>",
     },

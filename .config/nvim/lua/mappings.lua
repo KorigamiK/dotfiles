@@ -2,11 +2,31 @@ require "nvchad.mappings"
 
 local unmap = vim.keymap.del
 
-unmap("n", "<leader>e")
-unmap("n", "<tab>")
-unmap("n", "<S-tab>")
-unmap("n", "gc")
-unmap("n", "<leader>n")
+local function safe_unmap(mode, lhs)
+  pcall(unmap, mode, lhs)
+end
+
+safe_unmap("n", "<leader>e")
+safe_unmap("n", "<tab>")
+safe_unmap("n", "<S-tab>")
+safe_unmap("n", "gc")
+safe_unmap("n", "<leader>n")
+
+for _, lhs in ipairs {
+  "<leader>fw",
+  "<leader>fb",
+  "<leader>fh",
+  "<leader>ma",
+  "<leader>fo",
+  "<leader>fz",
+  "<leader>cm",
+  "<leader>gt",
+  "<leader>pt",
+  "<leader>ff",
+  "<leader>fa",
+} do
+  safe_unmap("n", lhs)
+end
 
 local map = vim.keymap.set
 
@@ -68,35 +88,63 @@ map("n", "<leader>fm", function()
   require("conform").format { async = false, lsp_fallback = true }
 end, { desc = "File Format with conform" })
 
--- telescope
-map("n", "<leader>fg", "<cmd> Telescope git_files <CR>", { desc = "Search git files" })
-map("n", "<leader>fp", "<cmd> Telescope project <CR>", { desc = "Search projects" })
-map("n", "<leader><leader>", "<cmd> Telescope resume <CR>", { desc = "Telescope Resume" })
+-- fff
+map("n", "<leader><leader>", function()
+  require("fff").resume()
+end, { desc = "FFF resume last picker" })
 
-local live_grep_in_glob = function(glob_pattern)
-  if not glob_pattern or glob_pattern == "" then
-    return
+map("n", "<leader>ff", function()
+  require("fff").find_files()
+end, { desc = "FFF find files" })
+
+-- in-picker normal-mode jumps: gg -> first result, G -> last result
+do
+  local function fff_jump(to_last)
+    local ok, pui = pcall(require, "fff.picker_ui.picker_ui")
+    if not ok or not pui.state.active then
+      return
+    end
+    local old_cursor = pui.state.cursor
+    if to_last then
+      pui.wrap_to_last()
+    else
+      pui.wrap_to_first()
+    end
+    if pui.render_after_cursor_move(old_cursor) then
+      pui.update_status()
+      pcall(vim.cmd, "redraw")
+      pui.update_preview_debounced()
+    end
   end
-  require("telescope.builtin").live_grep {
-    vimgrep_arguments = {
-      "rg",
-      "--color=never",
-      "--hidden",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-      "--smart-case",
-      "--glob=" .. glob_pattern,
-    },
-  }
-end
-map("n", "<leader>fw", function()
-  vim.ui.input({ prompt = "Glob: ", completion = "file", default = "**/*" }, live_grep_in_glob)
-end, { desc = "Grep args" })
 
--- zoxide
-map("n", "<leader>z", "<cmd> Telescope zoxide list <CR>", { desc = "Zoxide list" })
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "fff_input", "fff_list" },
+    callback = function(ev)
+      local opts = { buffer = ev.buf, noremap = true, silent = true }
+      vim.keymap.set("n", "gg", function()
+        fff_jump(false)
+      end, opts)
+      vim.keymap.set("n", "G", function()
+        fff_jump(true)
+      end, opts)
+    end,
+  })
+end
+
+map("n", "<leader>fw", function()
+  require("fff").live_grep()
+end, { desc = "FFF live grep" })
+
+map("n", "<leader>fz", function()
+  require("fff").live_grep { grep = { modes = { "fuzzy", "plain" } } }
+end, { desc = "FFF fuzzy grep" })
+
+map("n", "<leader>fc", function()
+  require("fff").live_grep { query = vim.fn.expand "<cword>" }
+end, { desc = "FFF grep current word" })
+
+map("n", "<leader>fp", "<cmd>Telescope project<CR>", { desc = "Telescope projects" })
+map("n", "<leader>z", "<cmd>Telescope zoxide list<CR>", { desc = "Telescope zoxide" })
 
 -- toggle lsp
 map("n", "<leader>ls", function()
@@ -253,13 +301,13 @@ map("n", "<leader>ll", "<cmd>LLM<CR>", { desc = "Prompt with LLM" })
 
 -- keybinds for prompting with groq
 map("n", "<leader>,", function()
-  require("llm").prompt { replace = false, service = "github" }
+  require("llm").prompt { replace = false, service = "groq" }
 end, { desc = "Prompt with ai" })
 map("v", "<leader>,", function()
-  require("llm").prompt { replace = false, service = "github" }
+  require("llm").prompt { replace = false, service = "groq" }
 end, { desc = "Prompt with ai" })
 map("v", "<leader>.", function()
-  require("llm").prompt { replace = true, service = "github" }
+  require("llm").prompt { replace = true, service = "groq" }
 end, { desc = "Prompt while replacing with ai" })
 
 -- keybinds to support vim motions

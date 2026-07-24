@@ -31,7 +31,7 @@ return {
       services = {
         groq = {
           url = "https://api.groq.com/openai/v1/chat/completions",
-          model = "deepseek-r1-distill-llama-70b",
+          model = "openai/gpt-oss-120b",
           api_key_name = "GROQ_API_KEY",
         },
         github = {
@@ -184,6 +184,16 @@ return {
       if cfg.keymaps.node_decremental then
         vim.keymap.set("x", cfg.keymaps.node_decremental, ts_shrink_selection, { desc = "Shrink treesitter selection" })
       end
+
+      -- Restore default <CR>/<S-CR> in the quickfix list (override the global treesitter binds)
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "qf",
+        callback = function(ev)
+          local ops = { buffer = ev.buf, noremap = true, silent = true }
+          vim.keymap.set("n", "<CR>", "<CR>", ops)
+          vim.keymap.set("n", "<S-CR>", "<CR>", ops)
+        end,
+      })
     end,
     dependencies = {
       {
@@ -330,8 +340,8 @@ return {
           },
         },
         haskell = {
-          exec = "stack",
-          args = { "ghc", "$(FNAME)" },
+          exec = "ghc",
+          args = { "-o", "$(FNOEXT)", "$(FNAME)" },
         },
         rust = {
           exec = "cargo",
@@ -744,22 +754,6 @@ return {
   },
 
   {
-    "neo451/feed.nvim",
-    cmd = "Feed",
-    opts = {
-      feeds = {
-        {
-          "https://neovim.io/news.xml",
-          name = "Neovim News",
-          tags = { "tech", "news" }, -- tags given are inherited by all its entries
-        },
-        "https://korigamik.dev/rss.xml",
-        "neovim/neovim/releases", -- GitHub links
-      },
-    },
-  },
-
-  {
     "CopilotC-Nvim/CopilotChat.nvim",
     event = "VeryLazy",
     branch = "main",
@@ -844,4 +838,56 @@ return {
     },
   },
 
+  {
+    'dmtrKovalenko/fff.nvim',
+    build = function()
+      require("fff.download").download_or_build_binary()
+    end,
+    opts = {
+      prompt = "   ",
+      title = " FFFiles ",
+      prompt_vim_mode = true,
+      layout = {
+        width = 0.87,
+        height = 0.8,
+        prompt_position = "top",
+        preview_position = "right",
+        preview_size = 0.55,
+        path_shorten_strategy = "middle",
+      },
+      hl = {
+        border = "light_grey",
+        normal = "TelescopePromptNormal",
+        title = "TelescopePromptBorder",
+        prompt = "TelescopePromptPrefix",
+        cursor = "Visual",
+      },
+      debug = {
+        enabled = false,
+        show_scores = false,
+      },
+      keymaps = {
+        -- ctrl-j/k to scroll the preview window down/up
+        preview_scroll_down = '<C-j>',
+        preview_scroll_up = '<C-k>',
+      },
+    },
+    lazy = false,
+    keys = {
+      -- <leader><leader> resume is defined in lua/mappings.lua (it needs a
+      -- post-resume cursor fix-up that doesn't fit a one-line keys= entry).
+      { "<leader>ff", function() require('fff').find_files() end, desc = 'FFF find files' },
+      { "<leader>fw", function() require('fff').live_grep() end,  desc = 'FFF live grep' },
+      {
+        "<leader>fz",
+        function() require('fff').live_grep({ grep = { modes = { 'fuzzy', 'plain' } } }) end,
+        desc = 'FFF fuzzy grep',
+      },
+      {
+        "<leader>fc",
+        function() require('fff').live_grep({ query = vim.fn.expand("<cword>") }) end,
+        desc = 'FFF grep current word',
+      },
+    },
+  }
 }

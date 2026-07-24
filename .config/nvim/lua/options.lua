@@ -17,7 +17,7 @@ vim.opt.fillchars = { eob = "~" }
 -- vim.opt.mouse = nil
 vim.opt.pumheight = 8
 
-vim.opt.colorcolumn = "100"
+vim.opt.colorcolumn = "105"
 vim.opt.showbreak = "󱞩 "
 
 vim.opt.showcmd = true
