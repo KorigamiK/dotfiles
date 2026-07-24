@@ -1,2 +1,10 @@
 #!/bin/bash
-screencapture -i "/Users/ori/Pictures/Screenshots/Screenshot $(date '+%Y-%m-%d at %H.%M.%S').png"
+screenshot="/Users/ori/Pictures/Screenshots/Screenshot $(date '+%Y-%m-%d at %H.%M.%S').png"
+
+if screencapture -i "$screenshot"; then
+  osascript \
+    -e 'on run argv' \
+    -e 'set the clipboard to (read (POSIX file (item 1 of argv)) as «class PNGf»)' \
+    -e 'end run' \
+    "$screenshot"
+fi

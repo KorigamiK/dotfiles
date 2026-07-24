@@ -6,6 +6,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "cli_default_open_behavior": "existing_window",
   "agent_servers": {
     "opencode": {
       "type": "registry"
@@ -180,6 +181,7 @@
     },
   },
   "agent": {
+    "max_content_width": 700.0,
     "enable_feedback": false,
     "expand_edit_card": false,
     "tool_permissions": {
@@ -218,18 +220,18 @@
       },
     },
     "inline_assistant_model": {
-      "provider": "copilot_chat",
-      "model": "oswe-vscode-prime",
+      "provider": "zed.dev",
+      "model": "gpt-5.6-luna",
       // "model": "grok-code-fast-1"
     },
-    "default_profile": "write",
+    "default_profile": "minimal",
     "dock": "left",
-    "default_width": 450,
+    "default_width": 50.0,
     "default_model": {
-      "effort": "max",
+      "effort": "xhigh",
       "enable_thinking": true,
       "provider": "zed.dev",
-      "model": "claude-sonnet-4-6",
+      "model": "gpt-5.6-sol",
     },
   },
   "theme": "Duskfox - opaque",
@@ -247,7 +249,7 @@
   },
   "vim_mode": true,
   "relative_line_numbers": "enabled",
-  "buffer_font_family": "Iosevka Paper",
+  "buffer_font_family": "TX-02 Condensed",
   "ui_font_family": ".SystemUIFont",
   "buffer_font_fallbacks": ["Symbols Nerd Font"],
   // "terminal": {
@@ -271,6 +273,7 @@
     "metrics": false,
   },
   "project_panel": {
+    "default_width": 100.0,
     "hide_gitignore": false,
     "button": true,
     "dock": "right",

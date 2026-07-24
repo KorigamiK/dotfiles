@@ -127,8 +127,6 @@
       "space m P": "markdown::OpenPreview",
       "space m p": "markdown::OpenPreviewToTheSide",
 
-      // Open recent project
-      "space f p": "projects::OpenRecent",
       // Search word under cursor
       "space f w": "pane::DeploySearch",
 
@@ -192,6 +190,7 @@
       // File finder
       "space space": "file_finder::Toggle",
       "space f f": "file_finder::Toggle",
+      "space f p": "projects::OpenRecent",
       // TODO: Open other files
       // Show project panel with current file
       "space e": "pane::RevealInProjectPanel",
@@ -239,8 +238,8 @@
     "context": "MessageEditor > Editor && vim_mode != insert && !menu",
     "bindings": {
       "space ,": "agent::Chat",
-      "space H": "agent::OpenHistory",
-      "space h": "agent::ToggleNavigationMenu",
+      // "space H": "agent::OpenHistory",
+      // "space h": "agent::ToggleNavigationMenu",
       "space m": "agent::ToggleModelSelector",
       "space M": "agent::OpenActiveThreadAsMarkdown",
       "space b": "agent::ToggleNewThreadMenu",
@@ -300,7 +299,6 @@
       "space Q": "workspace::CloseWindow",
       "space f f": "file_finder::Toggle",
       "space space": "file_finder::Toggle",
-      "space f p": "projects::OpenRecent",
     },
   },
   // Panel nagivation
@@ -309,8 +307,6 @@
     "bindings": {
       "space Q": "workspace::CloseWindow",
       "space space": "file_finder::Toggle",
-      "space f p": "projects::OpenRecent",
-      "space f f": "file_finder::Toggle",
     },
   },
   {
@@ -363,10 +359,8 @@
   {
     "context": "EmptyPane",
     "bindings": {
-      "space f p": "projects::OpenRecent",
       "space Q": "workspace::CloseWindow",
       "space space": "file_finder::Toggle",
-      "space f f": "file_finder::Toggle",
       "ctrl-o": "pane::GoBack",
       "space b": "workspace::NewFile",
     },
@@ -553,4 +547,27 @@
       "alt-cmd-j": "multi_workspace::ToggleWorkspaceSidebar"
     }
   },
+  {
+    "context": "AcpThread",
+    "bindings": {
+      "alt-shift-f": "agent::ToggleSearch"
+    }
+  },
+  {
+    "context": "!Editor && !Terminal",
+    "unbind": {
+      "space f": "file_finder::Toggle"
+    },
+    "bindings": {
+      // Open recent project
+      "space f p": "projects::OpenRecent",
+      "space f f": "file_finder::Toggle",
+    }
+  },
+  {
+    "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
+    "unbind": {
+      "space f": "file_finder::Toggle"
+    },
+  }
 ]
