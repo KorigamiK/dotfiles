@@ -778,6 +778,11 @@
     "when": "activeWebviewPanelId == 'claudeVSCodePanel' || claude-vscode.sideBarActive && !editorFocus && !panelFocus"
   },
   {
+    "key": "shift+escape",
+    "command": "workbench.action.toggleMaximizedAuxiliaryBar",
+    "when": "chatgpt.sidebarSecondaryView.active && !editorFocus && !panelFocus"
+  },
+  {
     "key": "ctrl+l",
     "command": "workbench.action.focusLastEditorGroup",
     "when": "chatgpt.sidebarSecondaryView.active && !editorFocus && !panelFocus"
@@ -857,5 +862,9 @@
     "key": "g space",
     "command": "git.openFile",
     "when": "isInDiffEditor"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "-log-analysis.turnOnFocusMode"
   }
 ]
