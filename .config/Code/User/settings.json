@@ -233,6 +233,11 @@
       "tab.activeBorderTop": "default",
     },
     "[Kanagawa]": {
+      "notebook.focusedCellBorder": "#00B8D9",
+      "notebook.inactiveFocusedCellBorder": "#555555",
+      "notebook.selectedCellBorder": "#6B7280",
+      "notebook.inactiveSelectedCellBorder": "#6B7280",
+      // "notebook.cellHoverBackground": "#1F3A4D",
       "titleBar.activeBackground": "#1f1f28",
       "statusBarItem.remoteBackground": "#363646",
       "statusBarItem.remoteForeground": "#dcd7ba",
@@ -281,7 +286,7 @@
   "github.copilot.editor.enableAutoCompletions": true,
   "vim.enableNeovim": true,
   "vim.overrideCopy": false,
-  "notebook.markup.fontSize": 14,
+  "notebook.markup.fontSize": 15,
   "editor.fontSize": 14,
   "cmake.pinnedCommands": [
     "workbench.action.tasks.configureTaskRunner",
@@ -1007,5 +1012,10 @@
   "terminal.integrated.mouseWheelScrollSensitivity": 3,
   "editor.cursorSurroundingLines": 4,
   "python-envs.terminal.autoActivationType": "shellStartup",
-  "terminal.integrated.stickyScroll.enabled": false
+  "terminal.integrated.stickyScroll.enabled": false,
+  "notebook.markdown.lineHeight": 21,
+  "jupyter.widgetScriptSources": [
+    "jsdelivr.com",
+    "unpkg.com"
+  ]
 }

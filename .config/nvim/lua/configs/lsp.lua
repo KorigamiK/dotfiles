@@ -229,5 +229,6 @@ local servers = {
   "tinymist",
   "kotlin_language_server",
   "gopls",
+  "svelte",
 }
 vim.lsp.enable(servers)

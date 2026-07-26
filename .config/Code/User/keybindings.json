@@ -222,16 +222,6 @@
     "key": "ctrl+p"
   },
   {
-    "command": "inlineChat.start",
-    "key": "alt+i",
-    "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
-  },
-  {
-    "command": "-inlineChat.start",
-    "key": "ctrl+i",
-    "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
-  },
-  {
     "command": "workbench.action.chat.openInEditor",
     "key": "shift+alt+i"
   },
@@ -321,7 +311,7 @@
   {
     "key": "shift+escape",
     "command": "workbench.action.toggleMaximizedPanel",
-    "when": "(panelFocus && panelVisible)"
+    "when": "terminalFocus && !terminalEditorFocus || panelFocus && panelVisible && !terminalFocus"
   },
   {
     "key": "ctrl+l",
@@ -331,7 +321,17 @@
   {
     "key": "shift+escape",
     "command": "workbench.action.toggleMaximizeEditorGroup",
-    "when": "terminalEditorFocus"
+    "when": "terminalFocus && terminalEditorFocus"
+  },
+  {
+    "key": "ctrl+shift+c",
+    "command": "workbench.action.terminal.copySelection",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+v",
+    "command": "workbench.action.terminal.paste",
+    "when": "terminalFocus"
   },
   {
     "key": "ctrl+shift+`",
@@ -409,11 +409,6 @@
     "when": "notebookEditorFocused && !inputFocus"
   },
   {
-    "key": "ctrl+l",
-    "command": "workbench.action.navigateRight",
-    "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
-  },
-  {
     "key": "shift+l",
     "command": "workbench.action.nextEditorInGroup",
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
@@ -444,6 +439,16 @@
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
   },
   {
+    "key": "space ,",
+    "command": "notebook.cell.execute",
+    "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
+  },
+  {
+    "key": "space ,",
+    "command": "notebook.cell.execute",
+    "when": "notebookEditorFocused && inputFocus && vim.mode == 'Normal'"
+  },
+  {
     "key": "space space",
     "command": "workbench.action.quickOpen",
     "when": "notebookEditorFocused && inputFocus && vim.mode == 'Normal'"
@@ -451,6 +456,11 @@
   {
     "key": "space f m",
     "command": "notebook.formatCell",
+    "when": "notebookEditorFocused && inputFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "space /",
+    "command": "editor.action.commentLine",
     "when": "notebookEditorFocused && inputFocus && vim.mode == 'Normal'"
   },
   {
@@ -484,10 +494,6 @@
     "when": "isCompositeNotebook && !config.interactiveWindow.executeWithShiftEnter && !notebookCellListFocused && activeEditor == 'workbench.editor.repl'"
   },
   {
-    "key": "ctrl+e",
-    "command": "-workbench.action.quickOpen"
-  },
-  {
     "key": "ctrl+i",
     "command": "-inlineChat.startWithCurrentLine",
     "when": "inlineChatHasProvider && inlineChatShowingHint && !editorReadonly && !inlineChatVisible"
@@ -518,11 +524,6 @@
   {
     "key": "ctrl+w",
     "command": "-workbench.action.closeActiveEditor"
-  },
-  {
-    "key": "shift+escape",
-    "command": "workbench.action.toggleMaximizedPanel",
-    "when": "inOutput"
   },
   {
     "key": "shift+escape",
@@ -602,10 +603,6 @@
     "command": "workbench.action.showCommands"
   },
   {
-    "key": "shift+cmd+p",
-    "command": "-workbench.action.showCommands"
-  },
-  {
     "key": "enter",
     "command": "-renameFile",
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
@@ -655,10 +652,6 @@
     "command": "workbench.action.files.save"
   },
   {
-    "key": "cmd+s",
-    "command": "-workbench.action.files.save"
-  },
-  {
     "key": "ctrl+shift+t",
     "command": "workbench.action.reopenClosedEditor"
   },
@@ -702,7 +695,8 @@
   },
   {
     "key": "ctrl+e",
-    "command": "mssql.runQuery"
+    "command": "mssql.runQuery",
+    "when": "editorTextFocus && editorLangId == 'sql'"
   },
   {
     "key": "ctrl+l",
@@ -847,10 +841,6 @@
     "when": "textInputFocus && !editorReadonly"
   },
   {
-    "key": "shift+cmd+p",
-    "command": "workbench.action.showCommands"
-  },
-  {
     "key": "shift+enter",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
@@ -866,5 +856,10 @@
   {
     "key": "ctrl+h",
     "command": "-log-analysis.turnOnFocusMode"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight",
+    "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
   }
 ]
