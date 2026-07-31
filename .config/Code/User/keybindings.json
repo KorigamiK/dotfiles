@@ -102,10 +102,14 @@
     "command": "editor.action.showHover",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
+  // Normal mode is deliberately excluded: binding bare `enter` here outranks the
+  // default `type` route that VSCodeVim listens on, so vim never receives "\n"
+  // and every `z<CR>`-style sequence dies. The Normal-mode equivalent lives in
+  // `vim.normalModeKeyBindingsNonRecursive` in settings.json instead.
   {
     "key": "enter",
     "command": "editor.action.smartSelect.expand",
-    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual' && vim.mode) && editorTextFocus"
+    "when": "vim.mode == 'Visual' && editorTextFocus"
   },
   {
     "key": "shift+enter",
@@ -443,26 +447,12 @@
     "command": "notebook.cell.execute",
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
   },
-  {
-    "key": "space ,",
-    "command": "notebook.cell.execute",
-    "when": "notebookEditorFocused && inputFocus && vim.mode == 'Normal'"
-  },
-  {
-    "key": "space space",
-    "command": "workbench.action.quickOpen",
-    "when": "notebookEditorFocused && inputFocus && vim.mode == 'Normal'"
-  },
-  {
-    "key": "space f m",
-    "command": "notebook.formatCell",
-    "when": "notebookEditorFocused && inputFocus && vim.mode == 'Normal'"
-  },
-  {
-    "key": "space /",
-    "command": "editor.action.commentLine",
-    "when": "notebookEditorFocused && inputFocus && vim.mode == 'Normal'"
-  },
+  // NOTE: do NOT add `space ...` chords scoped to `inputFocus` here. Any native
+  // chord starting with `space` that is active inside a cell makes VS Code enter
+  // chord-pending state and swallow the key, so VSCodeVim never receives it as
+  // <leader>. In-cell leader maps belong in `vim.normalModeKeyBindingsNonRecursive`
+  // in settings.json. The `!inputFocus` chords below are fine — vim isn't active
+  // in notebook container mode.
   {
     "key": "ctrl+h",
     "command": "workbench.action.navigateLeft",

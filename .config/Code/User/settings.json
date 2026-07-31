@@ -677,6 +677,16 @@
         "workbench.action.closeWindow"
       ]
     },
+    // Run the focused notebook cell (no-op outside a notebook)
+    {
+      "before": [
+        "leader",
+        ","
+      ],
+      "commands": [
+        "notebook.cell.execute"
+      ]
+    },
     {
       "before": [
         "leader",
@@ -731,6 +741,29 @@
       ],
       "commands": [
         "workbench.action.gotoSymbol"
+      ]
+    },
+    // `z<CR>` centers instead of vim's default (line to top). `zz` is the builtin
+    // that always centers, so replay it rather than calling revealLine (which
+    // needs a lineNumber arg a static remap can't compute).
+    {
+      "before": [
+        "z",
+        "<CR>"
+      ],
+      "after": [
+        "z",
+        "z"
+      ]
+    },
+    // Bare <CR> in Normal mode — moved here from keybindings.json so that Enter
+    // still reaches vim and can complete `z<CR>` above.
+    {
+      "before": [
+        "<CR>"
+      ],
+      "commands": [
+        "editor.action.smartSelect.expand"
       ]
     }
   ],
@@ -1017,5 +1050,6 @@
   "jupyter.widgetScriptSources": [
     "jsdelivr.com",
     "unpkg.com"
-  ]
+  ],
+  "workbench.activityBar.location": "hidden"
 }
