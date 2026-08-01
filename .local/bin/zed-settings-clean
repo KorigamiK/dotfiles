@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+"""Git clean filter: strip the private "ssh_connections" block from
+.config/zed/settings.json before it reaches the index. Zed rewrites this
+block automatically whenever an SSH project is opened, so the filter keeps
+it local-only. Line-based on purpose — the file is JSONC, which json.loads
+can't parse."""
+import sys
+
+
+def strip(text):
+    out = []
+    depth = 0
+    in_block = False
+    for line in text.split("\n"):
+        if in_block:
+            depth += line.count("[") - line.count("]")
+            if depth <= 0:
+                in_block = False
+            continue
+        if line.lstrip().startswith('"ssh_connections"'):
+            depth = line.count("[") - line.count("]")
+            in_block = depth > 0
+            continue
+        out.append(line)
+    return "\n".join(out)
+
+
+sys.stdout.write(strip(sys.stdin.read()))
