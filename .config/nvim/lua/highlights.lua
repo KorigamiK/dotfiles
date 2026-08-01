@@ -28,6 +28,8 @@ M.override = {
 
 ---@type HLTable
 M.add = {
+  -- bg matches vscode_colored statusline: lighten(statusline_bg, 1)
+  St_Macro = { fg = "red", bg = { "statusline_bg", 1 }, bold = true },
   IndentBlanklineContextStart = { bg = "black2" },
   NeogitDiffDeleteCursor = { bg = "NONE", fg = "red" },
   NeogitDiffDeleteHighlight = { bg = "NONE", fg = "red" },

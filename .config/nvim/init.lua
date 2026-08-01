@@ -38,6 +38,14 @@ vim.schedule(function()
   require "mappings"
 end)
 
+vim.api.nvim_create_autocmd({ "RecordingEnter", "RecordingLeave" }, {
+  callback = function()
+    vim.schedule(function()
+      vim.cmd.redrawstatus()
+    end)
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   callback = function()
     vim.highlight.on_yank()

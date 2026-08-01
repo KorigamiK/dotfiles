@@ -33,6 +33,10 @@ if.app-id = 'com.apple.UserNotificationCenter'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'com.temidaradev.kopuz'
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'com.apple.QuickTimePlayerX'
 run = 'layout floating'
 

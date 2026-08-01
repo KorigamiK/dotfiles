@@ -30,9 +30,16 @@ M.ui = {
 
   statusline = {
     theme = "vscode_colored",
-    order = { "mode", "file", "git", "%=", "showcmd", "lsp_msg", "%=", "diagnostics", "cursor", "searchcount", "lsp", "cwd" },
+    order = { "mode", "file", "git", "macro", "%=", "showcmd", "lsp_msg", "%=", "diagnostics", "cursor", "searchcount", "lsp", "cwd" },
     modules = {
       showcmd = "%#StText# %-12.12S ",
+      macro = function()
+        local reg = vim.fn.reg_recording()
+        if reg == "" then
+          return ""
+        end
+        return "%#St_Macro# @" .. reg .. " "
+      end,
       mode = function()
         local utils = require "nvchad.stl.utils"
         if not utils.is_activewin() then

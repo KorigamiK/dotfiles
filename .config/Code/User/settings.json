@@ -220,10 +220,6 @@
     "<C-P>": false
   },
   "vim.visualstar": true,
-  // To improve performance
-  "extensions.experimental.affinity": {
-    "vscodevim.vim": 1
-  },
   "vim.leader": "<Space>",
   "vim.foldfix": true,
   "workbench.colorCustomizations": {
@@ -753,7 +749,7 @@
       ],
       "after": [
         "z",
-        "z"
+        "t"
       ]
     },
     // Bare <CR> in Normal mode — moved here from keybindings.json so that Enter

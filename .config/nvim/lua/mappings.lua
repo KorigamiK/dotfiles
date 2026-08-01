@@ -416,7 +416,7 @@ end, { desc = "LSP hover" })
 
 
 map("n", "gb", function()
-  vim.cmd('Gitsigns blame_line')
+  require("gitsigns").blame_line { full = true, extra_opts = { '--incremental', '-C', '-C', '-C' } }
 end, { desc = "LSP hover" })
 
 map("n", "<leader>gB", function()
