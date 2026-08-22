@@ -39,17 +39,47 @@
       "ctrl-w": "editor::DeleteToPreviousWordStart",
     },
   },
+  // The preview is not an Editor, so none of the `Editor && vim_mode == normal`
+  // leader bindings reach it. Anything workspace- or pane-level is mirrored here;
+  // editor-only leader maps (space /, space f m, space c a, space r a, space t d,
+  // space g b, space l i, space f l) are intentionally omitted — they have no
+  // buffer to act on.
   {
     "context": "KeyContextView || MarkdownPreview",
     "bindings": {
+      // Pane / window navigation
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
       "shift-h": "pane::ActivatePreviousItem",
       "shift-l": "pane::ActivateNextItem",
+      "alt-shift-y": "pane::SwapItemLeft",
+      "alt-shift-o": "pane::SwapItemRight",
+      "ctrl-o": "pane::GoBack",
+      // Closing
       "ctrl-w": "pane::CloseActiveItem",
       "space q": "pane::CloseActiveItem",
       "space x": "pane::CloseActiveItem",
+      "space X": "pane::CloseOtherItems",
+      "space Q": "workspace::CloseWindow",
+      // Finding / opening
+      "space space": "file_finder::Toggle",
+      "space f f": "file_finder::Toggle",
+      "space f p": "projects::OpenRecent",
+      "space f w": "pane::DeploySearch",
+      "space b": "workspace::NewFile",
+      "space e": "pane::RevealInProjectPanel",
       ";": "command_palette::Toggle",
+      // Panels. ctrl-n is repeated here because the Workspace-level binding is
+      // commented out below and the Editor one can't match a non-editor pane.
+      "ctrl-n": "workspace::ToggleRightDock",
+      "space g s": "git_panel::ToggleFocus",
+      "space a c": "agent::ToggleFocus",
+      "space l t": "diagnostics::Deploy",
+      "space c z": "workspace::ToggleCenteredLayout",
+      "space J": "journal::NewJournalEntry",
+      // Scrolling
       "k": "markdown::ScrollPageUp",
       "j": "markdown::ScrollPageDown",
     },
@@ -254,7 +284,6 @@
       "alt-h": "workspace::ToggleBottomDock",
       "ctrl-tab": "pane::ActivateNextItem",
       "ctrl-shift-tab": "pane::ActivatePreviousItem",
-      "ctrl-shift-e": "project_panel::ToggleFocus",
     },
   },
   {
@@ -569,5 +598,34 @@
     "unbind": {
       "space f": "file_finder::Toggle"
     },
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-shift-e": [
+        "editor::SelectToEndOfLine",
+        {
+          "stop_at_soft_wraps": true
+        }
+      ]
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-shift-f": "editor::SelectRight"
+    }
+  },
+  {
+    "context": "TextFinder || TextFinder > Picker > Editor || TextFinder > Picker > menu",
+    "bindings": {
+      "ctrl-shift-f": "text_finder::ToProjectSearch"
+    }
+  },
+  {
+    "context": "TextFinder || TextFinder > Picker > Editor || TextFinder > Picker > menu",
+    "unbind": {
+      "alt-cmd-f": "text_finder::ToProjectSearch"
+    }
   }
 ]

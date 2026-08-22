@@ -1,0 +1,402 @@
+/* GitHub Markdown CSS adapted to the plugin's #content container. */
+
+header {
+  display: none;
+}
+
+:root {
+  --gh-content-width: 1120px;
+  --gh-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  --gh-font-mono: monospace;
+  --gh-bg: #0d1117;
+  --gh-fg: #f0f6fc;
+  --gh-muted: #9198a1;
+  --gh-muted-bg: #151b23;
+  --gh-neutral-muted: rgba(101, 108, 118, 0.2);
+  --gh-border: #3d444d;
+  --gh-border-muted: rgba(61, 68, 77, 0.7);
+  --gh-accent: #4493f8;
+  --gh-attention-bg: rgba(187, 128, 9, 0.15);
+  --gh-attention-fg: #d29922;
+}
+
+[data-theme="light"] {
+  --gh-bg: #ffffff;
+  --gh-fg: #1f2328;
+  --gh-muted: #59636e;
+  --gh-muted-bg: #f6f8fa;
+  --gh-neutral-muted: rgba(129, 139, 152, 0.12);
+  --gh-border: #d1d9e0;
+  --gh-border-muted: rgba(209, 217, 224, 0.7);
+  --gh-accent: #0969da;
+  --gh-attention-bg: #fff8c5;
+  --gh-attention-fg: #9a6700;
+}
+
+/* Base layout and typography. */
+#content {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: var(--gh-content-width);
+  margin: 0 auto;
+  padding: 45px 48px 64px;
+  color: var(--gh-fg);
+  background-color: var(--gh-bg);
+  font-family: var(--gh-font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+#content > *:first-child {
+  margin-top: 0 !important;
+}
+
+#content > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+#content a {
+  color: var(--gh-accent);
+  text-decoration: none;
+}
+
+#content a:hover {
+  text-decoration: underline;
+}
+
+#content strong,
+#content b {
+  font-weight: 600;
+}
+
+#content h1,
+#content h2,
+#content h3,
+#content h4,
+#content h5,
+#content h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  padding-left: 0;
+  border-left: 0;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+#content h1 {
+  padding-bottom: 0.3em;
+  font-size: 2em;
+  border-bottom: 1px solid var(--gh-border-muted);
+}
+
+#content h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.5em;
+  border-bottom: 1px solid var(--gh-border-muted);
+}
+
+#content h3 {
+  font-size: 1.25em;
+}
+
+#content h4 {
+  font-size: 1em;
+}
+
+#content h5 {
+  font-size: 0.875em;
+}
+
+#content h6 {
+  color: var(--gh-muted);
+  font-size: 0.85em;
+}
+
+#content p,
+#content blockquote,
+#content ul,
+#content ol,
+#content dl,
+#content table,
+#content pre,
+#content details {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+#content p {
+  margin-bottom: 10px;
+}
+
+#content ul,
+#content ol {
+  padding-left: 2em;
+}
+
+#content ul ul,
+#content ul ol,
+#content ol ul,
+#content ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#content li + li {
+  margin-top: 0.25em;
+}
+
+#content li > p {
+  margin-top: 16px;
+}
+
+#content hr {
+  height: 0.25em;
+  margin: 24px 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--gh-border);
+  border: 0;
+}
+
+#content img {
+  max-width: 100%;
+  box-sizing: content-box;
+}
+
+#content blockquote {
+  padding: 0 1em;
+  color: var(--gh-muted);
+  background: transparent;
+  border-left: 0.25em solid var(--gh-border);
+  border-radius: 0;
+}
+
+#content blockquote > :first-child {
+  margin-top: 0;
+}
+
+#content blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* GitHub-style responsive tables. */
+#content table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+  font-variant: tabular-nums;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+#content table th,
+#content table td {
+  padding: 6px 13px;
+  border: 1px solid var(--gh-border);
+}
+
+#content table th {
+  font-weight: 600;
+}
+
+#content table tr {
+  background-color: var(--gh-bg);
+  border-top: 1px solid var(--gh-border-muted);
+}
+
+#content table tr:nth-child(2n) {
+  background-color: var(--gh-muted-bg);
+}
+
+/* Inline code and fenced code blocks. */
+#content code,
+#content kbd,
+#content pre,
+#content samp {
+  font-family: var(--gh-font-mono);
+}
+
+#content code,
+#content tt,
+#content samp {
+  font-size: 85%;
+}
+
+#content code,
+#content tt {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  white-space: break-spaces;
+  background-color: var(--gh-neutral-muted);
+  border-radius: 6px;
+}
+
+#content pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  word-wrap: normal;
+}
+
+#content pre code,
+#content pre tt {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  font-size: 100%;
+  line-height: inherit;
+  white-space: pre;
+  word-wrap: normal;
+  background: transparent;
+  border: 0;
+}
+
+#content .code-wrap {
+  --md-language-accent: var(--gh-muted);
+  margin: 0 0 16px;
+}
+
+#content .code-wrap pre {
+  padding: 16px 16px 0 16px;
+  color: var(--gh-fg);
+  background-color: var(--gh-muted-bg);
+  border: 0;
+  border-radius: 6px;
+}
+
+/* The plugin adds these controls around fenced code. Keep them unobtrusive. */
+#content .code-wrap .code-lang {
+  top: 8px;
+  right: 12px;
+  padding: 0.2em 0.45em;
+  color: var(--md-language-accent);
+  background: transparent;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+#content .code-wrap .copy-btn {
+  background: var(--gh-bg);
+  border-color: var(--gh-border);
+}
+
+/* Language accents apply to the badge; highlight.js still owns token colors. */
+#content .code-wrap:has(pre[data-lang="javascript"]),
+#content .code-wrap:has(pre[data-lang="js"]),
+#content .code-wrap:has(pre[data-lang="jsx"]),
+#content .code-wrap:has(pre[data-lang="typescript"]),
+#content .code-wrap:has(pre[data-lang="ts"]),
+#content .code-wrap:has(pre[data-lang="tsx"]) {
+  --md-language-accent: #f1e05a;
+}
+
+#content .code-wrap:has(pre[data-lang="python"]),
+#content .code-wrap:has(pre[data-lang="py"]) {
+  --md-language-accent: #58a6ff;
+}
+
+#content .code-wrap:has(pre[data-lang="lua"]),
+#content .code-wrap:has(pre[data-lang="css"]),
+#content .code-wrap:has(pre[data-lang="scss"]),
+#content .code-wrap:has(pre[data-lang="less"]),
+#content .code-wrap:has(pre[data-lang="kotlin"]) {
+  --md-language-accent: #a371f7;
+}
+
+#content .code-wrap:has(pre[data-lang="bash"]),
+#content .code-wrap:has(pre[data-lang="sh"]),
+#content .code-wrap:has(pre[data-lang="shell"]),
+#content .code-wrap:has(pre[data-lang="zsh"]) {
+  --md-language-accent: #3fb950;
+}
+
+#content .code-wrap:has(pre[data-lang="json"]),
+#content .code-wrap:has(pre[data-lang="jsonc"]),
+#content .code-wrap:has(pre[data-lang="sql"]) {
+  --md-language-accent: #d29922;
+}
+
+#content .code-wrap:has(pre[data-lang="yaml"]),
+#content .code-wrap:has(pre[data-lang="yml"]) {
+  --md-language-accent: #f85149;
+}
+
+#content .code-wrap:has(pre[data-lang="html"]),
+#content .code-wrap:has(pre[data-lang="xml"]),
+#content .code-wrap:has(pre[data-lang="vue"]),
+#content .code-wrap:has(pre[data-lang="rust"]) {
+  --md-language-accent: #f0883e;
+}
+
+#content .code-wrap:has(pre[data-lang="go"]) {
+  --md-language-accent: #58a6ff;
+}
+
+#content .code-wrap:has(pre[data-lang="java"]) {
+  --md-language-accent: #f778ba;
+}
+
+#content .code-wrap:has(pre[data-lang="swift"]) {
+  --md-language-accent: #ff7b72;
+}
+
+/* GitHub alerts, task lists, and footnotes. */
+#content .task-list-item {
+  list-style-type: none;
+}
+
+#content .task-list-item input[type="checkbox"] {
+  margin: 0 0.2em 0.25em -1.4em;
+  vertical-align: middle;
+}
+
+#content .markdown-alert {
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  color: inherit;
+  background: transparent;
+  border-left: 0.25em solid var(--gh-border);
+  border-radius: 0;
+}
+
+#content .markdown-alert > :first-child {
+  margin-top: 0;
+}
+
+#content .markdown-alert > :last-child {
+  margin-bottom: 0;
+}
+
+#content .markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--gh-accent);
+}
+
+#content .markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--gh-attention-fg);
+}
+
+#content .footnotes {
+  font-size: 12px;
+  color: var(--gh-muted);
+  border-top: 1px solid var(--gh-border);
+}
+
+@media (max-width: 767px) {
+  #content {
+    padding: 15px;
+  }
+}
+
+
+center > video {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    display: block;
+}

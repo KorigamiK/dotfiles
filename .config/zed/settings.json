@@ -6,12 +6,17 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "markdown_preview_font_size": 15.0,
   "cli_default_open_behavior": "existing_window",
   "agent_servers": {
     "opencode": {
       "type": "registry"
     },
     "claude-acp": {
+      "default_config_options": {
+        "fast": true,
+        "model": "opus[1m]"
+      },
       "type": "registry"
     },
     "codex-acp": {
@@ -220,22 +225,22 @@
       },
     },
     "inline_assistant_model": {
-      "provider": "zed.dev",
-      "model": "gpt-5.6-luna",
+      "provider": "openai-subscribed",
+      "model": "gpt-5.6-sol",
       // "model": "grok-code-fast-1"
     },
-    "default_profile": "minimal",
+    "default_profile": "write",
     "dock": "left",
     "default_width": 50.0,
     "default_model": {
-      "effort": "xhigh",
+      "effort": "medium",
       "enable_thinking": true,
-      "provider": "zed.dev",
+      "provider": "openai-subscribed",
       "model": "gpt-5.6-sol",
     },
   },
   "theme": "Duskfox - opaque",
-  "ui_font_size": 16,
+  "ui_font_size": 16.0,
   "agent_ui_font_size": 16.0,
   "buffer_font_size": 15,
   "buffer_font_features": {
