@@ -1,0 +1,41 @@
+local home = os.getenv("HOME") or ""
+local config = home .. "/.config"
+local scripts = config .. "/hypr/scripts"
+local env = hl.env
+
+env("XCURSOR_SIZE", "24")
+env("XCURSOR_THEME", "catppuccin-mocha-rosewater-cursors")
+env("HYPRCURSOR_THEME", "catppuccin-mocha-rosewater-cursors")
+env("HYPRCURSOR_SIZE", "24")
+env("QT_QPA_PLATFORMTHEME", "qt5ct")
+env("QT_QPA_PLATFORM", "wayland;xcb")
+env("XDG_CURRENT_DESKTOP", "Hyprland")
+env("XDG_SESSION_DESKTOP", "Hyprland")
+env("XDG_CONFIG_HOME", config)
+env("XDG_SESSION_TYPE", "wayland")
+env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
+env("MOZ_ENABLE_WAYLAND", "1")
+env("MOZ_DBUS_REMOTE", "1")
+env("SDL_VIDEODRIVER", "wayland")
+env("_JAVA_AWT_WM_NONREPARENTING", "1")
+env("AQ_DRM_DEVICES", config .. "/hypr/amd-card:" .. config .. "/hypr/nvidia-card")
+env("GDK_NATIVE_WINDOWS", "1")
+env("WLR_DRM_NO_ATOMIC", "1")
+env("__GL_GSYNC_ALLOWED", "1")
+env("WLR_NO_HARDWARE_CURSORS", "1")
+env("MU_QT_QPA_PLATFORM", "wayland")
+env("SSH_AUTH_SOCK", (os.getenv("XDG_RUNTIME_DIR") or "") .. "/ssh-agent.socket")
+
+hl.on("hyprland.start", function()
+    local exec = hl.exec_cmd
+    exec("hyprpaper")
+    exec("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    exec("dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY XCURSOR_SIZE XCURSOR_THEME QT_QPA_PLATFORMTHEME")
+    exec("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    exec(scripts .. "/startup")
+    exec("blueman-applet")
+    exec("nm-applet --indicator")
+    exec("hyprsunset -t 4500")
+    exec(scripts .. "/focusclock")
+    exec("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+end)

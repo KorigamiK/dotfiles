@@ -1021,6 +1021,16 @@
   "github.copilot.nextEditSuggestions.extendedRange": true,
   "chat.imageCarousel.enabled": true,
   "imageCarousel.explorerContextMenu.enabled": true,
+  "json.schemaDownload.trustedDomains": {
+    "https://axodotdev.artifacts.axodotdev.host/oranda/v0.6.5/oranda-config-schema.json": true,
+    "https://developer.microsoft.com/json-schemas/": true,
+    "https://json-schema.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://raw.githubusercontent.com/devcontainers/spec/": true,
+    "https://raw.githubusercontent.com/microsoft/vscode/": true,
+    "https://schemastore.azurewebsites.net/": true,
+    "https://www.schemastore.org/": true
+  },
   "terminal.integrated.commandsToSkipShell": [
     "workbench.action.toggleMaximizedPanel",
     "workbench.action.toggleMaximizeEditorGroup",

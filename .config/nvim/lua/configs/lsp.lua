@@ -5,22 +5,6 @@ configs.defaults()
 -- Keep a reference to NvChad's default on_attach so we can extend it.
 local default_on_attach = configs.on_attach
 
--- Start tinymist's built-in web preview in the default browser once the LSP attaches.
-local function start_tinymist_preview(client, bufnr)
-  if client.name ~= "tinymist" then
-    return
-  end
-
-  client.request("workspace/executeCommand", {
-    command = "tinymist.startDefaultPreview",
-    arguments = { vim.api.nvim_buf_get_name(bufnr) },
-  }, function(err)
-    if err then
-      vim.notify(("tinymist preview start failed: %s"):format(err.message or err), vim.log.levels.WARN)
-    end
-  end)
-end
-
 vim.lsp.config.pyright = {
   cmd = { "/home/origami/.local/share/zed/languages/pyright/node_modules/.bin/pyright-langserver", "--stdio" },
   filetypes = { "python" },
@@ -151,17 +135,11 @@ vim.lsp.config.tinymist = {
     if default_on_attach then
       default_on_attach(client, bufnr)
     end
-    start_tinymist_preview(client, bufnr)
   end,
   settings = {
     exportPdf = "never", -- "onType", "never" "onSave" "onType"
     outputPath = "$root/$dir/$name",
     formatterMode = "typstyle",
-    ["tinymist.preview.background.enabled"] = true,
-    -- Use the built-in web preview that opens in your browser.
-    ["tinymist.preview.browsing.args"] = { "--data-plane-host=127.0.0.1:0", "--invert-colors=never", "--open", "--features=html" },
-    ["tinymist.preview.refresh"] = "onType",
-    ["tinymist.preview.partialRendering"] = true,
   },
 }
 

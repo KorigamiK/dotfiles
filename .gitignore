@@ -52,3 +52,4 @@ luac.out
 .config/nvim/indent.log
 .config/yazi/keymap.toml-*
 /.config/nvim/nvim.log
+.codex
