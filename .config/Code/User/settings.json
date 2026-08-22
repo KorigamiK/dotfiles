@@ -23,7 +23,6 @@
     "jupyter-notebook": "right"
   },
   "editor.fontLigatures": "'liga', 'calt', 'ss01', 'ss02', 'cv01', 'zero'",
-  "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
   "terminal.integrated.inheritEnv": true,
   "python.terminal.activateEnvironment": true,
   "editor.scrollbar.horizontal": "auto",
@@ -79,9 +78,9 @@
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "workbench.iconTheme": "material-icon-theme",
-  "editor.fontFamily": "'Iosevka Paper', 'monospace', 'Symbols Nerd Font Mono', 'Noto Color Emoji'",
+  "editor.fontFamily": "'TX-02 Condensed', 'monospace', 'Symbols Nerd Font Mono', 'Noto Color Emoji'",
   "editor.lineHeight": 1.6,
-  "terminal.integrated.fontFamily": "'Iosevka Paper', 'Symbols Nerd Font', 'Victor Mono SemiBold', monospace, 'Noto Color Emoji'",
+  "terminal.integrated.fontFamily": "'TX-02 Condensed', 'Symbols Nerd Font', 'Victor Mono SemiBold', monospace, 'Noto Color Emoji'",
   "terminal.integrated.detectLocale": "on",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "qtConfigure.qtDir": "/usr/share/qt6/modules",
@@ -365,10 +364,20 @@
       "before": [
         "leader",
         "m",
-        "p"
+        "P"
       ],
       "commands": [
         "markdown.showPreviewToSide"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "m",
+        "p"
+      ],
+      "commands": [
+        "markdown.togglePreview"
       ]
     },
     {
@@ -615,6 +624,8 @@
         "workbench.action.findInFiles"
       ]
     },
+    // Format: the focused notebook cell inside a notebook (notebook.formatCell is
+    // a no-op elsewhere), otherwise the whole document.
     {
       "before": [
         "leader",
@@ -622,6 +633,7 @@
         "m"
       ],
       "commands": [
+        "notebook.formatCell",
         "editor.action.formatDocument"
       ]
     },
@@ -1010,7 +1022,10 @@
   "chat.imageCarousel.enabled": true,
   "imageCarousel.explorerContextMenu.enabled": true,
   "terminal.integrated.commandsToSkipShell": [
+    "workbench.action.toggleMaximizedPanel",
     "workbench.action.toggleMaximizeEditorGroup",
+    "workbench.action.terminal.copySelection",
+    "workbench.action.terminal.paste",
     "workbench.action.createTerminalEditorSameGroup",
     // "workbench.action.toggleSidebarVisibility",
     "workbench.action.navigateRight",
@@ -1038,7 +1053,10 @@
   "window.title": "${folderName}${separator}${activeEditorShort}",
   "window.menuStyle": "custom",
   "diffEditor.hideUnchangedRegions.enabled": true,
+  "markdown.preview.lineHeight": 1.4,
   "terminal.integrated.mouseWheelScrollSensitivity": 3,
+  "containers.containerClient": "com.microsoft.visualstudio.containers.podman",
+  "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.podmancompose",
   "editor.cursorSurroundingLines": 4,
   "python-envs.terminal.autoActivationType": "shellStartup",
   "terminal.integrated.stickyScroll.enabled": false,
@@ -1047,5 +1065,17 @@
     "jsdelivr.com",
     "unpkg.com"
   ],
-  "workbench.activityBar.location": "hidden"
+  "chat.fontSize": 14,
+  "scm.inputFontSize": 14,
+  "markdown.preview.doubleClickToSwitchToEditor": true,
+"chat.customizations.structuredPreview.enabled": true,
+"git.detectWorktrees": true,
+"workbench.editor.useModal": "some",
+"aws.cloudformation.telemetry.enabled": false,
+"aws.telemetry": false,
+"remote.SSH.connectTimeout": 120,
+"remote.SSH.defaultExtensions": [
+  "amazonwebservices.aws-toolkit-vscode"
+],
+"chat.agentHost.allowSignedOutWhenUsable": true
 }

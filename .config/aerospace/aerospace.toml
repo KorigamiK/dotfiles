@@ -110,6 +110,11 @@ run = 'layout floating'
 
 # Homebrew mpv runs without a bundle ID, so match by app name.
 [[on-window-detected]]
+if.app-name-regex-substring = '^panim++$'
+run = 'layout floating'
+
+# Homebrew mpv runs without a bundle ID, so match by app name.
+[[on-window-detected]]
 if.app-name-regex-substring = '^mpv$'
 run = 'layout floating'
 
