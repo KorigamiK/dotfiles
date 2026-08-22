@@ -514,16 +514,6 @@ return {
     event = "VeryLazy",
     opts = {},
   },
-  {
-    "toppair/peek.nvim",
-    event = { "VeryLazy" },
-    build = "deno task --quiet build:fast",
-    config = function()
-      require("peek").setup()
-      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
-    end,
-  },
 
   -- {
   --   dir = "/home/origami/Dev/projects/lua/newchat.nvim",
@@ -889,5 +879,51 @@ return {
         desc = 'FFF grep current word',
       },
     },
+  },
+
+  -- lua/plugins/live-server.lua
+  {
+    "selimacerbas/live-server.nvim",
+    dependencies = {
+      "folke/which-key.nvim",
+      "nvim-telescope/telescope.nvim", -- recommended for path picker
+    },
+    init = function()
+      -- which-key group label only (best practice)
+      local ok, wk = pcall(require, "which-key")
+      if ok then wk.add({ { "<leader>l", group = "LiveServer" } }) end
+    end,
+    opts = {
+      default_port = 8000,
+      live_reload = { enabled = true, inject_script = true, debounce = 120, css_inject = true },
+      directory_listing = { enabled = true, show_hidden = false },
+    },
+    -- map to user commands (robust lazy-loading)
+    keys = {
+      { "<leader>ms", "<cmd>LiveServerStart<cr>",      desc = "Start (pick path & port)" },
+      -- { "<leader>mp", "<cmd>LiveServerOpen<cr>",       desc = "Open existing port in browser" },
+      { "<leader>mr", "<cmd>LiveServerReload<cr>",     desc = "Force reload (pick port)" },
+      { "<leader>mt", "<cmd>LiveServerToggleLive<cr>", desc = "Toggle live-reload (pick port)" },
+      { "<leader>mi", "<cmd>LiveServerStatus<cr>",     desc = "Show server status" },
+      { "<leader>mS", "<cmd>LiveServerStop<cr>",       desc = "Stop one (pick port)" },
+      { "<leader>mA", "<cmd>LiveServerStopAll<cr>",    desc = "Stop all" },
+    },
+  },
+
+  {
+    "selimacerbas/markdown-preview.nvim",
+    ft = { "markdown" },
+    dependencies = { "selimacerbas/live-server.nvim" },
+    keys = {
+      { "<leader>mp", "<cmd>MarkdownPreview<cr>", desc = "Markdown Preview" },
+    },
+    opts = {
+      instance_mode = "multi", -- "takeover" (one tab) or "multi" (tab per instance)
+      port = 0,                   -- 0 = auto (8421 for takeover, OS-assigned for multi)
+      open_browser = true,
+      default_theme = "dark",     -- "dark" or "light"; initial preview theme
+      debounce_ms = 300,
+      custom_css = vim.fn.stdpath("config") .. "/preview.css"
+    }
   }
 }

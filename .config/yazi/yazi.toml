@@ -1,16 +1,20 @@
 [opener]
-play = [
-  { run = 'mpv "$@"', orphan = true, for = "unix" },
-  { run = '"C:\Program Files\mpv.exe" %*', orphan = true, for = "windows" },
-]
+# play = [
+#   { run = 'mpv %s', orphan = true, for = "unix" },
+#   { run = '"C:\Program Files\mpv.exe" %s', orphan = true, for = "windows" },
+# ]
 edit = [
-  { run = '${EDITOR:-nvim} "$@"', block = true, for = "unix" },
-  { run = "%EDITOR% %*", block = true, for = "windows" },
+  { run = '${EDITOR:-nvim} %s', block = true, for = "unix" },
+  { run = "%EDITOR% %s", block = true, for = "windows" },
+]
+pdf = [
+  { run = 'sioyek --new-instance %s', desc = "Open in Sioyek", for = "unix" },
+]
+
+[open]
+prepend_rules = [
+  { mime = "application/pdf", use = [ "pdf", "open", "reveal" ] },
 ]
 
 [mgr]
 linemode = "size"
-# open = [
-#   { mime = "application/pdf", run = 'sioyek --new-instance "$@"', for = "unix" },
-#   { run = 'xdg-open "$@"', desc = "Open", for = "unix" },
-# ]
