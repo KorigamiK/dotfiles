@@ -587,6 +587,15 @@
     },
     {
       "before": [
+        "g",
+        "<space>"
+      ],
+      "commands": [
+        "git.openFile"
+      ]
+    },
+    {
+      "before": [
         "leader",
         "/"
       ],

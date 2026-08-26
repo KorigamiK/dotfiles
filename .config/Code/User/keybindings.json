@@ -843,11 +843,11 @@
     },
     "when": "terminalFocus"
   },
-  {
-    "key": "g space",
-    "command": "git.openFile",
-    "when": "isInDiffEditor"
-  },
+  // NOTE: `git.openFile` is mapped as `g <space>` in `vim.normalModeKeyBindingsNonRecursive`
+  // (settings.json), NOT as a native chord here. A native chord whose FIRST key is a bare
+  // letter puts VS Code into chord-pending state and swallows that letter before VSCodeVim
+  // sees it -- `when: isInDiffEditor` meant every `g`-prefixed vim command (<leader>g*, gg,
+  // gd, gc) broke inside diff editors. Same rule as the `space ...` note above.
   {
     "key": "ctrl+h",
     "command": "-log-analysis.turnOnFocusMode"
