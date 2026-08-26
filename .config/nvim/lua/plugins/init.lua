@@ -4,7 +4,15 @@ return {
 
   {
     "saghen/blink.cmp",
-    opts = { keymap = { ["<C-y>"] = { "fallback" } } },
+    opts = {
+      keymap = {
+        ["<C-y>"] = { "fallback" },
+        -- Scroll the completion documentation window. Both fall through to the
+        -- builtin i_CTRL-D / i_CTRL-U when the docs window isn't open.
+        ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+        ["<C-u>"] = { "scroll_documentation_up", "fallback" },
+      },
+    },
   },
 
   { "nvchad/menu",                   enabled = false },
@@ -269,9 +277,6 @@ return {
         end,
       },
     },
-    config = function(_, opts)
-      require("nvim-ts-autotag").setup(opts)
-    end,
   },
 
   {
