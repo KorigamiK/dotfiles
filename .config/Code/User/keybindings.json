@@ -881,5 +881,15 @@
     "key": "shift+h",
     "command": "workbench.action.previousEditor",
     "when": "activeWebviewPanelId == 'markdown.preview' || activeCustomEditorId == 'vscode.markdown.preview.editor'"
+  },
+  {
+    "key": "ctrl+-",
+    "command": "-workbench.action.navigateBack",
+    "when": "canNavigateBack"
+  },
+  {
+    "key": "ctrl+shift+-",
+    "command": "-workbench.action.navigateForward",
+    "when": "canNavigateForward"
   }
 ]

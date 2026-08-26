@@ -225,7 +225,7 @@
     "[Duskfox]": {
       "focusBorder": "#6E6A85",
       "panel.background": "#232136",
-      "tab.activeBorderTop": "default",
+      "tab.activeBorderTop": "default"
     },
     "[Kanagawa]": {
       "notebook.focusedCellBorder": "#00B8D9",
@@ -957,41 +957,6 @@
   "window.commandCenter": false,
   "github.copilot.chat.completionsFetcher": "electron-fetch",
   "mssql.connections": [
-    {
-      "authenticationType": "SqlLogin",
-      "connectTimeout": 30,
-      "applicationName": "vscode-mssql",
-      "applicationIntent": "ReadWrite",
-      "server": "192.168.200.113",
-      "database": "ATP_COLO",
-      "user": "sa",
-      "password": "",
-      "commandTimeout": 30,
-      "encrypt": "Optional",
-      "profileName": "113 ATP_COLO",
-      "trustServerCertificate": true,
-      "savePassword": true,
-      "groupId": "ROOT",
-      "id": "B39B2BD2-C948-4095-A612-5ECF7AEABFE3",
-      "profileSource": 0
-    },
-    {
-      "authenticationType": "SqlLogin",
-      "connectTimeout": 30,
-      "applicationName": "vscode-mssql",
-      "applicationIntent": "ReadWrite",
-      "server": "192.168.200.113",
-      "database": "DEV_BSE",
-      "user": "sa",
-      "password": "",
-      "commandTimeout": 30,
-      "encrypt": "Optional",
-      "groupId": "ROOT",
-      "profileName": "113 DEV_BSE",
-      "trustServerCertificate": true,
-      "savePassword": true,
-      "id": "3C51D7EB-600F-401E-A315-21E6D23E09AE"
-    }
   ],
   "github.copilot.chat.anthropic.tools.websearch.enabled": true,
   "github.copilot.chat.copilotMemory.enabled": true,
@@ -1078,14 +1043,17 @@
   "chat.fontSize": 14,
   "scm.inputFontSize": 14,
   "markdown.preview.doubleClickToSwitchToEditor": true,
-"chat.customizations.structuredPreview.enabled": true,
-"git.detectWorktrees": true,
-"workbench.editor.useModal": "some",
-"aws.cloudformation.telemetry.enabled": false,
-"aws.telemetry": false,
-"remote.SSH.connectTimeout": 120,
-"remote.SSH.defaultExtensions": [
-  "amazonwebservices.aws-toolkit-vscode"
-],
-"chat.agentHost.allowSignedOutWhenUsable": true
+  "chat.customizations.structuredPreview.enabled": true,
+  "git.detectWorktrees": true,
+  "workbench.editor.useModal": "some",
+  "aws.cloudformation.telemetry.enabled": false,
+  "aws.telemetry": false,
+  "remote.SSH.connectTimeout": 120,
+  "remote.SSH.defaultExtensions": [
+    "amazonwebservices.aws-toolkit-vscode"
+  ],
+  "chat.agentHost.allowSignedOutWhenUsable": true,
+  "markdown.preview.fontFamily": "sans-serif, -apple-system",
+  "markdown.preview.fontSize": 15,
+  "diffEditor.hideUnchangedRegions.enabled": true
 }
