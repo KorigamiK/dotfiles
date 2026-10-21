@@ -883,9 +883,9 @@ return {
     },
   },
 
-  -- lua/plugins/live-server.lua
+  -- lua/plugins/kitehost.lua
   {
-    "selimacerbas/live-server.nvim",
+    "selimacerbas/kitehost.nvim",
     dependencies = {
       "folke/which-key.nvim",
       "nvim-telescope/telescope.nvim", -- recommended for path picker
@@ -893,7 +893,7 @@ return {
     init = function()
       -- which-key group label only (best practice)
       local ok, wk = pcall(require, "which-key")
-      if ok then wk.add({ { "<leader>l", group = "LiveServer" } }) end
+      if ok then wk.add({ { "<leader>l", group = "KiteHost" } }) end
     end,
     opts = {
       default_port = 8000,
@@ -902,22 +902,22 @@ return {
     },
     -- map to user commands (robust lazy-loading)
     keys = {
-      { "<leader>ms", "<cmd>LiveServerStart<cr>",      desc = "Start (pick path & port)" },
-      -- { "<leader>mp", "<cmd>LiveServerOpen<cr>",       desc = "Open existing port in browser" },
-      { "<leader>mr", "<cmd>LiveServerReload<cr>",     desc = "Force reload (pick port)" },
-      { "<leader>mt", "<cmd>LiveServerToggleLive<cr>", desc = "Toggle live-reload (pick port)" },
-      { "<leader>mi", "<cmd>LiveServerStatus<cr>",     desc = "Show server status" },
-      { "<leader>mS", "<cmd>LiveServerStop<cr>",       desc = "Stop one (pick port)" },
-      { "<leader>mA", "<cmd>LiveServerStopAll<cr>",    desc = "Stop all" },
+      { "<leader>ms", "<cmd>KiteHost start<cr>",       desc = "Start (pick path & port)" },
+      -- { "<leader>mp", "<cmd>KiteHost open<cr>",        desc = "Open existing port in browser" },
+      { "<leader>mr", "<cmd>KiteHost reload<cr>",      desc = "Force reload (pick port)" },
+      { "<leader>mt", "<cmd>KiteHost toggle-live<cr>", desc = "Toggle live-reload (pick port)" },
+      { "<leader>mi", "<cmd>KiteHost status<cr>",      desc = "Show server status" },
+      { "<leader>mS", "<cmd>KiteHost stop<cr>",        desc = "Stop one (pick port)" },
+      { "<leader>mA", "<cmd>KiteHost stop-all<cr>",    desc = "Stop all" },
     },
   },
 
   {
-    "selimacerbas/markdown-preview.nvim",
+    "selimacerbas/mdkite.nvim",
     ft = { "markdown" },
-    dependencies = { "selimacerbas/live-server.nvim" },
+    dependencies = { "selimacerbas/kitehost.nvim" },
     keys = {
-      { "<leader>mp", "<cmd>MarkdownPreview<cr>", desc = "Markdown Preview" },
+      { "<leader>mp", "<cmd>MdKite start<cr>", desc = "Markdown Preview" },
     },
     opts = {
       instance_mode = "multi", -- "takeover" (one tab) or "multi" (tab per instance)

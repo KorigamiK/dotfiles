@@ -26,7 +26,7 @@ vim.opt.showcmd = true
 vim.opt.concealcursor = "nc"
 vim.opt.cmdheight = 0
 
-vim.opt.shortmess:append { "I", "c", "F", "W", "a", "t", "l", "L", "O", "T", "S", "n", "q" }
+-- vim.opt.shortmess:append { "I", "c", "F", "W", "a", "t", "l", "L", "O", "T", "S", "n", "q" }
 
 vim.opt.list = false
 vim.opt.listchars = {
@@ -37,3 +37,5 @@ vim.opt.listchars = {
   space = '␣',
   eol = '¬'
 }
+
+vim.opt.grepprg = "rg --vimgrep --smart-case --hidden"

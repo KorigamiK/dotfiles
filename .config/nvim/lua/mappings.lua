@@ -58,6 +58,7 @@ end
 
 map("n", ";", ":", { nowait = true })
 map("i", "<C-s>", "<cmd>w<cr>", { desc = "Save" })
+map({"n", "i"}, "<D-s>", "<cmd>w<cr>", { desc = "Save" })
 
 -- buffers
 map("n", "<A-Y>", function()
@@ -413,3 +414,34 @@ for _, mode in ipairs { "x", "o" } do
   vim.keymap.set(mode, "aq", 'a"', { remap = true })
   vim.keymap.set(mode, "iq", 'i"', { remap = true })
 end
+
+-- [and this one] ------------------------------------------------------------
+vim.api.nvim_create_user_command("Bannerate", function(opts)
+  local cs = vim.bo.commentstring:match("^(.*)%%s") or "//"
+  cs = vim.trim(cs)
+  local width = 79
+
+  for lnum = opts.line1, opts.line2 do
+    local line = vim.fn.getline(lnum)
+    local indent, text = line:match("^(%s*)(.-)%s*$")
+
+    -- if line already has label use that as src discard everything else
+    local existing = text:match("%[(.-)%]")
+    if existing then
+      text = existing
+    else
+      local cs_escaped = vim.pesc(cs)
+      text = text:gsub("^" .. cs_escaped .. "%s*%-*%s*", "")
+      text = text:gsub("%s*%-+%s*$", "") -- strip trailing dashes if any
+    end
+
+    local sep = (cs == "--") and "" or " --"
+    local prefix = indent .. cs .. sep .. " [" .. text .. "] "
+    local banner = prefix .. string.rep("-", math.max(0, width - #prefix))
+    vim.fn.setline(lnum, banner)
+  end
+end, { range = true, nargs = 0 })
+
+map({ "x", "n" }, "gcb", ":Bannerate<CR>", { silent = true })
+map({ "i" }, "<C-g>", "<esc>:Bannerate<CR>i", { silent = true })
+
