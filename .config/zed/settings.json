@@ -225,8 +225,8 @@
       },
     },
     "inline_assistant_model": {
-      "provider": "openai-subscribed",
-      "model": "gpt-5.6-sol",
+      "provider": "zed.dev",
+      "model": "gpt-6.1-sol",
       // "model": "grok-code-fast-1"
     },
     "default_profile": "write",
@@ -235,8 +235,8 @@
     "default_model": {
       "effort": "medium",
       "enable_thinking": true,
-      "provider": "openai-subscribed",
-      "model": "gpt-5.6-sol",
+      "provider": "zed.dev",
+      "model": "gpt-6.1-sol",
     },
   },
   "theme": "Duskfox - opaque",

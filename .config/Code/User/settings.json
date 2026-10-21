@@ -1,5 +1,5 @@
 {
-  "python.languageServer": "Default",
+  "python.languageServer": "None",
   "[jupyter-notebook]": {
     "python.languageServer": "None"
   },
@@ -7,6 +7,7 @@
   "zenMode.centerLayout": true,
   "workbench.editorAssociations": {
     "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.md": "vscode.markdown.preview.editor",
     "{hexdiff}:/**/*.*": "hexEditor.hexedit",
     "*.ipynb": "jupyter-notebook",
     "*.pdf": "pdf.preview"
@@ -1036,7 +1037,6 @@
   },
   "window.title": "${folderName}${separator}${activeEditorShort}",
   "window.menuStyle": "custom",
-  "diffEditor.hideUnchangedRegions.enabled": true,
   "markdown.preview.lineHeight": 1.4,
   "terminal.integrated.mouseWheelScrollSensitivity": 3,
   "containers.containerClient": "com.microsoft.visualstudio.containers.podman",
@@ -1063,6 +1063,8 @@
   ],
   "chat.agentHost.allowSignedOutWhenUsable": true,
   "markdown.preview.fontFamily": "sans-serif, -apple-system",
+  "ruff.configuration": "/Users/ori/Developer/work/ruff.toml",
   "markdown.preview.fontSize": 15,
-  "diffEditor.hideUnchangedRegions.enabled": true
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "workbench.activityBar.location": "hidden"
 }

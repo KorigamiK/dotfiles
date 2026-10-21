@@ -452,6 +452,11 @@
     "command": "notebook.formatCell",
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
   },
+  {
+    "key": "space f p",
+    "command": "workbench.action.openRecent",
+    "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused"
+  },
   // NOTE: do NOT add `space ...` chords scoped to `inputFocus` here. Any native
   // chord starting with `space` that is active inside a cell makes VS Code enter
   // chord-pending state and swallow the key, so VSCodeVim never receives it as
@@ -870,17 +875,38 @@
     "command": "workbench.action.navigateLeft",
     "when": "activeWebviewPanelId == 'markdown.preview' || activeCustomEditorId == 'vscode.markdown.preview.editor'"
   },
-  // Same reason for shift+h / shift+l: those are vim.normalModeKeyBindings
-  // remaps, and vim is inactive in a webview.
+  // Same reason for shift+h / shift+l: they mirror vim.normalModeKeyBindings
+  // remaps, and vim is inactive in a webview. These match whenever the preview
+  // is the *active editor*, so the focus guards keep them from eating keys
+  // typed in the sidebar, panel, chat, quick open or the preview's find widget.
+  // No `space ...` leader chords here: the webview still scrolls on space, so
+  // every chord would also page the preview down.
   {
     "key": "shift+l",
     "command": "workbench.action.nextEditor",
-    "when": "activeWebviewPanelId == 'markdown.preview' || activeCustomEditorId == 'vscode.markdown.preview.editor'"
+    "when": "(activeWebviewPanelId == 'markdown.preview' || activeCustomEditorId == 'vscode.markdown.preview.editor') && !inputFocus && !sideBarFocus && !panelFocus && !auxiliaryBarFocus"
   },
   {
     "key": "shift+h",
     "command": "workbench.action.previousEditor",
-    "when": "activeWebviewPanelId == 'markdown.preview' || activeCustomEditorId == 'vscode.markdown.preview.editor'"
+    "when": "(activeWebviewPanelId == 'markdown.preview' || activeCustomEditorId == 'vscode.markdown.preview.editor') && !inputFocus && !sideBarFocus && !panelFocus && !auxiliaryBarFocus"
+  },
+  // Mirrors the editorFocus shift+escape maximize above; editorFocus is false
+  // in a webview.
+  {
+    "key": "shift+escape",
+    "command": "workbench.action.toggleMaximizeEditorGroup",
+    "when": "(activeWebviewPanelId == 'markdown.preview' || activeCustomEditorId == 'vscode.markdown.preview.editor') && !inputFocus && !sideBarFocus && !panelFocus && !auxiliaryBarFocus"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "workbench.action.navigateBack",
+    "when": "(activeWebviewPanelId == 'markdown.preview' || activeCustomEditorId == 'vscode.markdown.preview.editor') && !inputFocus && !sideBarFocus && !panelFocus && !auxiliaryBarFocus"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "workbench.action.navigateForward",
+    "when": "(activeWebviewPanelId == 'markdown.preview' || activeCustomEditorId == 'vscode.markdown.preview.editor') && !inputFocus && !sideBarFocus && !panelFocus && !auxiliaryBarFocus"
   },
   {
     "key": "ctrl+-",
