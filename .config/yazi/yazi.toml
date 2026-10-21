@@ -8,7 +8,7 @@ edit = [
   { run = "%EDITOR% %s", block = true, for = "windows" },
 ]
 pdf = [
-  { run = 'sioyek --new-instance %s', desc = "Open in Sioyek", for = "unix" },
+  { run = 'sioyek --new-instance %s', orphan = true, desc = "Open in Sioyek", for = "unix" },
 ]
 
 [open]
