@@ -6,7 +6,15 @@ config-version = 2
 start-at-login = true
 
 after-login-command = []
-after-startup-command = []
+# Restart aerospace-swipe whenever AeroSpace (re)starts so a crashed/restarted
+# AeroSpace never leaves swipe stuck without a socket. -k kills a running
+# instance first; the agent's startup retry loop waits for the socket.
+after-startup-command = [
+  'exec-and-forget launchctl kickstart -k gui/$(id -u)/com.acsandmann.swipe',
+  # Focus clock overlay (bottom-left). pkill first so an AeroSpace restart
+  # doesn't stack a second clock on top of the old one.
+  '''exec-and-forget pkill -x focusclock; $HOME/.local/bin/focusclock -F 'TX-02' --color='#75758980' -f 72 -br -B 50''',
+]
 
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
@@ -110,6 +118,11 @@ run = 'layout floating'
 
 # Homebrew mpv runs without a bundle ID, so match by app name.
 [[on-window-detected]]
+if.app-name-regex-substring = '^lingot-tuner$'
+run = 'layout floating'
+
+# Homebrew mpv runs without a bundle ID, so match by app name.
+[[on-window-detected]]
 if.app-name-regex-substring = '^panim++$'
 run = 'layout floating'
 
@@ -136,7 +149,10 @@ run = 'layout floating'
 cmd-n = 'exec-and-forget open -a Finder'
 cmd-ctrl-v = 'exec-and-forget /Users/ori/Developer/dotfiles/.local/bin/connect-vpn'
 cmd-alt-b = 'exec-and-forget /Users/ori/Developer/dotfiles/.local/bin/toggle-background-sounds'
-cmd-shift-z = 'exec-and-forget $HOME/Developer/dotfiles/.config/aerospace/floating_notes.sh'
+# Color picker: matches Hyprland's SUPER + ALT + P; copies #RRGGBB.
+cmd-alt-p = 'exec-and-forget /usr/bin/swift "$HOME/Developer/dotfiles/.config/aerospace/color_picker.swift"'
+# Journal: keep cmd-z / cmd-shift-z available for undo / redo.
+cmd-ctrl-z = 'exec-and-forget $HOME/Developer/dotfiles/.config/aerospace/floating_notes.sh aerospace'
 # Toggle dictation: first press starts recording, second press stops and
 # types the transcription at the cursor (Groq Whisper). `open` launch is
 # required so TCC attributes mic access to the bundle, not AeroSpace.
